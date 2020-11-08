@@ -1,0 +1,52 @@
+@prefix fno: <http://semweb.datasciencelab.be/ns/function#> .
+@prefix lib: <http://example.com/library#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <http://example.com/idlab/functions/string/> .
+@prefix idlab-fn: <http://example.com/idlab/function/> .
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+
+grel:md5Hex a fno:Function ;
+  fno:name "MD5 hash" ;
+  rdfs:label "MD5 hash" ;
+  dcterms:description "MD5 hash" ;
+  fno:expects ( grel:valueParam ) ;
+  fno:returns ( grel:stringOut );
+  lib:providedBy [
+    lib:localLibrary "./commons-codec-1.11.jar";
+    lib:class "org.apache.commons.codec.digest.DigestUtils";
+    lib:method "md5Hex"
+  ].
+  
+grel:join a fno:Function ;
+  fno:name "Join two strings" ;
+  rdfs:label "Join two strings" ;
+  dcterms:description "Join two strings" ;
+  fno:expects ( grel:valueParam grel:valueParam2 ) ;
+  fno:returns ( grel:stringOut );
+  lib:providedBy [
+    lib:localLibrary "./RmlMapperBigcatFunctions.jar";
+    lib:class "nl.unimaas.bigcat.StringUtils";
+    lib:method "join"
+  ].
+  
+grel:valueParam a fno:Parameter ;
+  fno:name "input value" ;
+  rdfs:label "input value" ;
+  fno:type xsd:string ;
+  fno:predicate grel:valueParameter .
+  
+grel:valueParam2 a fno:Parameter ;
+  fno:name "input value2" ;
+  rdfs:label "input value2" ;
+  fno:type xsd:string ;
+  fno:predicate grel:valueParameter2 .
+  
+grel:stringOut a fno:Output ;
+  fno:name "output string" ;
+  rdfs:label "output string" ;
+  fno:type xsd:string ;
+  fno:predicate grel:stringOutput .
+  
