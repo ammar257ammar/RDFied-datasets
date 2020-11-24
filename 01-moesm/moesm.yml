@@ -11,8 +11,8 @@ prefixes:
   fnml:   "http://semweb.mmlab.be/ns/fnml#"
   fno: 	"http://w3id.org/function/ontology#"
   grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
-  moesm_vocabulary: "http://bigcat.unimaas.nl/moesm_vocabulary:"
-  moesm: "http://bigcat.unimaas.nl/moesm:"
+  nsvoc: "http://bigcat.unimaas.nl/nanosafery_vocabulary:"
+  moesm: "http://bigcat.unimaas.nl/ns:"
   obo: "http://purl.obolibrary.org/obo/"
   npo: "http://purl.bioontology.org/ontology/npo#"
   enm: "http://purl.enanomapper.org/onto/"
@@ -21,7 +21,7 @@ prefixes:
   efo: "http://www.ebi.ac.uk/efo/"
   NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
   
-base: http://bigcat.unimaas.nl/moesm:
+base: http://bigcat.unimaas.nl/ns:
 
 authors:
   - name: Ammar Ammar
@@ -43,15 +43,24 @@ mappings:
             value: 
               function: grel:md5Hex(grel:valueParameter = $(material)_$(core_size)_$(hydro_size)_$(surf_charge)_$(surf_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(assay)_$(cell_line)_$(viability)_$(dose)_$(time))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, obo:OBI_0001980~iri]
       - [rdfs:label, an in vivo intervention experiment for $(material) with dose $(dose) at $(time)h time point, en~lang]
+      - predicate: npo:NPO_1541
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:nanoparticle_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = nanoparticle_$(material))
       - predicate: enm:ENM_8000039
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:core_size_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = core_size_$(core_size))
@@ -60,7 +69,7 @@ mappings:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:hydro_size_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = hydro_size_$(hydro_size))
@@ -69,7 +78,7 @@ mappings:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:surf_charge_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = surf_charge_$(surf_charge))
@@ -78,7 +87,7 @@ mappings:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:surf_area_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = surf_area_$(surf_area))
@@ -87,43 +96,43 @@ mappings:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:hsf_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = Hsf_$(Hsf))
+                  function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf))
       - predicate: enm:ENM_8000100
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:ec_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = Ec_$(Ec))
+                  function: grel:md5Hex(grel:valueParameter = ec_$(Ec))
       - predicate: enm:ENM_8000110
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:ev_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = Ev_$(Ev))
+                  function: grel:md5Hex(grel:valueParameter = ev_$(Ev))
       - predicate: npo:NPO_421
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:meo_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = MeO_$(MeO))
+                  function: grel:md5Hex(grel:valueParameter = meo_$(MeO))
       - predicate: bao:BAO_0003009
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:assay_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = assay_$(assay))
@@ -132,104 +141,104 @@ mappings:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:cell_line_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = cell_line_$(cell_line))
-      - predicate: moesm_vocabulary:cell_species
+      - predicate: nsvoc:cell_species
         object: NCBITAXON:9606~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_species)]
             - [grel:valueParameter2, Human]
-      - predicate: moesm_vocabulary:cell_species
+      - predicate: nsvoc:cell_species
         object: NCBITAXON:10029~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_species)]
             - [grel:valueParameter2, Hamster]            
-      - predicate: moesm_vocabulary:cell_species
+      - predicate: nsvoc:cell_species
         object: NCBITAXON:10090~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_species)]
             - [grel:valueParameter2, Mouse] 
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0000178~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Blood]  
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0002481~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Bone]  
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0000310~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Breast]  
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0001155~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Colon]  
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0002107~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Liver]  
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0002048~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Lung]  
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0001136~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Mesothelium]  
-      - predicate: moesm_vocabulary:cell_origin
+      - predicate: nsvoc:cell_origin
         object: obo:UBERON_0000004~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(cell_origin)]
             - [grel:valueParameter2, Nose]
-      - predicate: moesm_vocabulary:cell_type
+      - predicate: nsvoc:cell_type
         object: efo:EFO_0002922~iri
       - predicate: efo:EFO_0000721
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:exposure_time_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = time_$(time)) 
+                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(time)) 
       - predicate: efo:EFO_0000428
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:dose_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = dose_$(dose))        
@@ -238,7 +247,7 @@ mappings:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:viability_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = viability_$(viability))        
@@ -247,7 +256,7 @@ mappings:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:toxicity_]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = toxicity_$(toxicity))  
@@ -258,15 +267,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = core_size_$(core_size))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_8000039~iri]
       - [rdfs:label, core_size, en~lang]
-      - [moesm_vocabulary:value, $(core_size), xsd:float]
+      - [nsvoc:value, $(core_size), xsd:float]
   hydroSize:
     sources:
       - moesm-source
@@ -274,15 +283,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = hydro_size_$(hydro_size))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_1914~iri]
       - [rdfs:label, hydro_size, en~lang]
-      - [moesm_vocabulary:value, $(hydro_size), xsd:float]
+      - [nsvoc:value, $(hydro_size), xsd:float]
   surfCharge:
     sources:
       - moesm-source
@@ -290,15 +299,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = surf_charge_$(surf_charge))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_1812~iri]
       - [rdfs:label, surf_charge, en~lang]
-      - [moesm_vocabulary:value, $(surf_charge), xsd:float]
+      - [nsvoc:value, $(surf_charge), xsd:float]
   surfArea:
     sources:
       - moesm-source
@@ -306,15 +315,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = surf_area_$(surf_area))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_1235~iri]
       - [rdfs:label, surf_area, en~lang]
-      - [moesm_vocabulary:value, $(surf_area), xsd:float]
+      - [nsvoc:value, $(surf_area), xsd:float]
   hsf:
     sources:
       - moesm-source
@@ -322,15 +331,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = Hsf_$(Hsf))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, cheminf:CHEMINF_000241~iri]
       - [rdfs:label, Hsf, en~lang]
-      - [moesm_vocabulary:value, $(Hsf), xsd:float]
+      - [nsvoc:value, $(Hsf), xsd:float]
   ec:
     sources:
       - moesm-source
@@ -338,15 +347,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = Ec_$(Ec))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_8000100~iri]
       - [rdfs:label, Ec, en~lang]
-      - [moesm_vocabulary:value, $(Ec), xsd:float]
+      - [nsvoc:value, $(Ec), xsd:float]
   ev:
     sources:
       - moesm-source
@@ -354,15 +363,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = Ev_$(Ev))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_8000110~iri]
       - [rdfs:label, Ev, en~lang]
-      - [moesm_vocabulary:value, $(Ev), xsd:float]
+      - [nsvoc:value, $(Ev), xsd:float]
   MeO:
     sources:
       - moesm-source
@@ -370,15 +379,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = MeO_$(MeO))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_421~iri]
       - [rdfs:label, MeO, en~lang]
-      - [moesm_vocabulary:value, $(MeO), xsd:float]
+      - [nsvoc:value, $(MeO), xsd:float]
   assay:
     sources:
       - moesm-source
@@ -386,12 +395,12 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = assay_$(assay))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, bao:BAO_0003009]
       - [rdfs:label, $(assay) assay, en~lang]
   cellLine:
@@ -401,12 +410,12 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = cell_line_$(cell_line))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, efo:EFO_0000322~iri]
       - [rdfs:label, cell line: $(cell_line), en~lang]
   time:
@@ -416,15 +425,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = time_$(time))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, efo:EFO_0000721~iri]
       - [rdfs:label, time: $(time)h, en~lang]
-      - [moesm_vocabulary:value, $(time), xsd:float]
+      - [nsvoc:value, $(time), xsd:float]
   dose:
     sources:
       - moesm-source
@@ -432,15 +441,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = dose_$(dose))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, efo:EFO_0000428~iri]
       - [rdfs:label, dose: $(dose), en~lang]
-      - [moesm_vocabulary:value, $(dose), xsd:float]
+      - [nsvoc:value, $(dose), xsd:float]
   viability:
     sources:
       - moesm-source
@@ -448,15 +457,15 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = viability_$(viability))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_0000068~iri]
       - [rdfs:label, viability: $(viability), en~lang]
-      - [moesm_vocabulary:value, $(viability), xsd:float]
+      - [nsvoc:value, $(viability), xsd:float]
   toxicity:
     sources:
       - moesm-source
@@ -464,12 +473,12 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/moesm:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = toxicity_$(toxicity))
     predicateobjects:
-      - [rdf:type, moesm_vocabulary:Resource~iri]
+      - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_1338~iri]
       - [rdfs:label, toxicity: $(toxicity), en~lang]
-      - [moesm_vocabulary:value, $(toxicity), xsd:float]
+      - [nsvoc:value, $(toxicity), xsd:float]
