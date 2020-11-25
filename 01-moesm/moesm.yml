@@ -260,6 +260,21 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = toxicity_$(toxicity))  
+  nanoparticle:
+    sources:
+      - moesm-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:nanoparticle_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = nanoparticle_$(material))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, npo:NPO_1541~iri]
+      - [rdfs:label, $(material), en~lang]
   coreSize:
     sources:
       - moesm-source
@@ -267,7 +282,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:core_size_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = core_size_$(core_size))
@@ -283,7 +298,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:hydro_size_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = hydro_size_$(hydro_size))
@@ -299,7 +314,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:surf_charge_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = surf_charge_$(surf_charge))
@@ -315,7 +330,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:surf_area_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = surf_area_$(surf_area))
@@ -331,10 +346,10 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:hsf_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = Hsf_$(Hsf))
+              function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, cheminf:CHEMINF_000241~iri]
@@ -347,10 +362,10 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:ec_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = Ec_$(Ec))
+              function: grel:md5Hex(grel:valueParameter = ec_$(Ec))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_8000100~iri]
@@ -363,7 +378,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:Ev_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = Ev_$(Ev))
@@ -379,7 +394,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:MeO_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = MeO_$(MeO))
@@ -395,7 +410,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:assay_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = assay_$(assay))
@@ -410,7 +425,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:cell_line_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = cell_line_$(cell_line))
@@ -425,7 +440,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:time_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = time_$(time))
@@ -441,7 +456,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:dose_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = dose_$(dose))
@@ -457,7 +472,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:viability_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = viability_$(viability))
@@ -473,7 +488,7 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:]
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:toxicity_]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = toxicity_$(toxicity))

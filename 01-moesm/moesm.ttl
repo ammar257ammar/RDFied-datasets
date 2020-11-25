@@ -1492,12 +1492,12 @@ moesm:pom_121 rr:objectMap moesm:om_121.
 moesm:om_121 a rr:ObjectMap;
     rr:template "toxicity_{toxicity}";
     rr:termType rr:Literal.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_coreSize_000.
-moesm:map_coreSize_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_nanoparticle_000.
+moesm:map_nanoparticle_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "coreSize".
+    rdfs:label "nanoparticle".
 moesm:s_001 a rr:SubjectMap.
-moesm:map_coreSize_000 rr:subjectMap moesm:s_001.
+moesm:map_nanoparticle_000 rr:subjectMap moesm:s_001.
 moesm:s_001 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_054.
@@ -1515,7 +1515,7 @@ moesm:pm_122 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 moesm:pom_122 rr:objectMap moesm:om_122.
 moesm:om_122 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
+    rr:constant "http://bigcat.unimaas.nl/ns:nanoparticle_";
     rr:termType rr:Literal.
 moesm:fn_054 rr:predicateObjectMap moesm:pom_123.
 moesm:pom_123 a rr:PredicateObjectMap;
@@ -1539,10 +1539,10 @@ moesm:pm_124 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 moesm:pom_124 rr:objectMap moesm:om_124.
 moesm:om_124 a rr:ObjectMap;
-    rr:template "core_size_{core_size}";
+    rr:template "nanoparticle_{material}";
     rr:termType rr:Literal.
 moesm:pom_125 a rr:PredicateObjectMap.
-moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_125.
+moesm:map_nanoparticle_000 rr:predicateObjectMap moesm:pom_125.
 moesm:pm_125 a rr:PredicateMap.
 moesm:pom_125 rr:predicateMap moesm:pm_125.
 moesm:pm_125 rr:constant rdf:type.
@@ -1551,40 +1551,30 @@ moesm:om_125 a rr:ObjectMap;
     rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
     rr:termType rr:IRI.
 moesm:pom_126 a rr:PredicateObjectMap.
-moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_126.
+moesm:map_nanoparticle_000 rr:predicateObjectMap moesm:pom_126.
 moesm:pm_126 a rr:PredicateMap.
 moesm:pom_126 rr:predicateMap moesm:pm_126.
 moesm:pm_126 rr:constant rdf:type.
 moesm:pom_126 rr:objectMap moesm:om_126.
 moesm:om_126 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_8000039";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1541";
     rr:termType rr:IRI.
 moesm:pom_127 a rr:PredicateObjectMap.
-moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_127.
+moesm:map_nanoparticle_000 rr:predicateObjectMap moesm:pom_127.
 moesm:pm_127 a rr:PredicateMap.
 moesm:pom_127 rr:predicateMap moesm:pm_127.
 moesm:pm_127 rr:constant rdfs:label.
 moesm:pom_127 rr:objectMap moesm:om_127.
 moesm:om_127 a rr:ObjectMap;
-    rr:constant "core_size";
+    rml:reference "material";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_128 a rr:PredicateObjectMap.
-moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_128.
-moesm:pm_128 a rr:PredicateMap.
-moesm:pom_128 rr:predicateMap moesm:pm_128.
-moesm:pm_128 rr:constant nsvoc:value.
-moesm:pom_128 rr:objectMap moesm:om_128.
-moesm:om_128 a rr:ObjectMap;
-    rml:reference "core_size";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_hydroSize_000.
-moesm:map_hydroSize_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_coreSize_000.
+moesm:map_coreSize_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "hydroSize".
+    rdfs:label "coreSize".
 moesm:s_002 a rr:SubjectMap.
-moesm:map_hydroSize_000 rr:subjectMap moesm:s_002.
+moesm:map_coreSize_000 rr:subjectMap moesm:s_002.
 moesm:s_002 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_056.
@@ -1595,22 +1585,22 @@ moesm:pmexec_056 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_056 rr:objectMap moesm:omexec_056.
 moesm:omexec_056 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_056 rr:predicateObjectMap moesm:pom_128.
+moesm:pom_128 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_128.
+moesm:pm_128 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_128 rr:objectMap moesm:om_128.
+moesm:om_128 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:core_size_";
+    rr:termType rr:Literal.
 moesm:fn_056 rr:predicateObjectMap moesm:pom_129.
 moesm:pom_129 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_129.
 moesm:pm_129 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_129 rr:objectMap moesm:om_129.
-moesm:om_129 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_056 rr:predicateObjectMap moesm:pom_130.
-moesm:pom_130 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_130.
-moesm:pm_130 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_130 rr:objectMap moesm:om_130.
-moesm:om_130 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_129 rr:objectMap moesm:om_129.
+moesm:om_129 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_057.
 moesm:fn_057 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_057.
@@ -1619,59 +1609,59 @@ moesm:pmexec_057 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_057 rr:objectMap moesm:omexec_057.
 moesm:omexec_057 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_057 rr:predicateObjectMap moesm:pom_131.
-moesm:pom_131 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_131.
-moesm:pm_131 a rr:PredicateMap;
+moesm:fn_057 rr:predicateObjectMap moesm:pom_130.
+moesm:pom_130 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_130.
+moesm:pm_130 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_130 rr:objectMap moesm:om_130.
+moesm:om_130 a rr:ObjectMap;
+    rr:template "core_size_{core_size}";
+    rr:termType rr:Literal.
+moesm:pom_131 a rr:PredicateObjectMap.
+moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_131.
+moesm:pm_131 a rr:PredicateMap.
+moesm:pom_131 rr:predicateMap moesm:pm_131.
+moesm:pm_131 rr:constant rdf:type.
 moesm:pom_131 rr:objectMap moesm:om_131.
 moesm:om_131 a rr:ObjectMap;
-    rr:template "hydro_size_{hydro_size}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_132 a rr:PredicateObjectMap.
-moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_132.
+moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_132.
 moesm:pm_132 a rr:PredicateMap.
 moesm:pom_132 rr:predicateMap moesm:pm_132.
 moesm:pm_132 rr:constant rdf:type.
 moesm:pom_132 rr:objectMap moesm:om_132.
 moesm:om_132 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_8000039";
     rr:termType rr:IRI.
 moesm:pom_133 a rr:PredicateObjectMap.
-moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_133.
+moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_133.
 moesm:pm_133 a rr:PredicateMap.
 moesm:pom_133 rr:predicateMap moesm:pm_133.
-moesm:pm_133 rr:constant rdf:type.
+moesm:pm_133 rr:constant rdfs:label.
 moesm:pom_133 rr:objectMap moesm:om_133.
 moesm:om_133 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1914";
-    rr:termType rr:IRI.
-moesm:pom_134 a rr:PredicateObjectMap.
-moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_134.
-moesm:pm_134 a rr:PredicateMap.
-moesm:pom_134 rr:predicateMap moesm:pm_134.
-moesm:pm_134 rr:constant rdfs:label.
-moesm:pom_134 rr:objectMap moesm:om_134.
-moesm:om_134 a rr:ObjectMap;
-    rr:constant "hydro_size";
+    rr:constant "core_size";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_135 a rr:PredicateObjectMap.
-moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_135.
-moesm:pm_135 a rr:PredicateMap.
-moesm:pom_135 rr:predicateMap moesm:pm_135.
-moesm:pm_135 rr:constant nsvoc:value.
-moesm:pom_135 rr:objectMap moesm:om_135.
-moesm:om_135 a rr:ObjectMap;
-    rml:reference "hydro_size";
+moesm:pom_134 a rr:PredicateObjectMap.
+moesm:map_coreSize_000 rr:predicateObjectMap moesm:pom_134.
+moesm:pm_134 a rr:PredicateMap.
+moesm:pom_134 rr:predicateMap moesm:pm_134.
+moesm:pm_134 rr:constant nsvoc:value.
+moesm:pom_134 rr:objectMap moesm:om_134.
+moesm:om_134 a rr:ObjectMap;
+    rml:reference "core_size";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_surfCharge_000.
-moesm:map_surfCharge_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_hydroSize_000.
+moesm:map_hydroSize_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "surfCharge".
+    rdfs:label "hydroSize".
 moesm:s_003 a rr:SubjectMap.
-moesm:map_surfCharge_000 rr:subjectMap moesm:s_003.
+moesm:map_hydroSize_000 rr:subjectMap moesm:s_003.
 moesm:s_003 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_058.
@@ -1682,22 +1672,22 @@ moesm:pmexec_058 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_058 rr:objectMap moesm:omexec_058.
 moesm:omexec_058 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_058 rr:predicateObjectMap moesm:pom_135.
+moesm:pom_135 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_135.
+moesm:pm_135 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_135 rr:objectMap moesm:om_135.
+moesm:om_135 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:hydro_size_";
+    rr:termType rr:Literal.
 moesm:fn_058 rr:predicateObjectMap moesm:pom_136.
 moesm:pom_136 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_136.
 moesm:pm_136 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_136 rr:objectMap moesm:om_136.
-moesm:om_136 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_058 rr:predicateObjectMap moesm:pom_137.
-moesm:pom_137 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_137.
-moesm:pm_137 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_137 rr:objectMap moesm:om_137.
-moesm:om_137 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_136 rr:objectMap moesm:om_136.
+moesm:om_136 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_059.
 moesm:fn_059 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_059.
@@ -1706,59 +1696,59 @@ moesm:pmexec_059 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_059 rr:objectMap moesm:omexec_059.
 moesm:omexec_059 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_059 rr:predicateObjectMap moesm:pom_138.
-moesm:pom_138 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_138.
-moesm:pm_138 a rr:PredicateMap;
+moesm:fn_059 rr:predicateObjectMap moesm:pom_137.
+moesm:pom_137 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_137.
+moesm:pm_137 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_137 rr:objectMap moesm:om_137.
+moesm:om_137 a rr:ObjectMap;
+    rr:template "hydro_size_{hydro_size}";
+    rr:termType rr:Literal.
+moesm:pom_138 a rr:PredicateObjectMap.
+moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_138.
+moesm:pm_138 a rr:PredicateMap.
+moesm:pom_138 rr:predicateMap moesm:pm_138.
+moesm:pm_138 rr:constant rdf:type.
 moesm:pom_138 rr:objectMap moesm:om_138.
 moesm:om_138 a rr:ObjectMap;
-    rr:template "surf_charge_{surf_charge}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_139 a rr:PredicateObjectMap.
-moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_139.
+moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_139.
 moesm:pm_139 a rr:PredicateMap.
 moesm:pom_139 rr:predicateMap moesm:pm_139.
 moesm:pm_139 rr:constant rdf:type.
 moesm:pom_139 rr:objectMap moesm:om_139.
 moesm:om_139 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1914";
     rr:termType rr:IRI.
 moesm:pom_140 a rr:PredicateObjectMap.
-moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_140.
+moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_140.
 moesm:pm_140 a rr:PredicateMap.
 moesm:pom_140 rr:predicateMap moesm:pm_140.
-moesm:pm_140 rr:constant rdf:type.
+moesm:pm_140 rr:constant rdfs:label.
 moesm:pom_140 rr:objectMap moesm:om_140.
 moesm:om_140 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1812";
-    rr:termType rr:IRI.
-moesm:pom_141 a rr:PredicateObjectMap.
-moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_141.
-moesm:pm_141 a rr:PredicateMap.
-moesm:pom_141 rr:predicateMap moesm:pm_141.
-moesm:pm_141 rr:constant rdfs:label.
-moesm:pom_141 rr:objectMap moesm:om_141.
-moesm:om_141 a rr:ObjectMap;
-    rr:constant "surf_charge";
+    rr:constant "hydro_size";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_142 a rr:PredicateObjectMap.
-moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_142.
-moesm:pm_142 a rr:PredicateMap.
-moesm:pom_142 rr:predicateMap moesm:pm_142.
-moesm:pm_142 rr:constant nsvoc:value.
-moesm:pom_142 rr:objectMap moesm:om_142.
-moesm:om_142 a rr:ObjectMap;
-    rml:reference "surf_charge";
+moesm:pom_141 a rr:PredicateObjectMap.
+moesm:map_hydroSize_000 rr:predicateObjectMap moesm:pom_141.
+moesm:pm_141 a rr:PredicateMap.
+moesm:pom_141 rr:predicateMap moesm:pm_141.
+moesm:pm_141 rr:constant nsvoc:value.
+moesm:pom_141 rr:objectMap moesm:om_141.
+moesm:om_141 a rr:ObjectMap;
+    rml:reference "hydro_size";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_surfArea_000.
-moesm:map_surfArea_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_surfCharge_000.
+moesm:map_surfCharge_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "surfArea".
+    rdfs:label "surfCharge".
 moesm:s_004 a rr:SubjectMap.
-moesm:map_surfArea_000 rr:subjectMap moesm:s_004.
+moesm:map_surfCharge_000 rr:subjectMap moesm:s_004.
 moesm:s_004 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_060.
@@ -1769,22 +1759,22 @@ moesm:pmexec_060 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_060 rr:objectMap moesm:omexec_060.
 moesm:omexec_060 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_060 rr:predicateObjectMap moesm:pom_142.
+moesm:pom_142 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_142.
+moesm:pm_142 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_142 rr:objectMap moesm:om_142.
+moesm:om_142 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:surf_charge_";
+    rr:termType rr:Literal.
 moesm:fn_060 rr:predicateObjectMap moesm:pom_143.
 moesm:pom_143 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_143.
 moesm:pm_143 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_143 rr:objectMap moesm:om_143.
-moesm:om_143 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_060 rr:predicateObjectMap moesm:pom_144.
-moesm:pom_144 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_144.
-moesm:pm_144 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_144 rr:objectMap moesm:om_144.
-moesm:om_144 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_143 rr:objectMap moesm:om_143.
+moesm:om_143 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_061.
 moesm:fn_061 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_061.
@@ -1793,59 +1783,59 @@ moesm:pmexec_061 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_061 rr:objectMap moesm:omexec_061.
 moesm:omexec_061 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_061 rr:predicateObjectMap moesm:pom_145.
-moesm:pom_145 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_145.
-moesm:pm_145 a rr:PredicateMap;
+moesm:fn_061 rr:predicateObjectMap moesm:pom_144.
+moesm:pom_144 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_144.
+moesm:pm_144 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_144 rr:objectMap moesm:om_144.
+moesm:om_144 a rr:ObjectMap;
+    rr:template "surf_charge_{surf_charge}";
+    rr:termType rr:Literal.
+moesm:pom_145 a rr:PredicateObjectMap.
+moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_145.
+moesm:pm_145 a rr:PredicateMap.
+moesm:pom_145 rr:predicateMap moesm:pm_145.
+moesm:pm_145 rr:constant rdf:type.
 moesm:pom_145 rr:objectMap moesm:om_145.
 moesm:om_145 a rr:ObjectMap;
-    rr:template "surf_area_{surf_area}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_146 a rr:PredicateObjectMap.
-moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_146.
+moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_146.
 moesm:pm_146 a rr:PredicateMap.
 moesm:pom_146 rr:predicateMap moesm:pm_146.
 moesm:pm_146 rr:constant rdf:type.
 moesm:pom_146 rr:objectMap moesm:om_146.
 moesm:om_146 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1812";
     rr:termType rr:IRI.
 moesm:pom_147 a rr:PredicateObjectMap.
-moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_147.
+moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_147.
 moesm:pm_147 a rr:PredicateMap.
 moesm:pom_147 rr:predicateMap moesm:pm_147.
-moesm:pm_147 rr:constant rdf:type.
+moesm:pm_147 rr:constant rdfs:label.
 moesm:pom_147 rr:objectMap moesm:om_147.
 moesm:om_147 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1235";
-    rr:termType rr:IRI.
-moesm:pom_148 a rr:PredicateObjectMap.
-moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_148.
-moesm:pm_148 a rr:PredicateMap.
-moesm:pom_148 rr:predicateMap moesm:pm_148.
-moesm:pm_148 rr:constant rdfs:label.
-moesm:pom_148 rr:objectMap moesm:om_148.
-moesm:om_148 a rr:ObjectMap;
-    rr:constant "surf_area";
+    rr:constant "surf_charge";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_149 a rr:PredicateObjectMap.
-moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_149.
-moesm:pm_149 a rr:PredicateMap.
-moesm:pom_149 rr:predicateMap moesm:pm_149.
-moesm:pm_149 rr:constant nsvoc:value.
-moesm:pom_149 rr:objectMap moesm:om_149.
-moesm:om_149 a rr:ObjectMap;
-    rml:reference "surf_area";
+moesm:pom_148 a rr:PredicateObjectMap.
+moesm:map_surfCharge_000 rr:predicateObjectMap moesm:pom_148.
+moesm:pm_148 a rr:PredicateMap.
+moesm:pom_148 rr:predicateMap moesm:pm_148.
+moesm:pm_148 rr:constant nsvoc:value.
+moesm:pom_148 rr:objectMap moesm:om_148.
+moesm:om_148 a rr:ObjectMap;
+    rml:reference "surf_charge";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_hsf_000.
-moesm:map_hsf_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_surfArea_000.
+moesm:map_surfArea_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "hsf".
+    rdfs:label "surfArea".
 moesm:s_005 a rr:SubjectMap.
-moesm:map_hsf_000 rr:subjectMap moesm:s_005.
+moesm:map_surfArea_000 rr:subjectMap moesm:s_005.
 moesm:s_005 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_062.
@@ -1856,22 +1846,22 @@ moesm:pmexec_062 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_062 rr:objectMap moesm:omexec_062.
 moesm:omexec_062 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_062 rr:predicateObjectMap moesm:pom_149.
+moesm:pom_149 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_149.
+moesm:pm_149 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_149 rr:objectMap moesm:om_149.
+moesm:om_149 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:surf_area_";
+    rr:termType rr:Literal.
 moesm:fn_062 rr:predicateObjectMap moesm:pom_150.
 moesm:pom_150 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_150.
 moesm:pm_150 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_150 rr:objectMap moesm:om_150.
-moesm:om_150 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_062 rr:predicateObjectMap moesm:pom_151.
-moesm:pom_151 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_151.
-moesm:pm_151 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_151 rr:objectMap moesm:om_151.
-moesm:om_151 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_150 rr:objectMap moesm:om_150.
+moesm:om_150 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_063.
 moesm:fn_063 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_063.
@@ -1880,59 +1870,59 @@ moesm:pmexec_063 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_063 rr:objectMap moesm:omexec_063.
 moesm:omexec_063 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_063 rr:predicateObjectMap moesm:pom_152.
-moesm:pom_152 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_152.
-moesm:pm_152 a rr:PredicateMap;
+moesm:fn_063 rr:predicateObjectMap moesm:pom_151.
+moesm:pom_151 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_151.
+moesm:pm_151 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_151 rr:objectMap moesm:om_151.
+moesm:om_151 a rr:ObjectMap;
+    rr:template "surf_area_{surf_area}";
+    rr:termType rr:Literal.
+moesm:pom_152 a rr:PredicateObjectMap.
+moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_152.
+moesm:pm_152 a rr:PredicateMap.
+moesm:pom_152 rr:predicateMap moesm:pm_152.
+moesm:pm_152 rr:constant rdf:type.
 moesm:pom_152 rr:objectMap moesm:om_152.
 moesm:om_152 a rr:ObjectMap;
-    rr:template "Hsf_{Hsf}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_153 a rr:PredicateObjectMap.
-moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_153.
+moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_153.
 moesm:pm_153 a rr:PredicateMap.
 moesm:pom_153 rr:predicateMap moesm:pm_153.
 moesm:pm_153 rr:constant rdf:type.
 moesm:pom_153 rr:objectMap moesm:om_153.
 moesm:om_153 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1235";
     rr:termType rr:IRI.
 moesm:pom_154 a rr:PredicateObjectMap.
-moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_154.
+moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_154.
 moesm:pm_154 a rr:PredicateMap.
 moesm:pom_154 rr:predicateMap moesm:pm_154.
-moesm:pm_154 rr:constant rdf:type.
+moesm:pm_154 rr:constant rdfs:label.
 moesm:pom_154 rr:objectMap moesm:om_154.
 moesm:om_154 a rr:ObjectMap;
-    rr:constant "http://semanticscience.org/resource/CHEMINF_000241";
-    rr:termType rr:IRI.
-moesm:pom_155 a rr:PredicateObjectMap.
-moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_155.
-moesm:pm_155 a rr:PredicateMap.
-moesm:pom_155 rr:predicateMap moesm:pm_155.
-moesm:pm_155 rr:constant rdfs:label.
-moesm:pom_155 rr:objectMap moesm:om_155.
-moesm:om_155 a rr:ObjectMap;
-    rr:constant "Hsf";
+    rr:constant "surf_area";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_156 a rr:PredicateObjectMap.
-moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_156.
-moesm:pm_156 a rr:PredicateMap.
-moesm:pom_156 rr:predicateMap moesm:pm_156.
-moesm:pm_156 rr:constant nsvoc:value.
-moesm:pom_156 rr:objectMap moesm:om_156.
-moesm:om_156 a rr:ObjectMap;
-    rml:reference "Hsf";
+moesm:pom_155 a rr:PredicateObjectMap.
+moesm:map_surfArea_000 rr:predicateObjectMap moesm:pom_155.
+moesm:pm_155 a rr:PredicateMap.
+moesm:pom_155 rr:predicateMap moesm:pm_155.
+moesm:pm_155 rr:constant nsvoc:value.
+moesm:pom_155 rr:objectMap moesm:om_155.
+moesm:om_155 a rr:ObjectMap;
+    rml:reference "surf_area";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_ec_000.
-moesm:map_ec_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_hsf_000.
+moesm:map_hsf_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "ec".
+    rdfs:label "hsf".
 moesm:s_006 a rr:SubjectMap.
-moesm:map_ec_000 rr:subjectMap moesm:s_006.
+moesm:map_hsf_000 rr:subjectMap moesm:s_006.
 moesm:s_006 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_064.
@@ -1943,22 +1933,22 @@ moesm:pmexec_064 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_064 rr:objectMap moesm:omexec_064.
 moesm:omexec_064 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_064 rr:predicateObjectMap moesm:pom_156.
+moesm:pom_156 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_156.
+moesm:pm_156 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_156 rr:objectMap moesm:om_156.
+moesm:om_156 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:hsf_";
+    rr:termType rr:Literal.
 moesm:fn_064 rr:predicateObjectMap moesm:pom_157.
 moesm:pom_157 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_157.
 moesm:pm_157 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_157 rr:objectMap moesm:om_157.
-moesm:om_157 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_064 rr:predicateObjectMap moesm:pom_158.
-moesm:pom_158 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_158.
-moesm:pm_158 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_158 rr:objectMap moesm:om_158.
-moesm:om_158 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_157 rr:objectMap moesm:om_157.
+moesm:om_157 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_065.
 moesm:fn_065 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_065.
@@ -1967,59 +1957,59 @@ moesm:pmexec_065 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_065 rr:objectMap moesm:omexec_065.
 moesm:omexec_065 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_065 rr:predicateObjectMap moesm:pom_159.
-moesm:pom_159 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_159.
-moesm:pm_159 a rr:PredicateMap;
+moesm:fn_065 rr:predicateObjectMap moesm:pom_158.
+moesm:pom_158 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_158.
+moesm:pm_158 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_158 rr:objectMap moesm:om_158.
+moesm:om_158 a rr:ObjectMap;
+    rr:template "hsf_{Hsf}";
+    rr:termType rr:Literal.
+moesm:pom_159 a rr:PredicateObjectMap.
+moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_159.
+moesm:pm_159 a rr:PredicateMap.
+moesm:pom_159 rr:predicateMap moesm:pm_159.
+moesm:pm_159 rr:constant rdf:type.
 moesm:pom_159 rr:objectMap moesm:om_159.
 moesm:om_159 a rr:ObjectMap;
-    rr:template "Ec_{Ec}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_160 a rr:PredicateObjectMap.
-moesm:map_ec_000 rr:predicateObjectMap moesm:pom_160.
+moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_160.
 moesm:pm_160 a rr:PredicateMap.
 moesm:pom_160 rr:predicateMap moesm:pm_160.
 moesm:pm_160 rr:constant rdf:type.
 moesm:pom_160 rr:objectMap moesm:om_160.
 moesm:om_160 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://semanticscience.org/resource/CHEMINF_000241";
     rr:termType rr:IRI.
 moesm:pom_161 a rr:PredicateObjectMap.
-moesm:map_ec_000 rr:predicateObjectMap moesm:pom_161.
+moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_161.
 moesm:pm_161 a rr:PredicateMap.
 moesm:pom_161 rr:predicateMap moesm:pm_161.
-moesm:pm_161 rr:constant rdf:type.
+moesm:pm_161 rr:constant rdfs:label.
 moesm:pom_161 rr:objectMap moesm:om_161.
 moesm:om_161 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_8000100";
-    rr:termType rr:IRI.
-moesm:pom_162 a rr:PredicateObjectMap.
-moesm:map_ec_000 rr:predicateObjectMap moesm:pom_162.
-moesm:pm_162 a rr:PredicateMap.
-moesm:pom_162 rr:predicateMap moesm:pm_162.
-moesm:pm_162 rr:constant rdfs:label.
-moesm:pom_162 rr:objectMap moesm:om_162.
-moesm:om_162 a rr:ObjectMap;
-    rr:constant "Ec";
+    rr:constant "Hsf";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_163 a rr:PredicateObjectMap.
-moesm:map_ec_000 rr:predicateObjectMap moesm:pom_163.
-moesm:pm_163 a rr:PredicateMap.
-moesm:pom_163 rr:predicateMap moesm:pm_163.
-moesm:pm_163 rr:constant nsvoc:value.
-moesm:pom_163 rr:objectMap moesm:om_163.
-moesm:om_163 a rr:ObjectMap;
-    rml:reference "Ec";
+moesm:pom_162 a rr:PredicateObjectMap.
+moesm:map_hsf_000 rr:predicateObjectMap moesm:pom_162.
+moesm:pm_162 a rr:PredicateMap.
+moesm:pom_162 rr:predicateMap moesm:pm_162.
+moesm:pm_162 rr:constant nsvoc:value.
+moesm:pom_162 rr:objectMap moesm:om_162.
+moesm:om_162 a rr:ObjectMap;
+    rml:reference "Hsf";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_ev_000.
-moesm:map_ev_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_ec_000.
+moesm:map_ec_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "ev".
+    rdfs:label "ec".
 moesm:s_007 a rr:SubjectMap.
-moesm:map_ev_000 rr:subjectMap moesm:s_007.
+moesm:map_ec_000 rr:subjectMap moesm:s_007.
 moesm:s_007 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_066.
@@ -2030,22 +2020,22 @@ moesm:pmexec_066 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_066 rr:objectMap moesm:omexec_066.
 moesm:omexec_066 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_066 rr:predicateObjectMap moesm:pom_163.
+moesm:pom_163 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_163.
+moesm:pm_163 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_163 rr:objectMap moesm:om_163.
+moesm:om_163 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:ec_";
+    rr:termType rr:Literal.
 moesm:fn_066 rr:predicateObjectMap moesm:pom_164.
 moesm:pom_164 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_164.
 moesm:pm_164 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_164 rr:objectMap moesm:om_164.
-moesm:om_164 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_066 rr:predicateObjectMap moesm:pom_165.
-moesm:pom_165 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_165.
-moesm:pm_165 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_165 rr:objectMap moesm:om_165.
-moesm:om_165 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_164 rr:objectMap moesm:om_164.
+moesm:om_164 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_067.
 moesm:fn_067 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_067.
@@ -2054,59 +2044,59 @@ moesm:pmexec_067 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_067 rr:objectMap moesm:omexec_067.
 moesm:omexec_067 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_067 rr:predicateObjectMap moesm:pom_166.
-moesm:pom_166 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_166.
-moesm:pm_166 a rr:PredicateMap;
+moesm:fn_067 rr:predicateObjectMap moesm:pom_165.
+moesm:pom_165 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_165.
+moesm:pm_165 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_165 rr:objectMap moesm:om_165.
+moesm:om_165 a rr:ObjectMap;
+    rr:template "ec_{Ec}";
+    rr:termType rr:Literal.
+moesm:pom_166 a rr:PredicateObjectMap.
+moesm:map_ec_000 rr:predicateObjectMap moesm:pom_166.
+moesm:pm_166 a rr:PredicateMap.
+moesm:pom_166 rr:predicateMap moesm:pm_166.
+moesm:pm_166 rr:constant rdf:type.
 moesm:pom_166 rr:objectMap moesm:om_166.
 moesm:om_166 a rr:ObjectMap;
-    rr:template "Ev_{Ev}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_167 a rr:PredicateObjectMap.
-moesm:map_ev_000 rr:predicateObjectMap moesm:pom_167.
+moesm:map_ec_000 rr:predicateObjectMap moesm:pom_167.
 moesm:pm_167 a rr:PredicateMap.
 moesm:pom_167 rr:predicateMap moesm:pm_167.
 moesm:pm_167 rr:constant rdf:type.
 moesm:pom_167 rr:objectMap moesm:om_167.
 moesm:om_167 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_8000100";
     rr:termType rr:IRI.
 moesm:pom_168 a rr:PredicateObjectMap.
-moesm:map_ev_000 rr:predicateObjectMap moesm:pom_168.
+moesm:map_ec_000 rr:predicateObjectMap moesm:pom_168.
 moesm:pm_168 a rr:PredicateMap.
 moesm:pom_168 rr:predicateMap moesm:pm_168.
-moesm:pm_168 rr:constant rdf:type.
+moesm:pm_168 rr:constant rdfs:label.
 moesm:pom_168 rr:objectMap moesm:om_168.
 moesm:om_168 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_8000110";
-    rr:termType rr:IRI.
-moesm:pom_169 a rr:PredicateObjectMap.
-moesm:map_ev_000 rr:predicateObjectMap moesm:pom_169.
-moesm:pm_169 a rr:PredicateMap.
-moesm:pom_169 rr:predicateMap moesm:pm_169.
-moesm:pm_169 rr:constant rdfs:label.
-moesm:pom_169 rr:objectMap moesm:om_169.
-moesm:om_169 a rr:ObjectMap;
-    rr:constant "Ev";
+    rr:constant "Ec";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_170 a rr:PredicateObjectMap.
-moesm:map_ev_000 rr:predicateObjectMap moesm:pom_170.
-moesm:pm_170 a rr:PredicateMap.
-moesm:pom_170 rr:predicateMap moesm:pm_170.
-moesm:pm_170 rr:constant nsvoc:value.
-moesm:pom_170 rr:objectMap moesm:om_170.
-moesm:om_170 a rr:ObjectMap;
-    rml:reference "Ev";
+moesm:pom_169 a rr:PredicateObjectMap.
+moesm:map_ec_000 rr:predicateObjectMap moesm:pom_169.
+moesm:pm_169 a rr:PredicateMap.
+moesm:pom_169 rr:predicateMap moesm:pm_169.
+moesm:pm_169 rr:constant nsvoc:value.
+moesm:pom_169 rr:objectMap moesm:om_169.
+moesm:om_169 a rr:ObjectMap;
+    rml:reference "Ec";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_MeO_000.
-moesm:map_MeO_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_ev_000.
+moesm:map_ev_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "MeO".
+    rdfs:label "ev".
 moesm:s_008 a rr:SubjectMap.
-moesm:map_MeO_000 rr:subjectMap moesm:s_008.
+moesm:map_ev_000 rr:subjectMap moesm:s_008.
 moesm:s_008 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_068.
@@ -2117,22 +2107,22 @@ moesm:pmexec_068 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_068 rr:objectMap moesm:omexec_068.
 moesm:omexec_068 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_068 rr:predicateObjectMap moesm:pom_170.
+moesm:pom_170 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_170.
+moesm:pm_170 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_170 rr:objectMap moesm:om_170.
+moesm:om_170 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:Ev_";
+    rr:termType rr:Literal.
 moesm:fn_068 rr:predicateObjectMap moesm:pom_171.
 moesm:pom_171 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_171.
 moesm:pm_171 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_171 rr:objectMap moesm:om_171.
-moesm:om_171 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_068 rr:predicateObjectMap moesm:pom_172.
-moesm:pom_172 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_172.
-moesm:pm_172 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_172 rr:objectMap moesm:om_172.
-moesm:om_172 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_171 rr:objectMap moesm:om_171.
+moesm:om_171 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_069.
 moesm:fn_069 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_069.
@@ -2141,59 +2131,59 @@ moesm:pmexec_069 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_069 rr:objectMap moesm:omexec_069.
 moesm:omexec_069 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_069 rr:predicateObjectMap moesm:pom_173.
-moesm:pom_173 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_173.
-moesm:pm_173 a rr:PredicateMap;
+moesm:fn_069 rr:predicateObjectMap moesm:pom_172.
+moesm:pom_172 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_172.
+moesm:pm_172 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_172 rr:objectMap moesm:om_172.
+moesm:om_172 a rr:ObjectMap;
+    rr:template "Ev_{Ev}";
+    rr:termType rr:Literal.
+moesm:pom_173 a rr:PredicateObjectMap.
+moesm:map_ev_000 rr:predicateObjectMap moesm:pom_173.
+moesm:pm_173 a rr:PredicateMap.
+moesm:pom_173 rr:predicateMap moesm:pm_173.
+moesm:pm_173 rr:constant rdf:type.
 moesm:pom_173 rr:objectMap moesm:om_173.
 moesm:om_173 a rr:ObjectMap;
-    rr:template "MeO_{MeO}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_174 a rr:PredicateObjectMap.
-moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_174.
+moesm:map_ev_000 rr:predicateObjectMap moesm:pom_174.
 moesm:pm_174 a rr:PredicateMap.
 moesm:pom_174 rr:predicateMap moesm:pm_174.
 moesm:pm_174 rr:constant rdf:type.
 moesm:pom_174 rr:objectMap moesm:om_174.
 moesm:om_174 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_8000110";
     rr:termType rr:IRI.
 moesm:pom_175 a rr:PredicateObjectMap.
-moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_175.
+moesm:map_ev_000 rr:predicateObjectMap moesm:pom_175.
 moesm:pm_175 a rr:PredicateMap.
 moesm:pom_175 rr:predicateMap moesm:pm_175.
-moesm:pm_175 rr:constant rdf:type.
+moesm:pm_175 rr:constant rdfs:label.
 moesm:pom_175 rr:objectMap moesm:om_175.
 moesm:om_175 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_421";
-    rr:termType rr:IRI.
-moesm:pom_176 a rr:PredicateObjectMap.
-moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_176.
-moesm:pm_176 a rr:PredicateMap.
-moesm:pom_176 rr:predicateMap moesm:pm_176.
-moesm:pm_176 rr:constant rdfs:label.
-moesm:pom_176 rr:objectMap moesm:om_176.
-moesm:om_176 a rr:ObjectMap;
-    rr:constant "MeO";
+    rr:constant "Ev";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_177 a rr:PredicateObjectMap.
-moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_177.
-moesm:pm_177 a rr:PredicateMap.
-moesm:pom_177 rr:predicateMap moesm:pm_177.
-moesm:pm_177 rr:constant nsvoc:value.
-moesm:pom_177 rr:objectMap moesm:om_177.
-moesm:om_177 a rr:ObjectMap;
-    rml:reference "MeO";
+moesm:pom_176 a rr:PredicateObjectMap.
+moesm:map_ev_000 rr:predicateObjectMap moesm:pom_176.
+moesm:pm_176 a rr:PredicateMap.
+moesm:pom_176 rr:predicateMap moesm:pm_176.
+moesm:pm_176 rr:constant nsvoc:value.
+moesm:pom_176 rr:objectMap moesm:om_176.
+moesm:om_176 a rr:ObjectMap;
+    rml:reference "Ev";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_assay_000.
-moesm:map_assay_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_MeO_000.
+moesm:map_MeO_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "assay".
+    rdfs:label "MeO".
 moesm:s_009 a rr:SubjectMap.
-moesm:map_assay_000 rr:subjectMap moesm:s_009.
+moesm:map_MeO_000 rr:subjectMap moesm:s_009.
 moesm:s_009 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_070.
@@ -2204,22 +2194,22 @@ moesm:pmexec_070 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_070 rr:objectMap moesm:omexec_070.
 moesm:omexec_070 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_070 rr:predicateObjectMap moesm:pom_177.
+moesm:pom_177 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_177.
+moesm:pm_177 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_177 rr:objectMap moesm:om_177.
+moesm:om_177 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:MeO_";
+    rr:termType rr:Literal.
 moesm:fn_070 rr:predicateObjectMap moesm:pom_178.
 moesm:pom_178 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_178.
 moesm:pm_178 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_178 rr:objectMap moesm:om_178.
-moesm:om_178 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_070 rr:predicateObjectMap moesm:pom_179.
-moesm:pom_179 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_179.
-moesm:pm_179 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_179 rr:objectMap moesm:om_179.
-moesm:om_179 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_178 rr:objectMap moesm:om_178.
+moesm:om_178 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_071.
 moesm:fn_071 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_071.
@@ -2228,49 +2218,59 @@ moesm:pmexec_071 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_071 rr:objectMap moesm:omexec_071.
 moesm:omexec_071 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_071 rr:predicateObjectMap moesm:pom_180.
-moesm:pom_180 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_180.
-moesm:pm_180 a rr:PredicateMap;
+moesm:fn_071 rr:predicateObjectMap moesm:pom_179.
+moesm:pom_179 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_179.
+moesm:pm_179 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_179 rr:objectMap moesm:om_179.
+moesm:om_179 a rr:ObjectMap;
+    rr:template "MeO_{MeO}";
+    rr:termType rr:Literal.
+moesm:pom_180 a rr:PredicateObjectMap.
+moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_180.
+moesm:pm_180 a rr:PredicateMap.
+moesm:pom_180 rr:predicateMap moesm:pm_180.
+moesm:pm_180 rr:constant rdf:type.
 moesm:pom_180 rr:objectMap moesm:om_180.
 moesm:om_180 a rr:ObjectMap;
-    rr:template "assay_{assay}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_181 a rr:PredicateObjectMap.
-moesm:map_assay_000 rr:predicateObjectMap moesm:pom_181.
+moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_181.
 moesm:pm_181 a rr:PredicateMap.
 moesm:pom_181 rr:predicateMap moesm:pm_181.
 moesm:pm_181 rr:constant rdf:type.
 moesm:pom_181 rr:objectMap moesm:om_181.
 moesm:om_181 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_421";
     rr:termType rr:IRI.
 moesm:pom_182 a rr:PredicateObjectMap.
-moesm:map_assay_000 rr:predicateObjectMap moesm:pom_182.
+moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_182.
 moesm:pm_182 a rr:PredicateMap.
 moesm:pom_182 rr:predicateMap moesm:pm_182.
-moesm:pm_182 rr:constant rdf:type.
+moesm:pm_182 rr:constant rdfs:label.
 moesm:pom_182 rr:objectMap moesm:om_182.
 moesm:om_182 a rr:ObjectMap;
-    rr:constant "http://www.bioassayontology.org/bao#BAO_0003009";
-    rr:termType rr:Literal.
-moesm:pom_183 a rr:PredicateObjectMap.
-moesm:map_assay_000 rr:predicateObjectMap moesm:pom_183.
-moesm:pm_183 a rr:PredicateMap.
-moesm:pom_183 rr:predicateMap moesm:pm_183.
-moesm:pm_183 rr:constant rdfs:label.
-moesm:pom_183 rr:objectMap moesm:om_183.
-moesm:om_183 a rr:ObjectMap;
-    rr:template "{assay} assay";
+    rr:constant "MeO";
     rr:termType rr:Literal;
     rr:language "en".
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_cellLine_000.
-moesm:map_cellLine_000 rml:logicalSource moesm:source_000;
+moesm:pom_183 a rr:PredicateObjectMap.
+moesm:map_MeO_000 rr:predicateObjectMap moesm:pom_183.
+moesm:pm_183 a rr:PredicateMap.
+moesm:pom_183 rr:predicateMap moesm:pm_183.
+moesm:pm_183 rr:constant nsvoc:value.
+moesm:pom_183 rr:objectMap moesm:om_183.
+moesm:om_183 a rr:ObjectMap;
+    rml:reference "MeO";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_assay_000.
+moesm:map_assay_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "cellLine".
+    rdfs:label "assay".
 moesm:s_010 a rr:SubjectMap.
-moesm:map_cellLine_000 rr:subjectMap moesm:s_010.
+moesm:map_assay_000 rr:subjectMap moesm:s_010.
 moesm:s_010 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_072.
@@ -2288,7 +2288,7 @@ moesm:pm_184 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 moesm:pom_184 rr:objectMap moesm:om_184.
 moesm:om_184 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
+    rr:constant "http://bigcat.unimaas.nl/ns:assay_";
     rr:termType rr:Literal.
 moesm:fn_072 rr:predicateObjectMap moesm:pom_185.
 moesm:pom_185 a rr:PredicateObjectMap;
@@ -2312,10 +2312,10 @@ moesm:pm_186 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 moesm:pom_186 rr:objectMap moesm:om_186.
 moesm:om_186 a rr:ObjectMap;
-    rr:template "cell_line_{cell_line}";
+    rr:template "assay_{assay}";
     rr:termType rr:Literal.
 moesm:pom_187 a rr:PredicateObjectMap.
-moesm:map_cellLine_000 rr:predicateObjectMap moesm:pom_187.
+moesm:map_assay_000 rr:predicateObjectMap moesm:pom_187.
 moesm:pm_187 a rr:PredicateMap.
 moesm:pom_187 rr:predicateMap moesm:pm_187.
 moesm:pm_187 rr:constant rdf:type.
@@ -2324,30 +2324,30 @@ moesm:om_187 a rr:ObjectMap;
     rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
     rr:termType rr:IRI.
 moesm:pom_188 a rr:PredicateObjectMap.
-moesm:map_cellLine_000 rr:predicateObjectMap moesm:pom_188.
+moesm:map_assay_000 rr:predicateObjectMap moesm:pom_188.
 moesm:pm_188 a rr:PredicateMap.
 moesm:pom_188 rr:predicateMap moesm:pm_188.
 moesm:pm_188 rr:constant rdf:type.
 moesm:pom_188 rr:objectMap moesm:om_188.
 moesm:om_188 a rr:ObjectMap;
-    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000322";
-    rr:termType rr:IRI.
+    rr:constant "http://www.bioassayontology.org/bao#BAO_0003009";
+    rr:termType rr:Literal.
 moesm:pom_189 a rr:PredicateObjectMap.
-moesm:map_cellLine_000 rr:predicateObjectMap moesm:pom_189.
+moesm:map_assay_000 rr:predicateObjectMap moesm:pom_189.
 moesm:pm_189 a rr:PredicateMap.
 moesm:pom_189 rr:predicateMap moesm:pm_189.
 moesm:pm_189 rr:constant rdfs:label.
 moesm:pom_189 rr:objectMap moesm:om_189.
 moesm:om_189 a rr:ObjectMap;
-    rr:template "cell line: {cell_line}";
+    rr:template "{assay} assay";
     rr:termType rr:Literal;
     rr:language "en".
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_time_000.
-moesm:map_time_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_cellLine_000.
+moesm:map_cellLine_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "time".
+    rdfs:label "cellLine".
 moesm:s_011 a rr:SubjectMap.
-moesm:map_time_000 rr:subjectMap moesm:s_011.
+moesm:map_cellLine_000 rr:subjectMap moesm:s_011.
 moesm:s_011 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_074.
@@ -2365,7 +2365,7 @@ moesm:pm_190 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 moesm:pom_190 rr:objectMap moesm:om_190.
 moesm:om_190 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
+    rr:constant "http://bigcat.unimaas.nl/ns:cell_line_";
     rr:termType rr:Literal.
 moesm:fn_074 rr:predicateObjectMap moesm:pom_191.
 moesm:pom_191 a rr:PredicateObjectMap;
@@ -2389,10 +2389,10 @@ moesm:pm_192 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 moesm:pom_192 rr:objectMap moesm:om_192.
 moesm:om_192 a rr:ObjectMap;
-    rr:template "time_{time}";
+    rr:template "cell_line_{cell_line}";
     rr:termType rr:Literal.
 moesm:pom_193 a rr:PredicateObjectMap.
-moesm:map_time_000 rr:predicateObjectMap moesm:pom_193.
+moesm:map_cellLine_000 rr:predicateObjectMap moesm:pom_193.
 moesm:pm_193 a rr:PredicateMap.
 moesm:pom_193 rr:predicateMap moesm:pm_193.
 moesm:pm_193 rr:constant rdf:type.
@@ -2401,40 +2401,30 @@ moesm:om_193 a rr:ObjectMap;
     rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
     rr:termType rr:IRI.
 moesm:pom_194 a rr:PredicateObjectMap.
-moesm:map_time_000 rr:predicateObjectMap moesm:pom_194.
+moesm:map_cellLine_000 rr:predicateObjectMap moesm:pom_194.
 moesm:pm_194 a rr:PredicateMap.
 moesm:pom_194 rr:predicateMap moesm:pm_194.
 moesm:pm_194 rr:constant rdf:type.
 moesm:pom_194 rr:objectMap moesm:om_194.
 moesm:om_194 a rr:ObjectMap;
-    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000721";
+    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000322";
     rr:termType rr:IRI.
 moesm:pom_195 a rr:PredicateObjectMap.
-moesm:map_time_000 rr:predicateObjectMap moesm:pom_195.
+moesm:map_cellLine_000 rr:predicateObjectMap moesm:pom_195.
 moesm:pm_195 a rr:PredicateMap.
 moesm:pom_195 rr:predicateMap moesm:pm_195.
 moesm:pm_195 rr:constant rdfs:label.
 moesm:pom_195 rr:objectMap moesm:om_195.
 moesm:om_195 a rr:ObjectMap;
-    rr:template "time: {time}h";
+    rr:template "cell line: {cell_line}";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_196 a rr:PredicateObjectMap.
-moesm:map_time_000 rr:predicateObjectMap moesm:pom_196.
-moesm:pm_196 a rr:PredicateMap.
-moesm:pom_196 rr:predicateMap moesm:pm_196.
-moesm:pm_196 rr:constant nsvoc:value.
-moesm:pom_196 rr:objectMap moesm:om_196.
-moesm:om_196 a rr:ObjectMap;
-    rml:reference "time";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_dose_000.
-moesm:map_dose_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_time_000.
+moesm:map_time_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "dose".
+    rdfs:label "time".
 moesm:s_012 a rr:SubjectMap.
-moesm:map_dose_000 rr:subjectMap moesm:s_012.
+moesm:map_time_000 rr:subjectMap moesm:s_012.
 moesm:s_012 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_076.
@@ -2445,22 +2435,22 @@ moesm:pmexec_076 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_076 rr:objectMap moesm:omexec_076.
 moesm:omexec_076 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_076 rr:predicateObjectMap moesm:pom_196.
+moesm:pom_196 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_196.
+moesm:pm_196 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_196 rr:objectMap moesm:om_196.
+moesm:om_196 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:time_";
+    rr:termType rr:Literal.
 moesm:fn_076 rr:predicateObjectMap moesm:pom_197.
 moesm:pom_197 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_197.
 moesm:pm_197 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_197 rr:objectMap moesm:om_197.
-moesm:om_197 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_076 rr:predicateObjectMap moesm:pom_198.
-moesm:pom_198 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_198.
-moesm:pm_198 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_198 rr:objectMap moesm:om_198.
-moesm:om_198 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_197 rr:objectMap moesm:om_197.
+moesm:om_197 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_077.
 moesm:fn_077 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_077.
@@ -2469,59 +2459,59 @@ moesm:pmexec_077 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_077 rr:objectMap moesm:omexec_077.
 moesm:omexec_077 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_077 rr:predicateObjectMap moesm:pom_199.
-moesm:pom_199 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_199.
-moesm:pm_199 a rr:PredicateMap;
+moesm:fn_077 rr:predicateObjectMap moesm:pom_198.
+moesm:pom_198 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_198.
+moesm:pm_198 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_198 rr:objectMap moesm:om_198.
+moesm:om_198 a rr:ObjectMap;
+    rr:template "time_{time}";
+    rr:termType rr:Literal.
+moesm:pom_199 a rr:PredicateObjectMap.
+moesm:map_time_000 rr:predicateObjectMap moesm:pom_199.
+moesm:pm_199 a rr:PredicateMap.
+moesm:pom_199 rr:predicateMap moesm:pm_199.
+moesm:pm_199 rr:constant rdf:type.
 moesm:pom_199 rr:objectMap moesm:om_199.
 moesm:om_199 a rr:ObjectMap;
-    rr:template "dose_{dose}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_200 a rr:PredicateObjectMap.
-moesm:map_dose_000 rr:predicateObjectMap moesm:pom_200.
+moesm:map_time_000 rr:predicateObjectMap moesm:pom_200.
 moesm:pm_200 a rr:PredicateMap.
 moesm:pom_200 rr:predicateMap moesm:pm_200.
 moesm:pm_200 rr:constant rdf:type.
 moesm:pom_200 rr:objectMap moesm:om_200.
 moesm:om_200 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000721";
     rr:termType rr:IRI.
 moesm:pom_201 a rr:PredicateObjectMap.
-moesm:map_dose_000 rr:predicateObjectMap moesm:pom_201.
+moesm:map_time_000 rr:predicateObjectMap moesm:pom_201.
 moesm:pm_201 a rr:PredicateMap.
 moesm:pom_201 rr:predicateMap moesm:pm_201.
-moesm:pm_201 rr:constant rdf:type.
+moesm:pm_201 rr:constant rdfs:label.
 moesm:pom_201 rr:objectMap moesm:om_201.
 moesm:om_201 a rr:ObjectMap;
-    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000428";
-    rr:termType rr:IRI.
-moesm:pom_202 a rr:PredicateObjectMap.
-moesm:map_dose_000 rr:predicateObjectMap moesm:pom_202.
-moesm:pm_202 a rr:PredicateMap.
-moesm:pom_202 rr:predicateMap moesm:pm_202.
-moesm:pm_202 rr:constant rdfs:label.
-moesm:pom_202 rr:objectMap moesm:om_202.
-moesm:om_202 a rr:ObjectMap;
-    rr:template "dose: {dose}";
+    rr:template "time: {time}h";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_203 a rr:PredicateObjectMap.
-moesm:map_dose_000 rr:predicateObjectMap moesm:pom_203.
-moesm:pm_203 a rr:PredicateMap.
-moesm:pom_203 rr:predicateMap moesm:pm_203.
-moesm:pm_203 rr:constant nsvoc:value.
-moesm:pom_203 rr:objectMap moesm:om_203.
-moesm:om_203 a rr:ObjectMap;
-    rml:reference "dose";
+moesm:pom_202 a rr:PredicateObjectMap.
+moesm:map_time_000 rr:predicateObjectMap moesm:pom_202.
+moesm:pm_202 a rr:PredicateMap.
+moesm:pom_202 rr:predicateMap moesm:pm_202.
+moesm:pm_202 rr:constant nsvoc:value.
+moesm:pom_202 rr:objectMap moesm:om_202.
+moesm:om_202 a rr:ObjectMap;
+    rml:reference "time";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_viability_000.
-moesm:map_viability_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_dose_000.
+moesm:map_dose_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "viability".
+    rdfs:label "dose".
 moesm:s_013 a rr:SubjectMap.
-moesm:map_viability_000 rr:subjectMap moesm:s_013.
+moesm:map_dose_000 rr:subjectMap moesm:s_013.
 moesm:s_013 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_078.
@@ -2532,22 +2522,22 @@ moesm:pmexec_078 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_078 rr:objectMap moesm:omexec_078.
 moesm:omexec_078 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_078 rr:predicateObjectMap moesm:pom_203.
+moesm:pom_203 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_203.
+moesm:pm_203 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_203 rr:objectMap moesm:om_203.
+moesm:om_203 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:dose_";
+    rr:termType rr:Literal.
 moesm:fn_078 rr:predicateObjectMap moesm:pom_204.
 moesm:pom_204 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_204.
 moesm:pm_204 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_204 rr:objectMap moesm:om_204.
-moesm:om_204 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_078 rr:predicateObjectMap moesm:pom_205.
-moesm:pom_205 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_205.
-moesm:pm_205 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_205 rr:objectMap moesm:om_205.
-moesm:om_205 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_204 rr:objectMap moesm:om_204.
+moesm:om_204 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_079.
 moesm:fn_079 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_079.
@@ -2556,59 +2546,59 @@ moesm:pmexec_079 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_079 rr:objectMap moesm:omexec_079.
 moesm:omexec_079 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_079 rr:predicateObjectMap moesm:pom_206.
-moesm:pom_206 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_206.
-moesm:pm_206 a rr:PredicateMap;
+moesm:fn_079 rr:predicateObjectMap moesm:pom_205.
+moesm:pom_205 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_205.
+moesm:pm_205 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_205 rr:objectMap moesm:om_205.
+moesm:om_205 a rr:ObjectMap;
+    rr:template "dose_{dose}";
+    rr:termType rr:Literal.
+moesm:pom_206 a rr:PredicateObjectMap.
+moesm:map_dose_000 rr:predicateObjectMap moesm:pom_206.
+moesm:pm_206 a rr:PredicateMap.
+moesm:pom_206 rr:predicateMap moesm:pm_206.
+moesm:pm_206 rr:constant rdf:type.
 moesm:pom_206 rr:objectMap moesm:om_206.
 moesm:om_206 a rr:ObjectMap;
-    rr:template "viability_{viability}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_207 a rr:PredicateObjectMap.
-moesm:map_viability_000 rr:predicateObjectMap moesm:pom_207.
+moesm:map_dose_000 rr:predicateObjectMap moesm:pom_207.
 moesm:pm_207 a rr:PredicateMap.
 moesm:pom_207 rr:predicateMap moesm:pm_207.
 moesm:pm_207 rr:constant rdf:type.
 moesm:pom_207 rr:objectMap moesm:om_207.
 moesm:om_207 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000428";
     rr:termType rr:IRI.
 moesm:pom_208 a rr:PredicateObjectMap.
-moesm:map_viability_000 rr:predicateObjectMap moesm:pom_208.
+moesm:map_dose_000 rr:predicateObjectMap moesm:pom_208.
 moesm:pm_208 a rr:PredicateMap.
 moesm:pom_208 rr:predicateMap moesm:pm_208.
-moesm:pm_208 rr:constant rdf:type.
+moesm:pm_208 rr:constant rdfs:label.
 moesm:pom_208 rr:objectMap moesm:om_208.
 moesm:om_208 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_0000068";
-    rr:termType rr:IRI.
-moesm:pom_209 a rr:PredicateObjectMap.
-moesm:map_viability_000 rr:predicateObjectMap moesm:pom_209.
-moesm:pm_209 a rr:PredicateMap.
-moesm:pom_209 rr:predicateMap moesm:pm_209.
-moesm:pm_209 rr:constant rdfs:label.
-moesm:pom_209 rr:objectMap moesm:om_209.
-moesm:om_209 a rr:ObjectMap;
-    rr:template "viability: {viability}";
+    rr:template "dose: {dose}";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_210 a rr:PredicateObjectMap.
-moesm:map_viability_000 rr:predicateObjectMap moesm:pom_210.
-moesm:pm_210 a rr:PredicateMap.
-moesm:pom_210 rr:predicateMap moesm:pm_210.
-moesm:pm_210 rr:constant nsvoc:value.
-moesm:pom_210 rr:objectMap moesm:om_210.
-moesm:om_210 a rr:ObjectMap;
-    rml:reference "viability";
+moesm:pom_209 a rr:PredicateObjectMap.
+moesm:map_dose_000 rr:predicateObjectMap moesm:pom_209.
+moesm:pm_209 a rr:PredicateMap.
+moesm:pom_209 rr:predicateMap moesm:pm_209.
+moesm:pm_209 rr:constant nsvoc:value.
+moesm:pom_209 rr:objectMap moesm:om_209.
+moesm:om_209 a rr:ObjectMap;
+    rml:reference "dose";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
-<http://mapping.example.com/rules_000> void:exampleResource moesm:map_toxicity_000.
-moesm:map_toxicity_000 rml:logicalSource moesm:source_000;
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_viability_000.
+moesm:map_viability_000 rml:logicalSource moesm:source_000;
     a rr:TriplesMap;
-    rdfs:label "toxicity".
+    rdfs:label "viability".
 moesm:s_014 a rr:SubjectMap.
-moesm:map_toxicity_000 rr:subjectMap moesm:s_014.
+moesm:map_viability_000 rr:subjectMap moesm:s_014.
 moesm:s_014 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue moesm:fn_080.
@@ -2619,22 +2609,22 @@ moesm:pmexec_080 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_080 rr:objectMap moesm:omexec_080.
 moesm:omexec_080 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+moesm:fn_080 rr:predicateObjectMap moesm:pom_210.
+moesm:pom_210 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_210.
+moesm:pm_210 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_210 rr:objectMap moesm:om_210.
+moesm:om_210 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:viability_";
+    rr:termType rr:Literal.
 moesm:fn_080 rr:predicateObjectMap moesm:pom_211.
 moesm:pom_211 a rr:PredicateObjectMap;
     rr:predicateMap moesm:pm_211.
 moesm:pm_211 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-moesm:pom_211 rr:objectMap moesm:om_211.
-moesm:om_211 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:";
-    rr:termType rr:Literal.
-moesm:fn_080 rr:predicateObjectMap moesm:pom_212.
-moesm:pom_212 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_212.
-moesm:pm_212 a rr:PredicateMap;
     rr:constant grel:valueParameter2.
-moesm:pom_212 rr:objectMap moesm:om_212.
-moesm:om_212 a rr:ObjectMap, fnml:FunctionTermMap;
+moesm:pom_211 rr:objectMap moesm:om_211.
+moesm:om_211 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue moesm:fn_081.
 moesm:fn_081 rml:logicalSource moesm:source_000;
     rr:predicateObjectMap moesm:pomexec_081.
@@ -2643,50 +2633,137 @@ moesm:pmexec_081 rr:constant <https://w3id.org/function/ontology#executes>.
 moesm:pomexec_081 rr:objectMap moesm:omexec_081.
 moesm:omexec_081 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-moesm:fn_081 rr:predicateObjectMap moesm:pom_213.
-moesm:pom_213 a rr:PredicateObjectMap;
-    rr:predicateMap moesm:pm_213.
-moesm:pm_213 a rr:PredicateMap;
+moesm:fn_081 rr:predicateObjectMap moesm:pom_212.
+moesm:pom_212 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_212.
+moesm:pm_212 a rr:PredicateMap;
     rr:constant grel:valueParameter.
+moesm:pom_212 rr:objectMap moesm:om_212.
+moesm:om_212 a rr:ObjectMap;
+    rr:template "viability_{viability}";
+    rr:termType rr:Literal.
+moesm:pom_213 a rr:PredicateObjectMap.
+moesm:map_viability_000 rr:predicateObjectMap moesm:pom_213.
+moesm:pm_213 a rr:PredicateMap.
+moesm:pom_213 rr:predicateMap moesm:pm_213.
+moesm:pm_213 rr:constant rdf:type.
 moesm:pom_213 rr:objectMap moesm:om_213.
 moesm:om_213 a rr:ObjectMap;
-    rr:template "toxicity_{toxicity}";
-    rr:termType rr:Literal.
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 moesm:pom_214 a rr:PredicateObjectMap.
-moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_214.
+moesm:map_viability_000 rr:predicateObjectMap moesm:pom_214.
 moesm:pm_214 a rr:PredicateMap.
 moesm:pom_214 rr:predicateMap moesm:pm_214.
 moesm:pm_214 rr:constant rdf:type.
 moesm:pom_214 rr:objectMap moesm:om_214.
 moesm:om_214 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_0000068";
     rr:termType rr:IRI.
 moesm:pom_215 a rr:PredicateObjectMap.
-moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_215.
+moesm:map_viability_000 rr:predicateObjectMap moesm:pom_215.
 moesm:pm_215 a rr:PredicateMap.
 moesm:pom_215 rr:predicateMap moesm:pm_215.
-moesm:pm_215 rr:constant rdf:type.
+moesm:pm_215 rr:constant rdfs:label.
 moesm:pom_215 rr:objectMap moesm:om_215.
 moesm:om_215 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1338";
-    rr:termType rr:IRI.
+    rr:template "viability: {viability}";
+    rr:termType rr:Literal;
+    rr:language "en".
 moesm:pom_216 a rr:PredicateObjectMap.
-moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_216.
+moesm:map_viability_000 rr:predicateObjectMap moesm:pom_216.
 moesm:pm_216 a rr:PredicateMap.
 moesm:pom_216 rr:predicateMap moesm:pm_216.
-moesm:pm_216 rr:constant rdfs:label.
+moesm:pm_216 rr:constant nsvoc:value.
 moesm:pom_216 rr:objectMap moesm:om_216.
 moesm:om_216 a rr:ObjectMap;
+    rml:reference "viability";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+<http://mapping.example.com/rules_000> void:exampleResource moesm:map_toxicity_000.
+moesm:map_toxicity_000 rml:logicalSource moesm:source_000;
+    a rr:TriplesMap;
+    rdfs:label "toxicity".
+moesm:s_015 a rr:SubjectMap.
+moesm:map_toxicity_000 rr:subjectMap moesm:s_015.
+moesm:s_015 a fnml:FunctionTermMap;
+    rr:termType rr:IRI;
+    fnml:functionValue moesm:fn_082.
+moesm:fn_082 rml:logicalSource moesm:source_000;
+    rr:predicateObjectMap moesm:pomexec_082.
+moesm:pomexec_082 rr:predicateMap moesm:pmexec_082.
+moesm:pmexec_082 rr:constant <https://w3id.org/function/ontology#executes>.
+moesm:pomexec_082 rr:objectMap moesm:omexec_082.
+moesm:omexec_082 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    rr:termType rr:IRI.
+moesm:fn_082 rr:predicateObjectMap moesm:pom_217.
+moesm:pom_217 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_217.
+moesm:pm_217 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_217 rr:objectMap moesm:om_217.
+moesm:om_217 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:toxicity_";
+    rr:termType rr:Literal.
+moesm:fn_082 rr:predicateObjectMap moesm:pom_218.
+moesm:pom_218 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_218.
+moesm:pm_218 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+moesm:pom_218 rr:objectMap moesm:om_218.
+moesm:om_218 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue moesm:fn_083.
+moesm:fn_083 rml:logicalSource moesm:source_000;
+    rr:predicateObjectMap moesm:pomexec_083.
+moesm:pomexec_083 rr:predicateMap moesm:pmexec_083.
+moesm:pmexec_083 rr:constant <https://w3id.org/function/ontology#executes>.
+moesm:pomexec_083 rr:objectMap moesm:omexec_083.
+moesm:omexec_083 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+    rr:termType rr:IRI.
+moesm:fn_083 rr:predicateObjectMap moesm:pom_219.
+moesm:pom_219 a rr:PredicateObjectMap;
+    rr:predicateMap moesm:pm_219.
+moesm:pm_219 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+moesm:pom_219 rr:objectMap moesm:om_219.
+moesm:om_219 a rr:ObjectMap;
+    rr:template "toxicity_{toxicity}";
+    rr:termType rr:Literal.
+moesm:pom_220 a rr:PredicateObjectMap.
+moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_220.
+moesm:pm_220 a rr:PredicateMap.
+moesm:pom_220 rr:predicateMap moesm:pm_220.
+moesm:pm_220 rr:constant rdf:type.
+moesm:pom_220 rr:objectMap moesm:om_220.
+moesm:om_220 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
+moesm:pom_221 a rr:PredicateObjectMap.
+moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_221.
+moesm:pm_221 a rr:PredicateMap.
+moesm:pom_221 rr:predicateMap moesm:pm_221.
+moesm:pm_221 rr:constant rdf:type.
+moesm:pom_221 rr:objectMap moesm:om_221.
+moesm:om_221 a rr:ObjectMap;
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1338";
+    rr:termType rr:IRI.
+moesm:pom_222 a rr:PredicateObjectMap.
+moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_222.
+moesm:pm_222 a rr:PredicateMap.
+moesm:pom_222 rr:predicateMap moesm:pm_222.
+moesm:pm_222 rr:constant rdfs:label.
+moesm:pom_222 rr:objectMap moesm:om_222.
+moesm:om_222 a rr:ObjectMap;
     rr:template "toxicity: {toxicity}";
     rr:termType rr:Literal;
     rr:language "en".
-moesm:pom_217 a rr:PredicateObjectMap.
-moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_217.
-moesm:pm_217 a rr:PredicateMap.
-moesm:pom_217 rr:predicateMap moesm:pm_217.
-moesm:pm_217 rr:constant nsvoc:value.
-moesm:pom_217 rr:objectMap moesm:om_217.
-moesm:om_217 a rr:ObjectMap;
+moesm:pom_223 a rr:PredicateObjectMap.
+moesm:map_toxicity_000 rr:predicateObjectMap moesm:pom_223.
+moesm:pm_223 a rr:PredicateMap.
+moesm:pom_223 rr:predicateMap moesm:pm_223.
+moesm:pm_223 rr:constant nsvoc:value.
+moesm:pom_223 rr:objectMap moesm:om_223.
+moesm:om_223 a rr:ObjectMap;
     rml:reference "toxicity";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
