@@ -12,6 +12,10 @@ The redland `rapper` tool can be used to convert the output to Turtle, e.g.:
 rapper -i ntriples -o turtle mo-cytotoxicity-metadata.nq > mo-cytotoxicity-metadata.ttl
 ```
 
+You can use namespaces in the Turtle with this `rapper` option `-f 'xmlns:prov="http://www.w3.org/ns/prov#"'`
+and repeat that `-f` option once for each namespace you want to define.
+
+
 ### Validation
 
 The RDF structure can be compared to [this write](https://github.com/nanocommons/enmrdf)
