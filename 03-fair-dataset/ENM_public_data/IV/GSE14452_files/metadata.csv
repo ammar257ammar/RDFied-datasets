@@ -1,0 +1,16 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE14452,GSM361148,control,control,Homo sapiens,HepG2,0,NA,24,h,NA,NA,NA,GPL201,GSM361148.CEL.gz
+GSE14452,GSM361149,control,control,Homo sapiens,HepG2,0,NA,24,h,NA,NA,NA,GPL201,GSM361149.CEL.gz
+GSE14452,GSM361150,control,control,Homo sapiens,HepG2,0,NA,24,h,NA,NA,NA,GPL201,GSM361150.CEL.gz
+GSE14452,GSM361151,AgNPs,AgNPs,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361151.CEL.gz
+GSE14452,GSM361152,AgNPs,AgNPs,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361152.CEL.gz
+GSE14452,GSM361153,AgNPs,AgNPs,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361153.CEL.gz
+GSE14452,GSM361154,PS,PS,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361154.CEL.gz
+GSE14452,GSM361155,PS,PS,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361155.CEL.gz
+GSE14452,GSM361156,PS,PS,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361156.CEL.gz
+GSE14452,GSM361157,Ag2CO3,Ag2CO3,Homo sapiens,HepG2,1.3,mg/l,24,h,NA,NA,NA,GPL201,GSM361157.CEL.gz
+GSE14452,GSM361158,Ag2CO3,Ag2CO3,Homo sapiens,HepG2,1.3,mg/l,24,h,NA,NA,NA,GPL201,GSM361158.CEL.gz
+GSE14452,GSM361159,Ag2CO3,Ag2CO3,Homo sapiens,HepG2,1.3,mg/l,24,h,NA,NA,NA,GPL201,GSM361159.CEL.gz
+GSE14452,GSM361160,AgNPs_cysteine,AgNPs_cysteine,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361160.CEL.gz
+GSE14452,GSM361161,AgNPs_cysteine,AgNPs_cysteine,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361161.CEL.gz
+GSE14452,GSM361162,AgNPs_cysteine,AgNPs_cysteine,Homo sapiens,HepG2,1,mg/l,24,h,NA,NA,NA,GPL201,GSM361162.CEL.gz

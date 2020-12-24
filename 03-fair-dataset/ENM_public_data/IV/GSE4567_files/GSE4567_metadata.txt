@@ -1,0 +1,9 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE4567	GSM101996	control	control	Homo sapiens	HPAEC	0	NA	4	h	NA	NA	NA	GPL570	GSM101996.CEL
+GSE4567	GSM101997	control	control	Homo sapiens	HPAEC	0	NA	4	h	NA	NA	NA	GPL570	GSM101997.CEL
+GSE4567	GSM101998	control	control	Homo sapiens	HPAEC	0	NA	4	h	NA	NA	NA	GPL570	GSM101998.CEL
+GSE4567	GSM101999	control	control	Homo sapiens	HPAEC	0	NA	4	h	NA	NA	NA	GPL570	GSM101999.CEL
+GSE4567	GSM102000	UFP	UFP	Homo sapiens	HPAEC	100	ug/ml	4	h	NA	NA	NA	GPL570	GSM102000.CEL
+GSE4567	GSM102001	UFP	UFP	Homo sapiens	HPAEC	100	ug/ml	4	h	NA	NA	NA	GPL570	GSM102001.CEL
+GSE4567	GSM102002	UFP	UFP	Homo sapiens	HPAEC	100	ug/ml	4	h	NA	NA	NA	GPL570	GSM102002.CEL
+GSE4567	GSM102003	UFP	UFP	Homo sapiens	HPAEC	100	ug/ml	4	h	NA	NA	NA	GPL570	GSM102003.CEL

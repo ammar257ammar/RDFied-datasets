@@ -1,0 +1,10 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE20692,Jurkat_Control_1,control,control_0,Homo sapiens,Jurkat,0,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_Control_2,control,control_0,Homo sapiens,Jurkat,0,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_Control_3,control,control_0,Homo sapiens,Jurkat,0,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_AgNPs_1,AgNPs,AgNPs_0.2,Homo sapiens,Jurkat,0.2,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_AgNPs_2,AgNPs,AgNPs_0.2,Homo sapiens,Jurkat,0.2,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_AgNPs_3,AgNPs,AgNPs_0.2,Homo sapiens,Jurkat,0.2,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_Ag_ions_1,Ag_ions,Ag_ions_0.2,Homo sapiens,Jurkat,0.2,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_Ag_ions_2,Ag_ions,Ag_ions_0.2,Homo sapiens,Jurkat,0.2,mg/l,24,h,NA,NA,biotin,GPL6883,NA
+GSE20692,Jurkat_Ag_ions_3,Ag_ions,Ag_ions_0.2,Homo sapiens,Jurkat,0.2,mg/l,24,h,NA,NA,biotin,GPL6883,NA

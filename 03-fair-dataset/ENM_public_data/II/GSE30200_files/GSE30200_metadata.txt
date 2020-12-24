@@ -1,0 +1,21 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE30200	X6H_A549_Si0_8	control	control_0	Homo sapiens	A549	0	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si100_3	Silica	Silica_100	Homo sapiens	A549	100	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si200_11	Silica	Silica_200	Homo sapiens	A549	200	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si400_5	Silica	Silica_400	Homo sapiens	A549	400	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si400_4	Silica	Silica_400	Homo sapiens	A549	400	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si200_12	Silica	Silica_200	Homo sapiens	A549	200	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si100_5	Silica	Silica_100	Homo sapiens	A549	100	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si0_12	control	control_0	Homo sapiens	A549	0	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si100_1	Silica	Silica_100	Homo sapiens	A549	100	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si200_9	Silica	Silica_200	Homo sapiens	A549	200	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si0_9	control	control_0	Homo sapiens	A549	0	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si400_6	Silica	Silica_400	Homo sapiens	A549	400	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si100_2	Silica	Silica_100	Homo sapiens	A549	100	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si200_8	Silica	Silica_200	Homo sapiens	A549	200	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si0_7	control	control_0	Homo sapiens	A549	0	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si400_3	Silica	Silica_400	Homo sapiens	A549	400	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si0_11	control	control_0	Homo sapiens	A549	0	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si400_2	Silica	Silica_400	Homo sapiens	A549	400	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si100_6	Silica	Silica_100	Homo sapiens	A549	100	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA
+GSE30200	X6H_A549_Si200_10	Silica	Silica_200	Homo sapiens	A549	200	ug/ml	6	h	NA	NA	Biotin	GPL6947	NA

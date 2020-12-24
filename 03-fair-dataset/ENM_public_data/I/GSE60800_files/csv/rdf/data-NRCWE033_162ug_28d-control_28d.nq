@@ -1,0 +1,156 @@
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:TranscriptomicsContrast>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <http://www.w3.org/2000/01/rdf-schema#label> "a contrast of two groups (NRCWE033_162ug_28d-control_28d) for differential gene expression - Series: GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-gse> "GSE60800".
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <http://purl.org/dc/terms/source> <https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_062e256acd4992a71da75309864588a5>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0>.
+<http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589> <https://ammar257ammar.github.com/RDFied-datasets/ns:deg> <http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_062e256acd4992a71da75309864588a5> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "2,82496814166884E-05"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,0252790043919229"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "0,870139863407502"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "7,55525998928553"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_96166254ca801d03078e0e0ef14461c7> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "1,53744747471966E-05"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,0187259526571484"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-0,623407425181458"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "9,03680067253594"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_ac43c392d6ecdf495a428bfe82786e60> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "4,82323696063653E-05"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,0315402595402855"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "1,02672644924998"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "7,49613367023582"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_4cb850d908b7ad598386f216f2e28cf2> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "7,08731162193041E-07"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,00200830786993435"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "1,32573160716365"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "7,38817893414728"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_1485cd8fa71b683b3254bd5638304563> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "3,09673487010887E-07"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,00144397426396699"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "0,731375540273936"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "8,3308963877688"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_77c4b3d7e7a51bbe26938aa5dfd93dbc> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "2,21373449115851E-05"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,0234244196147995"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-0,892110534555754"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "8,49159207012515"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_1dcee6dd56e231784e90237c5c125066> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "2,78586279040193E-05"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,0252790043919229"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-0,606201054759142"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "7,52256436833809"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_b15d9d8016f40610818d0f0b5a6ea60b> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "1,37703596693623E-06"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,00334462364426426"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-1,02389457530937"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "9,87368728858451"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_d3066aff88caad226273f2278e79cf26> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "5,47762082345957E-07"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,00186261018480919"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-1,48857502503499"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "8,09304397889306"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_610ce6a2f512f7495e3ea11414108813> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "4,58664350632386E-08"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,000779821128945183"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "2,15296713906225"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "10,0764092004714"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_87fbfb4099a06783799e7880d10edd61> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "2,69335692286731E-07"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,00144397426396699"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-1,23890148028338"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "9,2351657938619"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_06ba113039b69e015a938ab45d4e8e42> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "7,13827016642817E-06"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,011033169942692"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-1,2584114057131"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "9,57598004726733"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_02492c07e52d352f43154654d4084c3f> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "2,34216641249024E-05"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,0234244196147995"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-1,20699851927817"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "8,27792836882491"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_a7ce95d37615394803293b67f211dda3> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "3,3971868344124E-07"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,00144397426396699"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "2,53326815145181"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "11,2571542088602"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_ee4d8557ea1cf8a549f73721c9dd7ea0> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:DEG>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <http://www.w3.org/2000/01/rdf-schema#label> "a differentially expressed gene for contrast (NRCWE033_162ug_28d-control_28d) in series GSE60800"@en.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <https://ammar257ammar.github.com/RDFied-datasets/ns:p-value> "1,15805870764823E-05"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <https://ammar257ammar.github.com/RDFied-datasets/ns:adj-p-value> "0,0164077617895293"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <https://ammar257ammar.github.com/RDFied-datasets/ns:log-fold-change> "-0,746647229286036"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <https://ammar257ammar.github.com/RDFied-datasets/ns:avg-expr> "7,08171611650191"^^<http://www.w3.org/2001/XMLSchema#float>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <https://ammar257ammar.github.com/RDFied-datasets/ns:x-ensembl> <http://bigcat.unimaas.nl/ns/ensembl:null>.
+<http://bigcat.unimaas.nl/ns:deg_c072db4d7dcbca0a369c6b87861ecf18> <https://ammar257ammar.github.com/RDFied-datasets/ns:in-transcriptomics-contrast> <http://bigcat.unimaas.nl/ns:contrast_39919a7c590c56eb2215139eeceb7589>.

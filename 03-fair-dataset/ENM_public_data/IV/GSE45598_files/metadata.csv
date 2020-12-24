@@ -1,0 +1,7 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE45598,GSM1110329,control,control,Homo sapiens,HMEC_50perc_confluence,0,ug/ml,24,h,NA,NA,NA,GPL16699,GSM1110329_US_01_Feature_extraction.txt.txt.gz
+GSE45598,GSM1110330,control,control,Homo sapiens,HMEC_50perc_confluence,0,ug/ml,24,h,NA,NA,NA,GPL16699,GSM1110330_US_02_Feature_extraction.txt.txt.gz
+GSE45598,GSM1110331,control,control,Homo sapiens,HMEC_50perc_confluence,0,ug/ml,24,h,NA,NA,NA,GPL16699,GSM1110331_US_04_Feature_extraction.txt.txt.gz
+GSE45598,GSM1110332,Eudragit_RS,Eudragit_RS,Homo sapiens,HMEC_50perc_confluence,25,ug/ml,24,h,NA,NA,NA,GPL16699,GSM1110332_US_06_Feature_extraction.txt.txt.gz
+GSE45598,GSM1110333,Eudragit_RS,Eudragit_RS,Homo sapiens,HMEC_50perc_confluence,25,ug/ml,24,h,NA,NA,NA,GPL16699,GSM1110333_US_07_Feature_extraction.txt.txt.gz
+GSE45598,GSM1110334,Eudragit_RS,Eudragit_RS,Homo sapiens,HMEC_50perc_confluence,25,ug/ml,24,h,NA,NA,NA,GPL16699,GSM1110334_US_08_Feature_extraction.txt.txt.gz

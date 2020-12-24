@@ -1,0 +1,13 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE17676	GSM441068	flat_titanium (control)	flat_titanium	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441068.txt.gz
+GSE17676	GSM441069	flat_titanium (control)	flat_titanium	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441069.txt.gz
+GSE17676	GSM441070	flat_titanium (control)	flat_titanium	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441070.txt.gz
+GSE17676	GSM441071	flat_titanium (control)	flat_titanium	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441071.txt.gz
+GSE17676	GSM441072	TiO2 nanotubes (30nm)	Nanotubes30nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441072.txt.gz
+GSE17676	GSM441073	TiO2 nanotubes (30nm)	Nanotubes30nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441073.txt.gz
+GSE17676	GSM441074	TiO2 nanotubes (30nm)	Nanotubes30nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441074.txt.gz
+GSE17676	GSM441075	TiO2 nanotubes (30nm)	Nanotubes30nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441075.txt.gz
+GSE17676	GSM441076	TiO2 nanotubes (100nm)	Nanotubes100nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441076.txt.gz
+GSE17676	GSM441077	TiO2 nanotubes (100nm)	Nanotubes100nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441077.txt.gz
+GSE17676	GSM441078	TiO2 nanotubes (100nm)	Nanotubes100nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441078.txt.gz
+GSE17676	GSM441079	TiO2 nanotubes (100nm)	Nanotubes100nm	Homo sapiens	HAEC	NA	NA	24	h	NA	NA	NA	GPL6480	GSM441079.txt.gz

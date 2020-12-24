@@ -1,0 +1,10 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE79766	GSM2102127	Ag_ions	Ag_ions	Mus musculus	mESC	5	ug/ml	24	h	NA	NA	NA	GPL16570	GSM2102127_mESC_Ag+_5.0_1.CEL.gz
+GSE79766	GSM2102128	Ag_ions	Ag_ions	Mus musculus	mESC	5	ug/ml	24	h	NA	NA	NA	GPL16570	GSM2102128_mESC_Ag+_5.0_2.CEL.gz
+GSE79766	GSM2102129	Ag_ions	Ag_ions	Mus musculus	mESC	5	ug/ml	24	h	NA	NA	NA	GPL16570	GSM2102129_mESC_Ag+_5.0_3.CEL.gz
+GSE79766	GSM2102130	AgNPs	AgNPs	Mus musculus	mESC	5	ug/ml	24	h	NA	NA	NA	GPL16570	GSM2102130_mESC_AgNP_5.0_1.CEL.gz
+GSE79766	GSM2102131	AgNPs	AgNPs	Mus musculus	mESC	5	ug/ml	24	h	NA	NA	NA	GPL16570	GSM2102131_mESC_AgNP_5.0_2.CEL.gz
+GSE79766	GSM2102132	AgNPs	AgNPs	Mus musculus	mESC	5	ug/ml	24	h	NA	NA	NA	GPL16570	GSM2102132_mESC_AgNP_5.0_3.CEL.gz
+GSE79766	GSM2102133	control	control	Mus musculus	mESC	0	NA	24	h	NA	NA	NA	GPL16570	GSM2102133_mESC_Ctrl_1.CEL.gz
+GSE79766	GSM2102134	control	control	Mus musculus	mESC	0	NA	24	h	NA	NA	NA	GPL16570	GSM2102134_mESC_Ctrl_2.CEL.gz
+GSE79766	GSM2102135	control	control	Mus musculus	mESC	0	NA	24	h	NA	NA	NA	GPL16570	GSM2102135_mESC_Ctrl_3.CEL.gz

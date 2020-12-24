@@ -1,0 +1,10 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE30215,X24H_A549_Si0_15,control,control_24,Homo sapiens,A549,0,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si200_14,Silica,Silica_24,Homo sapiens,A549,200,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si200_15,Silica,Silica_24,Homo sapiens,A549,200,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si0_16,control,control_24,Homo sapiens,A549,0,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si200_18,Silica,Silica_24,Homo sapiens,A549,200,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si0_17,control,control_24,Homo sapiens,A549,0,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si200_17,Silica,Silica_24,Homo sapiens,A549,200,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si200_13,Silica,Silica_24,Homo sapiens,A549,200,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA
+GSE30215,X24H_A549_Si0_18,control,control_24,Homo sapiens,A549,0,ug/ml,24,h,NA,NA,Biotin,GPL6947,NA

@@ -1,0 +1,25 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE48087,X6116696002_A,control_HBSS,control_HBSS,Rattus norvegicus,N24,0,ppm,18,h,6116696002,A,biotin,GPL6101,NA
+GSE48087,X6116696002_B,Ag10_PVP,Ag10_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696002,B,biotin,GPL6101,NA
+GSE48087,X6116696002_C,Ag10_Citrate,Ag10_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696002,C,biotin,GPL6101,NA
+GSE48087,X6116696002_D,control_Citrate,control_Citrate,Rattus norvegicus,N24,0,ppm,18,h,6116696002,D,biotin,GPL6101,NA
+GSE48087,X6116696002_E,control_Citrate,control_Citrate,Rattus norvegicus,N24,0,ppm,18,h,6116696002,E,biotin,GPL6101,NA
+GSE48087,X6116696002_F,Ag75_Citrate,Ag75_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696002,F,biotin,GPL6101,NA
+GSE48087,X6116696002_G,control_Citrate,control_Citrate,Rattus norvegicus,N24,0,ppm,18,h,6116696002,G,biotin,GPL6101,NA
+GSE48087,X6116696002_H,Ag75_PVP,Ag75_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696002,H,biotin,GPL6101,NA
+GSE48087,X6116696002_I,Ag75_Citrate,Ag75_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696002,I,biotin,GPL6101,NA
+GSE48087,X6116696002_J,Ag10_Citrate,Ag10_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696002,J,biotin,GPL6101,NA
+GSE48087,X6116696002_K,control_Citrate,control_Citrate,Rattus norvegicus,N24,0,ppm,18,h,6116696002,K,biotin,GPL6101,NA
+GSE48087,X6116696002_L,Ag10_Citrate,Ag10_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696002,L,biotin,GPL6101,NA
+GSE48087,X6116696003_A,Ag75_PVP,Ag75_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,A,biotin,GPL6101,NA
+GSE48087,X6116696003_B,Ag10_PVP,Ag10_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,B,biotin,GPL6101,NA
+GSE48087,X6116696003_C,Ag75_PVP,Ag75_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,C,biotin,GPL6101,NA
+GSE48087,X6116696003_D,Ag75_Citrate,Ag75_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,D,biotin,GPL6101,NA
+GSE48087,X6116696003_E,control_HBSS,control_HBSS,Rattus norvegicus,N24,0,ppm,18,h,6116696003,E,biotin,GPL6101,NA
+GSE48087,X6116696003_F,Ag75_PVP,Ag75_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,F,biotin,GPL6101,NA
+GSE48087,X6116696003_G,control_HBSS,control_HBSS,Rattus norvegicus,N24,0,ppm,18,h,6116696003,G,biotin,GPL6101,NA
+GSE48087,X6116696003_H,Ag10_PVP,Ag10_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,H,biotin,GPL6101,NA
+GSE48087,X6116696003_I,Ag75_Citrate,Ag75_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,I,biotin,GPL6101,NA
+GSE48087,X6116696003_J,Ag10_Citrate,Ag10_Citrate,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,J,biotin,GPL6101,NA
+GSE48087,X6116696003_K,control_HBSS,control_HBSS,Rattus norvegicus,N24,0,ppm,18,h,6116696003,K,biotin,GPL6101,NA
+GSE48087,X6116696003_L,Ag10_PVP,Ag10_PVP,Rattus norvegicus,N24,0.5,ppm,18,h,6116696003,L,biotin,GPL6101,NA

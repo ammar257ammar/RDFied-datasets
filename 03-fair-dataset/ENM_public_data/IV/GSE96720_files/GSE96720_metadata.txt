@@ -1,0 +1,7 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE96720	GSM2538909	control	control	Homo sapiens	HET1A	0	ug/ml	24	h	NA	NA	NA	GPL21185	GSM2538909_Con1.txt.gz
+GSE96720	GSM2538910	control	control	Homo sapiens	HET1A	0	ug/ml	24	h	NA	NA	NA	GPL21185	GSM2538910_Con2.txt.gz
+GSE96720	GSM2538911	control	control	Homo sapiens	HET1A	0	ug/ml	24	h	NA	NA	NA	GPL21185	GSM2538911_Con3.txt.gz
+GSE96720	GSM2538912	Graphene quantum dots	GQD	Homo sapiens	HET1A	50	ug/ml	24	h	NA	NA	NA	GPL21185	GSM2538912_GQD1.txt.gz
+GSE96720	GSM2538913	Graphene quantum dots	GQD	Homo sapiens	HET1A	50	ug/ml	24	h	NA	NA	NA	GPL21185	GSM2538913_GQD2.txt.gz
+GSE96720	GSM2538914	Graphene quantum dots	GQD	Homo sapiens	HET1A	50	ug/ml	24	h	NA	NA	NA	GPL21185	GSM2538914_GQD3.txt.gz

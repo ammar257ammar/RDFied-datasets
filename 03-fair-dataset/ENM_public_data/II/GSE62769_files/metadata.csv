@@ -1,0 +1,13 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE62769,GSM1533176,asbestos,Asbestos15,Homo sapiens,Primary human bronchial epithelial cells,1.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533176_Asbestos15_1.CEL.gz
+GSE62769,GSM1533177,asbestos,Asbestos15,Homo sapiens,Primary human bronchial epithelial cells,1.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533177_Asbestos15_2.CEL.gz
+GSE62769,GSM1533178,asbestos,Asbestos15,Homo sapiens,Primary human bronchial epithelial cells,1.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533178_Asbestos15_3.CEL.gz
+GSE62769,GSM1533179,control,control,Homo sapiens,Primary human bronchial epithelial cells,0,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533179_Control_1.CEL.gz
+GSE62769,GSM1533180,control,control,Homo sapiens,Primary human bronchial epithelial cells,0,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533180_Control_2.CEL.gz
+GSE62769,GSM1533181,control,control,Homo sapiens,Primary human bronchial epithelial cells,0,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533181_Control_3.CEL.gz
+GSE62769,GSM1533182,Silica,Silica15,Homo sapiens,Primary human bronchial epithelial cells,1.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533182_Silica15_1.CEL.gz
+GSE62769,GSM1533183,Silica,Silica15,Homo sapiens,Primary human bronchial epithelial cells,1.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533183_Silica15_2.CEL.gz
+GSE62769,GSM1533184,Silica,Silica15,Homo sapiens,Primary human bronchial epithelial cells,1.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533184_Silica15_3.CEL.gz
+GSE62769,GSM1533185,Silica,Silica75,Homo sapiens,Primary human bronchial epithelial cells,7.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533185_Silica75_1.CEL.gz
+GSE62769,GSM1533186,Silica,Silica75,Homo sapiens,Primary human bronchial epithelial cells,7.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533186_Silica75_2.CEL.gz
+GSE62769,GSM1533187,Silica,Silica75,Homo sapiens,Primary human bronchial epithelial cells,7.5e+07,um2/cm2,24,h,NA,NA,NA,GPL571,GSM1533187_Silica75_3.CEL.gz

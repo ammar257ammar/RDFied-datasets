@@ -1,0 +1,13 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE7010	GSM161787	control	control	Homo sapiens	PAEC	0	NA	6	h	NA	NA	NA	GPL96	GSM161787.CEL
+GSE7010	GSM161788	Chapel_hill_coarse	Chapel_hill_coarse	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161788.CEL
+GSE7010	GSM161790	Chapel_hill_fine	Chapel_hill_fine	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161790.CEL
+GSE7010	GSM161791	Chapel_hill_UFP	Chapel_hill_UFP	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161791.CEL
+GSE7010	GSM161793	control	control	Homo sapiens	PAEC	0	NA	6	h	NA	NA	NA	GPL96	GSM161793.CEL
+GSE7010	GSM161794	Chapel_hill_coarse	Chapel_hill_coarse	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161794.CEL
+GSE7010	GSM161796	Chapel_hill_fine	Chapel_hill_fine	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161796.CEL
+GSE7010	GSM161797	Chapel_hill_UFP	Chapel_hill_UFP	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161797.CEL
+GSE7010	GSM161798	control	control	Homo sapiens	PAEC	0	NA	6	h	NA	NA	NA	GPL96	GSM161798.CEL
+GSE7010	GSM161800	Chapel_hill_coarse	Chapel_hill_coarse	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161800.CEL
+GSE7010	GSM161801	Chapel_hill_fine	Chapel_hill_fine	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161801.CEL
+GSE7010	GSM161802	Chapel_hill_UFP	Chapel_hill_UFP	Homo sapiens	PAEC	250	ug/ml	6	h	NA	NA	NA	GPL96	GSM161802.CEL

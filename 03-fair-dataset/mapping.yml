@@ -1,0 +1,834 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dcterms: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    email: ammar257ammar@gmail.com
+    
+sources:
+# data-source: ['ENM_public_data/I/GSE112780_files/metadata.csv~csv']
+  data-source: ['metadata.csv~csv']
+   
+mappings:
+  dataset:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = dataset_$(GSE))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, void:DataSet~iri]
+      - [nsvoc:x-gse, $(GSE)]
+      - [dcterms:title, "FAIR dataset of toxicogenomics of engineered nanomaterials (GSE: $(GSE))", en~lang]
+      - [dcterms:description, "RDF version of the data from Saarimaki, Laura Aliisa, Federico, Antonio, Lynch, Iseult, Papadiamantis, Anastasios G., Tsoumanis, Andreas, Melagraki, Georgia, … Greco, Dario. (2020). Manually curated transcriptomics data collection for toxicogenomic assessment of engineered nanomaterials (Version 1.0.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4146981", en~lang]
+      - [dcterms:license, https://creativecommons.org/licenses/by/4.0/~iri]
+      - [dcterms:publisher, Ammar Ammar, en~lang]
+      - predicate: obo:OBI_0001980
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(GSM))
+  experiment:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(GSM))    
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:OBI_0001980~iri]
+      - [rdfs:label, "an in vivo intervention experiment for $(treatment) with dose $(dose) $(dose_unit) at $(time_point) $(time_point_unit) time point in $(biological_system) cells", en~lang]
+      - [ns:x-gse, $(GSE)]
+      - [ns:x-gsm, $(GSM)]
+      - [ns:x-gpl, $(platform)]
+      - [ns:treatment_group, $(group)]
+      - [ns:slide, $(slide)]
+      - [ns:array, $(array)]
+      - predicate: ns:dye
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dye_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = dye_$(dye))
+      - predicate: obo:CHEBI_59999
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = material_fairds_$(treatment))
+      - predicate: nsvoc:cell_species
+        object: NCBITAXON:9606~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(organism)]
+            - [grel:valueParameter2, Homo sapiens]          
+      - predicate: nsvoc:cell_species
+        object: NCBITAXON:10090~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(organism)]
+            - [grel:valueParameter2, Mus musculus]                   
+      - predicate: nsvoc:cell_species
+        object: NCBITAXON:10116~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(organism)]
+            - [grel:valueParameter2, Rattus norvegicus]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001253~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, THP-1]  
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0002922~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Primary human bronchial epithelial cells] 
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0000763~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Lung]             
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0000093~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, MCF-7] 
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0000018~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, A549] 
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0003151~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HPAEC] 
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001185~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HeLa] 
+      - predicate: obo:BTO_0001489
+        object: nsvoc:bio_system_n24~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, N24]
+      - predicate: obo:BTO_0001489
+        object: nsvoc:bio_system_fe1~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, FE1]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001099~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Caco-2]
+      - predicate: obo:BTO_0001489
+        object: obo:CL_1001603~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Alveolar macrophage]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001188~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HMEC_90perc_confluence]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001187~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HepG2]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0002795~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HUVEC]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0005705~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, hONS]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0005482~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, CD34]
+      - predicate: obo:BTO_0001489
+        object: nsvoc:bio_system_mrc9~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, MRC9]
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0000763~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Lung (OVA/Alum sensitized)]    
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0001279~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Spinal cord dissociated cultures]    
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001186~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HepaRG]    
+      - predicate: obo:BTO_0001489
+        object: obo:CL_0010004~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, BMM]      
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0000224~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Liver] 
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0001141~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, PAEC]   
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0003039~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, EA.hy926] 
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0001025~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, PBMC heart]             
+      - predicate: obo:BTO_0001489
+        object: nsvoc:bio_system_hmdm~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HMDM]      
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0004433~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HET1A]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0005728~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Bronchial epithelium]            
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0002900~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, MDDC]
+      - predicate: obo:BTO_0001489
+        object: nsvoc:bio_system_sae~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, SAE]
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0004602~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HAEC]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001099~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Caco-2/HT29-MTX]
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0000269~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Colon]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_005362~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, 16lu]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001188~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HMEC_50perc_confluence]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0005914~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, mESC]
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0002392~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Y79 Jurkat]            
+      - predicate: obo:BTO_0001489
+        object: obo:BTO_0000341~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, Diaphragm]      
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0001089~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, BEAS-2B]    
+      - predicate: obo:BTO_0001489
+        object: efo:EFO_0002056~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(biological_system)]
+            - [grel:valueParameter2, HaCaT]    
+      - predicate: efo:EFO_0000428
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = dose_$(dose))               
+      - predicate: efo:EFO_0000721
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(time_point))
+      - predicate: nsvoc:treatment_type
+        object: nsvoc:TreatmentNanoparticle~iri
+        condition:
+          function: grel:stringNotContainsExcept
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, control]
+            - [grel:valueParameter3, WC_Co#CoCl2#LPS#Chapel_hill_UFP#Eudragit_RS#Indoor-R (sanding dust)#GSNO#GSNO-loaded Eudragit RL#Chapel_hill_fine#Ag2CO3#glass wool#UFP#PLGA#Eudragit RL#Chapel_hill_coarse]
+      - predicate: nsvoc:treatment_type
+        object: nsvoc:TreatmentControl~iri
+        condition:
+          function: grel:stringContains
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, control]
+      - predicate: nsvoc:treatment_type
+        object: nsvoc:TreatmentOther~iri #14
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, WC_Co#CoCl2#LPS#Chapel_hill_UFP#Eudragit_RS#Indoor-R (sanding dust)#GSNO#GSNO-loaded Eudragit RL#Chapel_hill_fine#Ag2CO3#glass wool#UFP#PLGA#Eudragit RL#Chapel_hill_coarse]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+  material:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = material_fairds_$(treatment))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:CHEBI_59999~iri]
+      - [rdfs:label, $(treatment), en~lang]
+      - predicate: dcterms:source
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = dataset_$(GSE))
+      - predicate: dcterms:type
+        object: obo:CHEBI_51050~iri #19
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, nanoTiO2 (NRCWE-032)#TiO2_Acros#nanoTiO2 (anatase)#nanoTiO2 (NRCWE-033)#TiO2 nanotubes (30nm)#TiO2_Degussa#nanoTiO2#TiO2 (E171)#TiO2_Mknano#nanoTiO2 (rutile/anatase mix)#TiO2 nanobelt#nanoTiO2 (NRCWE-001)#Indoor-nanoTiO2 (sanding dust)#nanoTiO2 (rutile hydrophilic)#nanoTiO2 (NRCWE-025)#nanoTiO2 (NRCWE-002)#nanoTiO2 (NRCWE-030)#TiO2 nanotubes (100nm)#nanoTiO2 (rutile hydrophobic)#Fe3O4_TiO2_NP]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: npo:NPO_354~iri #11
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, MWCNT (Baytube)#MWCNT (Sigma)#MWCNT (Mitsui)#MWCNT#MWCNT_IL13#MWCNT (NCRWE-026)#MWCNT (NRCWE-26)#MWCNT (Bayer)#MWCNT (Mitsui7)#MWCNT (Cheaptubes)#MWCNT (SES)]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: enm:ENM_9000207~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, MWCNT (NM-401)]
+      - predicate: dcterms:type
+        object: npo:NPO_602~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, Graphite nanofibers]
+      - predicate: dcterms:type
+        object: obo:CHEBI_33416~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, Fullerene]
+      - predicate: dcterms:type
+        object: npo:NPO_1373~iri #9
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, M-MP-Silica NP (DMPC)#M-MP-Silica NP (PEG)#Silica#SiO2_AS30#nanoSiO2#SiO2#M-MP-Silica NP (Pristine)#SiO2_SM30#SiO2_LPS]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: obo:CHEBI_83159~iri #10
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, CuO_COOH#CuO_PBS#CuO_PEG_PBS#CuO_COOH_PBS#CuO_NH3_OVA#CuO_OVA#CuO_COOH_OVA#CuO_NH3_PBS#CuO_PEG_OVA#CuO]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: npo:NPO_606~iri #6
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, Long_carbon_nanotubes#Short_carbon_nanotubes#tCNT#rCNT#rCNT_aspiration#rCNT_inhalation]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: npo:NPO_1892~iri #15
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, AgNPs#110nm_AgNPs#Ag75_PVP#AgNPs_100nm#AgNPs_5nm#AgNO3#Ag75_Citrate#Ag_ions#20nm_AgNPs#Ag10_PVP#Ag10_Citrate#NanoA#AgNPs_cysteine#30nm_AgNPs#60nm_AgNPs]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: obo:CHEBI_133602~iri #3
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, Carbon black (Printex90)#Carbon black#Carbon black_IL13]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: npo:NPO_1542~iri #10
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, folic_acid_ZnO#ZnO_HP1#ercaptopropyl_trimethoxysilane_ZnO#ZnO#ZnO_ZCOTE#mandelic_acid_ZnO#methoxyl_ZnO#ZnO_Nanosun#ZnO_MAX#diethylene_glycol_ZnO]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: obo:CHEBI_46666~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, crocidolite]
+      - predicate: dcterms:type
+        object: obo:ENVO_02000106~iri #2
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, Short_asbestos_fibres#Long_asbestos_fibres]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: npo:NPO_1374~iri #2
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, SPIO_LPS#SPIO]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: npo:NPO_401~iri #4
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, Au5#AuNPs-HDM2#Au40#AuNPs]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: npo:NPO_943~iri #2
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, SWCNT (Sigma)#SWCNT (SES)]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: obo:CHEBI_132889~iri #3
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, Graphite#GONH2#GO]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: enm:ENM_9000006~iri #2
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, CeO2_Nano_Amor#CeO2_Alfa_Aesar]
+            - [idlab-fn:otherStr, $(treatment)]
+            - [idlab-fn:delimiter, #]
+      - predicate: dcterms:type
+        object: obo:CHEBI_46661~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, asbestos]
+      - predicate: dcterms:type
+        object: enm:ENM_9000257~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, WC]
+      - predicate: dcterms:type
+        object: enm:ENM_9000008~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, PS]
+      - predicate: dcterms:type
+        object: npo:NPO_589~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(treatment)]
+            - [grel:valueParameter2, Graphene quantum dots]
+  time:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = exposure_time_$(time_point))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, efo:EFO_0000721~iri]
+      - [rdfs:label, time: $(time_point)h, en~lang]
+      - [nsvoc:value, $(time_point), xsd:float]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000032~iri
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, h#h post exposure#hours]
+            - [idlab-fn:otherStr, $(time_point_unit)]
+            - [idlab-fn:delimiter, #]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000033~iri
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, d#days]
+            - [idlab-fn:otherStr, $(time_point_unit)]
+            - [idlab-fn:delimiter, #]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000034~iri
+        condition:
+          function: idlab-fn:stringContainsOtherString
+          parameters:
+            - [idlab-fn:str, week#weeks]
+            - [idlab-fn:otherStr, $(time_point_unit)]
+            - [idlab-fn:delimiter, #]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000035~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(time_point_unit)]
+            - [grel:valueParameter2, mo]
+      - predicate: obo:NCIT_C25709
+        object: nsvoc:time_unit_passage~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(time_point_unit)]
+            - [grel:valueParameter2, passage]
+  dose:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = dose_$(dose))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, efo:EFO_0000428~iri]
+      - [rdfs:label, dose: $(dose), en~lang]
+      - [nsvoc:value, $(dose), xsd:float]
+      - predicate: obo:NCIT_C25709
+        object: obo:NCIT_C67311~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ug/cm2] 
+      - predicate: obo:NCIT_C25709
+        object: nsvoc:dose_unit_ug2_to_cm2~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, um2/cm2]  
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000273~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, mg/l]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000275~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ng/ml]            
+      - predicate: obo:NCIT_C25709
+        object: obo:NCIT_C66976~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, mg/kgbw/day]    
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000169~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ppm]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000023~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ug]
+      - predicate: obo:NCIT_C25709
+        object: obo:NCIT_C67306~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, mg/m3]
+      - predicate: obo:NCIT_C25709
+        object: nsvoc:dose_unit_ug_day_4d~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ug/day/4d]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000064~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, uM]
+      - predicate: obo:NCIT_C25709
+        object: obo:MSIO_0000175~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, LD]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000024~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ng]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000176~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, mg/ml]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000274~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ug/ml]
+      - predicate: obo:NCIT_C25709
+        object: obo:UO_0000274~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, ug/mL]
+      - predicate: obo:NCIT_C25709
+        object: nsvoc:dose_unit_na~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(dose_unit)]
+            - [grel:valueParameter2, NA] 
+  dye:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dye_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = dye_$(dye))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, ns:Dye~iri]
+      - [rdfs:label, dye: $(dye), en~lang]

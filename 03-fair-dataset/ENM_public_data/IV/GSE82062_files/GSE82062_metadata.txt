@@ -1,0 +1,7 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE82062	GSM2182800	nanoSiO2	nanoSiO2	Homo sapiens	BEAS-2B	5	ug/ml	40	passage	NA	NA	NA	GPL17586	GSM2182800_1P40_5_HTA_2_0_.CEL
+GSE82062	GSM2182801	nanoSiO2	nanoSiO2	Homo sapiens	BEAS-2B	5	ug/ml	40	passage	NA	NA	NA	GPL17586	GSM2182801_2P40_5_HTA_2_0_.CEL
+GSE82062	GSM2182802	nanoSiO2	nanoSiO2	Homo sapiens	BEAS-2B	5	ug/ml	40	passage	NA	NA	NA	GPL17586	GSM2182802_3P40_5_HTA_2_0_.CEL
+GSE82062	GSM2182803	control	control	Homo sapiens	BEAS-2B	0	NA	40	passage	NA	NA	NA	GPL17586	GSM2182803_NC_1_HTA_2_0_.CEL
+GSE82062	GSM2182804	control	control	Homo sapiens	BEAS-2B	0	NA	40	passage	NA	NA	NA	GPL17586	GSM2182804_NC_2_HTA_2_0_.CEL
+GSE82062	GSM2182805	control	control	Homo sapiens	BEAS-2B	0	NA	40	passage	NA	NA	NA	GPL17586	GSM2182805_NC_3_HTA_2_0_.CEL

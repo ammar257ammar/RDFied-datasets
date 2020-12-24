@@ -1,0 +1,13 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE62253	GSM1523715	control	control	Homo sapiens	Caco-2	0	NA	24	h	NA	NA	NA	GPL570	GSM1523715_B_Medium.CEL.gz
+GSE62253	GSM1523716	control	control	Homo sapiens	Caco-2	0	NA	24	h	NA	NA	NA	GPL570	GSM1523716_C_Medium.CEL.gz
+GSE62253	GSM1523717	control	control	Homo sapiens	Caco-2	0	NA	24	h	NA	NA	NA	GPL570	GSM1523717_D_Medium.CEL.gz
+GSE62253	GSM1523718	NanoAg	NanoAg_low	Homo sapiens	Caco-2	2.5	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523718_E_2_5_microg_mlAgPure.CEL.gz
+GSE62253	GSM1523719	NanoAg	NanoAg_low	Homo sapiens	Caco-2	2.5	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523719_F_2_5_microg_mlAgPure.CEL.gz
+GSE62253	GSM1523720	NanoAg	NanoAg_low	Homo sapiens	Caco-2	2.5	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523720_G_2_5_microg_mlAgPure.CEL.gz
+GSE62253	GSM1523721	NanoAg	NanoAg_high	Homo sapiens	Caco-2	25	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523721_I_25_microg_mlAgPure.CEL.gz
+GSE62253	GSM1523722	NanoAg	NanoAg_high	Homo sapiens	Caco-2	25	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523722_K_25_microg_mlAgPure.CEL.gz
+GSE62253	GSM1523723	NanoAg	NanoAg_high	Homo sapiens	Caco-2	25	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523723_L_25_microg_mlAgPure.CEL.gz
+GSE62253	GSM1523724	AgNO3	AgNO3	Homo sapiens	Caco-2	0.5	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523724_N_0_5microg_mlAgPure.CEL.gz
+GSE62253	GSM1523725	AgNO3	AgNO3	Homo sapiens	Caco-2	0.5	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523725_O_0_5microg_mlAgPure.CEL.gz
+GSE62253	GSM1523726	AgNO3	AgNO3	Homo sapiens	Caco-2	0.5	ug/ml	24	h	NA	NA	NA	GPL570	GSM1523726_P_0_5microg_mlAgPure.CEL.gz

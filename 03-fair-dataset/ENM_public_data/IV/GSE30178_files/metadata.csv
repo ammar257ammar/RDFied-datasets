@@ -1,0 +1,21 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE30178,T0_L_S15_3,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_4,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S15_5,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_5,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_11,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_3,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S15_4,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_6,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S15_7,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_12,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S15_1,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_2,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S15_2,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_1,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S15_6,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_7,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_10,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_9,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S0_8,control,control_0,Rattus norvegicus,Lung,0,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA
+GSE30178,T0_L_S15_8,Silica,Silica_0,Rattus norvegicus,Lung,15,mg/m3,0,week,NA,NA,Biotin,GPL6101,NA

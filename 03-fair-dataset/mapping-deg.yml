@@ -1,0 +1,125 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dcterms: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    email: ammar257ammar@gmail.com
+    
+sources:
+  data-source: ['@CONTRAST@.csv~csv']
+   
+mappings:
+  deg:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:deg_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = deg_@GSE@_@CONTRAST@_$(ID))    
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, nsvoc:DEG~iri]
+      - [rdfs:label, a differentially expressed gene for contrast (@CONTRAST@) in series @GSE@, en~lang]
+      - [ns:p-value, $(P.Value), xsd:float]
+      - [ns:adj-p-value, $(adj.P.Val), xsd:float]
+      - [ns:log-fold-change, $(logFC), xsd:float]
+      - [ns:avg-expr, $(AveExpr), xsd:float]
+      - predicate: ns:x-ensembl
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/ensembl:]
+              - [grel:valueParameter, $(ID)]
+      - predicate: ns:in-transcriptomics-contrast
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:contrast_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 
+  contrast:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:contrast_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, nsvoc:TranscriptomicsContrast~iri]
+      - [rdfs:label, a contrast of two groups (@CONTRAST@) for differential gene expression - Series: @GSE@, en~lang]
+      - [ns:x-gse, @GSE@]
+      - predicate: dcterms:source
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = dataset_@GSE@)
+      - predicate: ns:deg
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:deg_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = deg_@GSE@_@CONTRAST@_$(ID))
+  dataset:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = dataset_@GSE@)
+    predicateobjects:
+      - predicate: nsvoc:transcriptomics-contrast
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:contrast_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 

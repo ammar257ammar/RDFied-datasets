@@ -1,0 +1,10 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE99929	SAMPLE_10	control	Jurkat_control	Homo sapiens	Jurkat	0	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_11	control	Jurkat_control	Homo sapiens	Jurkat	0	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_12	control	Jurkat_control	Homo sapiens	Jurkat	0	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_13	GO	Jurkat_GO	Homo sapiens	Jurkat	50	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_14	GO	Jurkat_GO	Homo sapiens	Jurkat	50	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_15	GO	Jurkat_GO	Homo sapiens	Jurkat	50	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_16	GONH2	Jurkat_GONH2	Homo sapiens	Jurkat	50	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_17	GONH2	Jurkat_GONH2	Homo sapiens	Jurkat	50	ug/ml	24	h	NA	NA	biotin	GPL10558	NA
+GSE99929	SAMPLE_18	GONH2	Jurkat_GONH2	Homo sapiens	Jurkat	50	ug/ml	24	h	NA	NA	biotin	GPL10558	NA

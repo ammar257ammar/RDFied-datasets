@@ -1,0 +1,7 @@
+GSE	GSM	treatment	group	organism	biological_system	dose	dose_unit	time_point	time_point_unit	slide	array	dye	platform	filenames
+GSE29110	GSM720963	control	control	Rattus norvegicus	Lung	0	mg/m3	28	week	NA	NA	NA	GPL1355	GSM720963.CEL.gz
+GSE29110	GSM720964	control	control	Rattus norvegicus	Lung	0	mg/m3	28	week	NA	NA	NA	GPL1355	GSM720964.CEL.gz
+GSE29110	GSM720965	control	control	Rattus norvegicus	Lung	0	mg/m3	28	week	NA	NA	NA	GPL1355	GSM720965.CEL.gz
+GSE29110	GSM720966	Silica	silica	Rattus norvegicus	Lung	6.2	mg/m3	28	week	NA	NA	NA	GPL1355	GSM720966.CEL.gz
+GSE29110	GSM720967	Silica	silica	Rattus norvegicus	Lung	6.2	mg/m3	28	week	NA	NA	NA	GPL1355	GSM720967.CEL.gz
+GSE29110	GSM720968	Silica	silica	Rattus norvegicus	Lung	6.2	mg/m3	28	week	NA	NA	NA	GPL1355	GSM720968.CEL.gz

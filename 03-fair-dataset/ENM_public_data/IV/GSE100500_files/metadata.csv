@@ -1,0 +1,13 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform
+GSE100500,AM_Control_1,control,control,Mus musculus,Alveolar macrophage,0,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_Control_2,control,control,Mus musculus,Alveolar macrophage,0,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_Control_3,control,control,Mus musculus,Alveolar macrophage,0,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_Control_4,control,control,Mus musculus,Alveolar macrophage,0,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_Control_5,control,control,Mus musculus,Alveolar macrophage,0,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_Control_6,control,control,Mus musculus,Alveolar macrophage,0,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_MWCNT_1,MWCNT,MWCNT,Mus musculus,Alveolar macrophage,100,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_MWCNT_2,MWCNT,MWCNT,Mus musculus,Alveolar macrophage,100,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_MWCNT_3,MWCNT,MWCNT,Mus musculus,Alveolar macrophage,100,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_MWCNT_4,MWCNT,MWCNT,Mus musculus,Alveolar macrophage,100,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_MWCNT_5,MWCNT,MWCNT,Mus musculus,Alveolar macrophage,100,ug,60,d,NA,NA,biotin,GPL6887
+GSE100500,AM_MWCNT_6,MWCNT,MWCNT,Mus musculus,Alveolar macrophage,100,ug,60,d,NA,NA,biotin,GPL6887

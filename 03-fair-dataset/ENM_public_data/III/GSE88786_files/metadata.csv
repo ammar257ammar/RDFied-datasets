@@ -1,0 +1,21 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE88786,GSM2346398,control,control_2,Homo sapiens,HeLa,0,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346399,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_2,Homo sapiens,HeLa,20,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346400,control,control_4,Homo sapiens,HeLa,0,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346401,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_4,Homo sapiens,HeLa,20,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346402,control,control_2,Homo sapiens,HeLa,0,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346403,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_2,Homo sapiens,HeLa,20,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346404,control,control_4,Homo sapiens,HeLa,0,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346405,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_4,Homo sapiens,HeLa,20,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346406,control,control_2,Homo sapiens,HeLa,0,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346407,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_2,Homo sapiens,HeLa,20,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346408,control,control_4,Homo sapiens,HeLa,0,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346409,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_4,Homo sapiens,HeLa,20,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346410,control,control_2,Homo sapiens,HeLa,0,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346411,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_2,Homo sapiens,HeLa,20,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346412,control,control_4,Homo sapiens,HeLa,0,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346413,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_4,Homo sapiens,HeLa,20,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346414,control,control_2,Homo sapiens,HeLa,0,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346415,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_2,Homo sapiens,HeLa,20,ug/ml,2,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346416,control,control_4,Homo sapiens,HeLa,0,ug/ml,4,h,NA,NA,biotin,GPL10558,NA
+GSE88786,GSM2346417,Fe3O4_TiO2_NP,Fe3O4_TiO2_NP_4,Homo sapiens,HeLa,20,ug/ml,4,h,NA,NA,biotin,GPL10558,NA

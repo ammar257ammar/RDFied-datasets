@@ -1,0 +1,10 @@
+GSE,GSM,treatment,group,organism,biological_system,dose,dose_unit,time_point,time_point_unit,slide,array,dye,platform,filenames
+GSE99929,SAMPLE_1,control,THP1_control,Homo sapiens,THP-1,0,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_2,control,THP1_control,Homo sapiens,THP-1,0,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_3,control,THP1_control,Homo sapiens,THP-1,0,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_4,GO,THP1_GO,Homo sapiens,THP-1,50,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_5,GO,THP1_GO,Homo sapiens,THP-1,50,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_6,GO,THP1_GO,Homo sapiens,THP-1,50,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_7,GONH2,THP1_GONH2,Homo sapiens,THP-1,50,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_8,GONH2,THP1_GONH2,Homo sapiens,THP-1,50,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
+GSE99929,SAMPLE_9,GONH2,THP1_GONH2,Homo sapiens,THP-1,50,ug/ml,24,h,NA,NA,biotin,GPL10558,NA
