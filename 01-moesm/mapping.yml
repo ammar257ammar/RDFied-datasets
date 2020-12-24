@@ -1,0 +1,706 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dcterms: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    email: ammar257ammar@gmail.com
+ 
+sources:
+  data-source: ['41598_2018_24483_MOESM2_ESM.csv~csv']
+
+mappings:
+  dataset:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = dataset_S2NANO RDF)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, void:DataSet~iri]
+      - [dcterms:title, S2NANO RDF, en~lang]
+      - [dcterms:description, "RDF version of the data from Choi, JS., Ha, M.K., Trinh, T.X. et al. Towards a generalized toxicity prediction model for oxide nanomaterials using integrated data from different sources. Sci Rep 8, 6110 (2018). https://doi.org/10.1038/s41598-018-24483-z", en~lang]
+      - [dcterms:license, https://creativecommons.org/licenses/by/4.0/~iri]
+      - [dcterms:publisher, Ammar Ammar, en~lang]
+      - predicate: obo:OBI_0001980
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(material)_$(core_size)_$(hydro_size)_$(surf_charge)_$(surf_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(assay)_$(cell_line)_$(viability)_$(dose)_$(time))
+  experiment:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(material)_$(core_size)_$(hydro_size)_$(surf_charge)_$(surf_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(assay)_$(cell_line)_$(viability)_$(dose)_$(time))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:OBI_0001980~iri]
+      - [rdfs:label, "an in vivo intervention experiment for $(material) with dose $(dose) at $(time)h time point", en~lang]
+      - predicate: obo:CHEBI_59999
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = material_s2nano_$(material))
+      - predicate: bao:BAO_0003009
+        object: enm:ENM_8000224~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, Alamar_blue]
+      - predicate: bao:BAO_0003009
+        object: nsvoc:assay_annexiv_v_pi_staining~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, Annexiv_V_PI_staining]
+      - predicate: bao:BAO_0003009
+        object: bao:BAO_0010001~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, ATP]
+      - predicate: bao:BAO_0003009
+        object: nsvoc:assay_cyquant~iri #found in http://www.bioassayontology.org/bao/bao_vocabulary_assaykit.owl
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, CyQuant]
+      - predicate: bao:BAO_0003009
+        object: npo:NPO_1709~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, LDH]
+      - predicate: bao:BAO_0003009
+        object: enm:ENM_8000275~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, MTS]
+      - predicate: bao:BAO_0003009
+        object: npo:NPO_1911~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, MTT]
+      - predicate: bao:BAO_0003009
+        object: enm:ENM_8000277~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(assay)]
+            - [grel:valueParameter2, NRU]     
+      - predicate: efo:EFO_0000322
+        object: obo:BTO_0000018~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, A549]
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0001089~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, BEAS_2B]            
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0001099~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, Caco_2]             
+      - predicate: efo:EFO_0000322
+        object: nsvoc:cell_line_chang_liver~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, Chang_Liver]            
+      - predicate: efo:EFO_0000322
+        object: obo:BTO_0003339~iri  #https://web.expasy.org/cellosaurus/CVCL_U985
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, HCMEC] 
+      - predicate: efo:EFO_0000322
+        object: nsvoc:cell_line_hondc~iri  
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, HONDC]             
+      - predicate: efo:EFO_0000322
+        object: obo:BTO_0005965~iri #https://web.expasy.org/cellosaurus/CVCL_6926  
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, L_02]
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0001200~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, MCF_10A]
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0001218~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, MeT_5A]
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0001231~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, RAW264_7] 
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0002717~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, SH_SY5Y] 
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0002083~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, SW480]
+      - predicate: efo:EFO_0000322
+        object: obo:BTO_0003719~iri #https://web.expasy.org/cellosaurus/CVCL_2796
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, V79_4]            
+      - predicate: efo:EFO_0000322
+        object: efo:EFO_0001260~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, WI_38] 
+      - predicate: nsvoc:cell_species
+        object: NCBITAXON:9606~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_species)]
+            - [grel:valueParameter2, Human]
+      - predicate: nsvoc:cell_species
+        object: NCBITAXON:10029~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_species)]
+            - [grel:valueParameter2, Hamster]            
+      - predicate: nsvoc:cell_species
+        object: NCBITAXON:10090~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_species)]
+            - [grel:valueParameter2, Mouse] 
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0000178~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Blood]  
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0002481~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Bone]  
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0000310~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Breast]  
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0001155~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Colon]  
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0002107~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Liver]  
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0002048~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Lung]  
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0001136~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Mesothelium]  
+      - predicate: nsvoc:cell_origin
+        object: obo:UBERON_0000004~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_origin)]
+            - [grel:valueParameter2, Nose]
+      - predicate: nsvoc:cell_type
+        object: efo:EFO_0002922~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_type)]
+            - [grel:valueParameter2, Normal]
+      - predicate: nsvoc:cell_type
+        object: efo:EFO_0001639~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_type)]
+            - [grel:valueParameter2, Cancer]
+      - predicate: efo:EFO_0000721
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(time)) 
+      - predicate: efo:EFO_0000428
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = dose_$(dose))        
+      - predicate: enm:ENM_0000068
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:viability_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = viability_$(viability))        
+      - predicate: npo:NPO_1338
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:toxicity_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = toxicity_$(toxicity))  
+  material:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = material_s2nano_$(material))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:CHEBI_59999~iri]
+      - [rdfs:label, $(material), en~lang]
+      - predicate: dcterms:source
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = dataset_S2NANO RDF)
+      - predicate: dcterms:type
+        object: enm:ENM_9000005~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(material)]
+            - [grel:valueParameter2, Al2O3]
+      - predicate: dcterms:type
+        object: obo:CHEBI_83159~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(material)]
+            - [grel:valueParameter2, CuO]
+      - predicate: dcterms:type
+        object: npo:NPO_1550~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(material)]
+            - [grel:valueParameter2, Fe2O3]
+      - predicate: dcterms:type
+        object: npo:NPO_1548~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(material)]
+            - [grel:valueParameter2, Fe3O4]
+      - predicate: dcterms:type
+        object: npo:NPO_1373~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(material)]
+            - [grel:valueParameter2, SiO2]
+      - predicate: dcterms:type
+        object: obo:CHEBI_51050~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(material)]
+            - [grel:valueParameter2, TiO2]
+      - predicate: dcterms:type
+        object: npo:NPO_1542~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(material)]
+            - [grel:valueParameter2, ZnO]
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = core_size_$(core_size))
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = hydro_size_$(hydro_size))
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = surf_charge_$(surf_charge))
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = surf_area_$(surf_area))
+      - predicate: cheminf:CHEMINF_000241
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf))
+      - predicate: enm:ENM_8000100
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ec_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = ec_$(Ec))
+      - predicate: enm:ENM_8000110
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ev_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = ev_$(Ev))
+      - predicate: npo:NPO_421
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:meo_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = meo_$(MeO))
+  coreSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = core_size_$(core_size))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, enm:ENM_8000039~iri]
+      - [rdfs:label, core_size, en~lang]
+      - [nsvoc:value, $(core_size), xsd:float]
+  hydroSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = hydro_size_$(hydro_size))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, npo:NPO_1914~iri]
+      - [rdfs:label, hydro_size, en~lang]
+      - [nsvoc:value, $(hydro_size), xsd:float]
+  surfCharge:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = surf_charge_$(surf_charge))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, npo:NPO_1812~iri]
+      - [rdfs:label, surf_charge, en~lang]
+      - [nsvoc:value, $(surf_charge), xsd:float]
+  surfArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = surf_area_$(surf_area))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, npo:NPO_1235~iri]
+      - [rdfs:label, surf_area, en~lang]
+      - [nsvoc:value, $(surf_area), xsd:float]
+  hsf:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, cheminf:CHEMINF_000241~iri]
+      - [rdfs:label, Hsf, en~lang]
+      - [nsvoc:value, $(Hsf), xsd:float]
+  ec:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ec_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = ec_$(Ec))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, enm:ENM_8000100~iri]
+      - [rdfs:label, Ec, en~lang]
+      - [nsvoc:value, $(Ec), xsd:float]
+  ev:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:Ev_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Ev_$(Ev))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, enm:ENM_8000110~iri]
+      - [rdfs:label, Ev, en~lang]
+      - [nsvoc:value, $(Ev), xsd:float]
+  MeO:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:MeO_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = MeO_$(MeO))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, npo:NPO_421~iri]
+      - [rdfs:label, MeO, en~lang]
+      - [nsvoc:value, $(MeO), xsd:float]
+  time:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = exposure_time_$(time))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, efo:EFO_0000721~iri]
+      - [rdfs:label, time: $(time)h, en~lang]
+      - [nsvoc:value, $(time), xsd:float]
+      - [obo:NCIT_C25709, obo:UO_0000032~iri] #Hours
+  dose:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = dose_$(dose))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, efo:EFO_0000428~iri]
+      - [rdfs:label, dose: $(dose), en~lang]
+      - [nsvoc:value, $(dose), xsd:float]
+      - [obo:NCIT_C25709, obo:UO_0000032~iri] ##### NEEX FIX
+  viability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:viability_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = viability_$(viability))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, enm:ENM_0000068~iri]
+      - [rdfs:label, viability: $(viability), en~lang]
+      - [nsvoc:value, $(viability), xsd:float]
+  toxicity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:toxicity_]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = toxicity_$(toxicity))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, npo:NPO_1338~iri]
+      - [rdfs:label, toxicity: $(toxicity), en~lang]
+      - [nsvoc:value, $(toxicity), xsd:string]    
