@@ -410,7 +410,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = dose_$(dose))               
+                  function: grel:md5Hex(grel:valueParameter = dose_$(dose)_$(dose_unit))               
       - predicate: efo:EFO_0000721
         object:
           - function: grel:join
@@ -419,7 +419,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(time_point))
+                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(time_point)_$(time_point_unit))
       - predicate: nsvoc:treatment_type
         object: nsvoc:TreatmentNanoparticle~iri
         condition:
@@ -645,7 +645,7 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = exposure_time_$(time_point))
+              function: grel:md5Hex(grel:valueParameter = exposure_time_$(time_point)_$(time_point_unit))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, efo:EFO_0000721~iri]
@@ -699,7 +699,7 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = dose_$(dose))
+              function: grel:md5Hex(grel:valueParameter = dose_$(dose)_$(dose_unit))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, efo:EFO_0000428~iri]

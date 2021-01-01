@@ -2968,7 +2968,7 @@ ns:pm_252 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_252 rr:objectMap ns:om_252.
 ns:om_252 a rr:ObjectMap;
-    rr:template "dose_{dose}";
+    rr:template "dose_{dose}_{dose_unit}";
     rr:termType rr:Literal.
 ns:pom_253 a rr:PredicateObjectMap.
 ns:map_experiment_000 rr:predicateObjectMap ns:pom_253.
@@ -3017,7 +3017,7 @@ ns:pm_256 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_256 rr:objectMap ns:om_256.
 ns:om_256 a rr:ObjectMap;
-    rr:template "exposure_time_{time_point}";
+    rr:template "exposure_time_{time_point}_{time_point_unit}";
     rr:termType rr:Literal.
 ns:pom_257 a rr:PredicateObjectMap.
 ns:map_experiment_000 rr:predicateObjectMap ns:pom_257.
@@ -4786,7 +4786,7 @@ ns:pm_410 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_410 rr:objectMap ns:om_410.
 ns:om_410 a rr:ObjectMap;
-    rr:template "exposure_time_{time_point}";
+    rr:template "exposure_time_{time_point}_{time_point_unit}";
     rr:termType rr:Literal.
 ns:pom_411 a rr:PredicateObjectMap.
 ns:map_time_000 rr:predicateObjectMap ns:pom_411.
@@ -5190,7 +5190,7 @@ ns:pm_445 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_445 rr:objectMap ns:om_445.
 ns:om_445 a rr:ObjectMap;
-    rr:template "dose_{dose}";
+    rr:template "dose_{dose}_{dose_unit}";
     rr:termType rr:Literal.
 ns:pom_446 a rr:PredicateObjectMap.
 ns:map_dose_000 rr:predicateObjectMap ns:pom_446.
