@@ -18,6 +18,7 @@ prefixes:
   obo: "http://purl.obolibrary.org/obo/"
   npo: "http://purl.bioontology.org/ontology/npo#"
   enm: "http://purl.enanomapper.org/onto/"
+  sio: "http://semanticscience.org/resource/"
   cheminf: "http://semanticscience.org/resource/"
   bao: "http://www.bioassayontology.org/bao#"
   efo: "http://www.ebi.ac.uk/efo/"
@@ -83,7 +84,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = material_metalOxideCytoTox_$(Material_type)) 
+                  function: grel:md5Hex(grel:valueParameter = material_metalOxideCytoTox_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)) 
       - predicate: bao:BAO_0003009
         object: npo:NPO_1709~iri
         condition:
@@ -162,7 +163,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(Exposure_time))
+                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(Exposure_time)_UO_0000032)
       - predicate: efo:EFO_0000428
         object:
           - function: grel:join
@@ -171,7 +172,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = dose_$(Exposure_dose))     
+                  function: grel:md5Hex(grel:valueParameter = dose_$(Exposure_dose)_UO_0000274)     
       - predicate: enm:ENM_0000068
         object:
           - function: grel:join
@@ -253,7 +254,7 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = material_metalOxideCytoTox_$(Material_type)) 
+              function: grel:md5Hex(grel:valueParameter = material_metalOxideCytoTox_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)) 
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, obo:CHEBI_59999~iri]
@@ -373,7 +374,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = core_size_$(Core_size))
+                  function: grel:md5Hex(grel:valueParameter = core_size_$(Core_size)_UO_0000018)
       - predicate: obo:BFO_0000056
         object:
           - function: grel:join
@@ -382,7 +383,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = hydro_size_$(Hydro_size))                  
+                  function: grel:md5Hex(grel:valueParameter = hydro_size_$(Hydro_size)_UO_0000018)                  
       - predicate: obo:BFO_0000056
         object:
           - function: grel:join
@@ -391,7 +392,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surface_charge_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = surf_charge_$(Surface_charge))       
+                  function: grel:md5Hex(grel:valueParameter = surf_charge_$(Surface_charge)_UO_0000247)       
       - predicate: obo:BFO_0000056
         object:
           - function: grel:join
@@ -400,7 +401,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surface_area_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = surf_area_$(Surface_area))                       
+                  function: grel:md5Hex(grel:valueParameter = surf_area_$(Surface_area)_ssa_unit_m2_per_gram)                       
       - predicate: obo:BFO_0000056
         object:
           - function: grel:join
@@ -409,7 +410,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf))
+                  function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf)_UO_0000266)
       - predicate: obo:BFO_0000056
         object:
           - function: grel:join
@@ -418,7 +419,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ec_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = ec_$(Ec))
+                  function: grel:md5Hex(grel:valueParameter = ec_$(Ec)_UO_0000266)
       - predicate: obo:BFO_0000056
         object:
           - function: grel:join
@@ -427,7 +428,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ev_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = ev_$(Ev))
+                  function: grel:md5Hex(grel:valueParameter = ev_$(Ev)_UO_0000266)
       - predicate: obo:BFO_0000056
         object:
           - function: grel:join
@@ -436,7 +437,7 @@ mappings:
               - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:meo_]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = meo_$(MeO))   
+                  function: grel:md5Hex(grel:valueParameter = meo_$(MeO)_UO_0000266)   
   coreSize:
     sources:
       - data-source
@@ -447,13 +448,17 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = core_size_$(Core_size))
+              function: grel:md5Hex(grel:valueParameter = core_size_$(Core_size)_UO_0000018)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_8000039~iri]
       - [rdfs:label, Core_size, en~lang]
       - [nsvoc:value, $(Core_size), xsd:float]
-      - [npo:NPO_1436, npo:NPO_1430~iri]
+      - [npo:NPO_1436, npo:NPO_1430~iri]      
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, obo:UO_0000018~iri] #nm
+      - [sio:has-unit, "nm", xsd:float]
+      - [sio:has-value, $(Core_size), xsd:float]
   hydroSize:
     sources:
       - data-source
@@ -464,13 +469,17 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = hydro_size_$(Hydro_size))
+              function: grel:md5Hex(grel:valueParameter = hydro_size_$(Hydro_size)_UO_0000018)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_1914~iri]
       - [rdfs:label, hydro_size, en~lang]
       - [nsvoc:value, $(Hydro_size), xsd:float]
       - [npo:NPO_1436, npo:NPO_1469~iri]
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, obo:UO_0000018~iri] #nm
+      - [sio:has-unit, "nm", xsd:float]
+      - [sio:has-value, $(Hydro_size), xsd:float]
   surfCharge:
     sources:
       - data-source
@@ -481,13 +490,17 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = surf_charge_$(Surface_charge))
+              function: grel:md5Hex(grel:valueParameter = surf_charge_$(Surface_charge)_UO_0000247)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_1812~iri]
       - [rdfs:label, surface_charge, en~lang]
       - [nsvoc:value, $(Surface_charge), xsd:float]
       - [npo:NPO_1436, npo:NPO_1302~iri]
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, obo:UO_0000247~iri] #mV
+      - [sio:has-unit, "mV", xsd:float]
+      - [sio:has-value, $(Surface_charge), xsd:float]
   surfArea:
     sources:
       - data-source
@@ -498,13 +511,17 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = surf_area_$(Surface_area))
+              function: grel:md5Hex(grel:valueParameter = surf_area_$(Surface_area)_ssa_unit_m2_per_gram)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_1235~iri]
       - [rdfs:label, surface_area, en~lang]
       - [nsvoc:value, $(Surface_area), xsd:float]
       - [npo:NPO_1436, npo:NPO_1235~iri] ### Need revision
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, nsvoc:ssa_unit_m2_per_gram~iri] 
+      - [sio:has-unit, "m2/g", xsd:float]
+      - [sio:has-value, $(Surface_area), xsd:float]
   hsf:
     sources:
       - data-source
@@ -515,12 +532,16 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf))
+              function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, cheminf:CHEMINF_000241~iri]
       - [rdfs:label, Hsf, en~lang]
       - [nsvoc:value, $(Hsf), xsd:float]
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
+      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-value, $(Hsf), xsd:float]
   ec:
     sources:
       - data-source
@@ -531,12 +552,16 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ec_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = ec_$(Ec))
+              function: grel:md5Hex(grel:valueParameter = ec_$(Ec)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_8000100~iri]
       - [rdfs:label, Ec, en~lang]
       - [nsvoc:value, $(Ec), xsd:float]
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
+      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-value, $(Ec), xsd:float]
   ev:
     sources:
       - data-source
@@ -547,12 +572,16 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ev_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = ev_$(Ev))
+              function: grel:md5Hex(grel:valueParameter = ev_$(Ev)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, enm:ENM_8000110~iri]
       - [rdfs:label, Ev, en~lang]
       - [nsvoc:value, $(Ev), xsd:float]
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
+      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-value, $(Ev), xsd:float]
   MeO:
     sources:
       - data-source
@@ -563,12 +592,16 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:meo_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = meo_$(MeO))
+              function: grel:md5Hex(grel:valueParameter = meo_$(MeO)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, npo:NPO_421~iri]
       - [rdfs:label, MeO, en~lang]
       - [nsvoc:value, $(MeO), xsd:float]
+      - [rdf:type, obo:BAO_0000179~iri]
+      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
+      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-value, $(MeO), xsd:float]
   time:
     sources:
       - data-source
@@ -579,7 +612,7 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = exposure_time_$(Exposure_time))
+              function: grel:md5Hex(grel:valueParameter = exposure_time_$(Exposure_time)_UO_0000032)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, efo:EFO_0000721~iri]
@@ -596,13 +629,13 @@ mappings:
           - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = dose_$(Exposure_dose))
+              function: grel:md5Hex(grel:valueParameter = dose_$(Exposure_dose)_UO_0000274)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, efo:EFO_0000428~iri]
       - [rdfs:label, dose: $(Exposure_dose), en~lang]
       - [nsvoc:value, $(Exposure_dose), xsd:float]
-      - [obo:NCIT_C25709, obo:UO_0000032~iri] ##### NEEX FIX
+      - [obo:NCIT_C25709, obo:UO_0000274~iri]
   viability:
     sources:
       - data-source
