@@ -48,18 +48,18 @@ mappings:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, nsvoc:DEG~iri]
       - [rdfs:label, a differentially expressed gene for contrast (@CONTRAST@) in series @GSE@, en~lang]
-      - [ns:p-value, $(P.Value), xsd:float]
-      - [ns:adj-p-value, $(adj.P.Val), xsd:float]
-      - [ns:log-fold-change, $(logFC), xsd:float]
-      - [ns:avg-expr, $(AveExpr), xsd:float]
-      - predicate: ns:x-ensembl
+      - [nsvoc:p-value, $(P.Value), xsd:float]
+      - [nsvoc:adj-p-value, $(adj.P.Val), xsd:float]
+      - [nsvoc:log-fold-change, $(logFC), xsd:float]
+      - [nsvoc:avg-expr, $(AveExpr), xsd:float]
+      - predicate: nsvoc:x-ensembl
         object:
           - function: grel:join
             type: iri
             parameters:
               - [grel:valueParameter, http://bigcat.unimaas.nl/ns/ensembl:]
-              - [grel:valueParameter, $(ID)]
-      - predicate: ns:in-transcriptomics-contrast
+              - [grel:valueParameter2, $(ID)]
+      - predicate: nsvoc:in-transcriptomics-contrast
         object:
           - function: grel:join
             type: iri
@@ -83,7 +83,13 @@ mappings:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, nsvoc:TranscriptomicsContrast~iri]
       - [rdfs:label, a contrast of two groups (@CONTRAST@) for differential gene expression - Series: @GSE@, en~lang]
-      - [ns:x-gse, @GSE@]
+      - predicate: nsvoc:x-gse
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/gse:]
+              - [grel:valueParameter2, @GSE@]
       - predicate: dcterms:source
         object:
           - function: grel:join
@@ -93,7 +99,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = dataset_@GSE@)
-      - predicate: ns:deg
+      - predicate: nsvoc:deg
         object:
           - function: grel:join
             type: iri

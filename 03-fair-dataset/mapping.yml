@@ -48,11 +48,17 @@ mappings:
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, void:DataSet~iri]
-      - [nsvoc:x-gse, $(GSE)]
       - [dcterms:title, "FAIR dataset of toxicogenomics of engineered nanomaterials (GSE: $(GSE))", en~lang]
       - [dcterms:description, "RDF version of the data from Saarimaki, Laura Aliisa, Federico, Antonio, Lynch, Iseult, Papadiamantis, Anastasios G., Tsoumanis, Andreas, Melagraki, Georgia, … Greco, Dario. (2020). Manually curated transcriptomics data collection for toxicogenomic assessment of engineered nanomaterials (Version 1.0.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4146981", en~lang]
       - [dcterms:license, https://creativecommons.org/licenses/by/4.0/~iri]
       - [dcterms:publisher, Ammar Ammar, en~lang]
+      - predicate: nsvoc:x-gse
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/gse:]
+              - [grel:valueParameter2, $(GSE)]
       - predicate: obo:OBI_0001980
         object:
           - function: grel:join
@@ -77,13 +83,31 @@ mappings:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, obo:OBI_0001980~iri]
       - [rdfs:label, "an in vivo intervention experiment for $(treatment) with dose $(dose) $(dose_unit) at $(time_point) $(time_point_unit) time point in $(biological_system) cells", en~lang]
-      - [ns:x-gse, $(GSE)]
-      - [ns:x-gsm, $(GSM)]
-      - [ns:x-gpl, $(platform)]
-      - [ns:treatment_group, $(group)]
-      - [ns:slide, $(slide)]
-      - [ns:array, $(array)]
-      - predicate: ns:dye
+      - [nsvoc:treatment_group, $(group)]
+      - [nsvoc:slide, $(slide)]
+      - [nsvoc:array, $(array)]
+      - predicate: nsvoc:x-gse
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/gse:]
+              - [grel:valueParameter2, $(GSE)]
+      - predicate: nsvoc:x-gsm
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/gsm:]
+              - [grel:valueParameter2, $(GSM)]
+      - predicate: nsvoc:x-gpl
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/gpl:]
+              - [grel:valueParameter2, $(platform)]
+      - predicate: nsvoc:dye
         object:
           - function: grel:join
             type: iri
@@ -830,5 +854,5 @@ mappings:
               function: grel:md5Hex(grel:valueParameter = dye_$(dye))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
-      - [rdf:type, ns:Dye~iri]
+      - [rdf:type, nsvoc:Dye~iri]
       - [rdfs:label, dye: $(dye), en~lang]

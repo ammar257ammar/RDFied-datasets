@@ -115,7 +115,7 @@ ns:pom_006 a rr:PredicateObjectMap.
 ns:map_deg_000 rr:predicateObjectMap ns:pom_006.
 ns:pm_006 a rr:PredicateMap.
 ns:pom_006 rr:predicateMap ns:pm_006.
-ns:pm_006 rr:constant ns:p-value.
+ns:pm_006 rr:constant nsvoc:p-value.
 ns:pom_006 rr:objectMap ns:om_006.
 ns:om_006 a rr:ObjectMap;
     rml:reference "P.Value";
@@ -125,7 +125,7 @@ ns:pom_007 a rr:PredicateObjectMap.
 ns:map_deg_000 rr:predicateObjectMap ns:pom_007.
 ns:pm_007 a rr:PredicateMap.
 ns:pom_007 rr:predicateMap ns:pm_007.
-ns:pm_007 rr:constant ns:adj-p-value.
+ns:pm_007 rr:constant nsvoc:adj-p-value.
 ns:pom_007 rr:objectMap ns:om_007.
 ns:om_007 a rr:ObjectMap;
     rml:reference "adj.P.Val";
@@ -135,7 +135,7 @@ ns:pom_008 a rr:PredicateObjectMap.
 ns:map_deg_000 rr:predicateObjectMap ns:pom_008.
 ns:pm_008 a rr:PredicateMap.
 ns:pom_008 rr:predicateMap ns:pm_008.
-ns:pm_008 rr:constant ns:log-fold-change.
+ns:pm_008 rr:constant nsvoc:log-fold-change.
 ns:pom_008 rr:objectMap ns:om_008.
 ns:om_008 a rr:ObjectMap;
     rml:reference "logFC";
@@ -145,7 +145,7 @@ ns:pom_009 a rr:PredicateObjectMap.
 ns:map_deg_000 rr:predicateObjectMap ns:pom_009.
 ns:pm_009 a rr:PredicateMap.
 ns:pom_009 rr:predicateMap ns:pm_009.
-ns:pm_009 rr:constant ns:avg-expr.
+ns:pm_009 rr:constant nsvoc:avg-expr.
 ns:pom_009 rr:objectMap ns:om_009.
 ns:om_009 a rr:ObjectMap;
     rml:reference "AveExpr";
@@ -155,7 +155,7 @@ ns:pom_010 a rr:PredicateObjectMap.
 ns:map_deg_000 rr:predicateObjectMap ns:pom_010.
 ns:pm_010 a rr:PredicateMap.
 ns:pom_010 rr:predicateMap ns:pm_010.
-ns:pm_010 rr:constant ns:x-ensembl.
+ns:pm_010 rr:constant nsvoc:x-ensembl.
 ns:pom_010 rr:objectMap ns:om_010.
 ns:om_010 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -180,7 +180,7 @@ ns:fn_002 rr:predicateObjectMap ns:pom_012.
 ns:pom_012 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_012.
 ns:pm_012 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_012 rr:objectMap ns:om_012.
 ns:om_012 a rr:ObjectMap;
     rml:reference "ID";
@@ -189,7 +189,7 @@ ns:pom_013 a rr:PredicateObjectMap.
 ns:map_deg_000 rr:predicateObjectMap ns:pom_013.
 ns:pm_013 a rr:PredicateMap.
 ns:pom_013 rr:predicateMap ns:pm_013.
-ns:pm_013 rr:constant ns:in-transcriptomics-contrast.
+ns:pm_013 rr:constant nsvoc:in-transcriptomics-contrast.
 ns:pom_013 rr:objectMap ns:om_013.
 ns:om_013 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -315,18 +315,9 @@ ns:pom_023 a rr:PredicateObjectMap.
 ns:map_contrast_000 rr:predicateObjectMap ns:pom_023.
 ns:pm_023 a rr:PredicateMap.
 ns:pom_023 rr:predicateMap ns:pm_023.
-ns:pm_023 rr:constant ns:x-gse.
+ns:pm_023 rr:constant nsvoc:x-gse.
 ns:pom_023 rr:objectMap ns:om_023.
-ns:om_023 a rr:ObjectMap;
-    rr:constant "GSE17676";
-    rr:termType rr:Literal.
-ns:pom_024 a rr:PredicateObjectMap.
-ns:map_contrast_000 rr:predicateObjectMap ns:pom_024.
-ns:pm_024 a rr:PredicateMap.
-ns:pom_024 rr:predicateMap ns:pm_024.
-ns:pm_024 rr:constant dcterms:source.
-ns:pom_024 rr:objectMap ns:om_024.
-ns:om_024 a fnml:FunctionTermMap;
+ns:om_023 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_007.
 ns:fn_007 rml:logicalSource ns:source_000;
@@ -336,29 +327,39 @@ ns:pmexec_007 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_007 rr:objectMap ns:omexec_007.
 ns:omexec_007 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
+ns:fn_007 rr:predicateObjectMap ns:pom_024.
+ns:pom_024 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_024.
+ns:pm_024 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_024 rr:objectMap ns:om_024.
+ns:om_024 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns/gse:";
+    rr:termType rr:Literal.
 ns:fn_007 rr:predicateObjectMap ns:pom_025.
 ns:pom_025 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_025.
 ns:pm_025 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_025 rr:objectMap ns:om_025.
 ns:om_025 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_";
+    rr:constant "GSE17676";
     rr:termType rr:Literal.
-ns:fn_007 rr:predicateObjectMap ns:pom_026.
-ns:pom_026 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_026.
-ns:pm_026 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+ns:pom_026 a rr:PredicateObjectMap.
+ns:map_contrast_000 rr:predicateObjectMap ns:pom_026.
+ns:pm_026 a rr:PredicateMap.
+ns:pom_026 rr:predicateMap ns:pm_026.
+ns:pm_026 rr:constant dcterms:source.
 ns:pom_026 rr:objectMap ns:om_026.
-ns:om_026 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:om_026 a fnml:FunctionTermMap;
+    rr:termType rr:IRI;
     fnml:functionValue ns:fn_008.
 ns:fn_008 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_008.
 ns:pomexec_008 rr:predicateMap ns:pmexec_008.
 ns:pmexec_008 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_008 rr:objectMap ns:omexec_008.
-ns:omexec_008 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+ns:omexec_008 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
 ns:fn_008 rr:predicateObjectMap ns:pom_027.
 ns:pom_027 a rr:PredicateObjectMap;
@@ -367,23 +368,22 @@ ns:pm_027 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_027 rr:objectMap ns:om_027.
 ns:om_027 a rr:ObjectMap;
-    rr:constant "dataset_GSE17676";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_";
     rr:termType rr:Literal.
-ns:pom_028 a rr:PredicateObjectMap.
-ns:map_contrast_000 rr:predicateObjectMap ns:pom_028.
-ns:pm_028 a rr:PredicateMap.
-ns:pom_028 rr:predicateMap ns:pm_028.
-ns:pm_028 rr:constant ns:deg.
+ns:fn_008 rr:predicateObjectMap ns:pom_028.
+ns:pom_028 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_028.
+ns:pm_028 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_028 rr:objectMap ns:om_028.
-ns:om_028 a fnml:FunctionTermMap;
-    rr:termType rr:IRI;
+ns:om_028 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_009.
 ns:fn_009 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_009.
 ns:pomexec_009 rr:predicateMap ns:pmexec_009.
 ns:pmexec_009 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_009 rr:objectMap ns:omexec_009.
-ns:omexec_009 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+ns:omexec_009 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
 ns:fn_009 rr:predicateObjectMap ns:pom_029.
 ns:pom_029 a rr:PredicateObjectMap;
@@ -392,22 +392,23 @@ ns:pm_029 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_029 rr:objectMap ns:om_029.
 ns:om_029 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:deg_";
+    rr:constant "dataset_GSE17676";
     rr:termType rr:Literal.
-ns:fn_009 rr:predicateObjectMap ns:pom_030.
-ns:pom_030 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_030.
-ns:pm_030 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+ns:pom_030 a rr:PredicateObjectMap.
+ns:map_contrast_000 rr:predicateObjectMap ns:pom_030.
+ns:pm_030 a rr:PredicateMap.
+ns:pom_030 rr:predicateMap ns:pm_030.
+ns:pm_030 rr:constant nsvoc:deg.
 ns:pom_030 rr:objectMap ns:om_030.
-ns:om_030 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:om_030 a fnml:FunctionTermMap;
+    rr:termType rr:IRI;
     fnml:functionValue ns:fn_010.
 ns:fn_010 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_010.
 ns:pomexec_010 rr:predicateMap ns:pmexec_010.
 ns:pmexec_010 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_010 rr:objectMap ns:omexec_010.
-ns:omexec_010 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+ns:omexec_010 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
 ns:fn_010 rr:predicateObjectMap ns:pom_031.
 ns:pom_031 a rr:PredicateObjectMap;
@@ -416,6 +417,30 @@ ns:pm_031 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_031 rr:objectMap ns:om_031.
 ns:om_031 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:deg_";
+    rr:termType rr:Literal.
+ns:fn_010 rr:predicateObjectMap ns:pom_032.
+ns:pom_032 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_032.
+ns:pm_032 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+ns:pom_032 rr:objectMap ns:om_032.
+ns:om_032 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_011.
+ns:fn_011 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_011.
+ns:pomexec_011 rr:predicateMap ns:pmexec_011.
+ns:pmexec_011 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_011 rr:objectMap ns:omexec_011.
+ns:omexec_011 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+    rr:termType rr:IRI.
+ns:fn_011 rr:predicateObjectMap ns:pom_033.
+ns:pom_033 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_033.
+ns:pm_033 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_033 rr:objectMap ns:om_033.
+ns:om_033 a rr:ObjectMap;
     rr:template "deg_GSE17676_Nanotubes30nm-flat_titanium_{ID}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_dataset_000.
@@ -426,37 +451,13 @@ ns:s_002 a rr:SubjectMap.
 ns:map_dataset_000 rr:subjectMap ns:s_002.
 ns:s_002 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_011.
-ns:fn_011 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_011.
-ns:pomexec_011 rr:predicateMap ns:pmexec_011.
-ns:pmexec_011 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_011 rr:objectMap ns:omexec_011.
-ns:omexec_011 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
-    rr:termType rr:IRI.
-ns:fn_011 rr:predicateObjectMap ns:pom_032.
-ns:pom_032 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_032.
-ns:pm_032 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_032 rr:objectMap ns:om_032.
-ns:om_032 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_";
-    rr:termType rr:Literal.
-ns:fn_011 rr:predicateObjectMap ns:pom_033.
-ns:pom_033 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_033.
-ns:pm_033 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_033 rr:objectMap ns:om_033.
-ns:om_033 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_012.
 ns:fn_012 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_012.
 ns:pomexec_012 rr:predicateMap ns:pmexec_012.
 ns:pmexec_012 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_012 rr:objectMap ns:omexec_012.
-ns:omexec_012 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+ns:omexec_012 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
 ns:fn_012 rr:predicateObjectMap ns:pom_034.
 ns:pom_034 a rr:PredicateObjectMap;
@@ -465,23 +466,22 @@ ns:pm_034 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_034 rr:objectMap ns:om_034.
 ns:om_034 a rr:ObjectMap;
-    rr:constant "dataset_GSE17676";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_";
     rr:termType rr:Literal.
-ns:pom_035 a rr:PredicateObjectMap.
-ns:map_dataset_000 rr:predicateObjectMap ns:pom_035.
-ns:pm_035 a rr:PredicateMap.
-ns:pom_035 rr:predicateMap ns:pm_035.
-ns:pm_035 rr:constant nsvoc:transcriptomics-contrast.
+ns:fn_012 rr:predicateObjectMap ns:pom_035.
+ns:pom_035 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_035.
+ns:pm_035 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_035 rr:objectMap ns:om_035.
-ns:om_035 a fnml:FunctionTermMap;
-    rr:termType rr:IRI;
+ns:om_035 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_013.
 ns:fn_013 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_013.
 ns:pomexec_013 rr:predicateMap ns:pmexec_013.
 ns:pmexec_013 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_013 rr:objectMap ns:omexec_013.
-ns:omexec_013 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+ns:omexec_013 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
 ns:fn_013 rr:predicateObjectMap ns:pom_036.
 ns:pom_036 a rr:PredicateObjectMap;
@@ -490,22 +490,23 @@ ns:pm_036 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_036 rr:objectMap ns:om_036.
 ns:om_036 a rr:ObjectMap;
-    rr:constant "http://bigcat.unimaas.nl/ns:contrast_";
+    rr:constant "dataset_GSE17676";
     rr:termType rr:Literal.
-ns:fn_013 rr:predicateObjectMap ns:pom_037.
-ns:pom_037 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_037.
-ns:pm_037 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+ns:pom_037 a rr:PredicateObjectMap.
+ns:map_dataset_000 rr:predicateObjectMap ns:pom_037.
+ns:pm_037 a rr:PredicateMap.
+ns:pom_037 rr:predicateMap ns:pm_037.
+ns:pm_037 rr:constant nsvoc:transcriptomics-contrast.
 ns:pom_037 rr:objectMap ns:om_037.
-ns:om_037 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:om_037 a fnml:FunctionTermMap;
+    rr:termType rr:IRI;
     fnml:functionValue ns:fn_014.
 ns:fn_014 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_014.
 ns:pomexec_014 rr:predicateMap ns:pmexec_014.
 ns:pmexec_014 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_014 rr:objectMap ns:omexec_014.
-ns:omexec_014 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+ns:omexec_014 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
 ns:fn_014 rr:predicateObjectMap ns:pom_038.
 ns:pom_038 a rr:PredicateObjectMap;
@@ -514,5 +515,29 @@ ns:pm_038 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_038 rr:objectMap ns:om_038.
 ns:om_038 a rr:ObjectMap;
+    rr:constant "http://bigcat.unimaas.nl/ns:contrast_";
+    rr:termType rr:Literal.
+ns:fn_014 rr:predicateObjectMap ns:pom_039.
+ns:pom_039 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_039.
+ns:pm_039 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+ns:pom_039 rr:objectMap ns:om_039.
+ns:om_039 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_015.
+ns:fn_015 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_015.
+ns:pomexec_015 rr:predicateMap ns:pmexec_015.
+ns:pmexec_015 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_015 rr:objectMap ns:omexec_015.
+ns:omexec_015 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+    rr:termType rr:IRI.
+ns:fn_015 rr:predicateObjectMap ns:pom_040.
+ns:pom_040 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_040.
+ns:pm_040 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_040 rr:objectMap ns:om_040.
+ns:om_040 a rr:ObjectMap;
     rr:constant "contrast_GSE17676_Nanotubes30nm-flat_titanium";
     rr:termType rr:Literal.

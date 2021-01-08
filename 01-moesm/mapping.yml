@@ -475,7 +475,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = surf_area_$(surf_area)_ssa_unit_m2_per_gram)
-      - predicate: cheminf:CHEMINF_000241
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
@@ -484,7 +484,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf)_UO_0000266)
-      - predicate: enm:ENM_8000100
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
@@ -493,7 +493,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = ec_$(Ec)_UO_0000266)
-      - predicate: enm:ENM_8000110
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
@@ -502,7 +502,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = ev_$(Ev)_UO_0000266)
-      - predicate: npo:NPO_421
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
@@ -529,7 +529,7 @@ mappings:
       - [nsvoc:value, $(core_size), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, obo:UO_0000018~iri] #nm
-      - [sio:has-unit, "nm", xsd:float]
+      - [sio:has-unit, "nm"]
       - [sio:has-value, $(core_size), xsd:float]
   hydroSize:
     sources:
@@ -549,7 +549,7 @@ mappings:
       - [nsvoc:value, $(hydro_size), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, obo:UO_0000018~iri] #nm
-      - [sio:has-unit, "nm", xsd:float]
+      - [sio:has-unit, "nm"]
       - [sio:has-value, $(hydro_size), xsd:float]
   surfCharge:
     sources:
@@ -569,7 +569,7 @@ mappings:
       - [nsvoc:value, $(surf_charge), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, obo:UO_0000247~iri] #mV
-      - [sio:has-unit, "mV", xsd:float]
+      - [sio:has-unit, "mV"]
       - [sio:has-value, $(surf_charge), xsd:float]
   surfArea:
     sources:
@@ -589,7 +589,7 @@ mappings:
       - [nsvoc:value, $(surf_area), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, nsvoc:ssa_unit_m2_per_gram~iri] 
-      - [sio:has-unit, "m2/g", xsd:float]
+      - [sio:has-unit, "m2/g"]
       - [sio:has-value, $(surf_area), xsd:float]
   hsf:
     sources:
@@ -609,7 +609,7 @@ mappings:
       - [nsvoc:value, $(Hsf), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, "eV"]
       - [sio:has-value, $(Hsf), xsd:float]
   ec:
     sources:
@@ -629,7 +629,7 @@ mappings:
       - [nsvoc:value, $(Ec), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, "eV"]
       - [sio:has-value, $(Ec), xsd:float]
   ev:
     sources:
@@ -649,7 +649,7 @@ mappings:
       - [nsvoc:value, $(Ev), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, "eV"]
       - [sio:has-value, $(Ev), xsd:float]
   MeO:
     sources:
@@ -669,7 +669,7 @@ mappings:
       - [nsvoc:value, $(MeO), xsd:float]
       - [rdf:type, obo:BAO_0000179~iri]
       - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, "eV"]
       - [sio:has-value, $(MeO), xsd:float]
   time:
     sources:
