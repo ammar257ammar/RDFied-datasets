@@ -2393,7 +2393,7 @@ ns:pm_201 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_201 rr:objectMap ns:om_201.
 ns:om_201 a rr:ObjectMap;
-    rr:template "exposure_time_{time}";
+    rr:template "exposure_time_{time}_UO_0000032";
     rr:termType rr:Literal.
 ns:pom_202 a rr:PredicateObjectMap.
 ns:map_experiment_000 rr:predicateObjectMap ns:pom_202.
@@ -2442,7 +2442,7 @@ ns:pm_205 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_205 rr:objectMap ns:om_205.
 ns:om_205 a rr:ObjectMap;
-    rr:template "dose_{dose}";
+    rr:template "dose_{dose}_UO_0000274";
     rr:termType rr:Literal.
 ns:pom_206 a rr:PredicateObjectMap.
 ns:map_experiment_000 rr:predicateObjectMap ns:pom_206.
@@ -2672,7 +2672,7 @@ ns:pom_224 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_224.
 ns:pm_224 a rr:PredicateMap.
 ns:pom_224 rr:predicateMap ns:pm_224.
-ns:pm_224 rr:constant dcterms:type.
+ns:pm_224 rr:constant obo:BFO_0000056.
 ns:pom_224 rr:objectMap ns:om_224.
 ns:om_224 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -2682,57 +2682,48 @@ ns:fn_090 rml:logicalSource ns:source_000;
 ns:pomexec_090 rr:predicateMap ns:pmexec_090.
 ns:pmexec_090 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_090 rr:objectMap ns:omexec_090.
-ns:omexec_090 rr:constant "http://example.com/idlab/function/trueCondition";
+ns:omexec_090 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
 ns:fn_090 rr:predicateObjectMap ns:pom_225.
 ns:pom_225 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_225.
 ns:pm_225 a rr:PredicateMap;
-    rr:constant idlab-fn:strBoolean.
+    rr:constant grel:valueParameter.
 ns:pom_225 rr:objectMap ns:om_225.
-ns:om_225 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:om_225 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_";
+    rr:termType rr:Literal.
+ns:fn_090 rr:predicateObjectMap ns:pom_226.
+ns:pom_226 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_226.
+ns:pm_226 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+ns:pom_226 rr:objectMap ns:om_226.
+ns:om_226 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_091.
 ns:fn_091 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_091.
 ns:pomexec_091 rr:predicateMap ns:pmexec_091.
 ns:pmexec_091 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_091 rr:objectMap ns:omexec_091.
-ns:omexec_091 rr:constant "http://example.com/idlab/function/equal";
+ns:omexec_091 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:fn_091 rr:predicateObjectMap ns:pom_226.
-ns:pom_226 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_226.
-ns:pm_226 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_226 rr:objectMap ns:om_226.
-ns:om_226 a rr:ObjectMap;
-    rml:reference "material";
-    rr:termType rr:Literal.
 ns:fn_091 rr:predicateObjectMap ns:pom_227.
 ns:pom_227 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_227.
 ns:pm_227 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant grel:valueParameter.
 ns:pom_227 rr:objectMap ns:om_227.
 ns:om_227 a rr:ObjectMap;
-    rr:constant "Al2O3";
+    rr:template "{material}_{core_size}_{hydro_size}_{surf_charge}_{surf_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{assay}_{cell_line}_{viability}_{dose}_{time}";
     rr:termType rr:Literal.
-ns:fn_090 rr:predicateObjectMap ns:pom_228.
-ns:pom_228 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_228.
-ns:pm_228 a rr:PredicateMap;
-    rr:constant idlab-fn:str.
+ns:pom_228 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_228.
+ns:pm_228 a rr:PredicateMap.
+ns:pom_228 rr:predicateMap ns:pm_228.
+ns:pm_228 rr:constant dcterms:type.
 ns:pom_228 rr:objectMap ns:om_228.
-ns:om_228 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_9000005";
-    rr:termType rr:IRI.
-ns:pom_229 a rr:PredicateObjectMap.
-ns:map_material_000 rr:predicateObjectMap ns:pom_229.
-ns:pm_229 a rr:PredicateMap.
-ns:pom_229 rr:predicateMap ns:pm_229.
-ns:pm_229 rr:constant dcterms:type.
-ns:pom_229 rr:objectMap ns:om_229.
-ns:om_229 a fnml:FunctionTermMap;
+ns:om_228 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_092.
 ns:fn_092 rml:logicalSource ns:source_000;
@@ -2742,13 +2733,13 @@ ns:pmexec_092 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_092 rr:objectMap ns:omexec_092.
 ns:omexec_092 rr:constant "http://example.com/idlab/function/trueCondition";
     rr:termType rr:IRI.
-ns:fn_092 rr:predicateObjectMap ns:pom_230.
-ns:pom_230 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_230.
-ns:pm_230 a rr:PredicateMap;
+ns:fn_092 rr:predicateObjectMap ns:pom_229.
+ns:pom_229 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_229.
+ns:pm_229 a rr:PredicateMap;
     rr:constant idlab-fn:strBoolean.
-ns:pom_230 rr:objectMap ns:om_230.
-ns:om_230 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:pom_229 rr:objectMap ns:om_229.
+ns:om_229 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_093.
 ns:fn_093 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_093.
@@ -2757,40 +2748,40 @@ ns:pmexec_093 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_093 rr:objectMap ns:omexec_093.
 ns:omexec_093 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
+ns:fn_093 rr:predicateObjectMap ns:pom_230.
+ns:pom_230 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_230.
+ns:pm_230 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_230 rr:objectMap ns:om_230.
+ns:om_230 a rr:ObjectMap;
+    rml:reference "material";
+    rr:termType rr:Literal.
 ns:fn_093 rr:predicateObjectMap ns:pom_231.
 ns:pom_231 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_231.
 ns:pm_231 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_231 rr:objectMap ns:om_231.
 ns:om_231 a rr:ObjectMap;
-    rml:reference "material";
+    rr:constant "Al2O3";
     rr:termType rr:Literal.
-ns:fn_093 rr:predicateObjectMap ns:pom_232.
+ns:fn_092 rr:predicateObjectMap ns:pom_232.
 ns:pom_232 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_232.
 ns:pm_232 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant idlab-fn:str.
 ns:pom_232 rr:objectMap ns:om_232.
 ns:om_232 a rr:ObjectMap;
-    rr:constant "CuO";
-    rr:termType rr:Literal.
-ns:fn_092 rr:predicateObjectMap ns:pom_233.
-ns:pom_233 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_233.
-ns:pm_233 a rr:PredicateMap;
-    rr:constant idlab-fn:str.
-ns:pom_233 rr:objectMap ns:om_233.
-ns:om_233 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/CHEBI_83159";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_9000005";
     rr:termType rr:IRI.
-ns:pom_234 a rr:PredicateObjectMap.
-ns:map_material_000 rr:predicateObjectMap ns:pom_234.
-ns:pm_234 a rr:PredicateMap.
-ns:pom_234 rr:predicateMap ns:pm_234.
-ns:pm_234 rr:constant dcterms:type.
-ns:pom_234 rr:objectMap ns:om_234.
-ns:om_234 a fnml:FunctionTermMap;
+ns:pom_233 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_233.
+ns:pm_233 a rr:PredicateMap.
+ns:pom_233 rr:predicateMap ns:pm_233.
+ns:pm_233 rr:constant dcterms:type.
+ns:pom_233 rr:objectMap ns:om_233.
+ns:om_233 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_094.
 ns:fn_094 rml:logicalSource ns:source_000;
@@ -2800,13 +2791,13 @@ ns:pmexec_094 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_094 rr:objectMap ns:omexec_094.
 ns:omexec_094 rr:constant "http://example.com/idlab/function/trueCondition";
     rr:termType rr:IRI.
-ns:fn_094 rr:predicateObjectMap ns:pom_235.
-ns:pom_235 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_235.
-ns:pm_235 a rr:PredicateMap;
+ns:fn_094 rr:predicateObjectMap ns:pom_234.
+ns:pom_234 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_234.
+ns:pm_234 a rr:PredicateMap;
     rr:constant idlab-fn:strBoolean.
-ns:pom_235 rr:objectMap ns:om_235.
-ns:om_235 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:pom_234 rr:objectMap ns:om_234.
+ns:om_234 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_095.
 ns:fn_095 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_095.
@@ -2815,40 +2806,40 @@ ns:pmexec_095 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_095 rr:objectMap ns:omexec_095.
 ns:omexec_095 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
+ns:fn_095 rr:predicateObjectMap ns:pom_235.
+ns:pom_235 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_235.
+ns:pm_235 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_235 rr:objectMap ns:om_235.
+ns:om_235 a rr:ObjectMap;
+    rml:reference "material";
+    rr:termType rr:Literal.
 ns:fn_095 rr:predicateObjectMap ns:pom_236.
 ns:pom_236 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_236.
 ns:pm_236 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_236 rr:objectMap ns:om_236.
 ns:om_236 a rr:ObjectMap;
-    rml:reference "material";
+    rr:constant "CuO";
     rr:termType rr:Literal.
-ns:fn_095 rr:predicateObjectMap ns:pom_237.
+ns:fn_094 rr:predicateObjectMap ns:pom_237.
 ns:pom_237 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_237.
 ns:pm_237 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant idlab-fn:str.
 ns:pom_237 rr:objectMap ns:om_237.
 ns:om_237 a rr:ObjectMap;
-    rr:constant "Fe2O3";
-    rr:termType rr:Literal.
-ns:fn_094 rr:predicateObjectMap ns:pom_238.
-ns:pom_238 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_238.
-ns:pm_238 a rr:PredicateMap;
-    rr:constant idlab-fn:str.
-ns:pom_238 rr:objectMap ns:om_238.
-ns:om_238 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1550";
+    rr:constant "http://purl.obolibrary.org/obo/CHEBI_83159";
     rr:termType rr:IRI.
-ns:pom_239 a rr:PredicateObjectMap.
-ns:map_material_000 rr:predicateObjectMap ns:pom_239.
-ns:pm_239 a rr:PredicateMap.
-ns:pom_239 rr:predicateMap ns:pm_239.
-ns:pm_239 rr:constant dcterms:type.
-ns:pom_239 rr:objectMap ns:om_239.
-ns:om_239 a fnml:FunctionTermMap;
+ns:pom_238 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_238.
+ns:pm_238 a rr:PredicateMap.
+ns:pom_238 rr:predicateMap ns:pm_238.
+ns:pm_238 rr:constant dcterms:type.
+ns:pom_238 rr:objectMap ns:om_238.
+ns:om_238 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_096.
 ns:fn_096 rml:logicalSource ns:source_000;
@@ -2858,13 +2849,13 @@ ns:pmexec_096 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_096 rr:objectMap ns:omexec_096.
 ns:omexec_096 rr:constant "http://example.com/idlab/function/trueCondition";
     rr:termType rr:IRI.
-ns:fn_096 rr:predicateObjectMap ns:pom_240.
-ns:pom_240 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_240.
-ns:pm_240 a rr:PredicateMap;
+ns:fn_096 rr:predicateObjectMap ns:pom_239.
+ns:pom_239 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_239.
+ns:pm_239 a rr:PredicateMap;
     rr:constant idlab-fn:strBoolean.
-ns:pom_240 rr:objectMap ns:om_240.
-ns:om_240 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:pom_239 rr:objectMap ns:om_239.
+ns:om_239 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_097.
 ns:fn_097 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_097.
@@ -2873,40 +2864,40 @@ ns:pmexec_097 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_097 rr:objectMap ns:omexec_097.
 ns:omexec_097 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
+ns:fn_097 rr:predicateObjectMap ns:pom_240.
+ns:pom_240 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_240.
+ns:pm_240 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_240 rr:objectMap ns:om_240.
+ns:om_240 a rr:ObjectMap;
+    rml:reference "material";
+    rr:termType rr:Literal.
 ns:fn_097 rr:predicateObjectMap ns:pom_241.
 ns:pom_241 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_241.
 ns:pm_241 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_241 rr:objectMap ns:om_241.
 ns:om_241 a rr:ObjectMap;
-    rml:reference "material";
+    rr:constant "Fe2O3";
     rr:termType rr:Literal.
-ns:fn_097 rr:predicateObjectMap ns:pom_242.
+ns:fn_096 rr:predicateObjectMap ns:pom_242.
 ns:pom_242 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_242.
 ns:pm_242 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant idlab-fn:str.
 ns:pom_242 rr:objectMap ns:om_242.
 ns:om_242 a rr:ObjectMap;
-    rr:constant "Fe3O4";
-    rr:termType rr:Literal.
-ns:fn_096 rr:predicateObjectMap ns:pom_243.
-ns:pom_243 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_243.
-ns:pm_243 a rr:PredicateMap;
-    rr:constant idlab-fn:str.
-ns:pom_243 rr:objectMap ns:om_243.
-ns:om_243 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1548";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1550";
     rr:termType rr:IRI.
-ns:pom_244 a rr:PredicateObjectMap.
-ns:map_material_000 rr:predicateObjectMap ns:pom_244.
-ns:pm_244 a rr:PredicateMap.
-ns:pom_244 rr:predicateMap ns:pm_244.
-ns:pm_244 rr:constant dcterms:type.
-ns:pom_244 rr:objectMap ns:om_244.
-ns:om_244 a fnml:FunctionTermMap;
+ns:pom_243 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_243.
+ns:pm_243 a rr:PredicateMap.
+ns:pom_243 rr:predicateMap ns:pm_243.
+ns:pm_243 rr:constant dcterms:type.
+ns:pom_243 rr:objectMap ns:om_243.
+ns:om_243 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_098.
 ns:fn_098 rml:logicalSource ns:source_000;
@@ -2916,13 +2907,13 @@ ns:pmexec_098 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_098 rr:objectMap ns:omexec_098.
 ns:omexec_098 rr:constant "http://example.com/idlab/function/trueCondition";
     rr:termType rr:IRI.
-ns:fn_098 rr:predicateObjectMap ns:pom_245.
-ns:pom_245 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_245.
-ns:pm_245 a rr:PredicateMap;
+ns:fn_098 rr:predicateObjectMap ns:pom_244.
+ns:pom_244 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_244.
+ns:pm_244 a rr:PredicateMap;
     rr:constant idlab-fn:strBoolean.
-ns:pom_245 rr:objectMap ns:om_245.
-ns:om_245 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:pom_244 rr:objectMap ns:om_244.
+ns:om_244 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_099.
 ns:fn_099 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_099.
@@ -2931,40 +2922,40 @@ ns:pmexec_099 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_099 rr:objectMap ns:omexec_099.
 ns:omexec_099 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
+ns:fn_099 rr:predicateObjectMap ns:pom_245.
+ns:pom_245 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_245.
+ns:pm_245 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_245 rr:objectMap ns:om_245.
+ns:om_245 a rr:ObjectMap;
+    rml:reference "material";
+    rr:termType rr:Literal.
 ns:fn_099 rr:predicateObjectMap ns:pom_246.
 ns:pom_246 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_246.
 ns:pm_246 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_246 rr:objectMap ns:om_246.
 ns:om_246 a rr:ObjectMap;
-    rml:reference "material";
+    rr:constant "Fe3O4";
     rr:termType rr:Literal.
-ns:fn_099 rr:predicateObjectMap ns:pom_247.
+ns:fn_098 rr:predicateObjectMap ns:pom_247.
 ns:pom_247 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_247.
 ns:pm_247 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant idlab-fn:str.
 ns:pom_247 rr:objectMap ns:om_247.
 ns:om_247 a rr:ObjectMap;
-    rr:constant "SiO2";
-    rr:termType rr:Literal.
-ns:fn_098 rr:predicateObjectMap ns:pom_248.
-ns:pom_248 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_248.
-ns:pm_248 a rr:PredicateMap;
-    rr:constant idlab-fn:str.
-ns:pom_248 rr:objectMap ns:om_248.
-ns:om_248 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1373";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1548";
     rr:termType rr:IRI.
-ns:pom_249 a rr:PredicateObjectMap.
-ns:map_material_000 rr:predicateObjectMap ns:pom_249.
-ns:pm_249 a rr:PredicateMap.
-ns:pom_249 rr:predicateMap ns:pm_249.
-ns:pm_249 rr:constant dcterms:type.
-ns:pom_249 rr:objectMap ns:om_249.
-ns:om_249 a fnml:FunctionTermMap;
+ns:pom_248 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_248.
+ns:pm_248 a rr:PredicateMap.
+ns:pom_248 rr:predicateMap ns:pm_248.
+ns:pm_248 rr:constant dcterms:type.
+ns:pom_248 rr:objectMap ns:om_248.
+ns:om_248 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_100.
 ns:fn_100 rml:logicalSource ns:source_000;
@@ -2974,13 +2965,13 @@ ns:pmexec_100 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_100 rr:objectMap ns:omexec_100.
 ns:omexec_100 rr:constant "http://example.com/idlab/function/trueCondition";
     rr:termType rr:IRI.
-ns:fn_100 rr:predicateObjectMap ns:pom_250.
-ns:pom_250 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_250.
-ns:pm_250 a rr:PredicateMap;
+ns:fn_100 rr:predicateObjectMap ns:pom_249.
+ns:pom_249 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_249.
+ns:pm_249 a rr:PredicateMap;
     rr:constant idlab-fn:strBoolean.
-ns:pom_250 rr:objectMap ns:om_250.
-ns:om_250 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:pom_249 rr:objectMap ns:om_249.
+ns:om_249 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_101.
 ns:fn_101 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_101.
@@ -2989,40 +2980,40 @@ ns:pmexec_101 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_101 rr:objectMap ns:omexec_101.
 ns:omexec_101 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
+ns:fn_101 rr:predicateObjectMap ns:pom_250.
+ns:pom_250 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_250.
+ns:pm_250 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_250 rr:objectMap ns:om_250.
+ns:om_250 a rr:ObjectMap;
+    rml:reference "material";
+    rr:termType rr:Literal.
 ns:fn_101 rr:predicateObjectMap ns:pom_251.
 ns:pom_251 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_251.
 ns:pm_251 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_251 rr:objectMap ns:om_251.
 ns:om_251 a rr:ObjectMap;
-    rml:reference "material";
+    rr:constant "SiO2";
     rr:termType rr:Literal.
-ns:fn_101 rr:predicateObjectMap ns:pom_252.
+ns:fn_100 rr:predicateObjectMap ns:pom_252.
 ns:pom_252 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_252.
 ns:pm_252 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant idlab-fn:str.
 ns:pom_252 rr:objectMap ns:om_252.
 ns:om_252 a rr:ObjectMap;
-    rr:constant "TiO2";
-    rr:termType rr:Literal.
-ns:fn_100 rr:predicateObjectMap ns:pom_253.
-ns:pom_253 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_253.
-ns:pm_253 a rr:PredicateMap;
-    rr:constant idlab-fn:str.
-ns:pom_253 rr:objectMap ns:om_253.
-ns:om_253 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/CHEBI_51050";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1373";
     rr:termType rr:IRI.
-ns:pom_254 a rr:PredicateObjectMap.
-ns:map_material_000 rr:predicateObjectMap ns:pom_254.
-ns:pm_254 a rr:PredicateMap.
-ns:pom_254 rr:predicateMap ns:pm_254.
-ns:pm_254 rr:constant dcterms:type.
-ns:pom_254 rr:objectMap ns:om_254.
-ns:om_254 a fnml:FunctionTermMap;
+ns:pom_253 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_253.
+ns:pm_253 a rr:PredicateMap.
+ns:pom_253 rr:predicateMap ns:pm_253.
+ns:pm_253 rr:constant dcterms:type.
+ns:pom_253 rr:objectMap ns:om_253.
+ns:om_253 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_102.
 ns:fn_102 rml:logicalSource ns:source_000;
@@ -3032,13 +3023,13 @@ ns:pmexec_102 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_102 rr:objectMap ns:omexec_102.
 ns:omexec_102 rr:constant "http://example.com/idlab/function/trueCondition";
     rr:termType rr:IRI.
-ns:fn_102 rr:predicateObjectMap ns:pom_255.
-ns:pom_255 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_255.
-ns:pm_255 a rr:PredicateMap;
+ns:fn_102 rr:predicateObjectMap ns:pom_254.
+ns:pom_254 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_254.
+ns:pm_254 a rr:PredicateMap;
     rr:constant idlab-fn:strBoolean.
-ns:pom_255 rr:objectMap ns:om_255.
-ns:om_255 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:pom_254 rr:objectMap ns:om_254.
+ns:om_254 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_103.
 ns:fn_103 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_103.
@@ -3047,40 +3038,40 @@ ns:pmexec_103 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_103 rr:objectMap ns:omexec_103.
 ns:omexec_103 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
+ns:fn_103 rr:predicateObjectMap ns:pom_255.
+ns:pom_255 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_255.
+ns:pm_255 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_255 rr:objectMap ns:om_255.
+ns:om_255 a rr:ObjectMap;
+    rml:reference "material";
+    rr:termType rr:Literal.
 ns:fn_103 rr:predicateObjectMap ns:pom_256.
 ns:pom_256 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_256.
 ns:pm_256 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant grel:valueParameter2.
 ns:pom_256 rr:objectMap ns:om_256.
 ns:om_256 a rr:ObjectMap;
-    rml:reference "material";
+    rr:constant "TiO2";
     rr:termType rr:Literal.
-ns:fn_103 rr:predicateObjectMap ns:pom_257.
+ns:fn_102 rr:predicateObjectMap ns:pom_257.
 ns:pom_257 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_257.
 ns:pm_257 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant idlab-fn:str.
 ns:pom_257 rr:objectMap ns:om_257.
 ns:om_257 a rr:ObjectMap;
-    rr:constant "ZnO";
-    rr:termType rr:Literal.
-ns:fn_102 rr:predicateObjectMap ns:pom_258.
-ns:pom_258 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_258.
-ns:pm_258 a rr:PredicateMap;
-    rr:constant idlab-fn:str.
-ns:pom_258 rr:objectMap ns:om_258.
-ns:om_258 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1542";
+    rr:constant "http://purl.obolibrary.org/obo/CHEBI_51050";
     rr:termType rr:IRI.
-ns:pom_259 a rr:PredicateObjectMap.
-ns:map_material_000 rr:predicateObjectMap ns:pom_259.
-ns:pm_259 a rr:PredicateMap.
-ns:pom_259 rr:predicateMap ns:pm_259.
-ns:pm_259 rr:constant obo:BFO_0000056.
-ns:pom_259 rr:objectMap ns:om_259.
-ns:om_259 a fnml:FunctionTermMap;
+ns:pom_258 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_258.
+ns:pm_258 a rr:PredicateMap.
+ns:pom_258 rr:predicateMap ns:pm_258.
+ns:pm_258 rr:constant dcterms:type.
+ns:pom_258 rr:objectMap ns:om_258.
+ns:om_258 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_104.
 ns:fn_104 rml:logicalSource ns:source_000;
@@ -3088,46 +3079,55 @@ ns:fn_104 rml:logicalSource ns:source_000;
 ns:pomexec_104 rr:predicateMap ns:pmexec_104.
 ns:pmexec_104 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_104 rr:objectMap ns:omexec_104.
-ns:omexec_104 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+ns:omexec_104 rr:constant "http://example.com/idlab/function/trueCondition";
     rr:termType rr:IRI.
-ns:fn_104 rr:predicateObjectMap ns:pom_260.
-ns:pom_260 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_260.
-ns:pm_260 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_260 rr:objectMap ns:om_260.
-ns:om_260 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_";
-    rr:termType rr:Literal.
-ns:fn_104 rr:predicateObjectMap ns:pom_261.
-ns:pom_261 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_261.
-ns:pm_261 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_261 rr:objectMap ns:om_261.
-ns:om_261 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:fn_104 rr:predicateObjectMap ns:pom_259.
+ns:pom_259 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_259.
+ns:pm_259 a rr:PredicateMap;
+    rr:constant idlab-fn:strBoolean.
+ns:pom_259 rr:objectMap ns:om_259.
+ns:om_259 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_105.
 ns:fn_105 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_105.
 ns:pomexec_105 rr:predicateMap ns:pmexec_105.
 ns:pmexec_105 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_105 rr:objectMap ns:omexec_105.
-ns:omexec_105 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+ns:omexec_105 rr:constant "http://example.com/idlab/function/equal";
     rr:termType rr:IRI.
-ns:fn_105 rr:predicateObjectMap ns:pom_262.
+ns:fn_105 rr:predicateObjectMap ns:pom_260.
+ns:pom_260 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_260.
+ns:pm_260 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_260 rr:objectMap ns:om_260.
+ns:om_260 a rr:ObjectMap;
+    rml:reference "material";
+    rr:termType rr:Literal.
+ns:fn_105 rr:predicateObjectMap ns:pom_261.
+ns:pom_261 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_261.
+ns:pm_261 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+ns:pom_261 rr:objectMap ns:om_261.
+ns:om_261 a rr:ObjectMap;
+    rr:constant "ZnO";
+    rr:termType rr:Literal.
+ns:fn_104 rr:predicateObjectMap ns:pom_262.
 ns:pom_262 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_262.
 ns:pm_262 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
+    rr:constant idlab-fn:str.
 ns:pom_262 rr:objectMap ns:om_262.
 ns:om_262 a rr:ObjectMap;
-    rr:template "core_size_{core_size}";
-    rr:termType rr:Literal.
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1542";
+    rr:termType rr:IRI.
 ns:pom_263 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_263.
 ns:pm_263 a rr:PredicateMap.
 ns:pom_263 rr:predicateMap ns:pm_263.
-ns:pm_263 rr:constant obo:BFO_0000056.
+ns:pm_263 rr:constant obo:OBI_0000299.
 ns:pom_263 rr:objectMap ns:om_263.
 ns:om_263 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -3146,7 +3146,7 @@ ns:pm_264 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_264 rr:objectMap ns:om_264.
 ns:om_264 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_";
     rr:termType rr:Literal.
 ns:fn_106 rr:predicateObjectMap ns:pom_265.
 ns:pom_265 a rr:PredicateObjectMap;
@@ -3170,13 +3170,13 @@ ns:pm_266 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_266 rr:objectMap ns:om_266.
 ns:om_266 a rr:ObjectMap;
-    rr:template "hydro_size_{hydro_size}";
+    rr:template "core_size_{core_size}_UO_0000018";
     rr:termType rr:Literal.
 ns:pom_267 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_267.
 ns:pm_267 a rr:PredicateMap.
 ns:pom_267 rr:predicateMap ns:pm_267.
-ns:pm_267 rr:constant obo:BFO_0000056.
+ns:pm_267 rr:constant obo:OBI_0000299.
 ns:pom_267 rr:objectMap ns:om_267.
 ns:om_267 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -3195,7 +3195,7 @@ ns:pm_268 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_268 rr:objectMap ns:om_268.
 ns:om_268 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_";
     rr:termType rr:Literal.
 ns:fn_108 rr:predicateObjectMap ns:pom_269.
 ns:pom_269 a rr:PredicateObjectMap;
@@ -3219,13 +3219,13 @@ ns:pm_270 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_270 rr:objectMap ns:om_270.
 ns:om_270 a rr:ObjectMap;
-    rr:template "surf_charge_{surf_charge}";
+    rr:template "hydro_size_{hydro_size}_UO_0000018";
     rr:termType rr:Literal.
 ns:pom_271 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_271.
 ns:pm_271 a rr:PredicateMap.
 ns:pom_271 rr:predicateMap ns:pm_271.
-ns:pm_271 rr:constant obo:BFO_0000056.
+ns:pm_271 rr:constant obo:OBI_0000299.
 ns:pom_271 rr:objectMap ns:om_271.
 ns:om_271 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -3244,7 +3244,7 @@ ns:pm_272 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_272 rr:objectMap ns:om_272.
 ns:om_272 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_";
     rr:termType rr:Literal.
 ns:fn_110 rr:predicateObjectMap ns:pom_273.
 ns:pom_273 a rr:PredicateObjectMap;
@@ -3268,13 +3268,13 @@ ns:pm_274 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_274 rr:objectMap ns:om_274.
 ns:om_274 a rr:ObjectMap;
-    rr:template "surf_area_{surf_area}";
+    rr:template "surf_charge_{surf_charge}_UO_0000247";
     rr:termType rr:Literal.
 ns:pom_275 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_275.
 ns:pm_275 a rr:PredicateMap.
 ns:pom_275 rr:predicateMap ns:pm_275.
-ns:pm_275 rr:constant cheminf:CHEMINF_000241.
+ns:pm_275 rr:constant obo:OBI_0000299.
 ns:pom_275 rr:objectMap ns:om_275.
 ns:om_275 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -3293,7 +3293,7 @@ ns:pm_276 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_276 rr:objectMap ns:om_276.
 ns:om_276 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_";
     rr:termType rr:Literal.
 ns:fn_112 rr:predicateObjectMap ns:pom_277.
 ns:pom_277 a rr:PredicateObjectMap;
@@ -3317,13 +3317,13 @@ ns:pm_278 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_278 rr:objectMap ns:om_278.
 ns:om_278 a rr:ObjectMap;
-    rr:template "hsf_{Hsf}";
+    rr:template "surf_area_{surf_area}_ssa_unit_m2_per_gram";
     rr:termType rr:Literal.
 ns:pom_279 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_279.
 ns:pm_279 a rr:PredicateMap.
 ns:pom_279 rr:predicateMap ns:pm_279.
-ns:pm_279 rr:constant enm:ENM_8000100.
+ns:pm_279 rr:constant obo:OBI_0000299.
 ns:pom_279 rr:objectMap ns:om_279.
 ns:om_279 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -3342,7 +3342,7 @@ ns:pm_280 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_280 rr:objectMap ns:om_280.
 ns:om_280 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:ec_";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_";
     rr:termType rr:Literal.
 ns:fn_114 rr:predicateObjectMap ns:pom_281.
 ns:pom_281 a rr:PredicateObjectMap;
@@ -3366,13 +3366,13 @@ ns:pm_282 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_282 rr:objectMap ns:om_282.
 ns:om_282 a rr:ObjectMap;
-    rr:template "ec_{Ec}";
+    rr:template "hsf_{Hsf}_UO_0000266";
     rr:termType rr:Literal.
 ns:pom_283 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_283.
 ns:pm_283 a rr:PredicateMap.
 ns:pom_283 rr:predicateMap ns:pm_283.
-ns:pm_283 rr:constant enm:ENM_8000110.
+ns:pm_283 rr:constant obo:OBI_0000299.
 ns:pom_283 rr:objectMap ns:om_283.
 ns:om_283 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -3391,7 +3391,7 @@ ns:pm_284 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_284 rr:objectMap ns:om_284.
 ns:om_284 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:ev_";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:ec_";
     rr:termType rr:Literal.
 ns:fn_116 rr:predicateObjectMap ns:pom_285.
 ns:pom_285 a rr:PredicateObjectMap;
@@ -3415,13 +3415,13 @@ ns:pm_286 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_286 rr:objectMap ns:om_286.
 ns:om_286 a rr:ObjectMap;
-    rr:template "ev_{Ev}";
+    rr:template "ec_{Ec}_UO_0000266";
     rr:termType rr:Literal.
 ns:pom_287 a rr:PredicateObjectMap.
 ns:map_material_000 rr:predicateObjectMap ns:pom_287.
 ns:pm_287 a rr:PredicateMap.
 ns:pom_287 rr:predicateMap ns:pm_287.
-ns:pm_287 rr:constant npo:NPO_421.
+ns:pm_287 rr:constant obo:OBI_0000299.
 ns:pom_287 rr:objectMap ns:om_287.
 ns:om_287 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
@@ -3440,7 +3440,7 @@ ns:pm_288 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_288 rr:objectMap ns:om_288.
 ns:om_288 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:meo_";
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:ev_";
     rr:termType rr:Literal.
 ns:fn_118 rr:predicateObjectMap ns:pom_289.
 ns:pom_289 a rr:PredicateObjectMap;
@@ -3464,15 +3464,15 @@ ns:pm_290 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_290 rr:objectMap ns:om_290.
 ns:om_290 a rr:ObjectMap;
-    rr:template "meo_{MeO}";
+    rr:template "ev_{Ev}_UO_0000266";
     rr:termType rr:Literal.
-<http://mapping.example.com/rules_000> void:exampleResource ns:map_coreSize_000.
-ns:map_coreSize_000 rml:logicalSource ns:source_000;
-    a rr:TriplesMap;
-    rdfs:label "coreSize".
-ns:s_003 a rr:SubjectMap.
-ns:map_coreSize_000 rr:subjectMap ns:s_003.
-ns:s_003 a fnml:FunctionTermMap;
+ns:pom_291 a rr:PredicateObjectMap.
+ns:map_material_000 rr:predicateObjectMap ns:pom_291.
+ns:pm_291 a rr:PredicateMap.
+ns:pom_291 rr:predicateMap ns:pm_291.
+ns:pm_291 rr:constant obo:OBI_0000299.
+ns:pom_291 rr:objectMap ns:om_291.
+ns:om_291 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
     fnml:functionValue ns:fn_120.
 ns:fn_120 rml:logicalSource ns:source_000;
@@ -3482,22 +3482,22 @@ ns:pmexec_120 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_120 rr:objectMap ns:omexec_120.
 ns:omexec_120 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_120 rr:predicateObjectMap ns:pom_291.
-ns:pom_291 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_291.
-ns:pm_291 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_291 rr:objectMap ns:om_291.
-ns:om_291 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_";
-    rr:termType rr:Literal.
 ns:fn_120 rr:predicateObjectMap ns:pom_292.
 ns:pom_292 a rr:PredicateObjectMap;
     rr:predicateMap ns:pm_292.
 ns:pm_292 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
+    rr:constant grel:valueParameter.
 ns:pom_292 rr:objectMap ns:om_292.
-ns:om_292 a rr:ObjectMap, fnml:FunctionTermMap;
+ns:om_292 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:meo_";
+    rr:termType rr:Literal.
+ns:fn_120 rr:predicateObjectMap ns:pom_293.
+ns:pom_293 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_293.
+ns:pm_293 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+ns:pom_293 rr:objectMap ns:om_293.
+ns:om_293 a rr:ObjectMap, fnml:FunctionTermMap;
     fnml:functionValue ns:fn_121.
 ns:fn_121 rml:logicalSource ns:source_000;
     rr:predicateObjectMap ns:pomexec_121.
@@ -3506,88 +3506,136 @@ ns:pmexec_121 rr:constant <https://w3id.org/function/ontology#executes>.
 ns:pomexec_121 rr:objectMap ns:omexec_121.
 ns:omexec_121 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:fn_121 rr:predicateObjectMap ns:pom_293.
-ns:pom_293 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_293.
-ns:pm_293 a rr:PredicateMap;
+ns:fn_121 rr:predicateObjectMap ns:pom_294.
+ns:pom_294 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_294.
+ns:pm_294 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_293 rr:objectMap ns:om_293.
-ns:om_293 a rr:ObjectMap;
-    rr:template "core_size_{core_size}_UO_0000018";
-    rr:termType rr:Literal.
-ns:pom_294 a rr:PredicateObjectMap.
-ns:map_coreSize_000 rr:predicateObjectMap ns:pom_294.
-ns:pm_294 a rr:PredicateMap.
-ns:pom_294 rr:predicateMap ns:pm_294.
-ns:pm_294 rr:constant rdf:type.
 ns:pom_294 rr:objectMap ns:om_294.
 ns:om_294 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:template "meo_{MeO}_UO_0000266";
+    rr:termType rr:Literal.
+<http://mapping.example.com/rules_000> void:exampleResource ns:map_coreSize_000.
+ns:map_coreSize_000 rml:logicalSource ns:source_000;
+    a rr:TriplesMap;
+    rdfs:label "coreSize".
+ns:s_003 a rr:SubjectMap.
+ns:map_coreSize_000 rr:subjectMap ns:s_003.
+ns:s_003 a fnml:FunctionTermMap;
+    rr:termType rr:IRI;
+    fnml:functionValue ns:fn_122.
+ns:fn_122 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_122.
+ns:pomexec_122 rr:predicateMap ns:pmexec_122.
+ns:pmexec_122 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_122 rr:objectMap ns:omexec_122.
+ns:omexec_122 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:pom_295 a rr:PredicateObjectMap.
-ns:map_coreSize_000 rr:predicateObjectMap ns:pom_295.
-ns:pm_295 a rr:PredicateMap.
-ns:pom_295 rr:predicateMap ns:pm_295.
-ns:pm_295 rr:constant rdf:type.
+ns:fn_122 rr:predicateObjectMap ns:pom_295.
+ns:pom_295 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_295.
+ns:pm_295 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_295 rr:objectMap ns:om_295.
 ns:om_295 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_8000039";
-    rr:termType rr:IRI.
-ns:pom_296 a rr:PredicateObjectMap.
-ns:map_coreSize_000 rr:predicateObjectMap ns:pom_296.
-ns:pm_296 a rr:PredicateMap.
-ns:pom_296 rr:predicateMap ns:pm_296.
-ns:pm_296 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_";
+    rr:termType rr:Literal.
+ns:fn_122 rr:predicateObjectMap ns:pom_296.
+ns:pom_296 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_296.
+ns:pm_296 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_296 rr:objectMap ns:om_296.
-ns:om_296 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_296 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_123.
+ns:fn_123 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_123.
+ns:pomexec_123 rr:predicateMap ns:pmexec_123.
+ns:pmexec_123 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_123 rr:objectMap ns:omexec_123.
+ns:omexec_123 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_297 a rr:PredicateObjectMap.
-ns:map_coreSize_000 rr:predicateObjectMap ns:pom_297.
-ns:pm_297 a rr:PredicateMap.
-ns:pom_297 rr:predicateMap ns:pm_297.
-ns:pm_297 rr:constant rdfs:label.
+ns:fn_123 rr:predicateObjectMap ns:pom_297.
+ns:pom_297 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_297.
+ns:pm_297 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_297 rr:objectMap ns:om_297.
 ns:om_297 a rr:ObjectMap;
-    rr:constant "core_size";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "core_size_{core_size}_UO_0000018";
+    rr:termType rr:Literal.
 ns:pom_298 a rr:PredicateObjectMap.
 ns:map_coreSize_000 rr:predicateObjectMap ns:pom_298.
 ns:pm_298 a rr:PredicateMap.
 ns:pom_298 rr:predicateMap ns:pm_298.
-ns:pm_298 rr:constant nsvoc:value.
+ns:pm_298 rr:constant rdf:type.
 ns:pom_298 rr:objectMap ns:om_298.
 ns:om_298 a rr:ObjectMap;
-    rml:reference "core_size";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_299 a rr:PredicateObjectMap.
 ns:map_coreSize_000 rr:predicateObjectMap ns:pom_299.
 ns:pm_299 a rr:PredicateMap.
 ns:pom_299 rr:predicateMap ns:pm_299.
-ns:pm_299 rr:constant obo:NCIT_C25709.
+ns:pm_299 rr:constant rdf:type.
 ns:pom_299 rr:objectMap ns:om_299.
 ns:om_299 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/UO_0000018";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_8000039";
     rr:termType rr:IRI.
 ns:pom_300 a rr:PredicateObjectMap.
 ns:map_coreSize_000 rr:predicateObjectMap ns:pom_300.
 ns:pm_300 a rr:PredicateMap.
 ns:pom_300 rr:predicateMap ns:pm_300.
-ns:pm_300 rr:constant cheminf:has-unit.
+ns:pm_300 rr:constant rdfs:label.
 ns:pom_300 rr:objectMap ns:om_300.
 ns:om_300 a rr:ObjectMap;
-    rr:constant "nm";
+    rr:constant "core_size";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_301 a rr:PredicateObjectMap.
 ns:map_coreSize_000 rr:predicateObjectMap ns:pom_301.
 ns:pm_301 a rr:PredicateMap.
 ns:pom_301 rr:predicateMap ns:pm_301.
-ns:pm_301 rr:constant cheminf:has-value.
+ns:pm_301 rr:constant nsvoc:value.
 ns:pom_301 rr:objectMap ns:om_301.
 ns:om_301 a rr:ObjectMap;
+    rml:reference "core_size";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_302 a rr:PredicateObjectMap.
+ns:map_coreSize_000 rr:predicateObjectMap ns:pom_302.
+ns:pm_302 a rr:PredicateMap.
+ns:pom_302 rr:predicateMap ns:pm_302.
+ns:pm_302 rr:constant rdf:type.
+ns:pom_302 rr:objectMap ns:om_302.
+ns:om_302 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_303 a rr:PredicateObjectMap.
+ns:map_coreSize_000 rr:predicateObjectMap ns:pom_303.
+ns:pm_303 a rr:PredicateMap.
+ns:pom_303 rr:predicateMap ns:pm_303.
+ns:pm_303 rr:constant obo:NCIT_C25709.
+ns:pom_303 rr:objectMap ns:om_303.
+ns:om_303 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/UO_0000018";
+    rr:termType rr:IRI.
+ns:pom_304 a rr:PredicateObjectMap.
+ns:map_coreSize_000 rr:predicateObjectMap ns:pom_304.
+ns:pm_304 a rr:PredicateMap.
+ns:pom_304 rr:predicateMap ns:pm_304.
+ns:pm_304 rr:constant cheminf:has-unit.
+ns:pom_304 rr:objectMap ns:om_304.
+ns:om_304 a rr:ObjectMap;
+    rr:constant "nm";
+    rr:termType rr:Literal.
+ns:pom_305 a rr:PredicateObjectMap.
+ns:map_coreSize_000 rr:predicateObjectMap ns:pom_305.
+ns:pm_305 a rr:PredicateMap.
+ns:pom_305 rr:predicateMap ns:pm_305.
+ns:pm_305 rr:constant cheminf:has-value.
+ns:pom_305 rr:objectMap ns:om_305.
+ns:om_305 a rr:ObjectMap;
     rml:reference "core_size";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -3599,120 +3647,119 @@ ns:s_004 a rr:SubjectMap.
 ns:map_hydroSize_000 rr:subjectMap ns:s_004.
 ns:s_004 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_122.
-ns:fn_122 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_122.
-ns:pomexec_122 rr:predicateMap ns:pmexec_122.
-ns:pmexec_122 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_122 rr:objectMap ns:omexec_122.
-ns:omexec_122 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_124.
+ns:fn_124 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_124.
+ns:pomexec_124 rr:predicateMap ns:pmexec_124.
+ns:pmexec_124 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_124 rr:objectMap ns:omexec_124.
+ns:omexec_124 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_122 rr:predicateObjectMap ns:pom_302.
-ns:pom_302 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_302.
-ns:pm_302 a rr:PredicateMap;
+ns:fn_124 rr:predicateObjectMap ns:pom_306.
+ns:pom_306 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_306.
+ns:pm_306 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_302 rr:objectMap ns:om_302.
-ns:om_302 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_";
-    rr:termType rr:Literal.
-ns:fn_122 rr:predicateObjectMap ns:pom_303.
-ns:pom_303 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_303.
-ns:pm_303 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_303 rr:objectMap ns:om_303.
-ns:om_303 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_123.
-ns:fn_123 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_123.
-ns:pomexec_123 rr:predicateMap ns:pmexec_123.
-ns:pmexec_123 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_123 rr:objectMap ns:omexec_123.
-ns:omexec_123 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_123 rr:predicateObjectMap ns:pom_304.
-ns:pom_304 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_304.
-ns:pm_304 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_304 rr:objectMap ns:om_304.
-ns:om_304 a rr:ObjectMap;
-    rr:template "hydro_size_{hydro_size}_UO_0000018";
-    rr:termType rr:Literal.
-ns:pom_305 a rr:PredicateObjectMap.
-ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_305.
-ns:pm_305 a rr:PredicateMap.
-ns:pom_305 rr:predicateMap ns:pm_305.
-ns:pm_305 rr:constant rdf:type.
-ns:pom_305 rr:objectMap ns:om_305.
-ns:om_305 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_306 a rr:PredicateObjectMap.
-ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_306.
-ns:pm_306 a rr:PredicateMap.
-ns:pom_306 rr:predicateMap ns:pm_306.
-ns:pm_306 rr:constant rdf:type.
 ns:pom_306 rr:objectMap ns:om_306.
 ns:om_306 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1914";
-    rr:termType rr:IRI.
-ns:pom_307 a rr:PredicateObjectMap.
-ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_307.
-ns:pm_307 a rr:PredicateMap.
-ns:pom_307 rr:predicateMap ns:pm_307.
-ns:pm_307 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_";
+    rr:termType rr:Literal.
+ns:fn_124 rr:predicateObjectMap ns:pom_307.
+ns:pom_307 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_307.
+ns:pm_307 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_307 rr:objectMap ns:om_307.
-ns:om_307 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_307 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_125.
+ns:fn_125 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_125.
+ns:pomexec_125 rr:predicateMap ns:pmexec_125.
+ns:pmexec_125 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_125 rr:objectMap ns:omexec_125.
+ns:omexec_125 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_308 a rr:PredicateObjectMap.
-ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_308.
-ns:pm_308 a rr:PredicateMap.
-ns:pom_308 rr:predicateMap ns:pm_308.
-ns:pm_308 rr:constant rdfs:label.
+ns:fn_125 rr:predicateObjectMap ns:pom_308.
+ns:pom_308 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_308.
+ns:pm_308 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_308 rr:objectMap ns:om_308.
 ns:om_308 a rr:ObjectMap;
-    rr:constant "hydro_size";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "hydro_size_{hydro_size}_UO_0000018";
+    rr:termType rr:Literal.
 ns:pom_309 a rr:PredicateObjectMap.
 ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_309.
 ns:pm_309 a rr:PredicateMap.
 ns:pom_309 rr:predicateMap ns:pm_309.
-ns:pm_309 rr:constant nsvoc:value.
+ns:pm_309 rr:constant rdf:type.
 ns:pom_309 rr:objectMap ns:om_309.
 ns:om_309 a rr:ObjectMap;
-    rml:reference "hydro_size";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_310 a rr:PredicateObjectMap.
 ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_310.
 ns:pm_310 a rr:PredicateMap.
 ns:pom_310 rr:predicateMap ns:pm_310.
-ns:pm_310 rr:constant obo:NCIT_C25709.
+ns:pm_310 rr:constant rdf:type.
 ns:pom_310 rr:objectMap ns:om_310.
 ns:om_310 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/UO_0000018";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1914";
     rr:termType rr:IRI.
 ns:pom_311 a rr:PredicateObjectMap.
 ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_311.
 ns:pm_311 a rr:PredicateMap.
 ns:pom_311 rr:predicateMap ns:pm_311.
-ns:pm_311 rr:constant cheminf:has-unit.
+ns:pm_311 rr:constant rdfs:label.
 ns:pom_311 rr:objectMap ns:om_311.
 ns:om_311 a rr:ObjectMap;
-    rr:constant "nm";
+    rr:constant "hydro_size";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_312 a rr:PredicateObjectMap.
 ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_312.
 ns:pm_312 a rr:PredicateMap.
 ns:pom_312 rr:predicateMap ns:pm_312.
-ns:pm_312 rr:constant cheminf:has-value.
+ns:pm_312 rr:constant nsvoc:value.
 ns:pom_312 rr:objectMap ns:om_312.
 ns:om_312 a rr:ObjectMap;
+    rml:reference "hydro_size";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_313 a rr:PredicateObjectMap.
+ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_313.
+ns:pm_313 a rr:PredicateMap.
+ns:pom_313 rr:predicateMap ns:pm_313.
+ns:pm_313 rr:constant rdf:type.
+ns:pom_313 rr:objectMap ns:om_313.
+ns:om_313 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_314 a rr:PredicateObjectMap.
+ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_314.
+ns:pm_314 a rr:PredicateMap.
+ns:pom_314 rr:predicateMap ns:pm_314.
+ns:pm_314 rr:constant obo:NCIT_C25709.
+ns:pom_314 rr:objectMap ns:om_314.
+ns:om_314 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/UO_0000018";
+    rr:termType rr:IRI.
+ns:pom_315 a rr:PredicateObjectMap.
+ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_315.
+ns:pm_315 a rr:PredicateMap.
+ns:pom_315 rr:predicateMap ns:pm_315.
+ns:pm_315 rr:constant cheminf:has-unit.
+ns:pom_315 rr:objectMap ns:om_315.
+ns:om_315 a rr:ObjectMap;
+    rr:constant "nm";
+    rr:termType rr:Literal.
+ns:pom_316 a rr:PredicateObjectMap.
+ns:map_hydroSize_000 rr:predicateObjectMap ns:pom_316.
+ns:pm_316 a rr:PredicateMap.
+ns:pom_316 rr:predicateMap ns:pm_316.
+ns:pm_316 rr:constant cheminf:has-value.
+ns:pom_316 rr:objectMap ns:om_316.
+ns:om_316 a rr:ObjectMap;
     rml:reference "hydro_size";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -3724,120 +3771,119 @@ ns:s_005 a rr:SubjectMap.
 ns:map_surfCharge_000 rr:subjectMap ns:s_005.
 ns:s_005 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_124.
-ns:fn_124 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_124.
-ns:pomexec_124 rr:predicateMap ns:pmexec_124.
-ns:pmexec_124 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_124 rr:objectMap ns:omexec_124.
-ns:omexec_124 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_126.
+ns:fn_126 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_126.
+ns:pomexec_126 rr:predicateMap ns:pmexec_126.
+ns:pmexec_126 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_126 rr:objectMap ns:omexec_126.
+ns:omexec_126 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_124 rr:predicateObjectMap ns:pom_313.
-ns:pom_313 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_313.
-ns:pm_313 a rr:PredicateMap;
+ns:fn_126 rr:predicateObjectMap ns:pom_317.
+ns:pom_317 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_317.
+ns:pm_317 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_313 rr:objectMap ns:om_313.
-ns:om_313 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_";
-    rr:termType rr:Literal.
-ns:fn_124 rr:predicateObjectMap ns:pom_314.
-ns:pom_314 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_314.
-ns:pm_314 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_314 rr:objectMap ns:om_314.
-ns:om_314 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_125.
-ns:fn_125 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_125.
-ns:pomexec_125 rr:predicateMap ns:pmexec_125.
-ns:pmexec_125 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_125 rr:objectMap ns:omexec_125.
-ns:omexec_125 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_125 rr:predicateObjectMap ns:pom_315.
-ns:pom_315 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_315.
-ns:pm_315 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_315 rr:objectMap ns:om_315.
-ns:om_315 a rr:ObjectMap;
-    rr:template "surf_charge_{surf_charge}_UO_0000247";
-    rr:termType rr:Literal.
-ns:pom_316 a rr:PredicateObjectMap.
-ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_316.
-ns:pm_316 a rr:PredicateMap.
-ns:pom_316 rr:predicateMap ns:pm_316.
-ns:pm_316 rr:constant rdf:type.
-ns:pom_316 rr:objectMap ns:om_316.
-ns:om_316 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_317 a rr:PredicateObjectMap.
-ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_317.
-ns:pm_317 a rr:PredicateMap.
-ns:pom_317 rr:predicateMap ns:pm_317.
-ns:pm_317 rr:constant rdf:type.
 ns:pom_317 rr:objectMap ns:om_317.
 ns:om_317 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1812";
-    rr:termType rr:IRI.
-ns:pom_318 a rr:PredicateObjectMap.
-ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_318.
-ns:pm_318 a rr:PredicateMap.
-ns:pom_318 rr:predicateMap ns:pm_318.
-ns:pm_318 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_";
+    rr:termType rr:Literal.
+ns:fn_126 rr:predicateObjectMap ns:pom_318.
+ns:pom_318 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_318.
+ns:pm_318 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_318 rr:objectMap ns:om_318.
-ns:om_318 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_318 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_127.
+ns:fn_127 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_127.
+ns:pomexec_127 rr:predicateMap ns:pmexec_127.
+ns:pmexec_127 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_127 rr:objectMap ns:omexec_127.
+ns:omexec_127 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_319 a rr:PredicateObjectMap.
-ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_319.
-ns:pm_319 a rr:PredicateMap.
-ns:pom_319 rr:predicateMap ns:pm_319.
-ns:pm_319 rr:constant rdfs:label.
+ns:fn_127 rr:predicateObjectMap ns:pom_319.
+ns:pom_319 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_319.
+ns:pm_319 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_319 rr:objectMap ns:om_319.
 ns:om_319 a rr:ObjectMap;
-    rr:constant "surf_charge";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "surf_charge_{surf_charge}_UO_0000247";
+    rr:termType rr:Literal.
 ns:pom_320 a rr:PredicateObjectMap.
 ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_320.
 ns:pm_320 a rr:PredicateMap.
 ns:pom_320 rr:predicateMap ns:pm_320.
-ns:pm_320 rr:constant nsvoc:value.
+ns:pm_320 rr:constant rdf:type.
 ns:pom_320 rr:objectMap ns:om_320.
 ns:om_320 a rr:ObjectMap;
-    rml:reference "surf_charge";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_321 a rr:PredicateObjectMap.
 ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_321.
 ns:pm_321 a rr:PredicateMap.
 ns:pom_321 rr:predicateMap ns:pm_321.
-ns:pm_321 rr:constant obo:NCIT_C25709.
+ns:pm_321 rr:constant rdf:type.
 ns:pom_321 rr:objectMap ns:om_321.
 ns:om_321 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/UO_0000247";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1812";
     rr:termType rr:IRI.
 ns:pom_322 a rr:PredicateObjectMap.
 ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_322.
 ns:pm_322 a rr:PredicateMap.
 ns:pom_322 rr:predicateMap ns:pm_322.
-ns:pm_322 rr:constant cheminf:has-unit.
+ns:pm_322 rr:constant rdfs:label.
 ns:pom_322 rr:objectMap ns:om_322.
 ns:om_322 a rr:ObjectMap;
-    rr:constant "mV";
+    rr:constant "surf_charge";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_323 a rr:PredicateObjectMap.
 ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_323.
 ns:pm_323 a rr:PredicateMap.
 ns:pom_323 rr:predicateMap ns:pm_323.
-ns:pm_323 rr:constant cheminf:has-value.
+ns:pm_323 rr:constant nsvoc:value.
 ns:pom_323 rr:objectMap ns:om_323.
 ns:om_323 a rr:ObjectMap;
+    rml:reference "surf_charge";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_324 a rr:PredicateObjectMap.
+ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_324.
+ns:pm_324 a rr:PredicateMap.
+ns:pom_324 rr:predicateMap ns:pm_324.
+ns:pm_324 rr:constant rdf:type.
+ns:pom_324 rr:objectMap ns:om_324.
+ns:om_324 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_325 a rr:PredicateObjectMap.
+ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_325.
+ns:pm_325 a rr:PredicateMap.
+ns:pom_325 rr:predicateMap ns:pm_325.
+ns:pm_325 rr:constant obo:NCIT_C25709.
+ns:pom_325 rr:objectMap ns:om_325.
+ns:om_325 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/UO_0000247";
+    rr:termType rr:IRI.
+ns:pom_326 a rr:PredicateObjectMap.
+ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_326.
+ns:pm_326 a rr:PredicateMap.
+ns:pom_326 rr:predicateMap ns:pm_326.
+ns:pm_326 rr:constant cheminf:has-unit.
+ns:pom_326 rr:objectMap ns:om_326.
+ns:om_326 a rr:ObjectMap;
+    rr:constant "mV";
+    rr:termType rr:Literal.
+ns:pom_327 a rr:PredicateObjectMap.
+ns:map_surfCharge_000 rr:predicateObjectMap ns:pom_327.
+ns:pm_327 a rr:PredicateMap.
+ns:pom_327 rr:predicateMap ns:pm_327.
+ns:pm_327 rr:constant cheminf:has-value.
+ns:pom_327 rr:objectMap ns:om_327.
+ns:om_327 a rr:ObjectMap;
     rml:reference "surf_charge";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -3849,120 +3895,119 @@ ns:s_006 a rr:SubjectMap.
 ns:map_surfArea_000 rr:subjectMap ns:s_006.
 ns:s_006 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_126.
-ns:fn_126 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_126.
-ns:pomexec_126 rr:predicateMap ns:pmexec_126.
-ns:pmexec_126 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_126 rr:objectMap ns:omexec_126.
-ns:omexec_126 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_128.
+ns:fn_128 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_128.
+ns:pomexec_128 rr:predicateMap ns:pmexec_128.
+ns:pmexec_128 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_128 rr:objectMap ns:omexec_128.
+ns:omexec_128 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_126 rr:predicateObjectMap ns:pom_324.
-ns:pom_324 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_324.
-ns:pm_324 a rr:PredicateMap;
+ns:fn_128 rr:predicateObjectMap ns:pom_328.
+ns:pom_328 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_328.
+ns:pm_328 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_324 rr:objectMap ns:om_324.
-ns:om_324 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_";
-    rr:termType rr:Literal.
-ns:fn_126 rr:predicateObjectMap ns:pom_325.
-ns:pom_325 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_325.
-ns:pm_325 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_325 rr:objectMap ns:om_325.
-ns:om_325 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_127.
-ns:fn_127 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_127.
-ns:pomexec_127 rr:predicateMap ns:pmexec_127.
-ns:pmexec_127 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_127 rr:objectMap ns:omexec_127.
-ns:omexec_127 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_127 rr:predicateObjectMap ns:pom_326.
-ns:pom_326 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_326.
-ns:pm_326 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_326 rr:objectMap ns:om_326.
-ns:om_326 a rr:ObjectMap;
-    rr:template "surf_area_{surf_area}_ssa_unit_m2_per_gram";
-    rr:termType rr:Literal.
-ns:pom_327 a rr:PredicateObjectMap.
-ns:map_surfArea_000 rr:predicateObjectMap ns:pom_327.
-ns:pm_327 a rr:PredicateMap.
-ns:pom_327 rr:predicateMap ns:pm_327.
-ns:pm_327 rr:constant rdf:type.
-ns:pom_327 rr:objectMap ns:om_327.
-ns:om_327 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_328 a rr:PredicateObjectMap.
-ns:map_surfArea_000 rr:predicateObjectMap ns:pom_328.
-ns:pm_328 a rr:PredicateMap.
-ns:pom_328 rr:predicateMap ns:pm_328.
-ns:pm_328 rr:constant rdf:type.
 ns:pom_328 rr:objectMap ns:om_328.
 ns:om_328 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1235";
-    rr:termType rr:IRI.
-ns:pom_329 a rr:PredicateObjectMap.
-ns:map_surfArea_000 rr:predicateObjectMap ns:pom_329.
-ns:pm_329 a rr:PredicateMap.
-ns:pom_329 rr:predicateMap ns:pm_329.
-ns:pm_329 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_";
+    rr:termType rr:Literal.
+ns:fn_128 rr:predicateObjectMap ns:pom_329.
+ns:pom_329 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_329.
+ns:pm_329 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_329 rr:objectMap ns:om_329.
-ns:om_329 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_329 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_129.
+ns:fn_129 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_129.
+ns:pomexec_129 rr:predicateMap ns:pmexec_129.
+ns:pmexec_129 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_129 rr:objectMap ns:omexec_129.
+ns:omexec_129 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_330 a rr:PredicateObjectMap.
-ns:map_surfArea_000 rr:predicateObjectMap ns:pom_330.
-ns:pm_330 a rr:PredicateMap.
-ns:pom_330 rr:predicateMap ns:pm_330.
-ns:pm_330 rr:constant rdfs:label.
+ns:fn_129 rr:predicateObjectMap ns:pom_330.
+ns:pom_330 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_330.
+ns:pm_330 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_330 rr:objectMap ns:om_330.
 ns:om_330 a rr:ObjectMap;
-    rr:constant "surf_area";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "surf_area_{surf_area}_ssa_unit_m2_per_gram";
+    rr:termType rr:Literal.
 ns:pom_331 a rr:PredicateObjectMap.
 ns:map_surfArea_000 rr:predicateObjectMap ns:pom_331.
 ns:pm_331 a rr:PredicateMap.
 ns:pom_331 rr:predicateMap ns:pm_331.
-ns:pm_331 rr:constant nsvoc:value.
+ns:pm_331 rr:constant rdf:type.
 ns:pom_331 rr:objectMap ns:om_331.
 ns:om_331 a rr:ObjectMap;
-    rml:reference "surf_area";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_332 a rr:PredicateObjectMap.
 ns:map_surfArea_000 rr:predicateObjectMap ns:pom_332.
 ns:pm_332 a rr:PredicateMap.
 ns:pom_332 rr:predicateMap ns:pm_332.
-ns:pm_332 rr:constant obo:NCIT_C25709.
+ns:pm_332 rr:constant rdf:type.
 ns:pom_332 rr:objectMap ns:om_332.
 ns:om_332 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:ssa_unit_m2_per_gram";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1235";
     rr:termType rr:IRI.
 ns:pom_333 a rr:PredicateObjectMap.
 ns:map_surfArea_000 rr:predicateObjectMap ns:pom_333.
 ns:pm_333 a rr:PredicateMap.
 ns:pom_333 rr:predicateMap ns:pm_333.
-ns:pm_333 rr:constant cheminf:has-unit.
+ns:pm_333 rr:constant rdfs:label.
 ns:pom_333 rr:objectMap ns:om_333.
 ns:om_333 a rr:ObjectMap;
-    rr:constant "m2/g";
+    rr:constant "surf_area";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_334 a rr:PredicateObjectMap.
 ns:map_surfArea_000 rr:predicateObjectMap ns:pom_334.
 ns:pm_334 a rr:PredicateMap.
 ns:pom_334 rr:predicateMap ns:pm_334.
-ns:pm_334 rr:constant cheminf:has-value.
+ns:pm_334 rr:constant nsvoc:value.
 ns:pom_334 rr:objectMap ns:om_334.
 ns:om_334 a rr:ObjectMap;
+    rml:reference "surf_area";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_335 a rr:PredicateObjectMap.
+ns:map_surfArea_000 rr:predicateObjectMap ns:pom_335.
+ns:pm_335 a rr:PredicateMap.
+ns:pom_335 rr:predicateMap ns:pm_335.
+ns:pm_335 rr:constant rdf:type.
+ns:pom_335 rr:objectMap ns:om_335.
+ns:om_335 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_336 a rr:PredicateObjectMap.
+ns:map_surfArea_000 rr:predicateObjectMap ns:pom_336.
+ns:pm_336 a rr:PredicateMap.
+ns:pom_336 rr:predicateMap ns:pm_336.
+ns:pm_336 rr:constant obo:NCIT_C25709.
+ns:pom_336 rr:objectMap ns:om_336.
+ns:om_336 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:ssa_unit_m2_per_gram";
+    rr:termType rr:IRI.
+ns:pom_337 a rr:PredicateObjectMap.
+ns:map_surfArea_000 rr:predicateObjectMap ns:pom_337.
+ns:pm_337 a rr:PredicateMap.
+ns:pom_337 rr:predicateMap ns:pm_337.
+ns:pm_337 rr:constant cheminf:has-unit.
+ns:pom_337 rr:objectMap ns:om_337.
+ns:om_337 a rr:ObjectMap;
+    rr:constant "m2/g";
+    rr:termType rr:Literal.
+ns:pom_338 a rr:PredicateObjectMap.
+ns:map_surfArea_000 rr:predicateObjectMap ns:pom_338.
+ns:pm_338 a rr:PredicateMap.
+ns:pom_338 rr:predicateMap ns:pm_338.
+ns:pm_338 rr:constant cheminf:has-value.
+ns:pom_338 rr:objectMap ns:om_338.
+ns:om_338 a rr:ObjectMap;
     rml:reference "surf_area";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -3974,120 +4019,119 @@ ns:s_007 a rr:SubjectMap.
 ns:map_hsf_000 rr:subjectMap ns:s_007.
 ns:s_007 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_128.
-ns:fn_128 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_128.
-ns:pomexec_128 rr:predicateMap ns:pmexec_128.
-ns:pmexec_128 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_128 rr:objectMap ns:omexec_128.
-ns:omexec_128 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_130.
+ns:fn_130 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_130.
+ns:pomexec_130 rr:predicateMap ns:pmexec_130.
+ns:pmexec_130 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_130 rr:objectMap ns:omexec_130.
+ns:omexec_130 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_128 rr:predicateObjectMap ns:pom_335.
-ns:pom_335 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_335.
-ns:pm_335 a rr:PredicateMap;
+ns:fn_130 rr:predicateObjectMap ns:pom_339.
+ns:pom_339 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_339.
+ns:pm_339 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_335 rr:objectMap ns:om_335.
-ns:om_335 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_";
-    rr:termType rr:Literal.
-ns:fn_128 rr:predicateObjectMap ns:pom_336.
-ns:pom_336 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_336.
-ns:pm_336 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_336 rr:objectMap ns:om_336.
-ns:om_336 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_129.
-ns:fn_129 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_129.
-ns:pomexec_129 rr:predicateMap ns:pmexec_129.
-ns:pmexec_129 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_129 rr:objectMap ns:omexec_129.
-ns:omexec_129 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_129 rr:predicateObjectMap ns:pom_337.
-ns:pom_337 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_337.
-ns:pm_337 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_337 rr:objectMap ns:om_337.
-ns:om_337 a rr:ObjectMap;
-    rr:template "hsf_{Hsf}_UO_0000266";
-    rr:termType rr:Literal.
-ns:pom_338 a rr:PredicateObjectMap.
-ns:map_hsf_000 rr:predicateObjectMap ns:pom_338.
-ns:pm_338 a rr:PredicateMap.
-ns:pom_338 rr:predicateMap ns:pm_338.
-ns:pm_338 rr:constant rdf:type.
-ns:pom_338 rr:objectMap ns:om_338.
-ns:om_338 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_339 a rr:PredicateObjectMap.
-ns:map_hsf_000 rr:predicateObjectMap ns:pom_339.
-ns:pm_339 a rr:PredicateMap.
-ns:pom_339 rr:predicateMap ns:pm_339.
-ns:pm_339 rr:constant rdf:type.
 ns:pom_339 rr:objectMap ns:om_339.
 ns:om_339 a rr:ObjectMap;
-    rr:constant "http://semanticscience.org/resource/CHEMINF_000241";
-    rr:termType rr:IRI.
-ns:pom_340 a rr:PredicateObjectMap.
-ns:map_hsf_000 rr:predicateObjectMap ns:pom_340.
-ns:pm_340 a rr:PredicateMap.
-ns:pom_340 rr:predicateMap ns:pm_340.
-ns:pm_340 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_";
+    rr:termType rr:Literal.
+ns:fn_130 rr:predicateObjectMap ns:pom_340.
+ns:pom_340 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_340.
+ns:pm_340 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_340 rr:objectMap ns:om_340.
-ns:om_340 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_340 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_131.
+ns:fn_131 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_131.
+ns:pomexec_131 rr:predicateMap ns:pmexec_131.
+ns:pmexec_131 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_131 rr:objectMap ns:omexec_131.
+ns:omexec_131 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_341 a rr:PredicateObjectMap.
-ns:map_hsf_000 rr:predicateObjectMap ns:pom_341.
-ns:pm_341 a rr:PredicateMap.
-ns:pom_341 rr:predicateMap ns:pm_341.
-ns:pm_341 rr:constant rdfs:label.
+ns:fn_131 rr:predicateObjectMap ns:pom_341.
+ns:pom_341 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_341.
+ns:pm_341 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_341 rr:objectMap ns:om_341.
 ns:om_341 a rr:ObjectMap;
-    rr:constant "Hsf";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "hsf_{Hsf}_UO_0000266";
+    rr:termType rr:Literal.
 ns:pom_342 a rr:PredicateObjectMap.
 ns:map_hsf_000 rr:predicateObjectMap ns:pom_342.
 ns:pm_342 a rr:PredicateMap.
 ns:pom_342 rr:predicateMap ns:pm_342.
-ns:pm_342 rr:constant nsvoc:value.
+ns:pm_342 rr:constant rdf:type.
 ns:pom_342 rr:objectMap ns:om_342.
 ns:om_342 a rr:ObjectMap;
-    rml:reference "Hsf";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_343 a rr:PredicateObjectMap.
 ns:map_hsf_000 rr:predicateObjectMap ns:pom_343.
 ns:pm_343 a rr:PredicateMap.
 ns:pom_343 rr:predicateMap ns:pm_343.
-ns:pm_343 rr:constant obo:NCIT_C25709.
+ns:pm_343 rr:constant rdf:type.
 ns:pom_343 rr:objectMap ns:om_343.
 ns:om_343 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:constant "http://semanticscience.org/resource/CHEMINF_000241";
     rr:termType rr:IRI.
 ns:pom_344 a rr:PredicateObjectMap.
 ns:map_hsf_000 rr:predicateObjectMap ns:pom_344.
 ns:pm_344 a rr:PredicateMap.
 ns:pom_344 rr:predicateMap ns:pm_344.
-ns:pm_344 rr:constant cheminf:has-unit.
+ns:pm_344 rr:constant rdfs:label.
 ns:pom_344 rr:objectMap ns:om_344.
 ns:om_344 a rr:ObjectMap;
-    rr:constant "eV";
+    rr:constant "Hsf";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_345 a rr:PredicateObjectMap.
 ns:map_hsf_000 rr:predicateObjectMap ns:pom_345.
 ns:pm_345 a rr:PredicateMap.
 ns:pom_345 rr:predicateMap ns:pm_345.
-ns:pm_345 rr:constant cheminf:has-value.
+ns:pm_345 rr:constant nsvoc:value.
 ns:pom_345 rr:objectMap ns:om_345.
 ns:om_345 a rr:ObjectMap;
+    rml:reference "Hsf";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_346 a rr:PredicateObjectMap.
+ns:map_hsf_000 rr:predicateObjectMap ns:pom_346.
+ns:pm_346 a rr:PredicateMap.
+ns:pom_346 rr:predicateMap ns:pm_346.
+ns:pm_346 rr:constant rdf:type.
+ns:pom_346 rr:objectMap ns:om_346.
+ns:om_346 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_347 a rr:PredicateObjectMap.
+ns:map_hsf_000 rr:predicateObjectMap ns:pom_347.
+ns:pm_347 a rr:PredicateMap.
+ns:pom_347 rr:predicateMap ns:pm_347.
+ns:pm_347 rr:constant obo:NCIT_C25709.
+ns:pom_347 rr:objectMap ns:om_347.
+ns:om_347 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:termType rr:IRI.
+ns:pom_348 a rr:PredicateObjectMap.
+ns:map_hsf_000 rr:predicateObjectMap ns:pom_348.
+ns:pm_348 a rr:PredicateMap.
+ns:pom_348 rr:predicateMap ns:pm_348.
+ns:pm_348 rr:constant cheminf:has-unit.
+ns:pom_348 rr:objectMap ns:om_348.
+ns:om_348 a rr:ObjectMap;
+    rr:constant "eV";
+    rr:termType rr:Literal.
+ns:pom_349 a rr:PredicateObjectMap.
+ns:map_hsf_000 rr:predicateObjectMap ns:pom_349.
+ns:pm_349 a rr:PredicateMap.
+ns:pom_349 rr:predicateMap ns:pm_349.
+ns:pm_349 rr:constant cheminf:has-value.
+ns:pom_349 rr:objectMap ns:om_349.
+ns:om_349 a rr:ObjectMap;
     rml:reference "Hsf";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -4099,120 +4143,119 @@ ns:s_008 a rr:SubjectMap.
 ns:map_ec_000 rr:subjectMap ns:s_008.
 ns:s_008 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_130.
-ns:fn_130 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_130.
-ns:pomexec_130 rr:predicateMap ns:pmexec_130.
-ns:pmexec_130 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_130 rr:objectMap ns:omexec_130.
-ns:omexec_130 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_132.
+ns:fn_132 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_132.
+ns:pomexec_132 rr:predicateMap ns:pmexec_132.
+ns:pmexec_132 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_132 rr:objectMap ns:omexec_132.
+ns:omexec_132 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_130 rr:predicateObjectMap ns:pom_346.
-ns:pom_346 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_346.
-ns:pm_346 a rr:PredicateMap;
+ns:fn_132 rr:predicateObjectMap ns:pom_350.
+ns:pom_350 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_350.
+ns:pm_350 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_346 rr:objectMap ns:om_346.
-ns:om_346 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:ec_";
-    rr:termType rr:Literal.
-ns:fn_130 rr:predicateObjectMap ns:pom_347.
-ns:pom_347 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_347.
-ns:pm_347 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_347 rr:objectMap ns:om_347.
-ns:om_347 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_131.
-ns:fn_131 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_131.
-ns:pomexec_131 rr:predicateMap ns:pmexec_131.
-ns:pmexec_131 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_131 rr:objectMap ns:omexec_131.
-ns:omexec_131 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_131 rr:predicateObjectMap ns:pom_348.
-ns:pom_348 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_348.
-ns:pm_348 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_348 rr:objectMap ns:om_348.
-ns:om_348 a rr:ObjectMap;
-    rr:template "ec_{Ec}_UO_0000266";
-    rr:termType rr:Literal.
-ns:pom_349 a rr:PredicateObjectMap.
-ns:map_ec_000 rr:predicateObjectMap ns:pom_349.
-ns:pm_349 a rr:PredicateMap.
-ns:pom_349 rr:predicateMap ns:pm_349.
-ns:pm_349 rr:constant rdf:type.
-ns:pom_349 rr:objectMap ns:om_349.
-ns:om_349 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_350 a rr:PredicateObjectMap.
-ns:map_ec_000 rr:predicateObjectMap ns:pom_350.
-ns:pm_350 a rr:PredicateMap.
-ns:pom_350 rr:predicateMap ns:pm_350.
-ns:pm_350 rr:constant rdf:type.
 ns:pom_350 rr:objectMap ns:om_350.
 ns:om_350 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_8000100";
-    rr:termType rr:IRI.
-ns:pom_351 a rr:PredicateObjectMap.
-ns:map_ec_000 rr:predicateObjectMap ns:pom_351.
-ns:pm_351 a rr:PredicateMap.
-ns:pom_351 rr:predicateMap ns:pm_351.
-ns:pm_351 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:ec_";
+    rr:termType rr:Literal.
+ns:fn_132 rr:predicateObjectMap ns:pom_351.
+ns:pom_351 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_351.
+ns:pm_351 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_351 rr:objectMap ns:om_351.
-ns:om_351 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_351 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_133.
+ns:fn_133 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_133.
+ns:pomexec_133 rr:predicateMap ns:pmexec_133.
+ns:pmexec_133 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_133 rr:objectMap ns:omexec_133.
+ns:omexec_133 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_352 a rr:PredicateObjectMap.
-ns:map_ec_000 rr:predicateObjectMap ns:pom_352.
-ns:pm_352 a rr:PredicateMap.
-ns:pom_352 rr:predicateMap ns:pm_352.
-ns:pm_352 rr:constant rdfs:label.
+ns:fn_133 rr:predicateObjectMap ns:pom_352.
+ns:pom_352 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_352.
+ns:pm_352 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_352 rr:objectMap ns:om_352.
 ns:om_352 a rr:ObjectMap;
-    rr:constant "Ec";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "ec_{Ec}_UO_0000266";
+    rr:termType rr:Literal.
 ns:pom_353 a rr:PredicateObjectMap.
 ns:map_ec_000 rr:predicateObjectMap ns:pom_353.
 ns:pm_353 a rr:PredicateMap.
 ns:pom_353 rr:predicateMap ns:pm_353.
-ns:pm_353 rr:constant nsvoc:value.
+ns:pm_353 rr:constant rdf:type.
 ns:pom_353 rr:objectMap ns:om_353.
 ns:om_353 a rr:ObjectMap;
-    rml:reference "Ec";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_354 a rr:PredicateObjectMap.
 ns:map_ec_000 rr:predicateObjectMap ns:pom_354.
 ns:pm_354 a rr:PredicateMap.
 ns:pom_354 rr:predicateMap ns:pm_354.
-ns:pm_354 rr:constant obo:NCIT_C25709.
+ns:pm_354 rr:constant rdf:type.
 ns:pom_354 rr:objectMap ns:om_354.
 ns:om_354 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_8000100";
     rr:termType rr:IRI.
 ns:pom_355 a rr:PredicateObjectMap.
 ns:map_ec_000 rr:predicateObjectMap ns:pom_355.
 ns:pm_355 a rr:PredicateMap.
 ns:pom_355 rr:predicateMap ns:pm_355.
-ns:pm_355 rr:constant cheminf:has-unit.
+ns:pm_355 rr:constant rdfs:label.
 ns:pom_355 rr:objectMap ns:om_355.
 ns:om_355 a rr:ObjectMap;
-    rr:constant "eV";
+    rr:constant "Ec";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_356 a rr:PredicateObjectMap.
 ns:map_ec_000 rr:predicateObjectMap ns:pom_356.
 ns:pm_356 a rr:PredicateMap.
 ns:pom_356 rr:predicateMap ns:pm_356.
-ns:pm_356 rr:constant cheminf:has-value.
+ns:pm_356 rr:constant nsvoc:value.
 ns:pom_356 rr:objectMap ns:om_356.
 ns:om_356 a rr:ObjectMap;
+    rml:reference "Ec";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_357 a rr:PredicateObjectMap.
+ns:map_ec_000 rr:predicateObjectMap ns:pom_357.
+ns:pm_357 a rr:PredicateMap.
+ns:pom_357 rr:predicateMap ns:pm_357.
+ns:pm_357 rr:constant rdf:type.
+ns:pom_357 rr:objectMap ns:om_357.
+ns:om_357 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_358 a rr:PredicateObjectMap.
+ns:map_ec_000 rr:predicateObjectMap ns:pom_358.
+ns:pm_358 a rr:PredicateMap.
+ns:pom_358 rr:predicateMap ns:pm_358.
+ns:pm_358 rr:constant obo:NCIT_C25709.
+ns:pom_358 rr:objectMap ns:om_358.
+ns:om_358 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:termType rr:IRI.
+ns:pom_359 a rr:PredicateObjectMap.
+ns:map_ec_000 rr:predicateObjectMap ns:pom_359.
+ns:pm_359 a rr:PredicateMap.
+ns:pom_359 rr:predicateMap ns:pm_359.
+ns:pm_359 rr:constant cheminf:has-unit.
+ns:pom_359 rr:objectMap ns:om_359.
+ns:om_359 a rr:ObjectMap;
+    rr:constant "eV";
+    rr:termType rr:Literal.
+ns:pom_360 a rr:PredicateObjectMap.
+ns:map_ec_000 rr:predicateObjectMap ns:pom_360.
+ns:pm_360 a rr:PredicateMap.
+ns:pom_360 rr:predicateMap ns:pm_360.
+ns:pm_360 rr:constant cheminf:has-value.
+ns:pom_360 rr:objectMap ns:om_360.
+ns:om_360 a rr:ObjectMap;
     rml:reference "Ec";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -4224,120 +4267,119 @@ ns:s_009 a rr:SubjectMap.
 ns:map_ev_000 rr:subjectMap ns:s_009.
 ns:s_009 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_132.
-ns:fn_132 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_132.
-ns:pomexec_132 rr:predicateMap ns:pmexec_132.
-ns:pmexec_132 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_132 rr:objectMap ns:omexec_132.
-ns:omexec_132 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_134.
+ns:fn_134 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_134.
+ns:pomexec_134 rr:predicateMap ns:pmexec_134.
+ns:pmexec_134 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_134 rr:objectMap ns:omexec_134.
+ns:omexec_134 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_132 rr:predicateObjectMap ns:pom_357.
-ns:pom_357 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_357.
-ns:pm_357 a rr:PredicateMap;
+ns:fn_134 rr:predicateObjectMap ns:pom_361.
+ns:pom_361 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_361.
+ns:pm_361 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_357 rr:objectMap ns:om_357.
-ns:om_357 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:Ev_";
-    rr:termType rr:Literal.
-ns:fn_132 rr:predicateObjectMap ns:pom_358.
-ns:pom_358 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_358.
-ns:pm_358 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_358 rr:objectMap ns:om_358.
-ns:om_358 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_133.
-ns:fn_133 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_133.
-ns:pomexec_133 rr:predicateMap ns:pmexec_133.
-ns:pmexec_133 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_133 rr:objectMap ns:omexec_133.
-ns:omexec_133 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_133 rr:predicateObjectMap ns:pom_359.
-ns:pom_359 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_359.
-ns:pm_359 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_359 rr:objectMap ns:om_359.
-ns:om_359 a rr:ObjectMap;
-    rr:template "Ev_{Ev}_UO_0000266";
-    rr:termType rr:Literal.
-ns:pom_360 a rr:PredicateObjectMap.
-ns:map_ev_000 rr:predicateObjectMap ns:pom_360.
-ns:pm_360 a rr:PredicateMap.
-ns:pom_360 rr:predicateMap ns:pm_360.
-ns:pm_360 rr:constant rdf:type.
-ns:pom_360 rr:objectMap ns:om_360.
-ns:om_360 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_361 a rr:PredicateObjectMap.
-ns:map_ev_000 rr:predicateObjectMap ns:pom_361.
-ns:pm_361 a rr:PredicateMap.
-ns:pom_361 rr:predicateMap ns:pm_361.
-ns:pm_361 rr:constant rdf:type.
 ns:pom_361 rr:objectMap ns:om_361.
 ns:om_361 a rr:ObjectMap;
-    rr:constant "http://purl.enanomapper.org/onto/ENM_8000110";
-    rr:termType rr:IRI.
-ns:pom_362 a rr:PredicateObjectMap.
-ns:map_ev_000 rr:predicateObjectMap ns:pom_362.
-ns:pm_362 a rr:PredicateMap.
-ns:pom_362 rr:predicateMap ns:pm_362.
-ns:pm_362 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:Ev_";
+    rr:termType rr:Literal.
+ns:fn_134 rr:predicateObjectMap ns:pom_362.
+ns:pom_362 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_362.
+ns:pm_362 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_362 rr:objectMap ns:om_362.
-ns:om_362 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_362 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_135.
+ns:fn_135 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_135.
+ns:pomexec_135 rr:predicateMap ns:pmexec_135.
+ns:pmexec_135 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_135 rr:objectMap ns:omexec_135.
+ns:omexec_135 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_363 a rr:PredicateObjectMap.
-ns:map_ev_000 rr:predicateObjectMap ns:pom_363.
-ns:pm_363 a rr:PredicateMap.
-ns:pom_363 rr:predicateMap ns:pm_363.
-ns:pm_363 rr:constant rdfs:label.
+ns:fn_135 rr:predicateObjectMap ns:pom_363.
+ns:pom_363 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_363.
+ns:pm_363 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_363 rr:objectMap ns:om_363.
 ns:om_363 a rr:ObjectMap;
-    rr:constant "Ev";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "Ev_{Ev}_UO_0000266";
+    rr:termType rr:Literal.
 ns:pom_364 a rr:PredicateObjectMap.
 ns:map_ev_000 rr:predicateObjectMap ns:pom_364.
 ns:pm_364 a rr:PredicateMap.
 ns:pom_364 rr:predicateMap ns:pm_364.
-ns:pm_364 rr:constant nsvoc:value.
+ns:pm_364 rr:constant rdf:type.
 ns:pom_364 rr:objectMap ns:om_364.
 ns:om_364 a rr:ObjectMap;
-    rml:reference "Ev";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_365 a rr:PredicateObjectMap.
 ns:map_ev_000 rr:predicateObjectMap ns:pom_365.
 ns:pm_365 a rr:PredicateMap.
 ns:pom_365 rr:predicateMap ns:pm_365.
-ns:pm_365 rr:constant obo:NCIT_C25709.
+ns:pm_365 rr:constant rdf:type.
 ns:pom_365 rr:objectMap ns:om_365.
 ns:om_365 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:constant "http://purl.enanomapper.org/onto/ENM_8000110";
     rr:termType rr:IRI.
 ns:pom_366 a rr:PredicateObjectMap.
 ns:map_ev_000 rr:predicateObjectMap ns:pom_366.
 ns:pm_366 a rr:PredicateMap.
 ns:pom_366 rr:predicateMap ns:pm_366.
-ns:pm_366 rr:constant cheminf:has-unit.
+ns:pm_366 rr:constant rdfs:label.
 ns:pom_366 rr:objectMap ns:om_366.
 ns:om_366 a rr:ObjectMap;
-    rr:constant "eV";
+    rr:constant "Ev";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_367 a rr:PredicateObjectMap.
 ns:map_ev_000 rr:predicateObjectMap ns:pom_367.
 ns:pm_367 a rr:PredicateMap.
 ns:pom_367 rr:predicateMap ns:pm_367.
-ns:pm_367 rr:constant cheminf:has-value.
+ns:pm_367 rr:constant nsvoc:value.
 ns:pom_367 rr:objectMap ns:om_367.
 ns:om_367 a rr:ObjectMap;
+    rml:reference "Ev";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_368 a rr:PredicateObjectMap.
+ns:map_ev_000 rr:predicateObjectMap ns:pom_368.
+ns:pm_368 a rr:PredicateMap.
+ns:pom_368 rr:predicateMap ns:pm_368.
+ns:pm_368 rr:constant rdf:type.
+ns:pom_368 rr:objectMap ns:om_368.
+ns:om_368 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_369 a rr:PredicateObjectMap.
+ns:map_ev_000 rr:predicateObjectMap ns:pom_369.
+ns:pm_369 a rr:PredicateMap.
+ns:pom_369 rr:predicateMap ns:pm_369.
+ns:pm_369 rr:constant obo:NCIT_C25709.
+ns:pom_369 rr:objectMap ns:om_369.
+ns:om_369 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:termType rr:IRI.
+ns:pom_370 a rr:PredicateObjectMap.
+ns:map_ev_000 rr:predicateObjectMap ns:pom_370.
+ns:pm_370 a rr:PredicateMap.
+ns:pom_370 rr:predicateMap ns:pm_370.
+ns:pm_370 rr:constant cheminf:has-unit.
+ns:pom_370 rr:objectMap ns:om_370.
+ns:om_370 a rr:ObjectMap;
+    rr:constant "eV";
+    rr:termType rr:Literal.
+ns:pom_371 a rr:PredicateObjectMap.
+ns:map_ev_000 rr:predicateObjectMap ns:pom_371.
+ns:pm_371 a rr:PredicateMap.
+ns:pom_371 rr:predicateMap ns:pm_371.
+ns:pm_371 rr:constant cheminf:has-value.
+ns:pom_371 rr:objectMap ns:om_371.
+ns:om_371 a rr:ObjectMap;
     rml:reference "Ev";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -4349,120 +4391,119 @@ ns:s_010 a rr:SubjectMap.
 ns:map_MeO_000 rr:subjectMap ns:s_010.
 ns:s_010 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_134.
-ns:fn_134 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_134.
-ns:pomexec_134 rr:predicateMap ns:pmexec_134.
-ns:pmexec_134 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_134 rr:objectMap ns:omexec_134.
-ns:omexec_134 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_136.
+ns:fn_136 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_136.
+ns:pomexec_136 rr:predicateMap ns:pmexec_136.
+ns:pmexec_136 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_136 rr:objectMap ns:omexec_136.
+ns:omexec_136 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_134 rr:predicateObjectMap ns:pom_368.
-ns:pom_368 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_368.
-ns:pm_368 a rr:PredicateMap;
+ns:fn_136 rr:predicateObjectMap ns:pom_372.
+ns:pom_372 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_372.
+ns:pm_372 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_368 rr:objectMap ns:om_368.
-ns:om_368 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:MeO_";
-    rr:termType rr:Literal.
-ns:fn_134 rr:predicateObjectMap ns:pom_369.
-ns:pom_369 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_369.
-ns:pm_369 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_369 rr:objectMap ns:om_369.
-ns:om_369 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_135.
-ns:fn_135 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_135.
-ns:pomexec_135 rr:predicateMap ns:pmexec_135.
-ns:pmexec_135 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_135 rr:objectMap ns:omexec_135.
-ns:omexec_135 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_135 rr:predicateObjectMap ns:pom_370.
-ns:pom_370 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_370.
-ns:pm_370 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_370 rr:objectMap ns:om_370.
-ns:om_370 a rr:ObjectMap;
-    rr:template "MeO_{MeO}_UO_0000266";
-    rr:termType rr:Literal.
-ns:pom_371 a rr:PredicateObjectMap.
-ns:map_MeO_000 rr:predicateObjectMap ns:pom_371.
-ns:pm_371 a rr:PredicateMap.
-ns:pom_371 rr:predicateMap ns:pm_371.
-ns:pm_371 rr:constant rdf:type.
-ns:pom_371 rr:objectMap ns:om_371.
-ns:om_371 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_372 a rr:PredicateObjectMap.
-ns:map_MeO_000 rr:predicateObjectMap ns:pom_372.
-ns:pm_372 a rr:PredicateMap.
-ns:pom_372 rr:predicateMap ns:pm_372.
-ns:pm_372 rr:constant rdf:type.
 ns:pom_372 rr:objectMap ns:om_372.
 ns:om_372 a rr:ObjectMap;
-    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_421";
-    rr:termType rr:IRI.
-ns:pom_373 a rr:PredicateObjectMap.
-ns:map_MeO_000 rr:predicateObjectMap ns:pom_373.
-ns:pm_373 a rr:PredicateMap.
-ns:pom_373 rr:predicateMap ns:pm_373.
-ns:pm_373 rr:constant rdf:type.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:MeO_";
+    rr:termType rr:Literal.
+ns:fn_136 rr:predicateObjectMap ns:pom_373.
+ns:pom_373 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_373.
+ns:pm_373 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_373 rr:objectMap ns:om_373.
-ns:om_373 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+ns:om_373 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_137.
+ns:fn_137 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_137.
+ns:pomexec_137 rr:predicateMap ns:pmexec_137.
+ns:pmexec_137 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_137 rr:objectMap ns:omexec_137.
+ns:omexec_137 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
     rr:termType rr:IRI.
-ns:pom_374 a rr:PredicateObjectMap.
-ns:map_MeO_000 rr:predicateObjectMap ns:pom_374.
-ns:pm_374 a rr:PredicateMap.
-ns:pom_374 rr:predicateMap ns:pm_374.
-ns:pm_374 rr:constant rdfs:label.
+ns:fn_137 rr:predicateObjectMap ns:pom_374.
+ns:pom_374 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_374.
+ns:pm_374 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_374 rr:objectMap ns:om_374.
 ns:om_374 a rr:ObjectMap;
-    rr:constant "MeO";
-    rr:termType rr:Literal;
-    rr:language "en".
+    rr:template "MeO_{MeO}_UO_0000266";
+    rr:termType rr:Literal.
 ns:pom_375 a rr:PredicateObjectMap.
 ns:map_MeO_000 rr:predicateObjectMap ns:pom_375.
 ns:pm_375 a rr:PredicateMap.
 ns:pom_375 rr:predicateMap ns:pm_375.
-ns:pm_375 rr:constant nsvoc:value.
+ns:pm_375 rr:constant rdf:type.
 ns:pom_375 rr:objectMap ns:om_375.
 ns:om_375 a rr:ObjectMap;
-    rml:reference "MeO";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
 ns:pom_376 a rr:PredicateObjectMap.
 ns:map_MeO_000 rr:predicateObjectMap ns:pom_376.
 ns:pm_376 a rr:PredicateMap.
 ns:pom_376 rr:predicateMap ns:pm_376.
-ns:pm_376 rr:constant obo:NCIT_C25709.
+ns:pm_376 rr:constant rdf:type.
 ns:pom_376 rr:objectMap ns:om_376.
 ns:om_376 a rr:ObjectMap;
-    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:constant "http://purl.bioontology.org/ontology/npo#NPO_421";
     rr:termType rr:IRI.
 ns:pom_377 a rr:PredicateObjectMap.
 ns:map_MeO_000 rr:predicateObjectMap ns:pom_377.
 ns:pm_377 a rr:PredicateMap.
 ns:pom_377 rr:predicateMap ns:pm_377.
-ns:pm_377 rr:constant cheminf:has-unit.
+ns:pm_377 rr:constant rdfs:label.
 ns:pom_377 rr:objectMap ns:om_377.
 ns:om_377 a rr:ObjectMap;
-    rr:constant "eV";
+    rr:constant "MeO";
     rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:language "en".
 ns:pom_378 a rr:PredicateObjectMap.
 ns:map_MeO_000 rr:predicateObjectMap ns:pom_378.
 ns:pm_378 a rr:PredicateMap.
 ns:pom_378 rr:predicateMap ns:pm_378.
-ns:pm_378 rr:constant cheminf:has-value.
+ns:pm_378 rr:constant nsvoc:value.
 ns:pom_378 rr:objectMap ns:om_378.
 ns:om_378 a rr:ObjectMap;
+    rml:reference "MeO";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_379 a rr:PredicateObjectMap.
+ns:map_MeO_000 rr:predicateObjectMap ns:pom_379.
+ns:pm_379 a rr:PredicateMap.
+ns:pom_379 rr:predicateMap ns:pm_379.
+ns:pm_379 rr:constant rdf:type.
+ns:pom_379 rr:objectMap ns:om_379.
+ns:om_379 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/BAO_0000179";
+    rr:termType rr:IRI.
+ns:pom_380 a rr:PredicateObjectMap.
+ns:map_MeO_000 rr:predicateObjectMap ns:pom_380.
+ns:pm_380 a rr:PredicateMap.
+ns:pom_380 rr:predicateMap ns:pm_380.
+ns:pm_380 rr:constant obo:NCIT_C25709.
+ns:pom_380 rr:objectMap ns:om_380.
+ns:om_380 a rr:ObjectMap;
+    rr:constant "http://purl.obolibrary.org/obo/UO_0000266";
+    rr:termType rr:IRI.
+ns:pom_381 a rr:PredicateObjectMap.
+ns:map_MeO_000 rr:predicateObjectMap ns:pom_381.
+ns:pm_381 a rr:PredicateMap.
+ns:pom_381 rr:predicateMap ns:pm_381.
+ns:pm_381 rr:constant cheminf:has-unit.
+ns:pom_381 rr:objectMap ns:om_381.
+ns:om_381 a rr:ObjectMap;
+    rr:constant "eV";
+    rr:termType rr:Literal.
+ns:pom_382 a rr:PredicateObjectMap.
+ns:map_MeO_000 rr:predicateObjectMap ns:pom_382.
+ns:pm_382 a rr:PredicateMap.
+ns:pom_382 rr:predicateMap ns:pm_382.
+ns:pm_382 rr:constant cheminf:has-value.
+ns:pom_382 rr:objectMap ns:om_382.
+ns:om_382 a rr:ObjectMap;
     rml:reference "MeO";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -4474,92 +4515,92 @@ ns:s_011 a rr:SubjectMap.
 ns:map_time_000 rr:subjectMap ns:s_011.
 ns:s_011 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_136.
-ns:fn_136 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_136.
-ns:pomexec_136 rr:predicateMap ns:pmexec_136.
-ns:pmexec_136 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_136 rr:objectMap ns:omexec_136.
-ns:omexec_136 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_138.
+ns:fn_138 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_138.
+ns:pomexec_138 rr:predicateMap ns:pmexec_138.
+ns:pmexec_138 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_138 rr:objectMap ns:omexec_138.
+ns:omexec_138 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_136 rr:predicateObjectMap ns:pom_379.
-ns:pom_379 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_379.
-ns:pm_379 a rr:PredicateMap;
+ns:fn_138 rr:predicateObjectMap ns:pom_383.
+ns:pom_383 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_383.
+ns:pm_383 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_379 rr:objectMap ns:om_379.
-ns:om_379 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_";
-    rr:termType rr:Literal.
-ns:fn_136 rr:predicateObjectMap ns:pom_380.
-ns:pom_380 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_380.
-ns:pm_380 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_380 rr:objectMap ns:om_380.
-ns:om_380 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_137.
-ns:fn_137 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_137.
-ns:pomexec_137 rr:predicateMap ns:pmexec_137.
-ns:pmexec_137 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_137 rr:objectMap ns:omexec_137.
-ns:omexec_137 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_137 rr:predicateObjectMap ns:pom_381.
-ns:pom_381 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_381.
-ns:pm_381 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_381 rr:objectMap ns:om_381.
-ns:om_381 a rr:ObjectMap;
-    rr:template "exposure_time_{time}_UO_0000032";
-    rr:termType rr:Literal.
-ns:pom_382 a rr:PredicateObjectMap.
-ns:map_time_000 rr:predicateObjectMap ns:pom_382.
-ns:pm_382 a rr:PredicateMap.
-ns:pom_382 rr:predicateMap ns:pm_382.
-ns:pm_382 rr:constant rdf:type.
-ns:pom_382 rr:objectMap ns:om_382.
-ns:om_382 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_383 a rr:PredicateObjectMap.
-ns:map_time_000 rr:predicateObjectMap ns:pom_383.
-ns:pm_383 a rr:PredicateMap.
-ns:pom_383 rr:predicateMap ns:pm_383.
-ns:pm_383 rr:constant rdf:type.
 ns:pom_383 rr:objectMap ns:om_383.
 ns:om_383 a rr:ObjectMap;
-    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000721";
-    rr:termType rr:IRI.
-ns:pom_384 a rr:PredicateObjectMap.
-ns:map_time_000 rr:predicateObjectMap ns:pom_384.
-ns:pm_384 a rr:PredicateMap.
-ns:pom_384 rr:predicateMap ns:pm_384.
-ns:pm_384 rr:constant rdfs:label.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_";
+    rr:termType rr:Literal.
+ns:fn_138 rr:predicateObjectMap ns:pom_384.
+ns:pom_384 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_384.
+ns:pm_384 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_384 rr:objectMap ns:om_384.
-ns:om_384 a rr:ObjectMap;
-    rr:template "time: {time}h";
-    rr:termType rr:Literal;
-    rr:language "en".
-ns:pom_385 a rr:PredicateObjectMap.
-ns:map_time_000 rr:predicateObjectMap ns:pom_385.
-ns:pm_385 a rr:PredicateMap.
-ns:pom_385 rr:predicateMap ns:pm_385.
-ns:pm_385 rr:constant nsvoc:value.
+ns:om_384 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_139.
+ns:fn_139 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_139.
+ns:pomexec_139 rr:predicateMap ns:pmexec_139.
+ns:pmexec_139 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_139 rr:objectMap ns:omexec_139.
+ns:omexec_139 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+    rr:termType rr:IRI.
+ns:fn_139 rr:predicateObjectMap ns:pom_385.
+ns:pom_385 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_385.
+ns:pm_385 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_385 rr:objectMap ns:om_385.
 ns:om_385 a rr:ObjectMap;
-    rml:reference "time";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:template "exposure_time_{time}_UO_0000032";
+    rr:termType rr:Literal.
 ns:pom_386 a rr:PredicateObjectMap.
 ns:map_time_000 rr:predicateObjectMap ns:pom_386.
 ns:pm_386 a rr:PredicateMap.
 ns:pom_386 rr:predicateMap ns:pm_386.
-ns:pm_386 rr:constant obo:NCIT_C25709.
+ns:pm_386 rr:constant rdf:type.
 ns:pom_386 rr:objectMap ns:om_386.
 ns:om_386 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
+ns:pom_387 a rr:PredicateObjectMap.
+ns:map_time_000 rr:predicateObjectMap ns:pom_387.
+ns:pm_387 a rr:PredicateMap.
+ns:pom_387 rr:predicateMap ns:pm_387.
+ns:pm_387 rr:constant rdf:type.
+ns:pom_387 rr:objectMap ns:om_387.
+ns:om_387 a rr:ObjectMap;
+    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000721";
+    rr:termType rr:IRI.
+ns:pom_388 a rr:PredicateObjectMap.
+ns:map_time_000 rr:predicateObjectMap ns:pom_388.
+ns:pm_388 a rr:PredicateMap.
+ns:pom_388 rr:predicateMap ns:pm_388.
+ns:pm_388 rr:constant rdfs:label.
+ns:pom_388 rr:objectMap ns:om_388.
+ns:om_388 a rr:ObjectMap;
+    rr:template "time: {time}h";
+    rr:termType rr:Literal;
+    rr:language "en".
+ns:pom_389 a rr:PredicateObjectMap.
+ns:map_time_000 rr:predicateObjectMap ns:pom_389.
+ns:pm_389 a rr:PredicateMap.
+ns:pom_389 rr:predicateMap ns:pm_389.
+ns:pm_389 rr:constant nsvoc:value.
+ns:pom_389 rr:objectMap ns:om_389.
+ns:om_389 a rr:ObjectMap;
+    rml:reference "time";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_390 a rr:PredicateObjectMap.
+ns:map_time_000 rr:predicateObjectMap ns:pom_390.
+ns:pm_390 a rr:PredicateMap.
+ns:pom_390 rr:predicateMap ns:pm_390.
+ns:pm_390 rr:constant obo:NCIT_C25709.
+ns:pom_390 rr:objectMap ns:om_390.
+ns:om_390 a rr:ObjectMap;
     rr:constant "http://purl.obolibrary.org/obo/UO_0000032";
     rr:termType rr:IRI.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_dose_000.
@@ -4570,92 +4611,92 @@ ns:s_012 a rr:SubjectMap.
 ns:map_dose_000 rr:subjectMap ns:s_012.
 ns:s_012 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_138.
-ns:fn_138 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_138.
-ns:pomexec_138 rr:predicateMap ns:pmexec_138.
-ns:pmexec_138 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_138 rr:objectMap ns:omexec_138.
-ns:omexec_138 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_140.
+ns:fn_140 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_140.
+ns:pomexec_140 rr:predicateMap ns:pmexec_140.
+ns:pmexec_140 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_140 rr:objectMap ns:omexec_140.
+ns:omexec_140 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_138 rr:predicateObjectMap ns:pom_387.
-ns:pom_387 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_387.
-ns:pm_387 a rr:PredicateMap;
+ns:fn_140 rr:predicateObjectMap ns:pom_391.
+ns:pom_391 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_391.
+ns:pm_391 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_387 rr:objectMap ns:om_387.
-ns:om_387 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:dose_";
-    rr:termType rr:Literal.
-ns:fn_138 rr:predicateObjectMap ns:pom_388.
-ns:pom_388 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_388.
-ns:pm_388 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_388 rr:objectMap ns:om_388.
-ns:om_388 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_139.
-ns:fn_139 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_139.
-ns:pomexec_139 rr:predicateMap ns:pmexec_139.
-ns:pmexec_139 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_139 rr:objectMap ns:omexec_139.
-ns:omexec_139 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_139 rr:predicateObjectMap ns:pom_389.
-ns:pom_389 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_389.
-ns:pm_389 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_389 rr:objectMap ns:om_389.
-ns:om_389 a rr:ObjectMap;
-    rr:template "dose_{dose}_UO_0000274";
-    rr:termType rr:Literal.
-ns:pom_390 a rr:PredicateObjectMap.
-ns:map_dose_000 rr:predicateObjectMap ns:pom_390.
-ns:pm_390 a rr:PredicateMap.
-ns:pom_390 rr:predicateMap ns:pm_390.
-ns:pm_390 rr:constant rdf:type.
-ns:pom_390 rr:objectMap ns:om_390.
-ns:om_390 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_391 a rr:PredicateObjectMap.
-ns:map_dose_000 rr:predicateObjectMap ns:pom_391.
-ns:pm_391 a rr:PredicateMap.
-ns:pom_391 rr:predicateMap ns:pm_391.
-ns:pm_391 rr:constant rdf:type.
 ns:pom_391 rr:objectMap ns:om_391.
 ns:om_391 a rr:ObjectMap;
-    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000428";
-    rr:termType rr:IRI.
-ns:pom_392 a rr:PredicateObjectMap.
-ns:map_dose_000 rr:predicateObjectMap ns:pom_392.
-ns:pm_392 a rr:PredicateMap.
-ns:pom_392 rr:predicateMap ns:pm_392.
-ns:pm_392 rr:constant rdfs:label.
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:dose_";
+    rr:termType rr:Literal.
+ns:fn_140 rr:predicateObjectMap ns:pom_392.
+ns:pom_392 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_392.
+ns:pm_392 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
 ns:pom_392 rr:objectMap ns:om_392.
-ns:om_392 a rr:ObjectMap;
-    rr:template "dose: {dose}";
-    rr:termType rr:Literal;
-    rr:language "en".
-ns:pom_393 a rr:PredicateObjectMap.
-ns:map_dose_000 rr:predicateObjectMap ns:pom_393.
-ns:pm_393 a rr:PredicateMap.
-ns:pom_393 rr:predicateMap ns:pm_393.
-ns:pm_393 rr:constant nsvoc:value.
+ns:om_392 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_141.
+ns:fn_141 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_141.
+ns:pomexec_141 rr:predicateMap ns:pmexec_141.
+ns:pmexec_141 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_141 rr:objectMap ns:omexec_141.
+ns:omexec_141 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+    rr:termType rr:IRI.
+ns:fn_141 rr:predicateObjectMap ns:pom_393.
+ns:pom_393 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_393.
+ns:pm_393 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
 ns:pom_393 rr:objectMap ns:om_393.
 ns:om_393 a rr:ObjectMap;
-    rml:reference "dose";
-    rr:termType rr:Literal;
-    rr:datatype xsd:float.
+    rr:template "dose_{dose}_UO_0000274";
+    rr:termType rr:Literal.
 ns:pom_394 a rr:PredicateObjectMap.
 ns:map_dose_000 rr:predicateObjectMap ns:pom_394.
 ns:pm_394 a rr:PredicateMap.
 ns:pom_394 rr:predicateMap ns:pm_394.
-ns:pm_394 rr:constant obo:NCIT_C25709.
+ns:pm_394 rr:constant rdf:type.
 ns:pom_394 rr:objectMap ns:om_394.
 ns:om_394 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
+ns:pom_395 a rr:PredicateObjectMap.
+ns:map_dose_000 rr:predicateObjectMap ns:pom_395.
+ns:pm_395 a rr:PredicateMap.
+ns:pom_395 rr:predicateMap ns:pm_395.
+ns:pm_395 rr:constant rdf:type.
+ns:pom_395 rr:objectMap ns:om_395.
+ns:om_395 a rr:ObjectMap;
+    rr:constant "http://www.ebi.ac.uk/efo/EFO_0000428";
+    rr:termType rr:IRI.
+ns:pom_396 a rr:PredicateObjectMap.
+ns:map_dose_000 rr:predicateObjectMap ns:pom_396.
+ns:pm_396 a rr:PredicateMap.
+ns:pom_396 rr:predicateMap ns:pm_396.
+ns:pm_396 rr:constant rdfs:label.
+ns:pom_396 rr:objectMap ns:om_396.
+ns:om_396 a rr:ObjectMap;
+    rr:template "dose: {dose}";
+    rr:termType rr:Literal;
+    rr:language "en".
+ns:pom_397 a rr:PredicateObjectMap.
+ns:map_dose_000 rr:predicateObjectMap ns:pom_397.
+ns:pm_397 a rr:PredicateMap.
+ns:pom_397 rr:predicateMap ns:pm_397.
+ns:pm_397 rr:constant nsvoc:value.
+ns:pom_397 rr:objectMap ns:om_397.
+ns:om_397 a rr:ObjectMap;
+    rml:reference "dose";
+    rr:termType rr:Literal;
+    rr:datatype xsd:float.
+ns:pom_398 a rr:PredicateObjectMap.
+ns:map_dose_000 rr:predicateObjectMap ns:pom_398.
+ns:pm_398 a rr:PredicateMap.
+ns:pom_398 rr:predicateMap ns:pm_398.
+ns:pm_398 rr:constant obo:NCIT_C25709.
+ns:pom_398 rr:objectMap ns:om_398.
+ns:om_398 a rr:ObjectMap;
     rr:constant "http://purl.obolibrary.org/obo/UO_0000274";
     rr:termType rr:IRI.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_viability_000.
@@ -4666,82 +4707,82 @@ ns:s_013 a rr:SubjectMap.
 ns:map_viability_000 rr:subjectMap ns:s_013.
 ns:s_013 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_140.
-ns:fn_140 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_140.
-ns:pomexec_140 rr:predicateMap ns:pmexec_140.
-ns:pmexec_140 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_140 rr:objectMap ns:omexec_140.
-ns:omexec_140 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_142.
+ns:fn_142 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_142.
+ns:pomexec_142 rr:predicateMap ns:pmexec_142.
+ns:pmexec_142 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_142 rr:objectMap ns:omexec_142.
+ns:omexec_142 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_140 rr:predicateObjectMap ns:pom_395.
-ns:pom_395 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_395.
-ns:pm_395 a rr:PredicateMap;
+ns:fn_142 rr:predicateObjectMap ns:pom_399.
+ns:pom_399 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_399.
+ns:pm_399 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_395 rr:objectMap ns:om_395.
-ns:om_395 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:viability_";
-    rr:termType rr:Literal.
-ns:fn_140 rr:predicateObjectMap ns:pom_396.
-ns:pom_396 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_396.
-ns:pm_396 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_396 rr:objectMap ns:om_396.
-ns:om_396 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_141.
-ns:fn_141 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_141.
-ns:pomexec_141 rr:predicateMap ns:pmexec_141.
-ns:pmexec_141 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_141 rr:objectMap ns:omexec_141.
-ns:omexec_141 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_141 rr:predicateObjectMap ns:pom_397.
-ns:pom_397 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_397.
-ns:pm_397 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_397 rr:objectMap ns:om_397.
-ns:om_397 a rr:ObjectMap;
-    rr:template "viability_{viability}";
-    rr:termType rr:Literal.
-ns:pom_398 a rr:PredicateObjectMap.
-ns:map_viability_000 rr:predicateObjectMap ns:pom_398.
-ns:pm_398 a rr:PredicateMap.
-ns:pom_398 rr:predicateMap ns:pm_398.
-ns:pm_398 rr:constant rdf:type.
-ns:pom_398 rr:objectMap ns:om_398.
-ns:om_398 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_399 a rr:PredicateObjectMap.
-ns:map_viability_000 rr:predicateObjectMap ns:pom_399.
-ns:pm_399 a rr:PredicateMap.
-ns:pom_399 rr:predicateMap ns:pm_399.
-ns:pm_399 rr:constant rdf:type.
 ns:pom_399 rr:objectMap ns:om_399.
 ns:om_399 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:viability_";
+    rr:termType rr:Literal.
+ns:fn_142 rr:predicateObjectMap ns:pom_400.
+ns:pom_400 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_400.
+ns:pm_400 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+ns:pom_400 rr:objectMap ns:om_400.
+ns:om_400 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_143.
+ns:fn_143 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_143.
+ns:pomexec_143 rr:predicateMap ns:pmexec_143.
+ns:pmexec_143 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_143 rr:objectMap ns:omexec_143.
+ns:omexec_143 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+    rr:termType rr:IRI.
+ns:fn_143 rr:predicateObjectMap ns:pom_401.
+ns:pom_401 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_401.
+ns:pm_401 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_401 rr:objectMap ns:om_401.
+ns:om_401 a rr:ObjectMap;
+    rr:template "viability_{viability}";
+    rr:termType rr:Literal.
+ns:pom_402 a rr:PredicateObjectMap.
+ns:map_viability_000 rr:predicateObjectMap ns:pom_402.
+ns:pm_402 a rr:PredicateMap.
+ns:pom_402 rr:predicateMap ns:pm_402.
+ns:pm_402 rr:constant rdf:type.
+ns:pom_402 rr:objectMap ns:om_402.
+ns:om_402 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
+ns:pom_403 a rr:PredicateObjectMap.
+ns:map_viability_000 rr:predicateObjectMap ns:pom_403.
+ns:pm_403 a rr:PredicateMap.
+ns:pom_403 rr:predicateMap ns:pm_403.
+ns:pm_403 rr:constant rdf:type.
+ns:pom_403 rr:objectMap ns:om_403.
+ns:om_403 a rr:ObjectMap;
     rr:constant "http://purl.enanomapper.org/onto/ENM_0000068";
     rr:termType rr:IRI.
-ns:pom_400 a rr:PredicateObjectMap.
-ns:map_viability_000 rr:predicateObjectMap ns:pom_400.
-ns:pm_400 a rr:PredicateMap.
-ns:pom_400 rr:predicateMap ns:pm_400.
-ns:pm_400 rr:constant rdfs:label.
-ns:pom_400 rr:objectMap ns:om_400.
-ns:om_400 a rr:ObjectMap;
+ns:pom_404 a rr:PredicateObjectMap.
+ns:map_viability_000 rr:predicateObjectMap ns:pom_404.
+ns:pm_404 a rr:PredicateMap.
+ns:pom_404 rr:predicateMap ns:pm_404.
+ns:pm_404 rr:constant rdfs:label.
+ns:pom_404 rr:objectMap ns:om_404.
+ns:om_404 a rr:ObjectMap;
     rr:template "viability: {viability}";
     rr:termType rr:Literal;
     rr:language "en".
-ns:pom_401 a rr:PredicateObjectMap.
-ns:map_viability_000 rr:predicateObjectMap ns:pom_401.
-ns:pm_401 a rr:PredicateMap.
-ns:pom_401 rr:predicateMap ns:pm_401.
-ns:pm_401 rr:constant nsvoc:value.
-ns:pom_401 rr:objectMap ns:om_401.
-ns:om_401 a rr:ObjectMap;
+ns:pom_405 a rr:PredicateObjectMap.
+ns:map_viability_000 rr:predicateObjectMap ns:pom_405.
+ns:pm_405 a rr:PredicateMap.
+ns:pom_405 rr:predicateMap ns:pm_405.
+ns:pm_405 rr:constant nsvoc:value.
+ns:pom_405 rr:objectMap ns:om_405.
+ns:om_405 a rr:ObjectMap;
     rml:reference "viability";
     rr:termType rr:Literal;
     rr:datatype xsd:float.
@@ -4753,82 +4794,82 @@ ns:s_014 a rr:SubjectMap.
 ns:map_toxicity_000 rr:subjectMap ns:s_014.
 ns:s_014 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
-    fnml:functionValue ns:fn_142.
-ns:fn_142 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_142.
-ns:pomexec_142 rr:predicateMap ns:pmexec_142.
-ns:pmexec_142 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_142 rr:objectMap ns:omexec_142.
-ns:omexec_142 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
+    fnml:functionValue ns:fn_144.
+ns:fn_144 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_144.
+ns:pomexec_144 rr:predicateMap ns:pmexec_144.
+ns:pmexec_144 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_144 rr:objectMap ns:omexec_144.
+ns:omexec_144 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#join";
     rr:termType rr:IRI.
-ns:fn_142 rr:predicateObjectMap ns:pom_402.
-ns:pom_402 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_402.
-ns:pm_402 a rr:PredicateMap;
+ns:fn_144 rr:predicateObjectMap ns:pom_406.
+ns:pom_406 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_406.
+ns:pm_406 a rr:PredicateMap;
     rr:constant grel:valueParameter.
-ns:pom_402 rr:objectMap ns:om_402.
-ns:om_402 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:toxicity_";
-    rr:termType rr:Literal.
-ns:fn_142 rr:predicateObjectMap ns:pom_403.
-ns:pom_403 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_403.
-ns:pm_403 a rr:PredicateMap;
-    rr:constant grel:valueParameter2.
-ns:pom_403 rr:objectMap ns:om_403.
-ns:om_403 a rr:ObjectMap, fnml:FunctionTermMap;
-    fnml:functionValue ns:fn_143.
-ns:fn_143 rml:logicalSource ns:source_000;
-    rr:predicateObjectMap ns:pomexec_143.
-ns:pomexec_143 rr:predicateMap ns:pmexec_143.
-ns:pmexec_143 rr:constant <https://w3id.org/function/ontology#executes>.
-ns:pomexec_143 rr:objectMap ns:omexec_143.
-ns:omexec_143 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
-    rr:termType rr:IRI.
-ns:fn_143 rr:predicateObjectMap ns:pom_404.
-ns:pom_404 a rr:PredicateObjectMap;
-    rr:predicateMap ns:pm_404.
-ns:pm_404 a rr:PredicateMap;
-    rr:constant grel:valueParameter.
-ns:pom_404 rr:objectMap ns:om_404.
-ns:om_404 a rr:ObjectMap;
-    rr:template "toxicity_{toxicity}";
-    rr:termType rr:Literal.
-ns:pom_405 a rr:PredicateObjectMap.
-ns:map_toxicity_000 rr:predicateObjectMap ns:pom_405.
-ns:pm_405 a rr:PredicateMap.
-ns:pom_405 rr:predicateMap ns:pm_405.
-ns:pm_405 rr:constant rdf:type.
-ns:pom_405 rr:objectMap ns:om_405.
-ns:om_405 a rr:ObjectMap;
-    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
-    rr:termType rr:IRI.
-ns:pom_406 a rr:PredicateObjectMap.
-ns:map_toxicity_000 rr:predicateObjectMap ns:pom_406.
-ns:pm_406 a rr:PredicateMap.
-ns:pom_406 rr:predicateMap ns:pm_406.
-ns:pm_406 rr:constant rdf:type.
 ns:pom_406 rr:objectMap ns:om_406.
 ns:om_406 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/ns:toxicity_";
+    rr:termType rr:Literal.
+ns:fn_144 rr:predicateObjectMap ns:pom_407.
+ns:pom_407 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_407.
+ns:pm_407 a rr:PredicateMap;
+    rr:constant grel:valueParameter2.
+ns:pom_407 rr:objectMap ns:om_407.
+ns:om_407 a rr:ObjectMap, fnml:FunctionTermMap;
+    fnml:functionValue ns:fn_145.
+ns:fn_145 rml:logicalSource ns:source_000;
+    rr:predicateObjectMap ns:pomexec_145.
+ns:pomexec_145 rr:predicateMap ns:pmexec_145.
+ns:pmexec_145 rr:constant <https://w3id.org/function/ontology#executes>.
+ns:pomexec_145 rr:objectMap ns:omexec_145.
+ns:omexec_145 rr:constant "http://users.ugent.be/~bjdmeest/function/grel.ttl#md5Hex";
+    rr:termType rr:IRI.
+ns:fn_145 rr:predicateObjectMap ns:pom_408.
+ns:pom_408 a rr:PredicateObjectMap;
+    rr:predicateMap ns:pm_408.
+ns:pm_408 a rr:PredicateMap;
+    rr:constant grel:valueParameter.
+ns:pom_408 rr:objectMap ns:om_408.
+ns:om_408 a rr:ObjectMap;
+    rr:template "toxicity_{toxicity}";
+    rr:termType rr:Literal.
+ns:pom_409 a rr:PredicateObjectMap.
+ns:map_toxicity_000 rr:predicateObjectMap ns:pom_409.
+ns:pm_409 a rr:PredicateMap.
+ns:pom_409 rr:predicateMap ns:pm_409.
+ns:pm_409 rr:constant rdf:type.
+ns:pom_409 rr:objectMap ns:om_409.
+ns:om_409 a rr:ObjectMap;
+    rr:constant "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:Resource";
+    rr:termType rr:IRI.
+ns:pom_410 a rr:PredicateObjectMap.
+ns:map_toxicity_000 rr:predicateObjectMap ns:pom_410.
+ns:pm_410 a rr:PredicateMap.
+ns:pom_410 rr:predicateMap ns:pm_410.
+ns:pm_410 rr:constant rdf:type.
+ns:pom_410 rr:objectMap ns:om_410.
+ns:om_410 a rr:ObjectMap;
     rr:constant "http://purl.bioontology.org/ontology/npo#NPO_1338";
     rr:termType rr:IRI.
-ns:pom_407 a rr:PredicateObjectMap.
-ns:map_toxicity_000 rr:predicateObjectMap ns:pom_407.
-ns:pm_407 a rr:PredicateMap.
-ns:pom_407 rr:predicateMap ns:pm_407.
-ns:pm_407 rr:constant rdfs:label.
-ns:pom_407 rr:objectMap ns:om_407.
-ns:om_407 a rr:ObjectMap;
+ns:pom_411 a rr:PredicateObjectMap.
+ns:map_toxicity_000 rr:predicateObjectMap ns:pom_411.
+ns:pm_411 a rr:PredicateMap.
+ns:pom_411 rr:predicateMap ns:pm_411.
+ns:pm_411 rr:constant rdfs:label.
+ns:pom_411 rr:objectMap ns:om_411.
+ns:om_411 a rr:ObjectMap;
     rr:template "toxicity: {toxicity}";
     rr:termType rr:Literal;
     rr:language "en".
-ns:pom_408 a rr:PredicateObjectMap.
-ns:map_toxicity_000 rr:predicateObjectMap ns:pom_408.
-ns:pm_408 a rr:PredicateMap.
-ns:pom_408 rr:predicateMap ns:pm_408.
-ns:pm_408 rr:constant nsvoc:value.
-ns:pom_408 rr:objectMap ns:om_408.
-ns:om_408 a rr:ObjectMap;
+ns:pom_412 a rr:PredicateObjectMap.
+ns:map_toxicity_000 rr:predicateObjectMap ns:pom_412.
+ns:pm_412 a rr:PredicateMap.
+ns:pom_412 rr:predicateMap ns:pm_412.
+ns:pm_412 rr:constant nsvoc:value.
+ns:pom_412 rr:objectMap ns:om_412.
+ns:om_412 a rr:ObjectMap;
     rml:reference "toxicity";
     rr:termType rr:Literal;
     rr:datatype xsd:string.

@@ -390,6 +390,15 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = dataset_S2NANO RDF)
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(material)_$(core_size)_$(hydro_size)_$(surf_charge)_$(surf_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(assay)_$(cell_line)_$(viability)_$(dose)_$(time))
       - predicate: dcterms:type
         object: enm:ENM_9000005~iri
         condition:
@@ -439,7 +448,7 @@ mappings:
           parameters:
             - [grel:valueParameter, $(material)]
             - [grel:valueParameter2, ZnO]
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
@@ -448,7 +457,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = core_size_$(core_size)_UO_0000018)
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
@@ -457,7 +466,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = hydro_size_$(hydro_size)_UO_0000018)
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
@@ -466,7 +475,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = surf_charge_$(surf_charge)_UO_0000247)
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
@@ -475,7 +484,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = surf_area_$(surf_area)_ssa_unit_m2_per_gram)
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
@@ -484,7 +493,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf)_UO_0000266)
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
@@ -493,7 +502,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = ec_$(Ec)_UO_0000266)
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
@@ -502,7 +511,7 @@ mappings:
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = ev_$(Ev)_UO_0000266)
-      - predicate: obo:BFO_0000056
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
