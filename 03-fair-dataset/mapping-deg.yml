@@ -18,6 +18,8 @@ prefixes:
   obo: "http://purl.obolibrary.org/obo/"
   npo: "http://purl.bioontology.org/ontology/npo#"
   enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
   cheminf: "http://semanticscience.org/resource/"
   bao: "http://www.bioassayontology.org/bao#"
   efo: "http://www.ebi.ac.uk/efo/"
@@ -27,105 +29,189 @@ base: https://ammar257ammar.github.com/RDFied-datasets/ns:
 
 authors:
   - name: Ammar Ammar
-    email: ammar257ammar@gmail.com
+    website: http://orcid.org/0000-0002-8399-8990
     
 sources:
   data-source: ['@CONTRAST@.csv~csv']
    
+external:
+  ensemblSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:ensembl_
+  gseSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:gse_ 
+  measureGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:measureGroup_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
+  datasetSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_
+  transcriptomicsGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:transcriptomicsGroup_
+  
 mappings:
-  deg:
+  degEndpoint:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:deg_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = deg_@GSE@_@CONTRAST@_$(ID))    
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, nsvoc:DEG~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdfs:label, a differentially expressed gene for contrast (@CONTRAST@) in series @GSE@, en~lang]
-      - [nsvoc:p-value, $(P.Value), xsd:float]
-      - [nsvoc:adj-p-value, $(adj.P.Val), xsd:float]
-      - [nsvoc:log-fold-change, $(logFC), xsd:float]
-      - [nsvoc:avg-expr, $(AveExpr), xsd:float]
+      - [sio:has-unit, "array probe intensity"]
+      - predicate: nsvoc:p-value
+        object:
+          - function: grel:fixExpressionFloatingPoint
+            datatype: xsd:float
+            parameters:
+              - [grel:valueParameter, $(P.Value)]
+      - predicate: nsvoc:adj-p-value
+        object:
+          - function: grel:fixExpressionFloatingPoint
+            datatype: xsd:float
+            parameters:
+              - [grel:valueParameter, $(adj.P.Val)]
+      - predicate: nsvoc:log-fold-change
+        object:
+          - function: grel:fixExpressionFloatingPoint
+            datatype: xsd:float
+            parameters:
+              - [grel:valueParameter, $(logFC)]
+      - predicate: nsvoc:avg-expr
+        object:
+          - function: grel:fixExpressionFloatingPoint
+            datatype: xsd:float
+            parameters:
+              - [grel:valueParameter, $(AveExpr)]
+      - predicate: sio:has-value
+        object:
+          - function: grel:fixExpressionFloatingPoint
+            datatype: xsd:float
+            parameters:
+              - [grel:valueParameter, $(AveExpr)]
       - predicate: nsvoc:x-ensembl
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/ensembl:]
+              - [grel:valueParameter, $(_ensemblSubjectUrl)]
               - [grel:valueParameter2, $(ID)]
       - predicate: nsvoc:in-transcriptomics-contrast
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:contrast_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 
-  contrast:
+  contrastMeasurementGroup:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, http://bigcat.unimaas.nl/ns:contrast_]
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, nsvoc:TranscriptomicsContrast~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
       - [rdfs:label, a contrast of two groups (@CONTRAST@) for differential gene expression - Series: @GSE@, en~lang]
-      - predicate: nsvoc:x-gse
+      - predicate: obo:OBI_0000299
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/ns/gse:]
-              - [grel:valueParameter2, @GSE@]
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = deg_@GSE@_@CONTRAST@_$(ID)) 
       - predicate: dcterms:source
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+              - [grel:valueParameter, $(_datasetSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = dataset_@GSE@)
-      - predicate: nsvoc:deg
+                  function: grel:md5Hex(grel:valueParameter = @GSE@)
+      - predicate: nsvoc:left-group
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:deg_]
+              - [grel:valueParameter, $(_transcriptomicsGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = deg_@GSE@_@CONTRAST@_$(ID))
-  dataset:
+                  function: grel:md5Hex(grel:valueParameter = @GSE@_@LEFT_GROUP@)
+      - predicate: nsvoc:right-group
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_transcriptomicsGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = @GSE@_@RIGHT_GROUP@)
+  transcriptomicsGroupLeft:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+          - [grel:valueParameter, $(_transcriptomicsGroupSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = dataset_@GSE@)
+              function: grel:md5Hex(grel:valueParameter = @GSE@_@LEFT_GROUP@)
     predicateobjects:
-      - predicate: nsvoc:transcriptomics-contrast
+      - predicate: nsvoc:left-of-transcriptomics-contrast
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, http://bigcat.unimaas.nl/ns:contrast_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
                   function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 
+  transcriptomicsGroupRight:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_transcriptomicsGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = @GSE@_@RIGHT_GROUP@)
+    predicateobjects:
+      - predicate: nsvoc:right-of-transcriptomics-contrast
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 
+  ensemblClass:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_ensemblSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(ID))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, nsvoc:Ensembl-Gene~iri]
+      - [rdfs:label, Ensembl Gene ID: $(ID), en~lang]

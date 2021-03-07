@@ -18,6 +18,7 @@ prefixes:
   obo: "http://purl.obolibrary.org/obo/"
   npo: "http://purl.bioontology.org/ontology/npo#"
   enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
   sio: "http://semanticscience.org/resource/"
   cheminf: "http://semanticscience.org/resource/"
   bao: "http://www.bioassayontology.org/bao#"
@@ -28,10 +29,24 @@ base: https://ammar257ammar.github.com/RDFied-datasets/ns:
 
 authors:
   - name: Ammar Ammar
-    email: ammar257ammar@gmail.com
-    
+    website: http://orcid.org/0000-0002-8399-8990
+ 
 sources:
-  data-source: ['Metal_Oxide_cytotoxicity.csv~csv']
+  data-source: ['/data/Metal_Oxide_cytotoxicity.csv~csv']
+  
+external:
+  licenseUrl: https://creativecommons.org/licenses/by/4.0/
+  publisherName: Ammar Ammar
+  datasetName: Metal Oxide Cytotoxicity RDF
+  datasetTitle: Metal Oxide Cytotoxicity RDF
+  datasetDescription: DATASET_DESCRIPTION
+  datasetSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_
+  sampleRecordSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:sampleRecord_
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  assaySubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_
+  protocolSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:protocol_
+  measureGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:measureGroup_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
 
 mappings:
   dataset:
@@ -41,242 +56,184 @@ mappings:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+          - [grel:valueParameter, $(_datasetSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = dataset_Metal Oxide Cytotoxicity RDF)
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
       - [rdf:type, void:DataSet~iri]
-      - [dcterms:title, "Metal Oxide Cytotoxicity RDF", en~lang]
-      - [dcterms:description, "RDF version of the data from ------- ", en~lang]
-      - [dcterms:license, https://creativecommons.org/licenses/by/4.0/~iri]
-      - [dcterms:publisher, Ammar Ammar, en~lang]
-      - predicate: obo:OBI_0001980
+      - [dcterms:title, $(_datasetTitle), en~lang]
+      - [dcterms:description, $(_datasetDescription), en~lang]
+      - [dcterms:license, $(_licenseUrl)~iri]
+      - [dcterms:publisher, $(_publisherName), en~lang]
+      - predicate: nsvoc:sample-record
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
+              - [grel:valueParameter, $(_sampleRecordSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = $(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species)_$(Viability)_$(Exposure_dose)_$(Exposure_time))
-  experiment:
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species)_$(Viability)_$(Exposure_dose)_$(Exposure_time))
+  sampleRecord:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
+          - [grel:valueParameter, $(_sampleRecordSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = $(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species)_$(Viability)_$(Exposure_dose)_$(Exposure_time))
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species)_$(Viability)_$(Exposure_dose)_$(Exposure_time))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
-      - [rdf:type, obo:OBI_0001980~iri]
+      - [rdf:type, nsvoc:SampleRecord~iri]
       - [rdfs:label, "an in vivo intervention experiment for $(Material_type) with dose $(Exposure_dose) at $(Exposure_time)h time point in $(Cell_type) cells", en~lang]
-      - predicate: obo:CHEBI_59999
-        object:
-          - function: grel:join
-            type: iri
-            parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
-              - parameter: grel:valueParameter2
-                value: 
-                  function: grel:md5Hex(grel:valueParameter = material_metalOxideCytoTox_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)) 
-      - predicate: bao:BAO_0003009
-        object: npo:NPO_1709~iri
-        condition:
-          function: equal
-          parameters:
-            - [grel:valueParameter, $(Assay)]
-            - [grel:valueParameter2, LDH]    
-      - predicate: bao:BAO_0003009
-        object: bao:BAO_0010001~iri
-        condition:
-          function: equal
-          parameters:
-            - [grel:valueParameter, $(Assay)]
-            - [grel:valueParameter2, ATP]
-      - predicate: efo:EFO_0000322
+      - predicate: nsvoc:cell-line
         object: efo:EFO_0001089~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_name)]
             - [grel:valueParameter2, BEAS-2B]
-      - predicate: efo:EFO_0000322
+      - predicate: nsvoc:cell-line
         object: efo:EFO_0001231~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_name)]
             - [grel:valueParameter2, RAW264.7]            
-      - predicate: nsvoc:cell_species
+      - predicate: nsvoc:cell-species
         object: NCBITAXON:9606~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_species)]
             - [grel:valueParameter2, Human]          
-      - predicate: nsvoc:cell_species
+      - predicate: nsvoc:cell-species
         object: NCBITAXON:10090~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_species)]
             - [grel:valueParameter2, Mouse]       
-      - predicate: nsvoc:cell_origin
+      - predicate: nsvoc:cell-origin
         object: obo:UBERON_0000178~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_origin)]
             - [grel:valueParameter2, Blood]        
-      - predicate: nsvoc:cell_origin
+      - predicate: nsvoc:cell-origin
         object: obo:UBERON_0002048~iri
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_origin)]
             - [grel:valueParameter2, Lung]        
-      - predicate: nsvoc:cell_type
+      - predicate: nsvoc:cell-type
         object: efo:EFO_0002922~iri      
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_type)]
             - [grel:valueParameter2, Normal] 
-      - predicate: nsvoc:cell_type
+      - predicate: nsvoc:cell-type
         object: efo:EFO_0001639~iri      
         condition:
           function: equal
           parameters:
             - [grel:valueParameter, $(Cell_type)]
-            - [grel:valueParameter2, Cancer]             
-      - predicate: efo:EFO_0000721
+            - [grel:valueParameter2, Cancer] 
+      - predicate: nsvoc:chemical-substance
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(Exposure_time)_UO_0000032)
-      - predicate: efo:EFO_0000428
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO))
+      - predicate: nsvoc:assay
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
+              - [grel:valueParameter, $(_assaySubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = dose_$(Exposure_dose)_UO_0000274)     
-      - predicate: enm:ENM_0000068
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_core_size))
+      - predicate: nsvoc:assay
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:viability_]
+              - [grel:valueParameter, $(_assaySubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = viability_$(Viability))    
-      - [nsvoc:log_n_atoms_all, $(log_n_atoms_all), xsd:float]
-      - [nsvoc:log_n_atoms_core, $(log_n_atoms_core), xsd:float]
-      - [nsvoc:log_n_atoms_shell, $(log_n_atoms_shell), xsd:float]
-      - [nsvoc:log_n_Al_atoms_all, $(log_n_Al _atoms_all), xsd:float]
-      - [nsvoc:log_n_Al_atoms_core, $(log_n_Al _atoms_core), xsd:float]
-      - [nsvoc:log_n_Al_atoms_shell, $(log_n_Al _atoms_shell), xsd:float]
-      - [nsvoc:log_n_O_atoms_all, $(log_n_O_atoms_all), xsd:float]
-      - [nsvoc:log_n_O_atoms_core, $(log_n_O_atoms_core), xsd:float]
-      - [nsvoc:log_n_O_atoms_shell, $(log_n_O_atoms_shell), xsd:float]
-      - [nsvoc:peng_avg_all, $(peng_avg_all), xsd:float]
-      - [nsvoc:peng_avg_core, $(peng_avg_core), xsd:float]
-      - [nsvoc:peng_avg_shell, $(peng_avg_shell), xsd:float]
-      - [nsvoc:Al_peng_avg_all, $(Al _peng_avg_all), xsd:float]
-      - [nsvoc:Al_peng_avg_core, $(Al _peng_avg_core), xsd:float]
-      - [nsvoc:Al_peng_avg_shell, $(Al _peng_avg_shell), xsd:float]
-      - [nsvoc:O_peng_avg_all, $(O_peng_avg_all), xsd:float]
-      - [nsvoc:O_peng_avg_core, $(O_peng_avg_core), xsd:float]
-      - [nsvoc:O_peng_avg_shell, $(O_peng_avg_shell), xsd:float]
-      - [nsvoc:coordN_avg_all, $(coordN_avg_all), xsd:float]
-      - [nsvoc:coordN_avg_core, $(coordN_avg_core), xsd:float]
-      - [nsvoc:coordN_avg_shell, $(coordN_avg_shell), xsd:float]
-      - [nsvoc:Al_coordN_avg_all, $(Al _coordN_avg_all), xsd:float]
-      - [nsvoc:Al_coordN_avg_core, $(Al _coordN_avg_core), xsd:float]
-      - [nsvoc:Al_coordN_avg_shell, $(Al _coordN_avg_shell), xsd:float]
-      - [nsvoc:O_coordN_avg_all, $(O_coordN_avg_all), xsd:float]
-      - [nsvoc:O_coordN_avg_core, $(O_coordN_avg_core), xsd:float]
-      - [nsvoc:O_coordN_avg_shell, $(O_coordN_avg_shell), xsd:float]
-      - [nsvoc:NP_diameter, $(NP_diameter), xsd:float]
-      - [nsvoc:NP_surface_area, $(NP_surface_area), xsd:float]
-      - [nsvoc:NP_volume, $(NP_volume), xsd:float]
-      - [nsvoc:Lattice_energy_of_NP, $(Lattice_energy_of_NP), xsd:float]
-      - [nsvoc:E_L_bulk-E_L_NP, $(E_L_bulk-E_L_NP), xsd:float]
-      - [nsvoc:Lattice_energy_of_NP_d_NP, $(Lattice_energy_of_NP_d_NP), xsd:float]
-      - [nsvoc:Lattice_energy_of_NP_S_NP, $(Lattice_energy_of_NP_S_NP), xsd:float]
-      - [nsvoc:Lattice_energy_of_NP_V_NP, $(Lattice_energy_of_NP_V_NP), xsd:float]
-      - [nsvoc:force_vector_length_avg_all, $(force_vector_length_avg_all), xsd:float]
-      - [nsvoc:force_vector_length_avg_core, $(force_vector_length_avg_core), xsd:float]
-      - [nsvoc:force_vector_length_avg_shell, $(force_vector_length_avg_shell), xsd:float]
-      - [nsvoc:Al_force_vector_length_coordN_avg_all, $(Al _force_vector_length_coordN_avg_all), xsd:float]
-      - [nsvoc:Al_force_vector_length_coordN_avg_core, $(Al _force_vector_length_coordN_avg_core), xsd:float]
-      - [nsvoc:Al_force_vector_length_coordN_avg_shell, $(Al _force_vector_length_coordN_avg_shell), xsd:float]
-      - [nsvoc:O_force_vector_length_avg_all, $(O_force_vector_length_avg_all), xsd:float]
-      - [nsvoc:O_force_vector_length_avg_core, $(O_force_vector_length_avg_core), xsd:float]
-      - [nsvoc:O_force_vector_length_avg_shell, $(O_force_vector_length_avg_shell), xsd:float]
-      - [nsvoc:force_vector_surface_normal_component_avg_all, $(force_vector_surface_normal_component_avg_all), xsd:float]
-      - [nsvoc:force_vector_surface_normal_component_avg_core, $(force_vector_surface_normal_component_avg_core), xsd:float]
-      - [nsvoc:force_vector_surface_normal_component_avg_shell, $(force_vector_surface_normal_component_avg_shell), xsd:float]
-      - [nsvoc:Al_force_vector_surface_normal_component_coordN_avg_all, $(Al _force_vector_surface_normal_component_coordN_avg_all), xsd:float]
-      - [nsvoc:Al_force_vector_surface_normal_component_coordN_avg_core, $(Al _force_vector_surface_normal_component_coordN_avg_core), xsd:float]
-      - [nsvoc:Al_force_vector_surface_normal_component_coordN_avg_shell, $(Al _force_vector_surface_normal_component_coordN_avg_shell), xsd:float]
-      - [nsvoc:O_force_vector_surface_normal_component_avg_all, $(O_force_vector_surface_normal_component_avg_all), xsd:float]
-      - [nsvoc:O_force_vector_surface_normal_component_avg_core, $(O_force_vector_surface_normal_component_avg_core), xsd:float]
-      - [nsvoc:O_force_vector_surface_normal_component_avg_shell, $(O_force_vector_surface_normal_component_avg_shell), xsd:float]
-      - [nsvoc:force_vector_surface_tangent_component_avg_all, $(force_vector_surface_tangent_component_avg_all), xsd:float]
-      - [nsvoc:force_vector_surface_tangent_component_avg_core, $(force_vector_surface_tangent_component_avg_core), xsd:float]
-      - [nsvoc:force_vector_surface_tangent_component_avg_shell, $(force_vector_surface_tangent_component_avg_shell), xsd:float]
-      - [nsvoc:Al_force_vector_surface_tangent_component_coordN_avg_all, $(Al _force_vector_surface_tangent_component_coordN_avg_all), xsd:float]
-      - [nsvoc:Al_force_vector_surface_tangent_component_coordN_avg_core, $(Al _force_vector_surface_tangent_component_coordN_avg_core), xsd:float]
-      - [nsvoc:Al_force_vector_surface_tangent_component_coordN_avg_shell, $(Al _force_vector_surface_tangent_component_coordN_avg_shell), xsd:float]       
-      - [nsvoc:O_force_vector_surface_tangent_component_avg_all, $(O_force_vector_surface_tangent_component_avg_all), xsd:float]
-      - [nsvoc:O_force_vector_surface_tangent_component_avg_core, $(O_force_vector_surface_tangent_component_avg_core), xsd:float]
-      - [nsvoc:O_force_vector_surface_tangent_component_avg_shell, $(O_force_vector_surface_tangent_component_avg_shell), xsd:float]
-  material:
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_hydro_size))
+      - predicate: nsvoc:assay
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_assaySubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_surface_charge))
+      - predicate: nsvoc:assay
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_assaySubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_surface_area))
+      - predicate: nsvoc:assay
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_assaySubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hsf)_$(Ec)_$(Ev)_$(MeO))
+      - predicate: nsvoc:assay
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_assaySubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species))           
+  chemicalSubstance:  
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:material_]
+          - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
-              function: grel:md5Hex(grel:valueParameter = material_metalOxideCytoTox_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)) 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO))
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
-      - [rdf:type, obo:CHEBI_59999~iri]
+      - [rdf:type, obo:CHEBI_59999~iri] # chemical substance
       - [rdfs:label, $(Material_type), en~lang]
       - predicate: dcterms:source
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_]
+              - [grel:valueParameter, $(_datasetSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = dataset_Metal Oxide Cytotoxicity RDF)
-      - predicate: obo:BFO_0000056
-        object:
-          - function: grel:join
-            type: iri
-            parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:experiment_]
-              - parameter: grel:valueParameter2
-                value: 
-                  function: grel:md5Hex(grel:valueParameter = $(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species)_$(Viability)_$(Exposure_dose)_$(Exposure_time))
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName))
       - predicate: dcterms:type
         object: enm:ENM_9000005~iri
         condition:
@@ -374,290 +331,2240 @@ mappings:
           function: equal
           parameters:
             - [grel:valueParameter, $(Material_type)]
-            - [grel:valueParameter2, Sb2O3]            
-      - predicate: obo:OBI_0000299
+            - [grel:valueParameter2, Sb2O3] 
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = core_size_$(Core_size)_UO_0000018)
-      - predicate: obo:OBI_0000299
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size))
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = hydro_size_$(Hydro_size)_UO_0000018)                  
-      - predicate: obo:OBI_0000299
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hydro_size))
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surface_charge_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = surf_charge_$(Surface_charge)_UO_0000247)       
-      - predicate: obo:OBI_0000299
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Surface_charge))
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surface_area_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = surf_area_$(Surface_area)_ssa_unit_m2_per_gram)                       
-      - predicate: obo:OBI_0000299
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Surface_area))
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf)_UO_0000266)
-      - predicate: obo:OBI_0000299
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hsf)_$(Ec)_$(Ev)_$(MeO))
+      - predicate: obo:BFO_0000056
         object:
           - function: grel:join
             type: iri
             parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ec_]
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
               - parameter: grel:valueParameter2
                 value: 
-                  function: grel:md5Hex(grel:valueParameter = ec_$(Ec)_UO_0000266)
-      - predicate: obo:OBI_0000299
-        object:
-          - function: grel:join
-            type: iri
-            parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ev_]
-              - parameter: grel:valueParameter2
-                value: 
-                  function: grel:md5Hex(grel:valueParameter = ev_$(Ev)_UO_0000266)
-      - predicate: obo:OBI_0000299
-        object:
-          - function: grel:join
-            type: iri
-            parameters:
-              - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:meo_]
-              - parameter: grel:valueParameter2
-                value: 
-                  function: grel:md5Hex(grel:valueParameter = meo_$(MeO)_UO_0000266)   
-  coreSize:
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species))
+  assayCoreSize:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:core_size_]
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_core_size))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, npo:NPO_1430~iri] # transmission electron microscopy
+      - [rdfs:label, $(Method_core_size) assay, en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size))                   
+  assayHydroSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_hydro_size))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, npo:NPO_1469~iri] # dynamic light scattering
+      - [rdfs:label, $(Method_hydro_size) assay, en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hydro_size)) 
+  assaySurfaceCharge:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_surface_charge))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, bao:BAO_0010009~iri] # physiochemical assay
+      - [rdfs:label, $(Method_surface_charge), en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Surface_charge))
+  assaySurfaceArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Method_surface_area))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, bao:BAO_0010009~iri] # physiochemical assay
+      - [rdfs:label, $(Method_surface_area), en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Surface_area))                  
+  assayPChem:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hsf)_$(Ec)_$(Ev)_$(MeO))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, bao:BAO_0010009~iri] # physiochemical assay
+      - [rdfs:label, "PChem assay", en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hsf)_$(Ec)_$(Ev)_$(MeO))
+  assayCellViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "Assay: $(Assay) (cell line: $(Cell_type))", en~lang]
+      - predicate: rdf:type
+        object: npo:NPO_1709~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(Assay)]
+            - [grel:valueParameter2, LDH]    
+      - predicate: rdf:type
+        object: bao:BAO_0010001~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(Assay)]
+            - [grel:valueParameter2, ATP]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species))
+  measureGroupCoreSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = core_size_$(Core_size)_UO_0000018) 
+  measureGroupHydroSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hydro_size))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = hydro_size_$(Hydro_size)_UO_0000018)
+  measureGroupSurfaceCharge:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Surface_charge))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = surf_charge_$(Surface_charge)_UO_0000247)  
+  measureGroupSurfaceArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Surface_area))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = surf_area_$(Surface_area)_ssa_unit_m2_per_gram)  
+  measureGroupPChem:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Hsf)_$(Ec)_$(Ev)_$(MeO))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf)_UO_0000266)   
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = ec_$(Ec)_UO_0000266) 
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = ev_$(Ev)_UO_0000266) 
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = meo_$(MeO)_UO_0000266) 
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_atoms_all_$(log_n_atoms_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_atoms_core_$(log_n_atoms_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_atoms_shell_$(log_n_atoms_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_Al_atoms_all_$(log_n_Al _atoms_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_Al_atoms_core_$(log_n_Al _atoms_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_Al_atoms_shell_$(log_n_Al _atoms_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_O_atoms_all_$(log_n_O_atoms_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_O_atoms_core_$(log_n_O_atoms_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = log_n_O_atoms_shell_$(log_n_O_atoms_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = peng_avg_all_$(peng_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = peng_avg_core_$(peng_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = peng_avg_shell_$(peng_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_peng_avg_all_$(Al _peng_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_peng_avg_core_$(Al _peng_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_peng_avg_shell_$(Al _peng_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_peng_avg_all_$(O_peng_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_peng_avg_core_$(O_peng_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_peng_avg_shell_$(O_peng_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = coordN_avg_all_$(coordN_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = coordN_avg_core_$(coordN_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = coordN_avg_shell_$(coordN_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_coordN_avg_all_$(Al _coordN_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_coordN_avg_core_$(Al _coordN_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_coordN_avg_shell_$(Al _coordN_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_coordN_avg_all_$(O_coordN_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_coordN_avg_core_$(O_coordN_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_coordN_avg_shell_$(O_coordN_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = NP_diameter_$(NP_diameter))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = NP_surface_area_$(NP_surface_area))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = NP_volume_$(NP_volume))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_$(Lattice_energy_of_NP))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = E_L_bulk-E_L_NP_$(E_L_bulk-E_L_NP))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_d_NP_$(Lattice_energy_of_NP_d_NP))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_S_NP_$(Lattice_energy_of_NP_S_NP))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_V_NP_$(Lattice_energy_of_NP_V_NP))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_length_avg_all_$(force_vector_length_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_length_avg_core_$(force_vector_length_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_length_avg_shell_$(force_vector_length_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_length_coordN_avg_all_$(Al _force_vector_length_coordN_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_length_coordN_avg_core_$(Al _force_vector_length_coordN_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_length_coordN_avg_shell_$(Al _force_vector_length_coordN_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_length_avg_all_$(O_force_vector_length_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_length_avg_core_$(O_force_vector_length_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_length_avg_shell_$(O_force_vector_length_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_surface_normal_component_avg_all_$(force_vector_surface_normal_component_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_surface_normal_component_avg_core_$(force_vector_surface_normal_component_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_surface_normal_component_avg_shell_$(force_vector_surface_normal_component_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_normal_component_coordN_avg_all_$(Al _force_vector_surface_normal_component_coordN_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_normal_component_coordN_avg_core_$(Al _force_vector_surface_normal_component_coordN_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_normal_component_coordN_avg_shell_$(Al _force_vector_surface_normal_component_coordN_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_normal_component_avg_all_$(O_force_vector_surface_normal_component_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_normal_component_avg_core_$(O_force_vector_surface_normal_component_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_normal_component_avg_shell_$(O_force_vector_surface_normal_component_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_surface_tangent_component_avg_all_$(force_vector_surface_tangent_component_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_surface_tangent_component_avg_core_$(force_vector_surface_tangent_component_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = force_vector_surface_tangent_component_avg_shell_$(force_vector_surface_tangent_component_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_tangent_component_coordN_avg_all_$(Al _force_vector_surface_tangent_component_coordN_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_tangent_component_coordN_avg_core_$(Al _force_vector_surface_tangent_component_coordN_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_tangent_component_coordN_avg_shell_$(Al _force_vector_surface_tangent_component_coordN_avg_shell))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_tangent_component_avg_all_$(O_force_vector_surface_tangent_component_avg_all))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_tangent_component_avg_core_$(O_force_vector_surface_tangent_component_avg_core))
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_tangent_component_avg_shell_$(O_force_vector_surface_tangent_component_avg_shell))               
+  measureGroupCellViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)_$(Hsf)_$(Ec)_$(Ev)_$(MeO)_$(Assay)_$(Cell_type)_$(Cell_name)_$(Cell_origin)_$(Cell_species))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299 # endpoint viability
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = viability_$(Viability)_percentage_$(Exposure_time)_UO_0000032_$(Exposure_dose)_UO_0000274)                   
+  endpointCoreSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = core_size_$(Core_size)_UO_0000018)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, enm:ENM_8000039~iri]
-      - [rdfs:label, Core_size, en~lang]
-      - [nsvoc:value, $(Core_size), xsd:float]
-      - [npo:NPO_1436, npo:NPO_1430~iri]      
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, obo:UO_0000018~iri] #nm
-      - [sio:has-unit, "nm", xsd:float]
+      - [rdfs:label, core size, en~lang]
+      - [sio:has-unit, obo:UO_0000018~iri] #nm
       - [sio:has-value, $(Core_size), xsd:float]
-  hydroSize:
+  endpointHydroSize:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hydro_size_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = hydro_size_$(Hydro_size)_UO_0000018)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, npo:NPO_1914~iri]
-      - [rdfs:label, hydro_size, en~lang]
-      - [nsvoc:value, $(Hydro_size), xsd:float]
-      - [npo:NPO_1436, npo:NPO_1469~iri]
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, obo:UO_0000018~iri] #nm
-      - [sio:has-unit, "nm", xsd:float]
+      - [rdfs:label, hydro size, en~lang]
+      - [sio:has-unit, obo:UO_0000018~iri] #nm
       - [sio:has-value, $(Hydro_size), xsd:float]
-  surfCharge:
+  endpointSurfCharge:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_charge_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = surf_charge_$(Surface_charge)_UO_0000247)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, npo:NPO_1812~iri]
-      - [rdfs:label, surface_charge, en~lang]
-      - [nsvoc:value, $(Surface_charge), xsd:float]
-      - [npo:NPO_1436, npo:NPO_1302~iri]
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, obo:UO_0000247~iri] #mV
-      - [sio:has-unit, "mV", xsd:float]
+      - [rdfs:label, surface charge, en~lang]
+      - [sio:has-unit, obo:UO_0000247~iri] #mV
       - [sio:has-value, $(Surface_charge), xsd:float]
-  surfArea:
+  endpointSurfArea:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:surf_area_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = surf_area_$(Surface_area)_ssa_unit_m2_per_gram)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, npo:NPO_1235~iri]
-      - [rdfs:label, surface_area, en~lang]
-      - [nsvoc:value, $(Surface_area), xsd:float]
-      - [npo:NPO_1436, npo:NPO_1235~iri] ### Need revision
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, nsvoc:ssa_unit_m2_per_gram~iri] 
-      - [sio:has-unit, "m2/g", xsd:float]
+      - [rdfs:label, surface area, en~lang]
+      - [sio:has-unit,  nsvoc:ssa_unit_m2_per_gram~iri] 
       - [sio:has-value, $(Surface_area), xsd:float]
-  hsf:
+  endpointHsf:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:hsf_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = hsf_$(Hsf)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, cheminf:CHEMINF_000241~iri]
       - [rdfs:label, Hsf, en~lang]
-      - [nsvoc:value, $(Hsf), xsd:float]
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, obo:UO_0000266~iri] #eV
       - [sio:has-value, $(Hsf), xsd:float]
-  ec:
+  endpointEc:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ec_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = ec_$(Ec)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, enm:ENM_8000100~iri]
       - [rdfs:label, Ec, en~lang]
-      - [nsvoc:value, $(Ec), xsd:float]
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, obo:UO_0000266~iri] #eV
       - [sio:has-value, $(Ec), xsd:float]
-  ev:
+  endpointEv:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:ev_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = ev_$(Ev)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, enm:ENM_8000110~iri]
       - [rdfs:label, Ev, en~lang]
-      - [nsvoc:value, $(Ev), xsd:float]
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, obo:UO_0000266~iri] #eV
       - [sio:has-value, $(Ev), xsd:float]
-  MeO:
+  endpointMeO:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:meo_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = meo_$(MeO)_UO_0000266)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, npo:NPO_421~iri]
       - [rdfs:label, MeO, en~lang]
-      - [nsvoc:value, $(MeO), xsd:float]
-      - [rdf:type, obo:BAO_0000179~iri]
-      - [obo:NCIT_C25709, obo:UO_0000266~iri] #eV
-      - [sio:has-unit, "eV", xsd:float]
+      - [sio:has-unit, obo:UO_0000266~iri] #eV
       - [sio:has-value, $(MeO), xsd:float]
-  time:
+  endpoint_log_n_atoms_all:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:exposure_time_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_atoms_all_$(log_n_atoms_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_atoms_all~iri]
+      - [rdfs:label, log_n_atoms_all, en~lang]
+      - [sio:has-value, $(log_n_atoms_all), xsd:float]
+  endpoint_log_n_atoms_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_atoms_core_$(log_n_atoms_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_atoms_core~iri]
+      - [rdfs:label, log_n_atoms_core, en~lang]
+      - [sio:has-value, $(log_n_atoms_core), xsd:float]
+  endpoint_log_n_atoms_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_atoms_shell_$(log_n_atoms_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_atoms_shell~iri]
+      - [rdfs:label, log_n_atoms_shell, en~lang]
+      - [sio:has-value, $(log_n_atoms_shell), xsd:float]
+  endpoint_log_n_Al_atoms_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_Al_atoms_all_$(log_n_Al _atoms_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_Al_atoms_all~iri]
+      - [rdfs:label, log_n_Al_atoms_all, en~lang]
+      - [sio:has-value, $(log_n_Al _atoms_all), xsd:float]
+  endpoint_log_n_Al_atoms_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_Al_atoms_core_$(log_n_Al _atoms_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_Al_atoms_core~iri]
+      - [rdfs:label, log_n_Al_atoms_core, en~lang]
+      - [sio:has-value, $(log_n_Al _atoms_core), xsd:float]
+  endpoint_log_n_Al_atoms_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_Al_atoms_shell_$(log_n_Al _atoms_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_Al_atoms_shell~iri]
+      - [rdfs:label, log_n_Al_atoms_shell, en~lang]
+      - [sio:has-value, $(log_n_Al _atoms_shell), xsd:float]
+  endpoint_log_n_O_atoms_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_O_atoms_all_$(log_n_O_atoms_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_O_atoms_all~iri]
+      - [rdfs:label, log_n_O_atoms_all, en~lang]
+      - [sio:has-value, $(log_n_O_atoms_all), xsd:float]
+  endpoint_log_n_O_atoms_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_O_atoms_core_$(log_n_O_atoms_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_O_atoms_core~iri]
+      - [rdfs:label, log_n_O_atoms_core, en~lang]
+      - [sio:has-value, $(log_n_O_atoms_core), xsd:float]
+  endpoint_log_n_O_atoms_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = log_n_O_atoms_shell_$(log_n_O_atoms_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_log_n_O_atoms_shell~iri]
+      - [rdfs:label, log_n_O_atoms_shell, en~lang]
+      - [sio:has-value, $(log_n_O_atoms_shell), xsd:float]
+  endpoint_peng_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = peng_avg_all_$(peng_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_peng_avg_all~iri]
+      - [rdfs:label, peng_avg_all, en~lang]
+      - [sio:has-value, $(peng_avg_all), xsd:float]
+  endpoint_peng_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = peng_avg_core_$(peng_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_peng_avg_core~iri]
+      - [rdfs:label, peng_avg_core, en~lang]
+      - [sio:has-value, $(peng_avg_core), xsd:float]
+  endpoint_peng_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = peng_avg_shell_$(peng_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_peng_avg_shell~iri]
+      - [rdfs:label, peng_avg_shell, en~lang]
+      - [sio:has-value, $(peng_avg_shell), xsd:float]
+  endpoint_Al_peng_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_peng_avg_all_$(Al _peng_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_peng_avg_all~iri]
+      - [rdfs:label, Al_peng_avg_all, en~lang]
+      - [sio:has-value, $(Al _peng_avg_all), xsd:float]
+  endpoint_Al_peng_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_peng_avg_core_$(Al _peng_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_peng_avg_core~iri]
+      - [rdfs:label, Al_peng_avg_core, en~lang]
+      - [sio:has-value, $(Al _peng_avg_core), xsd:float]
+  endpoint_Al_peng_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_peng_avg_shell_$(Al _peng_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_peng_avg_shell~iri]
+      - [rdfs:label, Al_peng_avg_shell, en~lang]
+      - [sio:has-value, $(Al _peng_avg_shell), xsd:float]
+  endpoint_O_peng_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_peng_avg_all_$(O_peng_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_peng_avg_all~iri]
+      - [rdfs:label, O_peng_avg_all, en~lang]
+      - [sio:has-value, $(O_peng_avg_all), xsd:float]
+  endpoint_O_peng_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_peng_avg_core_$(O_peng_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_peng_avg_core~iri]
+      - [rdfs:label, O_peng_avg_core, en~lang]
+      - [sio:has-value, $(O_peng_avg_core), xsd:float]
+  endpoint_O_peng_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_peng_avg_shell_$(O_peng_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_peng_avg_shell~iri]
+      - [rdfs:label, O_peng_avg_shell, en~lang]
+      - [sio:has-value, $(O_peng_avg_shell), xsd:float]
+  endpoint_coordN_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = coordN_avg_all_$(coordN_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_coordN_avg_all~iri]
+      - [rdfs:label, coordN_avg_all, en~lang]
+      - [sio:has-value, $(coordN_avg_all), xsd:float]
+  endpoint_coordN_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = coordN_avg_core_$(coordN_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_coordN_avg_core~iri]
+      - [rdfs:label, coordN_avg_core, en~lang]
+      - [sio:has-value, $(coordN_avg_core), xsd:float]
+  endpoint_coordN_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = coordN_avg_shell_$(coordN_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_coordN_avg_shell~iri]
+      - [rdfs:label, coordN_avg_shell, en~lang]
+      - [sio:has-value, $(coordN_avg_shell), xsd:float]
+  endpoint_Al_coordN_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_coordN_avg_all_$(Al _coordN_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_coordN_avg_all~iri]
+      - [rdfs:label, Al_coordN_avg_all, en~lang]
+      - [sio:has-value, $(Al _coordN_avg_all), xsd:float]
+  endpoint_Al_coordN_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_coordN_avg_core_$(Al _coordN_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_coordN_avg_core~iri]
+      - [rdfs:label, Al_coordN_avg_core, en~lang]
+      - [sio:has-value, $(Al _coordN_avg_core), xsd:float]
+  endpoint_Al_coordN_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_coordN_avg_shell_$(Al _coordN_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_coordN_avg_shell~iri]
+      - [rdfs:label, Al_coordN_avg_shell, en~lang]
+      - [sio:has-value, $(Al _coordN_avg_shell), xsd:float]
+  endpoint_O_coordN_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_coordN_avg_all_$(O_coordN_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_coordN_avg_all~iri]
+      - [rdfs:label, O_coordN_avg_all, en~lang]
+      - [sio:has-value, $(O_coordN_avg_all), xsd:float]
+  endpoint_O_coordN_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_coordN_avg_core_$(O_coordN_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_coordN_avg_core~iri]
+      - [rdfs:label, O_coordN_avg_core, en~lang]
+      - [sio:has-value, $(O_coordN_avg_core), xsd:float]
+  endpoint_O_coordN_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_coordN_avg_shell_$(O_coordN_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_coordN_avg_shell~iri]
+      - [rdfs:label, O_coordN_avg_shell, en~lang]
+      - [sio:has-value, $(O_coordN_avg_shell), xsd:float]
+  endpoint_NP_diameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = NP_diameter_$(NP_diameter))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_NP_diameter~iri]
+      - [rdfs:label, NP_diameter, en~lang]
+      - [sio:has-value, $(NP_diameter), xsd:float]
+  endpoint_NP_surface_area:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = NP_surface_area_$(NP_surface_area))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_NP_surface_area~iri]
+      - [rdfs:label, NP_surface_area, en~lang]
+      - [sio:has-value, $(NP_surface_area), xsd:float]
+  endpoint_NP_volume:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = NP_volume_$(NP_volume))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_NP_volume~iri]
+      - [rdfs:label, NP_volume, en~lang]
+      - [sio:has-value, $(NP_volume), xsd:float]
+  endpoint_Lattice_energy_of_NP:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_$(Lattice_energy_of_NP))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Lattice_energy_of_NP~iri]
+      - [rdfs:label, Lattice_energy_of_NP, en~lang]
+      - [sio:has-value, $(Lattice_energy_of_NP), xsd:float]
+  endpoint_E_L_bulk-E_L_NP:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = E_L_bulk-E_L_NP_$(E_L_bulk-E_L_NP))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_E_L_bulk-E_L_NP~iri]
+      - [rdfs:label, E_L_bulk-E_L_NP, en~lang]
+      - [sio:has-value, $(E_L_bulk-E_L_NP), xsd:float]
+  endpoint_Lattice_energy_of_NP_d_NP:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_d_NP_$(Lattice_energy_of_NP_d_NP))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Lattice_energy_of_NP_d_NP~iri]
+      - [rdfs:label, Lattice_energy_of_NP_d_NP, en~lang]
+      - [sio:has-value, $(Lattice_energy_of_NP_d_NP), xsd:float]
+  endpoint_Lattice_energy_of_NP_S_NP:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_S_NP_$(Lattice_energy_of_NP_S_NP))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Lattice_energy_of_NP_S_NP~iri]
+      - [rdfs:label, Lattice_energy_of_NP_S_NP, en~lang]
+      - [sio:has-value, $(Lattice_energy_of_NP_S_NP), xsd:float]
+  endpoint_Lattice_energy_of_NP_V_NP:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Lattice_energy_of_NP_V_NP_$(Lattice_energy_of_NP_V_NP))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Lattice_energy_of_NP_V_NP~iri]
+      - [rdfs:label, Lattice_energy_of_NP_V_NP, en~lang]
+      - [sio:has-value, $(Lattice_energy_of_NP_V_NP), xsd:float]
+  endpoint_force_vector_length_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_length_avg_all_$(force_vector_length_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_length_avg_all~iri]
+      - [rdfs:label, force_vector_length_avg_all, en~lang]
+      - [sio:has-value, $(force_vector_length_avg_all), xsd:float]
+  endpoint_force_vector_length_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_length_avg_core_$(force_vector_length_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_length_avg_core~iri]
+      - [rdfs:label, force_vector_length_avg_core, en~lang]
+      - [sio:has-value, $(force_vector_length_avg_core), xsd:float]
+  endpoint_force_vector_length_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_length_avg_shell_$(force_vector_length_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_length_avg_shell~iri]
+      - [rdfs:label, force_vector_length_avg_shell, en~lang]
+      - [sio:has-value, $(force_vector_length_avg_shell), xsd:float]
+  endpoint_Al_force_vector_length_coordN_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_length_coordN_avg_all_$(Al _force_vector_length_coordN_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_length_coordN_avg_all~iri]
+      - [rdfs:label, Al_force_vector_length_coordN_avg_all, en~lang]
+      - [sio:has-value, $(Al _force_vector_length_coordN_avg_all), xsd:float]
+  endpoint_Al_force_vector_length_coordN_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_length_coordN_avg_core_$(Al _force_vector_length_coordN_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_length_coordN_avg_core~iri]
+      - [rdfs:label, Al_force_vector_length_coordN_avg_core, en~lang]
+      - [sio:has-value, $(Al _force_vector_length_coordN_avg_core), xsd:float]
+  endpoint_Al_force_vector_length_coordN_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_length_coordN_avg_shell_$(Al _force_vector_length_coordN_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_length_coordN_avg_shell~iri]
+      - [rdfs:label, Al_force_vector_length_coordN_avg_shell, en~lang]
+      - [sio:has-value, $(Al _force_vector_length_coordN_avg_shell), xsd:float]
+  endpoint_O_force_vector_length_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_length_avg_all_$(O_force_vector_length_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_length_avg_all~iri]
+      - [rdfs:label, O_force_vector_length_avg_all, en~lang]
+      - [sio:has-value, $(O_force_vector_length_avg_all), xsd:float]
+  endpoint_O_force_vector_length_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_length_avg_core_$(O_force_vector_length_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_length_avg_core~iri]
+      - [rdfs:label, O_force_vector_length_avg_core, en~lang]
+      - [sio:has-value, $(O_force_vector_length_avg_core), xsd:float]
+  endpoint_O_force_vector_length_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_length_avg_shell_$(O_force_vector_length_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_length_avg_shell~iri]
+      - [rdfs:label, O_force_vector_length_avg_shell, en~lang]
+      - [sio:has-value, $(O_force_vector_length_avg_shell), xsd:float]
+  endpoint_force_vector_surface_normal_component_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_surface_normal_component_avg_all_$(force_vector_surface_normal_component_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_surface_normal_component_avg_all~iri]
+      - [rdfs:label, force_vector_surface_normal_component_avg_all, en~lang]
+      - [sio:has-value, $(force_vector_surface_normal_component_avg_all), xsd:float]
+  endpoint_force_vector_surface_normal_component_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_surface_normal_component_avg_core_$(force_vector_surface_normal_component_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_surface_normal_component_avg_core~iri]
+      - [rdfs:label, force_vector_surface_normal_component_avg_core, en~lang]
+      - [sio:has-value, $(force_vector_surface_normal_component_avg_core), xsd:float]
+  endpoint_force_vector_surface_normal_component_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_surface_normal_component_avg_shell_$(force_vector_surface_normal_component_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_surface_normal_component_avg_shell~iri]
+      - [rdfs:label, force_vector_surface_normal_component_avg_shell, en~lang]
+      - [sio:has-value, $(force_vector_surface_normal_component_avg_shell), xsd:float]
+  endpoint_Al_force_vector_surface_normal_component_coordN_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_normal_component_coordN_avg_all_$(Al _force_vector_surface_normal_component_coordN_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_surface_normal_component_coordN_avg_all~iri]
+      - [rdfs:label, Al_force_vector_surface_normal_component_coordN_avg_all, en~lang]
+      - [sio:has-value, $(Al _force_vector_surface_normal_component_coordN_avg_all), xsd:float]
+  endpoint_Al_force_vector_surface_normal_component_coordN_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_normal_component_coordN_avg_core_$(Al _force_vector_surface_normal_component_coordN_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_surface_normal_component_coordN_avg_core~iri]
+      - [rdfs:label, Al_force_vector_surface_normal_component_coordN_avg_core, en~lang]
+      - [sio:has-value, $(Al _force_vector_surface_normal_component_coordN_avg_core), xsd:float]
+  endpoint_Al_force_vector_surface_normal_component_coordN_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_normal_component_coordN_avg_shell_$(Al _force_vector_surface_normal_component_coordN_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_surface_normal_component_coordN_avg_shell~iri]
+      - [rdfs:label, Al_force_vector_surface_normal_component_coordN_avg_shell, en~lang]
+      - [sio:has-value, $(Al _force_vector_surface_normal_component_coordN_avg_shell), xsd:float]
+  endpoint_O_force_vector_surface_normal_component_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_normal_component_avg_all_$(O_force_vector_surface_normal_component_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_surface_normal_component_avg_all~iri]
+      - [rdfs:label, O_force_vector_surface_normal_component_avg_all, en~lang]
+      - [sio:has-value, $(O_force_vector_surface_normal_component_avg_all), xsd:float]
+  endpoint_O_force_vector_surface_normal_component_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_normal_component_avg_core_$(O_force_vector_surface_normal_component_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_surface_normal_component_avg_core~iri]
+      - [rdfs:label, O_force_vector_surface_normal_component_avg_core, en~lang]
+      - [sio:has-value, $(O_force_vector_surface_normal_component_avg_core), xsd:float]
+  endpoint_O_force_vector_surface_normal_component_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_normal_component_avg_shell_$(O_force_vector_surface_normal_component_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_surface_normal_component_avg_shell~iri]
+      - [rdfs:label, O_force_vector_surface_normal_component_avg_shell, en~lang]
+      - [sio:has-value, $(O_force_vector_surface_normal_component_avg_shell), xsd:float]
+  endpoint_force_vector_surface_tangent_component_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_surface_tangent_component_avg_all_$(force_vector_surface_tangent_component_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_surface_tangent_component_avg_all~iri]
+      - [rdfs:label, force_vector_surface_tangent_component_avg_all, en~lang]
+      - [sio:has-value, $(force_vector_surface_tangent_component_avg_all), xsd:float]
+  endpoint_force_vector_surface_tangent_component_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_surface_tangent_component_avg_core_$(force_vector_surface_tangent_component_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_surface_tangent_component_avg_core~iri]
+      - [rdfs:label, force_vector_surface_tangent_component_avg_core, en~lang]
+      - [sio:has-value, $(force_vector_surface_tangent_component_avg_core), xsd:float]
+  endpoint_force_vector_surface_tangent_component_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = force_vector_surface_tangent_component_avg_shell_$(force_vector_surface_tangent_component_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_force_vector_surface_tangent_component_avg_shell~iri]
+      - [rdfs:label, force_vector_surface_tangent_component_avg_shell, en~lang]
+      - [sio:has-value, $(force_vector_surface_tangent_component_avg_shell), xsd:float]
+  endpoint_Al_force_vector_surface_tangent_component_coordN_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_tangent_component_coordN_avg_all_$(Al _force_vector_surface_tangent_component_coordN_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_surface_tangent_component_coordN_avg_all~iri]
+      - [rdfs:label, Al_force_vector_surface_tangent_component_coordN_avg_all, en~lang]
+      - [sio:has-value, $(Al _force_vector_surface_tangent_component_coordN_avg_all), xsd:float]
+  endpoint_Al_force_vector_surface_tangent_component_coordN_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_tangent_component_coordN_avg_core_$(Al _force_vector_surface_tangent_component_coordN_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_surface_tangent_component_coordN_avg_core~iri]
+      - [rdfs:label, Al_force_vector_surface_tangent_component_coordN_avg_core, en~lang]
+      - [sio:has-value, $(Al _force_vector_surface_tangent_component_coordN_avg_core), xsd:float]
+  endpoint_Al_force_vector_surface_tangent_component_coordN_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = Al_force_vector_surface_tangent_component_coordN_avg_shell_$(Al _force_vector_surface_tangent_component_coordN_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_Al_force_vector_surface_tangent_component_coordN_avg_shell~iri]
+      - [rdfs:label, Al_force_vector_surface_tangent_component_coordN_avg_shell, en~lang]
+      - [sio:has-value, $(Al _force_vector_surface_tangent_component_coordN_avg_shell), xsd:float]
+  endpoint_O_force_vector_surface_tangent_component_avg_all:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_tangent_component_avg_all_$(O_force_vector_surface_tangent_component_avg_all))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_surface_tangent_component_avg_all~iri]
+      - [rdfs:label, O_force_vector_surface_tangent_component_avg_all, en~lang]
+      - [sio:has-value, $(O_force_vector_surface_tangent_component_avg_all), xsd:float]
+  endpoint_O_force_vector_surface_tangent_component_avg_core:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_tangent_component_avg_core_$(O_force_vector_surface_tangent_component_avg_core))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_surface_tangent_component_avg_core~iri]
+      - [rdfs:label, O_force_vector_surface_tangent_component_avg_core, en~lang]
+      - [sio:has-value, $(O_force_vector_surface_tangent_component_avg_core), xsd:float]
+  endpoint_O_force_vector_surface_tangent_component_avg_shell:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = O_force_vector_surface_tangent_component_avg_shell_$(O_force_vector_surface_tangent_component_avg_shell))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdf:type, nsvoc:Endpoint_O_force_vector_surface_tangent_component_avg_shell~iri]
+      - [rdfs:label, O_force_vector_surface_tangent_component_avg_shell, en~lang]
+      - [sio:has-value, $(O_force_vector_surface_tangent_component_avg_shell), xsd:float]
+  endpointTime:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = exposure_time_$(Exposure_time)_UO_0000032)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, efo:EFO_0000721~iri]
-      - [rdfs:label, time: $(Exposure_time), en~lang]
-      - [nsvoc:value, $(Exposure_time), xsd:float]
-      - [obo:NCIT_C25709, obo:UO_0000032~iri] #Hours
-  dose:
+      - [rdfs:label, time: $(Exposure_time)h, en~lang]
+      - [sio:has-unit, obo:UO_0000032~iri] #Hours
+      - [sio:has-value, $(Exposure_time), xsd:float]
+  endpointDose:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:dose_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
             value: 
               function: grel:md5Hex(grel:valueParameter = dose_$(Exposure_dose)_UO_0000274)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, efo:EFO_0000428~iri]
       - [rdfs:label, dose: $(Exposure_dose), en~lang]
-      - [nsvoc:value, $(Exposure_dose), xsd:float]
-      - [obo:NCIT_C25709, obo:UO_0000274~iri]
-  viability:
+      - [sio:has-unit, obo:UO_0000274~iri]
+      - [sio:has-value, $(Exposure_dose), xsd:float]
+  endpointViabilityConditioned:
     sources:
       - data-source
     subjects:
       - function: grel:join
         type: iri
         parameters:
-          - [grel:valueParameter, https://ammar257ammar.github.com/RDFied-datasets/ns:viability_]
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
           - parameter: grel:valueParameter2
-            value: 
-              function: grel:md5Hex(grel:valueParameter = viability_$(Viability))
+            value:
+              function: grel:md5Hex(grel:valueParameter = viability_$(Viability)_percentage_$(Exposure_time)_UO_0000032_$(Exposure_dose)_UO_0000274)
     predicateobjects:
       - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, nsvoc:ViabilityConditioned~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, viability: $(Viability), en~lang]
+      - [sio:has-unit, "%"]
+      - predicate: sio:has-value
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = viability_$(Viability)_percentage)
+      - predicate: amb:has-condition
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value:
+                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(Exposure_time)_UO_0000032)  
+      - predicate: amb:has-condition
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value:
+                  function: grel:md5Hex(grel:valueParameter = dose_$(Exposure_dose)_UO_0000274)
+  endpointViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value:
+              function: grel:md5Hex(grel:valueParameter = viability_$(Viability)_percentage)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
       - [rdf:type, enm:ENM_0000068~iri]
       - [rdfs:label, viability: $(Viability), en~lang]
-      - [nsvoc:value, $(Viability), xsd:float]
+      - [sio:has-unit, "%"]
+      - [sio:has-value, $(Viability), xsd:float]

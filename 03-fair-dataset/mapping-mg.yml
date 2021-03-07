@@ -1,0 +1,89 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dcterms: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['metadata.csv~csv']
+  
+external:
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  assaySubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_
+  measureGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:measureGroup_
+
+mappings:
+  chemicalSubstance:  
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(GSE)_$(treatment))
+    predicateobjects:
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@)
+        condition:
+          function: grel:stringContains
+          parameters:
+            - [grel:valueParameter, @CONTRAST@]
+            - [grel:valueParameter2, $(group)]
+  assay:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(platform))
+    predicateobjects:
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = contrast_@GSE@_@CONTRAST@) 
