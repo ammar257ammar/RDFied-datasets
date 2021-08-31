@@ -1,0 +1,101 @@
+# total materials
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+select distinct ?s where { 
+    ?s a obo:CHEBI_59999.
+}
+
+# total assays
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+select distinct ?s where { 
+    ?s a bao:BAO_0000015.
+}
+
+# total measurement groups
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+select distinct ?s where { 
+    ?s a bao:BAO_0000040.
+}
+
+# total endpoints
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+select distinct ?s where { 
+    ?s a obo:BAO_0000179.
+}
+
+# Group materials, measurement groups and count endpoints
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+select ?s ?mg  (COUNT(?ep) AS ?ELEMENTCOUNT) where { 
+    ?s a obo:CHEBI_59999.
+	?s obo:BFO_0000056 ?mg.
+    ?mg bao:OBI_0000299 ?ep.
+} group by ?s ?mg
+
+
+# Group assays, measurement groups and count endpoints
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+select  ?s ?mg  (COUNT(?ep) AS ?ELEMENTCOUNT) where { 
+    ?s a bao:BAO_0000015.
+	?s bao:BAO_0000209 ?mg.
+    ?mg obo:OBI_0000299 ?ep.
+} group by ?s ?mg 
+
+
+
+# number of materials types
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+select distinct ?t where { 
+    ?s a obo:CHEBI_59999.
+	?s dcterms:type ?t.
+} 
+
+
+# Number of unit types
+
+PREFIX nsvoc: <https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX enm: <http://purl.enanomapper.org/onto/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sio: <http://semanticscience.org/resource/>
+
+select distinct ?t where { 
+    ?s sio:has-unit ?t.
+} 

@@ -67,7 +67,7 @@ mappings:
       - [dcterms:description, $(_datasetDescription), en~lang]
       - [dcterms:license, $(_licenseUrl)~iri]
       - [dcterms:publisher, $(_publisherName) , en~lang]
-      - predicate: obo:sample-record
+      - predicate: nsvoc:sample-record
         object:
           - function: grel:join
             type: iri
