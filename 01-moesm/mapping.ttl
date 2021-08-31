@@ -149,7 +149,7 @@ ns:pom_009 a rr:PredicateObjectMap.
 ns:map_dataset_000 rr:predicateObjectMap ns:pom_009.
 ns:pm_009 a rr:PredicateMap.
 ns:pom_009 rr:predicateMap ns:pm_009.
-ns:pm_009 rr:constant obo:sample-record.
+ns:pm_009 rr:constant nsvoc:sample-record.
 ns:pom_009 rr:objectMap ns:om_009.
 ns:om_009 a fnml:FunctionTermMap;
     rr:termType rr:IRI;
