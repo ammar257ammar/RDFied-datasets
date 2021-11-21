@@ -1,0 +1,725 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dcterms: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['/data/nn8b07562_si_001.xlsx.csv~csv']
+  
+external:
+  licenseUrl: https://creativecommons.org/licenses/by/4.0/
+  publisherName: Ammar Ammar
+  datasetName: Meta-Analysis of Nanoparticle Cytotoxicity via Data-Mining the Literature
+  datasetTitle: Meta-Analysis of Nanoparticle Cytotoxicity via Data-Mining the Literature
+  datasetDescription: RDF version of the data from Hagar I. Labouta et al. Meta-Analysis of Nanoparticle Cytotoxicity via Data-Mining the Literature. NanoImpact (2019). https://doi.org/10.1021/acsnano.8b07562
+  datasetDoi: https://doi.org/10.1021/acsnano.8b07562
+  datasetSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_
+  sampleRecordSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:sampleRecord_
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  assaySubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_
+  protocolSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:protocol_
+  measureGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:measurementGroup_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
+
+mappings:
+  dataset:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_datasetSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, void:DataSet~iri]
+      - [dcterms:title, $(_datasetTitle), en~lang]
+      - [dcterms:description, $(_datasetDescription), en~lang]
+      - [dcterms:license, $(_licenseUrl)~iri]
+      - [dcterms:publisher, $(_publisherName) , en~lang]
+      - predicate: nsvoc:chemical-substance
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_substance) 
+      - predicate: nsvoc:sample-record
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_sampleRecordSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_sample_record)
+  sampleRecord:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_sampleRecordSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_sample_record)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, nsvoc:SampleRecord~iri]
+      - [rdfs:label, "an in vivo intervention experiment for $(nanoparticle) treatment with dose $(dose)μM at $(exposure_time)h time point", en~lang]
+      - predicate: nsvoc:cell-line
+        object: efo:EFO_0006268~iri #A431
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, A431]
+      - predicate: nsvoc:cell-line
+        object: obo:BTO_0000018~iri #A549
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, A549]
+      - predicate: nsvoc:cell-line
+        object: efo:EFO_0002109~iri #AGS    
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, AGS]
+      - predicate: nsvoc:cell-primary
+        object: obo:CL_0000236~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, B cells]
+      - predicate: nsvoc:cell-line
+        object: efo:EFO_0001089~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, BEAS-2B] 
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0037251~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, C17.2] 
+      - predicate: nsvoc:cell-line
+        object: nsvoc:Cell-Line-C18–4~iri  # mouse spermatogonia stem cells
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, C18–4]
+      - predicate: nsvoc:cell-line
+        object: efo:EFO_0001099~iri 
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, Caco-2] 
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0002192~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, Calu-3] 
+      - predicate: nsvoc:cell-primary
+        object: obo:OBI_1110047~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, CD3+ T cells] 
+      - predicate: nsvoc:cell-primary
+        object: obo:CL_0000492~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, CD4+T cells] 
+      - predicate: nsvoc:cell-line
+        object: nsvoc:cell-line-CDBgeo~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, CDBgeo] 
+      - predicate: nsvoc:cell-line
+        object: obo:BTO_0004810~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, CHO22] 
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0002462~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, CHO-K1] 
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0002504~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, Clone-9] 
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0002544~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, Colo-205] 
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0002596~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, COS-1] 
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0002881~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, ECV304] 
+      - predicate: nsvoc:cell-line
+        object: nsvoc:cell-line-EJ28~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, EJ28] 
+      - predicate: nsvoc:cell-primary
+        object: obo:NCIT_C12482~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, Fibroblasts]
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0003487~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, GH3]
+      - predicate: nsvoc:cell-line
+        object: obo:CLO_0003599~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, H4]
+      - predicate: nsvoc:cell-line
+        object: efo:EFO_0002056~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, HaCaT]
+      - predicate: nsvoc:cell-primary
+        object: obo:BTO_0004660~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, HAEC]
+      - predicate: nsvoc:cell-primary
+        object: obo:BTO_0005169~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, HCMEC]
+      - predicate: nsvoc:cell-line
+        object: obo:BTO_0004419~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(cell_line)]
+            - [grel:valueParameter2, HDF]
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:9606~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(human_or_animal)]
+            - [grel:valueParameter2, H]
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:10029~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(animal_species)]
+            - [grel:valueParameter2, hamster]            
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:10090~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(animal_species)]
+            - [grel:valueParameter2, Mouse]
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:9913~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(animal_species)]
+            - [grel:valueParameter2, Bos taurus]
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:9615~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(animal_species)]
+            - [grel:valueParameter2, Canine]
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:9534~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(animal_species)]
+            - [grel:valueParameter2, Cercopithecus aethiops]
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:9823~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(animal_species)]
+            - [grel:valueParameter2, Pig]
+      - predicate: nsvoc:cell-species
+        object: NCBITAXON:10116~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(animal_species)]
+            - [grel:valueParameter2, Rat]
+      - predicate: nsvoc:chemical-substance
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_substance)
+  chemicalSubstance:  
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_substance)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:CHEBI_59999~iri] # chemical substance
+      - [rdfs:label, $(nanoparticle), en~lang]
+      - predicate: dcterms:source
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_datasetSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi))
+      - predicate: dcterms:type
+        object: obo:CHEBI_83159~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(nanoparticle)]
+            - [grel:valueParameter2, CuO]
+      - predicate: dcterms:type
+        object: npo:NPO_1550~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(nanoparticle)]
+            - [grel:valueParameter2, Fe2O3]
+      - predicate: dcterms:type
+        object: npo:NPO_1373~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(nanoparticle)]
+            - [grel:valueParameter2, SiO2]
+      - predicate: dcterms:type
+        object: obo:CHEBI_51050~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(nanoparticle)]
+            - [grel:valueParameter2, TiO2]
+      - predicate: dcterms:type
+        object: npo:NPO_1542~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(nanoparticle)]
+            - [grel:valueParameter2, ZnO]
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_diameter_mg)
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_zeta_potential_mg)
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_cell_viability_mg)
+  assayDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(reference_doi)_diameter_as)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "Diameter assay", en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_diameter_mg)
+      - predicate: bao:BAO_0002846
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(reference_doi)_ap)                    
+  assayZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(reference_doi)_zeta_potential_as)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, bao:BAO_0010009~iri] # physiochemical assay
+      - [rdfs:label, "Zeta potential assay", en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_zeta_potential_mg)  
+      - predicate: bao:BAO_0002846
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(reference_doi)_ap)
+  assayCellViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(reference_doi)_cell_viability_as)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, $(test_assay), en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_cell_viability_mg)  
+      - predicate: bao:BAO_0002846
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(reference_doi)_ap)       
+  protocolAll:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_protocolSubjectUrl)] # the hashed string is the same for the material with added _as at the end
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(reference_doi)_ap)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:OBI_0000272~iri] # protocol
+      - [rdf:type, $(reference_doi), en~lang]
+  measurementGroupDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_diameter_mg)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_diameter_ep)
+  measurementGroupZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_zeta_potential_mg)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_zeta_potential_ep)
+  measurementGroupCellViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_cell_viability_mg)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_cell_viability_ep)
+  endpointDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_diameter_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Diameter: $(diameter), en~lang]
+      - [sio:has-value, $(diameter)]
+      - [sio:has-unit, obo:UO_0000018~iri]
+  endpointZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(particle_id)_zeta_potential_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, zeta_potential: $(zeta_potential), en~lang]
+      - [sio:has-value, $(zeta_potential)]
+      - [sio:has-unit, obo:UO_0000247~iri]
+  endpointCellViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_cell_viability_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, cell_viability: $(cell_viability), en~lang]
+      - [sio:has-value, $(cell_viability)]
+      - [sio:has-unit, obo:NCIT_C25613~iri]
+      - predicate: amb:has-condition
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = exposure_time_$(exposure_time)_UO_0000032)  
+      - predicate: amb:has-condition
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = dose_$(dose)_UO_0000274)
+  endpointTime:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = exposure_time_$(exposure_time)_UO_0000032)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, efo:EFO_0000721~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, exposure_time: $(exposure_time)h, en~lang]
+      - [sio:has-unit, obo:UO_0000032~iri] #Hours
+      - [sio:has-value, $(exposure_time), xsd:float]
+  endpointDose:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = dose_$(dose)_UO_0000274)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, efo:EFO_0000428~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, dose: $(dose), en~lang]
+      - [sio:has-unit, obo:UO_0000274~iri]
+      - [sio:has-value, $(dose), xsd:float]
