@@ -1,0 +1,864 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dcterms: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['/data/1-s2.0-S2452074821000173-mmc2-CSV.csv~csv']
+  
+external:
+  licenseUrl: https://creativecommons.org/licenses/by/4.0/
+  publisherName: Ammar Ammar
+  datasetName: Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model
+  datasetTitle: Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model
+  datasetDescription: RDF version of the data from Anastasios G. et al. Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model with Isalos Analytics Platform. NanoImpact (2021). https://doi.org/10.1016/j.impact.2021.100308
+  datasetDoi: https://doi.org/10.1016/j.impact.2021.100308
+  datasetSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  assaySubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_
+  protocolSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:protocol_
+  measureGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:measurementGroup_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
+
+mappings:
+  dataset:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_datasetSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi))
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, void:DataSet~iri]
+      - [dcterms:title, $(_datasetTitle), en~lang]
+      - [dcterms:description, $(_datasetDescription), en~lang]
+      - [dcterms:license, $(_licenseUrl)~iri]
+      - [dcterms:publisher, $(_publisherName) , en~lang]
+      - predicate: nsvoc:chemical-substance
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_substance) 
+  chemicalSubstance:  
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_substance)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:CHEBI_59999~iri] # chemical substance
+      - [rdfs:label, $(metal_core), en~lang]
+      - predicate: dcterms:source
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_datasetSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi))
+      - predicate: dcterms:type
+        object: obo:CHEBI_83159~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(metal_core)]
+            - [grel:valueParameter2, CuO]
+      - predicate: dcterms:type
+        object: npo:NPO_1550~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(metal_core)]
+            - [grel:valueParameter2, Fe2O3]
+      - predicate: dcterms:type
+        object: npo:NPO_1373~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(metal_core)]
+            - [grel:valueParameter2, SiO2]
+      - predicate: dcterms:type
+        object: obo:CHEBI_51050~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(metal_core)]
+            - [grel:valueParameter2, TiO2]
+      - predicate: dcterms:type
+        object: npo:NPO_1542~iri
+        condition:
+          function: equal
+          parameters:
+            - [grel:valueParameter, $(metal_core)]
+            - [grel:valueParameter2, ZnO]
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_diameter_mg)
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_geometric_surface_area_mg)
+      - predicate: obo:BFO_0000056
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_pchem_mg)
+  assayDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_diameter_as)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "TEM-STEM assay", en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_diameter_mg)
+      - predicate: bao:BAO_0002846
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_ap)                   
+  assaySurfaceArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_geometric_surface_area_as)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "geometric surface area assay", en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_geometric_surface_area_mg) 
+      - predicate: bao:BAO_0002846
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_ap)   
+  assayPChem:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_pchem_as)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, bao:BAO_0010009~iri] # physiochemical assay
+      - [rdfs:label, "PChem assay", en~lang]
+      - predicate: bao:BAO_0000209
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_pchem_mg)  
+      - predicate: bao:BAO_0002846
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_ap)   
+  protocolAll:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_protocolSubjectUrl)] # the hashed string is the same for the material with added _as at the end
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_ap)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, obo:OBI_0000272~iri] # protocol
+      - [rdf:type, $(_datasetDoi), en~lang]
+  measurementGroupDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_diameter_mg)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_diameter_ep)
+  measurementGroupSurfaceArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_geometric_surface_area_mg)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_geometric_surface_area_ep)
+  measurementGroupPChem:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(row_num)_pchem_mg)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000040~iri]
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(coating)_coating_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(type_of_coating)_type_of_coating_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(aging)_aging_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(shape_group)_shape_group_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(corresponding_sphere_diameter)_corresponding_sphere_diameter_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(atomic_radius)_atomic_radius_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(ionic_radius)_ionic_radius_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(xox)_xox_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(x)_x_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(number_of_metal)_number_of_metal_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(number_of_oxygen)_number_of_oxygen_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(sum_of_x)_sum_of_x_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(sum_of_x_over_o)_sum_of_x_over_o_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(molecular_weight)_molecular_weight_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(group)_group_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(period)_period_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(absolute_electronegativity)_absolute_electronegativity_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(energy_band_gap)_energy_band_gap_ep)
+      - predicate: obo:OBI_0000299
+        object:
+          - function: grel:join
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value: 
+                  function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(zeta_potential)_zeta_potential_ep)
+  endpointCoating:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(coating)_coating_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Coating, en~lang] 
+      - [sio:has-value, $(coating), en~lang]
+  endpointTypeOfCoating:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(type_of_coating)_type_of_coating_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Type of Coating, en~lang]
+      - [sio:has-value, $(type_of_coating), en~lang]
+  endpointAging:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(aging)_aging_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Aging, en~lang]
+      - [sio:has-value, $(aging), en~lang]
+  endpointDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(diameter)_diameter_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Diameter, en~lang]
+      - [sio:has-value, $(diameter)]
+      - [sio:has-unit, obo:UO_0000018~iri] #nm
+  endpointShapeGroup:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(shape_group)_shape_group_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Shape Group, en~lang]
+      - [sio:has-value, $(shape_group), en~lang]
+  endpointGeometricSurfaceArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(geometric_surface_area)_geometric_surface_area_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Geometric Surface Area, en~lang]
+      - [sio:has-value, $(geometric_surface_area)]
+  endpointCorrespondingSphereDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(corresponding_sphere_diameter)_corresponding_sphere_diameter_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Corresponding Sphere Diameter, en~lang]
+      - [sio:has-value, $(corresponding_sphere_diameter)]
+  endpointAtomicRadius:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(atomic_radius)_atomic_radius_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Atomic Radius, en~lang]
+      - [sio:has-value, $(atomic_radius)]
+  endpointIonicRadius:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(ionic_radius)_ionic_radius_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Ionic Radius, en~lang]
+      - [sio:has-value, $(ionic_radius)]
+  endpointXox:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(xox)_xox_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, xox, en~lang]
+      - [sio:has-value, $(xox)]
+  endpointX:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(x)_x_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, x, en~lang]
+      - [sio:has-value, $(x)]
+  endpointNumberOfMetal:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(number_of_metal)_number_of_metal_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Number of metal, en~lang]
+      - [sio:has-value, $(number_of_metal)]
+  endpointNumberOfOxygens:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(number_of_oxygen)_number_of_oxygen_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Number of Oxygens, en~lang]
+      - [sio:has-value, $(number_of_oxygen)]
+  endpointSumX:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(sum_of_x)_sum_of_x_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Sum of x, en~lang]
+      - [sio:has-value, $(sum_of_x)]
+  endpointSumXoverO:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(sum_of_x_over_o)_sum_of_x_over_o_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Sum of x over oxygen count, en~lang]
+      - [sio:has-value, $(sum_of_x_over_o)]
+  endpointMolecularWeight:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(molecular_weight)_molecular_weight_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, molecular weight, en~lang]
+      - [sio:has-value, $(molecular_weight)]
+  endpointMolecularWeight:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(molecular_weight)_molecular_weight_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, molecular weight, en~lang]
+      - [sio:has-value, $(molecular_weight)]
+  endpointGroup:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(group)_group_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Group, en~lang]
+      - [sio:has-value, $(group)]
+  endpointPeriod:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(period)_period_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Period, en~lang]
+      - [sio:has-value, $(period)]
+  endpointAbsoluteElectronegativity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(absolute_electronegativity)_absolute_electronegativity_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Absolute Electronegativity, en~lang]
+      - [sio:has-value, $(absolute_electronegativity)]
+  endpointEnergyBandGap:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(energy_band_gap)_energy_band_gap_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Energy Band Gap, en~lang]
+      - [sio:has-value, $(energy_band_gap)]
+  endpointZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:join
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value: 
+              function: grel:md5Hex(grel:valueParameter = $(_datasetDoi)_$(zeta_potential)_zeta_potential_ep)
+    predicateobjects:
+      - [rdf:type, nsvoc:Resource~iri]
+      - [rdf:type, bao:BAO_0000179~iri]
+      - [rdfs:label, Zeta Potential, en~lang]
+      - [sio:has-value, $(zeta_potential)]
+      - [sio:has-unit, obo:UO_0000247~iri] #nm
