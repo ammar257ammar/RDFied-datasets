@@ -37,9 +37,9 @@ sources:
 external:
   licenseUrl: https://creativecommons.org/licenses/by/4.0/
   publisherName: Ammar Ammar
-  datasetName: Metal Oxide Cytotoxicity RDF
-  datasetTitle: Metal Oxide Cytotoxicity RDF
-  datasetDescription: DATASET_DESCRIPTION
+  datasetName: Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform
+  datasetTitle: Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform
+  datasetDescription: RDF version of the data from Anastasios G. Papadiamantis et al. Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform. https://doi.org/10.3390/nano10102017
   datasetSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_
   sampleRecordSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:sampleRecord_
   chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_

@@ -83,7 +83,7 @@ ns:pm_002 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_002 rr:objectMap ns:om_002.
 ns:om_002 a rr:ObjectMap;
-    rr:constant "Metal Oxide Cytotoxicity RDF";
+    rr:constant "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform";
     rr:termType rr:Literal.
 ns:pom_003 a rr:PredicateObjectMap.
 ns:map_dataset_000 rr:predicateObjectMap ns:pom_003.
@@ -110,7 +110,7 @@ ns:pom_005 rr:predicateMap ns:pm_005.
 ns:pm_005 rr:constant dcterms:title.
 ns:pom_005 rr:objectMap ns:om_005.
 ns:om_005 a rr:ObjectMap;
-    rr:constant "Metal Oxide Cytotoxicity RDF";
+    rr:constant "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform";
     rr:termType rr:Literal;
     rml:languageMap ns:language_000.
 ns:language_000 rr:constant "en".
@@ -121,7 +121,7 @@ ns:pom_006 rr:predicateMap ns:pm_006.
 ns:pm_006 rr:constant dcterms:description.
 ns:pom_006 rr:objectMap ns:om_006.
 ns:om_006 a rr:ObjectMap;
-    rr:constant "DATASET_DESCRIPTION";
+    rr:constant "RDF version of the data from Anastasios G. Papadiamantis et al. Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform. https://doi.org/10.3390/nano10102017";
     rr:termType rr:Literal;
     rml:languageMap ns:language_001.
 ns:language_001 rr:constant "en".
@@ -192,7 +192,7 @@ ns:pm_012 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_012 rr:objectMap ns:om_012.
 ns:om_012 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}_{Viability}_{Exposure_dose}_{Exposure_time}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}_{Viability}_{Exposure_dose}_{Exposure_time}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_sampleRecord_000.
 ns:map_sampleRecord_000 rml:logicalSource ns:source_000;
@@ -241,7 +241,7 @@ ns:pm_015 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_015 rr:objectMap ns:om_015.
 ns:om_015 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}_{Viability}_{Exposure_dose}_{Exposure_time}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}_{Viability}_{Exposure_dose}_{Exposure_time}";
     rr:termType rr:Literal.
 ns:pom_016 a rr:PredicateObjectMap.
 ns:map_sampleRecord_000 rr:predicateObjectMap ns:pom_016.
@@ -783,7 +783,7 @@ ns:pm_062 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_062 rr:objectMap ns:om_062.
 ns:om_062 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}";
     rr:termType rr:Literal.
 ns:pom_063 a rr:PredicateObjectMap.
 ns:map_sampleRecord_000 rr:predicateObjectMap ns:pom_063.
@@ -832,7 +832,7 @@ ns:pm_066 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_066 rr:objectMap ns:om_066.
 ns:om_066 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_core_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_core_size}";
     rr:termType rr:Literal.
 ns:pom_067 a rr:PredicateObjectMap.
 ns:map_sampleRecord_000 rr:predicateObjectMap ns:pom_067.
@@ -881,7 +881,7 @@ ns:pm_070 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_070 rr:objectMap ns:om_070.
 ns:om_070 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_hydro_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_hydro_size}";
     rr:termType rr:Literal.
 ns:pom_071 a rr:PredicateObjectMap.
 ns:map_sampleRecord_000 rr:predicateObjectMap ns:pom_071.
@@ -930,7 +930,7 @@ ns:pm_074 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_074 rr:objectMap ns:om_074.
 ns:om_074 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_surface_charge}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_surface_charge}";
     rr:termType rr:Literal.
 ns:pom_075 a rr:PredicateObjectMap.
 ns:map_sampleRecord_000 rr:predicateObjectMap ns:pom_075.
@@ -979,7 +979,7 @@ ns:pm_078 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_078 rr:objectMap ns:om_078.
 ns:om_078 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_surface_area}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_surface_area}";
     rr:termType rr:Literal.
 ns:pom_079 a rr:PredicateObjectMap.
 ns:map_sampleRecord_000 rr:predicateObjectMap ns:pom_079.
@@ -1028,7 +1028,7 @@ ns:pm_082 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_082 rr:objectMap ns:om_082.
 ns:om_082 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
     rr:termType rr:Literal.
 ns:pom_083 a rr:PredicateObjectMap.
 ns:map_sampleRecord_000 rr:predicateObjectMap ns:pom_083.
@@ -1077,7 +1077,7 @@ ns:pm_086 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_086 rr:objectMap ns:om_086.
 ns:om_086 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_chemicalSubstance_000.
 ns:map_chemicalSubstance_000 rml:logicalSource ns:source_000;
@@ -1126,7 +1126,7 @@ ns:pm_089 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_089 rr:objectMap ns:om_089.
 ns:om_089 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}";
     rr:termType rr:Literal.
 ns:pom_090 a rr:PredicateObjectMap.
 ns:map_chemicalSubstance_000 rr:predicateObjectMap ns:pom_090.
@@ -1204,7 +1204,7 @@ ns:pm_096 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_096 rr:objectMap ns:om_096.
 ns:om_096 a rr:ObjectMap;
-    rr:constant "Metal Oxide Cytotoxicity RDF";
+    rr:constant "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform";
     rr:termType rr:Literal.
 ns:pom_097 a rr:PredicateObjectMap.
 ns:map_chemicalSubstance_000 rr:predicateObjectMap ns:pom_097.
@@ -2065,7 +2065,7 @@ ns:pm_170 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_170 rr:objectMap ns:om_170.
 ns:om_170 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}";
     rr:termType rr:Literal.
 ns:pom_171 a rr:PredicateObjectMap.
 ns:map_chemicalSubstance_000 rr:predicateObjectMap ns:pom_171.
@@ -2114,7 +2114,7 @@ ns:pm_174 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_174 rr:objectMap ns:om_174.
 ns:om_174 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hydro_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hydro_size}";
     rr:termType rr:Literal.
 ns:pom_175 a rr:PredicateObjectMap.
 ns:map_chemicalSubstance_000 rr:predicateObjectMap ns:pom_175.
@@ -2163,7 +2163,7 @@ ns:pm_178 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_178 rr:objectMap ns:om_178.
 ns:om_178 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Surface_charge}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Surface_charge}";
     rr:termType rr:Literal.
 ns:pom_179 a rr:PredicateObjectMap.
 ns:map_chemicalSubstance_000 rr:predicateObjectMap ns:pom_179.
@@ -2212,7 +2212,7 @@ ns:pm_182 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_182 rr:objectMap ns:om_182.
 ns:om_182 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Surface_area}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Surface_area}";
     rr:termType rr:Literal.
 ns:pom_183 a rr:PredicateObjectMap.
 ns:map_chemicalSubstance_000 rr:predicateObjectMap ns:pom_183.
@@ -2261,7 +2261,7 @@ ns:pm_186 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_186 rr:objectMap ns:om_186.
 ns:om_186 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
     rr:termType rr:Literal.
 ns:pom_187 a rr:PredicateObjectMap.
 ns:map_chemicalSubstance_000 rr:predicateObjectMap ns:pom_187.
@@ -2310,7 +2310,7 @@ ns:pm_190 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_190 rr:objectMap ns:om_190.
 ns:om_190 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_assayCoreSize_000.
 ns:map_assayCoreSize_000 rml:logicalSource ns:source_000;
@@ -2359,7 +2359,7 @@ ns:pm_193 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_193 rr:objectMap ns:om_193.
 ns:om_193 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_core_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_core_size}";
     rr:termType rr:Literal.
 ns:pom_194 a rr:PredicateObjectMap.
 ns:map_assayCoreSize_000 rr:predicateObjectMap ns:pom_194.
@@ -2446,7 +2446,7 @@ ns:pm_201 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_201 rr:objectMap ns:om_201.
 ns:om_201 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_assayHydroSize_000.
 ns:map_assayHydroSize_000 rml:logicalSource ns:source_000;
@@ -2495,7 +2495,7 @@ ns:pm_204 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_204 rr:objectMap ns:om_204.
 ns:om_204 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_hydro_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_hydro_size}";
     rr:termType rr:Literal.
 ns:pom_205 a rr:PredicateObjectMap.
 ns:map_assayHydroSize_000 rr:predicateObjectMap ns:pom_205.
@@ -2582,7 +2582,7 @@ ns:pm_212 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_212 rr:objectMap ns:om_212.
 ns:om_212 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hydro_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hydro_size}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_assaySurfaceCharge_000.
 ns:map_assaySurfaceCharge_000 rml:logicalSource ns:source_000;
@@ -2631,7 +2631,7 @@ ns:pm_215 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_215 rr:objectMap ns:om_215.
 ns:om_215 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_surface_charge}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_surface_charge}";
     rr:termType rr:Literal.
 ns:pom_216 a rr:PredicateObjectMap.
 ns:map_assaySurfaceCharge_000 rr:predicateObjectMap ns:pom_216.
@@ -2718,7 +2718,7 @@ ns:pm_223 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_223 rr:objectMap ns:om_223.
 ns:om_223 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Surface_charge}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Surface_charge}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_assaySurfaceArea_000.
 ns:map_assaySurfaceArea_000 rml:logicalSource ns:source_000;
@@ -2767,7 +2767,7 @@ ns:pm_226 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_226 rr:objectMap ns:om_226.
 ns:om_226 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Method_surface_area}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Method_surface_area}";
     rr:termType rr:Literal.
 ns:pom_227 a rr:PredicateObjectMap.
 ns:map_assaySurfaceArea_000 rr:predicateObjectMap ns:pom_227.
@@ -2854,7 +2854,7 @@ ns:pm_234 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_234 rr:objectMap ns:om_234.
 ns:om_234 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Surface_area}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Surface_area}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_assayPChem_000.
 ns:map_assayPChem_000 rml:logicalSource ns:source_000;
@@ -2903,7 +2903,7 @@ ns:pm_237 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_237 rr:objectMap ns:om_237.
 ns:om_237 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
     rr:termType rr:Literal.
 ns:pom_238 a rr:PredicateObjectMap.
 ns:map_assayPChem_000 rr:predicateObjectMap ns:pom_238.
@@ -2990,7 +2990,7 @@ ns:pm_245 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_245 rr:objectMap ns:om_245.
 ns:om_245 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_assayCellViability_000.
 ns:map_assayCellViability_000 rml:logicalSource ns:source_000;
@@ -3039,7 +3039,7 @@ ns:pm_248 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_248 rr:objectMap ns:om_248.
 ns:om_248 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
     rr:termType rr:Literal.
 ns:pom_249 a rr:PredicateObjectMap.
 ns:map_assayCellViability_000 rr:predicateObjectMap ns:pom_249.
@@ -3233,7 +3233,7 @@ ns:pm_265 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_265 rr:objectMap ns:om_265.
 ns:om_265 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
     rr:termType rr:Literal.
 <http://mapping.example.com/rules_000> void:exampleResource ns:map_measureGroupCoreSize_000.
 ns:map_measureGroupCoreSize_000 rml:logicalSource ns:source_000;
@@ -3282,7 +3282,7 @@ ns:pm_268 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_268 rr:objectMap ns:om_268.
 ns:om_268 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}";
     rr:termType rr:Literal.
 ns:pom_269 a rr:PredicateObjectMap.
 ns:map_measureGroupCoreSize_000 rr:predicateObjectMap ns:pom_269.
@@ -3398,7 +3398,7 @@ ns:pm_277 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_277 rr:objectMap ns:om_277.
 ns:om_277 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hydro_size}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hydro_size}";
     rr:termType rr:Literal.
 ns:pom_278 a rr:PredicateObjectMap.
 ns:map_measureGroupHydroSize_000 rr:predicateObjectMap ns:pom_278.
@@ -3514,7 +3514,7 @@ ns:pm_286 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_286 rr:objectMap ns:om_286.
 ns:om_286 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Surface_charge}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Surface_charge}";
     rr:termType rr:Literal.
 ns:pom_287 a rr:PredicateObjectMap.
 ns:map_measureGroupSurfaceCharge_000 rr:predicateObjectMap ns:pom_287.
@@ -3630,7 +3630,7 @@ ns:pm_295 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_295 rr:objectMap ns:om_295.
 ns:om_295 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Surface_area}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Surface_area}";
     rr:termType rr:Literal.
 ns:pom_296 a rr:PredicateObjectMap.
 ns:map_measureGroupSurfaceArea_000 rr:predicateObjectMap ns:pom_296.
@@ -3746,7 +3746,7 @@ ns:pm_304 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_304 rr:objectMap ns:om_304.
 ns:om_304 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Hsf}_{Ec}_{Ev}_{MeO}";
     rr:termType rr:Literal.
 ns:pom_305 a rr:PredicateObjectMap.
 ns:map_measureGroupPChem_000 rr:predicateObjectMap ns:pom_305.
@@ -7047,7 +7047,7 @@ ns:pm_573 a rr:PredicateMap;
     rr:constant grel:valueParameter.
 ns:pom_573 rr:objectMap ns:om_573.
 ns:om_573 a rr:ObjectMap;
-    rr:template "Metal Oxide Cytotoxicity RDF_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
+    rr:template "Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform_{Material_type}_{Core_size}_{Hydro_size}_{Surface_charge}_{Surface_area}_{Hsf}_{Ec}_{Ev}_{MeO}_{Assay}_{Cell_type}_{Cell_name}_{Cell_origin}_{Cell_species}";
     rr:termType rr:Literal.
 ns:pom_574 a rr:PredicateObjectMap.
 ns:map_measureGroupCellViability_000 rr:predicateObjectMap ns:pom_574.
