@@ -1,0 +1,401 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dct: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  dcat: "http://www.w3.org/ns/dcat#"
+  prov: "http://www.w3.org/ns/prov#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  pav: "http://purl.org/pav/"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
+  cito: "http://purl.org/net/cito"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  pato: "http://purl.org/obo/owl/PATO#"
+  bfo: "http://www.ifomis.org/bfo/1.1/snap#"
+  NCBITAXON: "http://purl.bioontology.org/ontology/NCBITAXON/"
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['/data/data.csv~csv']
+  
+external:
+  datasetName: Meta-Analysis of Nanoparticle Cytotoxicity via Data-Mining the Literature RDF
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  assaySubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_
+  assayFormatSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_format_
+  cellLineSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:cell_line_
+  organismSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:organism_
+  bioSystemSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:biological_system_
+  protocolSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:protocol_
+  measureGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:measureGroup_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
+mappings:
+
+  assayCoreSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)core_size_]
+          - [grel:valueParameter2, $(_datasetName)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial core size", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)core_size_]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]          
+  measureGroupCoreSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)core_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(diameter) core size", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)core_size_]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]       
+  assayZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)zeta_potential_]
+          - [grel:valueParameter2, $(_datasetName)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial zeta potential", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)zeta_potential_]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)] 
+      - predicate: bao:BAO_0002846 # has assay protocol
+        inversepredicate: bao:BAO_0002847 # is assay protocol of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]          
+  measureGroupZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)zeta_potential_]
+          - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(nanoparticle) zeta potential", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)zeta_potential_]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]
+              
+  assayViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)cell_viability_]
+          - [grel:valueParameter2, $(_datasetName)_$(test_assay)_$(cell_line)_$(human_or_animal)_$(animal_species)_$(cell_morphology)_$(cell_organ_or_tissue)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdf:type, bao:BAO_0003009~iri] # cell viability assay
+      - predicate: rdf:type
+        object:
+          - function: grel:mapToIri
+            type: iri
+            parameters:
+              - [grel:valueParameter, assay]
+              - [grel:valueParameter2, $(test_assay)]
+      - [rdfs:label, "$(test_assay) assay for cell viability", en~lang]
+      - predicate: bao:BAO_0000214 #has specification
+        inversepredicate: bao:BAO_0000594 # is specification of
+        object: bao:BAO_0000410~iri #endpoint assay
+      - predicate: bao:BAO_0000205 # has assay format
+        inversepredicate: bao:BAO_0000555 # is assay format of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_assayFormatSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(cell_line)_$(human_or_animal)_$(animal_species)_$(cell_morphology)_$(cell_organ_or_tissue)] 
+      - predicate: bao:BAO_0002846 # has assay protocol
+        inversepredicate: bao:BAO_0002847 # is assay protocol of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(reference_doi)] 
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)cell_viability_]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]          
+  measureGroupViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)cell_viability_]
+          - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(nanoparticle) cell viability", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)cell_viability_]
+              - [grel:valueParameter2, $(_datasetName)_$(row_num)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(nanoparticle)_$(type_organic_inorganic)_$(coat)_$(diameter)_$(zeta_potential)]  
+  assayFormatCellBased:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assayFormatSubjectUrl)]
+          - [grel:valueParameter2, $(_datasetName)_$(cell_line)_$(human_or_animal)_$(animal_species)_$(cell_morphology)_$(cell_organ_or_tissue)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000219~iri] # cell-based assay format
+      - [rdfs:label, "$(test_assay) assay format with cell line $(cell_line)", en~lang]
+      - predicate: bao:BAO_0002004 # has cell line
+        inversepredicate: bao:BAO_0002800 # is cell line of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_cellLineSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(cell_line)_$(human_or_animal)_$(animal_species)_$(cell_morphology)_$(cell_organ_or_tissue)]            
+  cellLine:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_cellLineSubjectUrl)]
+          - [grel:valueParameter2, $(_datasetName)_$(cell_line)_$(human_or_animal)_$(animal_species)_$(cell_morphology)_$(cell_organ_or_tissue)]
+    predicateobjects:
+      - [rdf:type, obo:CLO_0000001~iri] # cell-line
+      - [rdfs:label, "$(cell_line) cell line", en~lang]
+      - predicate: rdf:type
+        object:
+          - function: grel:mapToIri
+            type: iri
+            parameters:
+              - [grel:valueParameter, cellline]
+              - [grel:valueParameter2, $(cell_line)]  
+      - predicate: rdf:type
+        object:
+          - function: grel:mapToIri
+            type: iri
+            parameters:
+              - [grel:valueParameter, cell_line_immortal_or_primary]
+              - [grel:valueParameter2, $(cell_line_or_primary)]              
+      - predicate: bao:BAO_0090006 #derives from
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_organismSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value:
+                  function: grel:mapToIri(grel:valueParameter = species, grel:valueParameter2 = $(animal_species)) 
+      - predicate: bao:BAO_0090006 #derives from
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_bioSystemSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value:
+                  function: grel:mapToIri(grel:valueParameter = biosystem, grel:valueParameter2 = $(cell_organ_or_tissue))                   
+# the animal_species column was modifies in data.csv so it has value "Human" when column "human_or_animal" has value "H" (replace ,H,, with ,H,Human,) 
+# Also, missing animal species is fixed when column "human_or_animal" has value "A" (replace ,A,, with ,A,unknown,) 
+  organism:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_organismSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value:
+              function: grel:mapToIri(grel:valueParameter = species, grel:valueParameter2 = $(animal_species))
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000551~iri] # BAO organism
+      - [rdfs:label, "Species: $(animal_species)", en~lang]
+      - predicate: rdf:type
+        object:
+          - function: grel:mapToIri
+            type: iri
+            parameters:
+              - [grel:valueParameter, species]
+              - [grel:valueParameter2, $(animal_species)] 
+  bioSystem:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_bioSystemSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value:
+              function: grel:mapToIri(grel:valueParameter = biosystem, grel:valueParameter2 = $(cell_organ_or_tissue))
+    predicateobjects:
+      - [rdf:type, obo:NCIT_C12219~iri] # Anatomic Structure, System, or Substance
+      - [rdfs:label, "Biological System: $(cell_organ_or_tissue)", en~lang]
+      - predicate: rdf:type
+        object:
+          - function: grel:mapToIri
+            type: iri
+            parameters:
+              - [grel:valueParameter, biosystem]
+              - [grel:valueParameter2, $(cell_organ_or_tissue)] 
+  protocol:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_protocolSubjectUrl)]
+          - [grel:valueParameter2, $(_datasetName)_$(reference_doi)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000523~iri] # assay protocol
+      - [rdfs:label, "assay protocol from ($(reference_doi)) published on $(publication_year)", en~lang]
+      - [cito:citesAsAuthority, $(reference_doi), en~lang]
