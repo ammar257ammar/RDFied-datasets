@@ -1,0 +1,300 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dct: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  dcat: "http://www.w3.org/ns/dcat#"
+  prov: "http://www.w3.org/ns/prov#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  pav: "http://purl.org/pav/"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
+  cito: "http://purl.org/net/cito"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  pato: "http://purl.org/obo/owl/PATO#"
+  bfo: "http://www.ifomis.org/bfo/1.1/snap#"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['/data/data.csv~csv']
+  
+external:
+  datasetName: Predicting Cytotoxicity of Metal Oxide Nanoparticles Using Isalos Analytics Platform RDF
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
+
+mappings:
+  endpointCoreSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)core_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, enm:ENM_8000039~iri] # core size
+      - [rdfs:label, core size of $(Core_size) nm, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000018~iri] #has unit: nm
+      - [bao:BAO_0095007, $(Core_size), xsd:float] # has value
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)] 
+  endpointHydroSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)hydrodynamic_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_1914~iri]
+      - [rdfs:label, hydrodynamic size of $(Hydro_size) nm, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000018~iri]  #nm
+      - [bao:BAO_0095007, $(Hydro_size), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  endpointSurfCharge:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)surface_charge_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_1812~iri]
+      - [rdfs:label, surface charge of $(Surface_charge) mV , en~lang]
+      - [bao:BAO_0002874, obo:UO_0000247~iri] #mV
+      - [bao:BAO_0095007, $(Surface_charge), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  endpointSurfArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)surface_area_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, sio:CHEMINF_000515~iri]
+      - [rdfs:label, specific surface area of $(Surface_area) m2/g, en~lang]
+      - [bao:BAO_0002874, nsvoc:unit_meter_squared_per_gram~iri] 
+      - [bao:BAO_0095007, $(Surface_area), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  endpointHsf:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)hsf_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, cheminf:CHEMINF_000241~iri]
+      - [rdfs:label, Formation enthalpy (ΔHsf) of $(Hsf) eV, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000266~iri] #eV
+      - [bao:BAO_0095007, $(Hsf), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  endpointEc:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)ec_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, enm:ENM_8000100~iri]
+      - [rdfs:label, Conduction band energy (Ec) of $(Ec) eV, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000266~iri] #eV
+      - [bao:BAO_0095007, $(Ec), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  endpointEv:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)ev_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, enm:ENM_8000110~iri]
+      - [rdfs:label, Valence band energy (Ev) of $(Ev) eV, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000266~iri] #eV
+      - [bao:BAO_0095007, $(Ev), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  endpointMeO:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)meo_]
+          - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_421~iri]
+      - [rdfs:label, Electronegativity (MeO) of $(MeO) eV, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000266~iri] #eV
+      - [bao:BAO_0095007, $(MeO), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  endpointDose:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)screening_concentration_]
+          - [grel:valueParameter2, $(_datasetName)_$(Exposure_dose)_UO_0000274]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bao:BAO_0000098~iri] # BAO screening concentration endpoint
+      - [rdfs:label, screening concentration: $(Exposure_dose) ug/ml , en~lang]
+      - [bao:BAO_0000183, obo:UO_0000274~iri] # has concentration unit: microgram per milliliter
+      - [bao:BAO_0002666, $(Exposure_dose), xsd:float] # has concentration value
+  endpointViability:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)cell_viability_]
+          - [grel:valueParameter2, $(_datasetName)_$(rownum)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bao:BAO_0000202~iri] # BAO percent cell viability endpoint -> subClassOf -> response endpoint (BAO_0000181)
+      - [rdf:type, bao:BAO_0002114~iri] # BAO time endpoint
+      - [rdfs:label, cell viability: $(Viability)% at timepoint $(Exposure_time) hours and screening concentration $(Exposure_dose) ug/ml , en~lang]
+      - [bao:BAO_0000182, obo:UO_0000187~iri] # has response unit: percent
+      - [bao:BAO_0000108, $(Viability), xsd:string] # has response value
+      - [bao:BAO_0002668, obo:UO_0000032~iri] # has time unit: hour
+      - [bao:BAO_0002669, $(Exposure_time), xsd:string] # has time value
+      - predicate: bao:BAO_0000338 # has concentration
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)screening_concentration_]
+              - [grel:valueParameter2, $(_datasetName)_$(Exposure_dose)_UO_0000274]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(Material_type)_$(Core_size)_$(Hydro_size)_$(Surface_charge)_$(Surface_area)]
+  unitMeterSquaredPerGram:
+    sources:
+      - data-source
+    subjects: https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:unit_meter_squared_per_gram
+    predicateobjects:
+      - [rdf:type, obo:UO_0000000~iri]
+      - [rdf:type, bao:BAO_0000077~iri]
+      - [rdfs:label,  squared meter per gram (m2/g), en~lang]
+      - [rdfs:comment,  A unit used for Specific Surface Area (SSA) which is a property of solids defined as the total surface area of a material per unit of mass, (with units of m2/kg or m2/g), en~lang]
