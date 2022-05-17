@@ -1,0 +1,70 @@
+metal_core,coating,type_of_coating,aging,diameter,shape_group,geometric_surface_area,corresponding_sphere_diameter,atomic_radius,ionic_radius,xox,x,number_of_metal,number_of_oxygen,sum_of_x,sum_of_x_over_o,molecular_weight,group,period,absolute_electronegativity,energy_band_gap,zeta_potential,row_num
+Ag,4% (w/v) each of polyoxyethylene glycerol trioleate and polyoxyethylene (20) sorbitan monolaurate (Tween 20),neutral,Pristine,19,Spherical,1134.114948,19,144,115,0,1.93,1,0,1.93,1.93,107.8682,11,5,4.44,1.46,-1.21,1
+Ag2S,sulfate & PVP capped,neutral,Pristine,36,Agglomerated,4069.44,36,144,115,1,1.93,2,0,3.86,3.86,247.8,11,5,5.36,1.2,-50.5,2
+Ag,Tannic acid / sodium citrate,anionic,Pristine,47.3,spherical,7025.0906,47.3,144,115,0,1.93,1,0,1.93,1.93,107.8682,11,5,5.36,1.46,-57.9,3
+CeO2,HMTA,neutral,Pristine,30.8,Faceted,5691.84,42.56487921,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,5.7,4
+CeO2,PEG 1500,neutral,Pristine,4.5,Spherical,63.61725124,4.5,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,0.024,5
+CeO2,Ethylenediamine,neutral,Pristine,3,Spherical,28.27433388,3,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,-8.32,6
+CeO2,Ethylenediamine,neutral,Pristine,83,Nanorods,21642.43179,83,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,-3,7
+CeO2,uncoated,uncoated,Pristine,8.2,Spherical,211.24069,8.2,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,3.14,8
+CeO2,PVP 10k,neutral,Pristine,7.625,Spherical,182.6541604,7.625,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,0.43,9
+CeO2,PVP 40k,neutral,Pristine,8.992,Spherical,254.0168167,8.992,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,0.62,10
+CeO2,PVP 360k,neutral,Pristine,12.976,Spherical,528.9706142,12.976,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,-0.52,11
+CeO2,uncoated,neutral,Aged,1000,sea urchins,3140000,1000,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,0,12
+CeZrO2,uncoated,neutral,Aged,600,sea urchins,1130400,600,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000307576,0,13
+CeZrO2,uncoated,neutral,Pristine,4.6,Spherical,66.47610055,4.6,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000307576,45.9,14
+CeZrO2,uncoated,neutral,Aged,400,sea urchins,502400,200,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000307576,-50,15
+CeZrO2,uncoated,neutral,Aged,200,sea urchins,12560,100,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000289335,0,16
+CeZrO2,uncoated,neutral,Aged,200,Spherical,125600,200,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000308221,0,17
+CeZrO2,uncoated,neutral,Aged,100,Spherical,31400,100,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000274143,-50,18
+CeZrO2,uncoated,neutral,Pristine,5.2,Spherical,84.94866535,5.2,102,80,4,1.225,2,4,2.45,1.225,263.339,3,6,7.28805,0.8000274143,41.4,19
+CePO4,uncoated,neutral,Aged,1500,Agglomerated,28260000,1500,182,102,4,1.12,2,12,2.24,0.1866666667,565.146,3,6,5.65,3.2,55.7,20
+TiO2,PVP,neutral,Pristine,8.48,Various shapes,224.5413752,8.454214309,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,3,17.3,21
+TiO2,PVP,neutral,Aged,8.3,Agglomerated,216.4243179,8.3,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,3,-26.1,22
+TiO2,AA4040,neutral,Pristine,24.07550623,Faceted,1159.26,19.20947471,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,3,17.1,23
+TiO2,uncoated,uncoated,Pristine,30.00791562,Nanorods,2828.925645,30.00791562,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,3,23,24
+TiO2,uncoated,uncoated,Pristine,37.44435872,Nanorods,4404.764228,37.44435872,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,3,25.3,25
+TiO2,D540,neutral,Pristine,10.8,Various shapes,533.1376836,13.02701022,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,3,-43.1,26
+ZnO,uncoated,uncoated,Aged,1000,Agglomerated,3140000,1000,137,74,2,1.65,1,1,1.65,1.65,81.379,12,4,5.67,3.4,-5.8,27
+ZnO,PVP 10k,neutral,Pristine,5.778,Spherical,104.882963,5.778,137,74,2,1.65,1,1,1.65,1.65,81.379,12,4,5.67,3.4,0.04,28
+SiO2,aminoacid,neutral,Pristine,56.8,Spherical,10135.53188,56.8,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-32.5,29
+SiO2,aminoacid,neutral,Pristine,86.3,Spherical,23397.60819,86.3,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-35,30
+SiO2,aminoalkyl,cationic,Pristine,19.6,Spherical,1206.874234,19.6,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,25.9,31
+SiO2,aminoacid,anionic,Pristine,19.6,Spherical,1206.874234,19.6,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-31.7,32
+SiO2,aminoacid,anionic,Pristine,31.1,Spherical,3038.57983,31.1,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-15.1,33
+SiO2,aminoacid,anionic,Pristine,56.8,Spherical,10135.53188,56.8,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-12.9,34
+SiO2,aminoacid,positive,Pristine,20.1,Spherical,1269.234848,20.1,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-33.3,35
+SiO2,epoxysilane,neutral,Pristine,20.1,Spherical,1269.234848,20.1,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-16.3,36
+SiO2,aminoalkyl,neutral,Pristine,20.1,Spherical,1269.234848,20.1,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-23.9,37
+SiO2,aminoalkyl,neutral,Pristine,20.1,Spherical,1269.234848,20.1,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-13.4,38
+CuO,PVP 360k,neutral,Pristine,12.144,Spherical,463.3118304,12.144,132,73,2,1.9,1,1,1.9,1.9,79.545,11,4,5.87,2,-0.59,39
+Fe2O3,uncoated,uncoated,Pristine,6.77,Spherical,143.915306,6.77,126,70,3,1.83,2,3,3.66,1.22,159.69,8,4,5.98,2,64.3,40
+Ca10(PO4)6(OH)2,uncoated,uncoated,Pristine,200,Faceted,7853.981634,50,197,100,2,1,10,26,10,0.3846153846,1004.622,2,4,4.35,4.51,-8.9,41
+AlOOH,uncoated,uncoated,Pristine,300,HARNs,6029.679043,43.82099896,143,53,3,1.61,1,2,1.61,0.805,59.988,13,3,4.8135,3.35,34.9,42
+Au,sodium citrate,anionic,Pristine,14.5,Spherical,660.5198554,14.5,136,137,0,2.54,1,0,2.54,2.54,196.967,11,6,5.77,1.37,-26.6,43
+ZnO,triethoxycaprilysilane,neutral,Aged,140,Agglomerated,61544,140,137,74,2,1.65,1,1,1.65,1.65,81.379,12,4,5.67,3.4,-18.8,44
+ZnO,uncoated,uncoated,Pristine,360,HARNs,406944,360,137,74,2,1.65,1,1,1.65,1.65,81.379,12,4,5.67,3.4,-0.167,45
+Au,polyethylene glycol,neutral,Pristine,14.5,Spherical,660.5198554,14.5,136,137,0,2.54,1,0,2.54,2.54,196.967,11,6,5.77,1.37,-8.22,46
+Au,polyethylene glycol,anionic,Pristine,14.5,Spherical,660.5198554,14.5,136,137,0,2.54,1,0,2.54,2.54,196.967,11,6,5.77,1.37,-36.9,47
+CeO2,uncoated,uncoated,Pristine,13.95,Spherical,528.7639468,12.97346491,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,50.3,48
+SiO2,aminoacid,anionic,Pristine,86.3,Spherical,23397.60819,86.3,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-10.5,49
+ZnO,uncoated,uncoated,Pristine,87.7,Various shapes,35155.32008,105.7841478,137,74,2,1.65,1,1,1.65,1.65,81.379,12,4,5.67,3.4,-20.3,50
+Ag,4% (w/v) each of polyoxyethylene glycerol trioleate and polyoxyethylene (20) sorbitan monolaurate (Tween 20),neutral,Pristine,21.0966,Spherical,1398.217746,21.0966,144,115,0,1.93,1,0,1.93,1.93,107.8682,11,5,4.44,1.46,-5.52,51
+CeO2,HMTA,neutral,Pristine,15.8,Faceted,1497.84,21.83523025,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,-2.2,52
+CeO2,PEG 600,neutral,Pristine,6,Spherical,113.0973355,6,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,0.094,53
+CeZrO2,uncoated,neutral,Pristine,4.4,Spherical,60.82123377,4.4,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000307576,52.7,54
+CeZrO2,uncoated,neutral,Pristine,4.7,Spherical,69.39778172,4.7,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000308221,44.1,55
+CeZrO2,uncoated,neutral,Pristine,5.2,Spherical,84.94866535,5.2,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000274143,43.4,56
+TiO2,uncoated,neutral,Pristine,8.495,Spherical,180.2717452,7.575109153,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,4.2,20.5,57
+TiO2,F127,neutral,Pristine,15.21775279,Faceted,325.38,10.17701679,147,67,4,1.54,1,4,1.54,0.77,79.866,4,4,5.77,4.2,5.3,58
+ZnO,triethoxycaprilysilane,neutral,Pristine,34.8,Various Shapes,35155.32008,105.7841478,137,74,2,1.65,1,1,1.65,1.65,81.379,12,4,5.67,3.4,-19.3,59
+SiO2,aminoacid,neutral,Pristine,19.6,Spherical,1206.874234,19.6,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-21.8,60
+SiO2,aminoacid,neutral,Pristine,31.1,Spherical,3038.57983,31.1,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-29.2,61
+SiO2,aminoalkyl,neutral,Pristine,20.1,Spherical,1269.234848,20.1,111,40,4,1.9,1,2,1.9,0.95,60.084,14,3,6.19,9.1,-12.2,62
+Au,polyethylene glycol,neutral,Pristine,14.5,Spherical,660.5198554,14.5,136,137,0,2.54,1,0,2.54,2.54,196.967,11,6,5.77,1.37,-16.4,63
+Au,polyethylene glycol,neutral,Pristine,12.8,Spherical,514.7185404,12.8,136,137,0,2.54,1,0,2.54,2.54,196.967,11,6,5.77,1.37,-7.22,64
+BaTiO3,uncoated,uncoated,Pristine,30,Faceted,1256.637061,20,224,135,2,1.215,2,3,2.43,0.81,233.192,2,6,5.9925,3.53,-3.17,65
+CeO2,uncoated,uncoated,Pristine,17.1,Faceted,1754.46,23.63179982,182,102,4,1.12,1,2,1.12,0.56,172.115,3,6,5.65,3.2,56.4,66
+CeZrO2,uncoated,neutral,Pristine,4.4,Spherical,60.82123377,4.4,182,102,4,1.225,1,4,1.1221,0.56105,263.339,3,6,7.28805,0.8000289335,46.1,67
+Ag,Tannic acid / sodium citrate,anionic,Pristine,50,spherical,7850,50,144,115,2,1.93,1,1,1.93,1.93,123.87,11,5,5.36,1.19,-1.170030769,68
+ZnO,triethoxycaprilysilane,neutral,Pristine,34.8,Various Shapes,6891.62905,46.83667002,137,74,2,1.65,1,1,1.65,1.65,81.379,12,4,5.67,3.4,-19.3,69

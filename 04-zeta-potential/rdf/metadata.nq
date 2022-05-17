@@ -1,0 +1,59 @@
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/PersonalProfileDocument>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/OnlineAccount>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/2000/01/rdf-schema#label> "0000-0002-8399-8990"^^<http://www.w3.org/2001/XMLSchema#string>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://xmlns.com/foaf/0.1/accountName> "https://orcid.org/0000-0002-8399-8990"^^<http://www.w3.org/2001/XMLSchema#string>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://xmlns.com/foaf/0.1/accountServiceHomepage> <http://orcid.org>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://purl.org/pav/createdWith> <http://orcid.org>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://purl.org/pav/createdBy> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://xmlns.com/foaf/0.1/maker> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/ns/prov#wasAttributedTo> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Individual>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/2000/01/rdf-schema#label> "Ammar Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/name> "Ammar Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/2006/vcard/ns#fn> "Ammar Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/givenName> "Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/familyName> "Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/account> <https://orcid.org/0000-0002-8399-8990#account>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/publications> <https://orcid.org/0000-0002-8399-8990#pubList>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Dataset>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://purl.org/dc/terms/title> "Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://purl.org/dc/terms/description> "Supplementary data from Anastasios G. et al. Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model with Isalos Analytics Platform. NanoImpact (2021). https://doi.org/10.1016/j.impact.2021.100308"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://purl.org/dc/terms/issued> "2021"^^<http://www.w3.org/2001/XMLSchema#gYear>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://purl.org/dc/terms/identifier> "https://doi.org/10.1016/j.impact.2021.100308"^^<http://www.w3.org/2001/XMLSchema#anyURI>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://purl.org/dc/terms/isReferencedBy> <https://doi.org/10.1016/j.impact.2021.100308>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://purl.org/net/citocitesAsAuthority> <https://doi.org/10.1016/j.impact.2021.100308>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/>.
+<https://ror.org/02jz4aj89#organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization>.
+<https://ror.org/02jz4aj89#organization> <http://www.w3.org/2000/01/rdf-schema#label> "Maastricht University"@en.
+<https://ror.org/02jz4aj89#organization> <http://xmlns.com/foaf/0.1/name> "Maastricht University"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Distribution>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdfs.org/ns/void#Dataset>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/conformsTo> <https://www.w3.org/TR/vocab-dcat-2>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/conformsTo> <https://www.w3.org/TR/void/>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#contactPoint> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/publisher> "https://ror.org/02jz4aj89#organization"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/2000/01/rdf-schema#label> "Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model RDF"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/title> "Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model RDF"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/description> "RDF version of the supplementary data from Anastasios G. et al. Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model with Isalos Analytics Platform. NanoImpact (2021). https://doi.org/10.1016/j.impact.2021.100308"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/issued> "2021"^^<http://www.w3.org/2001/XMLSchema#gYear>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/identifier> "10.5281/zenodo.5743204"^^<http://www.w3.org/2001/XMLSchema#string>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/subject> <https://dbpedia.org/resource/Nanotechnology>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/subject> <https://www.wikidata.org/wiki/Q11468>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#landingPage> <https://nanocommons.github.io/datasets/overview/5744082.html>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://xmlns.com/foaf/0.1/homepage> <https://nanocommons.github.io/datasets/overview/5744082.html>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#accessURL> <http://81.169.200.64:8879/sparql>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://rdfs.org/ns/void#sparqlEndpoint> <http://81.169.200.64:8879/sparql>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#accessService> <https://zenodo.org/record/5744082>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#downloadURL> <https://zenodo.org/record/5744082/files/1-s2.0-S2452074821000173-mmc2.nq?download=1>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://rdfs.org/ns/void#dataDump> <https://zenodo.org/record/5744082/files/1-s2.0-S2452074821000173-mmc2.nq?download=1>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#byteSize> "2056823"^^<http://www.w3.org/2001/XMLSchema#decimal>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#mediaType> <https://www.iana.org/assignments/media-types/application/n-quads>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://rdfs.org/ns/void#feature> <http://www.w3.org/ns/formats/N-Quads>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://purl.org/dc/terms/source> <https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_ac781ee2237054e44ebe01c6f9da838e> <http://www.w3.org/ns/dcat#distribution> <https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_8e4aaffa59b02565005ee8ab80b0a638>.
+<https://www.w3.org/TR/vocab-dcat-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Standard>.
+<https://www.w3.org/TR/void/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Standard>.

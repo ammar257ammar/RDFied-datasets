@@ -1,0 +1,298 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dct: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  dcat: "http://www.w3.org/ns/dcat#"
+  prov: "http://www.w3.org/ns/prov#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  pav: "http://purl.org/pav/"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
+  cito: "http://purl.org/net/cito"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  pato: "http://purl.org/obo/owl/PATO#"
+  bfo: "http://www.ifomis.org/bfo/1.1/snap#"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['/data/data.csv~csv']
+  
+external:
+  datasetName: Computational enrichment of physicochemical data for the development of a zeta-potential read-across predictive model RDF
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
+
+mappings:
+  endpointCoreSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)core_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, enm:ENM_8000039~iri] # core size
+      - [rdfs:label, core size of $(diameter) nm, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000018~iri] #has unit: nm
+      - [bao:BAO_0095007, $(diameter), xsd:float] # has value
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)] 
+  endpointHydroSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)hydrodynamic_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_1914~iri]
+      - [rdfs:label, hydrodynamic size of $(corresponding_sphere_diameter) nm, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000018~iri]  #nm
+      - [bao:BAO_0095007, $(corresponding_sphere_diameter), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  endpointSurfArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)surface_area_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_1235~iri] # surface area
+      - [rdfs:label, geometric surface area of $(geometric_surface_area) nm^2, en~lang]
+      - [bao:BAO_0002874, nsvoc:unit_square_nanometer~iri] 
+      - [bao:BAO_0095007, $(geometric_surface_area), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  endpointShape:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)shape_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_274~iri] # shape
+      - [rdfs:label, $(shape_group) shape, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000186~iri] # dimensionless unit
+      - [bao:BAO_0095007, $(shape_group), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  endpointAtomicRadius:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)atomic_radius_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, sio:CHEMINF_000125~iri] # atomic radius
+      - [rdfs:label, Atomic radius of $(atomic_radius) angstrom, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000019~iri] #Angstrom
+      - [bao:BAO_0095007, $(atomic_radius), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  endpointIonicRadius:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)ionic_radius_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, sio:CHEMINF_000125~iri] # atomic radius
+      - [rdfs:label, Ionic radius of $(ionic_radius) angstrom, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000019~iri] #Angstrom
+      - [bao:BAO_0095007, $(ionic_radius), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  endpointMolecularWeight:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)molecular_weight_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_1171~iri] # molecular weight
+      - [rdfs:label, Molecular weight of $(molecular_weight) dalton, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000221~iri] #dalton unit (note: 1 dalton = 1 gr/mol)
+      - [bao:BAO_0095007, $(molecular_weight), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  descriptorEnergyBandGap:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)energy_band_gap_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, sio:CHEMINF_000487~iri] # Energy band gap descriptor
+      - [rdfs:label, Energy band gap of $(energy_band_gap) eV, en~lang]
+      - [sio:has-unit, obo:UO_0000266~iri] #eV
+      - [sio:has-value, $(energy_band_gap), xsd:float]
+      - predicate: obo:IAO_0000136 # is about
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  endpointMeO:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)meo_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, npo:NPO_421~iri]
+      - [rdfs:label, Electronegativity of $(absolute_electronegativity) eV, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000266~iri] #eV
+      - [bao:BAO_0095007, $(absolute_electronegativity), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  endpointZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_endpointSubjectUrl)zeta_potential_]
+          - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000179~iri] # BAO endpoint
+      - [rdf:type, bfo:Quality~iri] # quality from NPO
+      - [rdf:type, enm:ENM_0000092~iri] # zeta potential ENM
+      - [rdf:type, npo:NPO_1302~iri] # zeta potential NPO
+      - [rdfs:label, Zeta potential of $(zeta_potential) mV, en~lang]
+      - [bao:BAO_0002874, obo:UO_0000247~iri] #mV
+      - [bao:BAO_0095007, $(zeta_potential), xsd:float]
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(metal_core)_$(coating)_$(type_of_coating)_$(aging)_$(diameter)_$(shape_group)_$(geometric_surface_area)]
+  unitSquareNanometer:
+    sources:
+      - data-source
+    subjects: https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:unit_square_nanometer
+    predicateobjects:
+      - [rdf:type, obo:UO_0000000~iri]
+      - [rdf:type, obo:UO_0000047~iri]
+      - [rdfs:label,  square nanometer (nm^2), en~lang]
+      - [rdfs:comment,  A unit used for Surface Area (SA) of a nanomaterial, en~lang]
