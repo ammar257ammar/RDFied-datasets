@@ -1,0 +1,60 @@
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/PersonalProfileDocument>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/OnlineAccount>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/2000/01/rdf-schema#label> "0000-0002-8399-8990"^^<http://www.w3.org/2001/XMLSchema#string>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://xmlns.com/foaf/0.1/accountName> "https://orcid.org/0000-0002-8399-8990"^^<http://www.w3.org/2001/XMLSchema#string>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://xmlns.com/foaf/0.1/accountServiceHomepage> <http://orcid.org>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://purl.org/pav/createdWith> <http://orcid.org>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://purl.org/pav/createdBy> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://xmlns.com/foaf/0.1/maker> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://orcid.org/0000-0002-8399-8990#account> <http://www.w3.org/ns/prov#wasAttributedTo> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Individual>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/2000/01/rdf-schema#label> "Ammar Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/name> "Ammar Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://www.w3.org/2006/vcard/ns#fn> "Ammar Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/givenName> "Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/familyName> "Ammar"@en.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/account> <https://orcid.org/0000-0002-8399-8990#account>.
+<https://orcid.org/0000-0002-8399-8990#person> <http://xmlns.com/foaf/0.1/publications> <https://orcid.org/0000-0002-8399-8990#pubList>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Dataset>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://purl.org/dc/terms/title> "S2NANO"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://purl.org/dc/terms/description> "Supplementary data from Choi, JS., Ha, M.K., Trinh, T.X. et al. Towards a generalized toxicity prediction model for oxide nanomaterials using integrated data from different sources. Sci Rep 8, 6110 (2018). https://doi.org/10.1038/s41598-018-24483-z"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://purl.org/dc/terms/issued> "2018"^^<http://www.w3.org/2001/XMLSchema#gYear>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://purl.org/dc/terms/identifier> "https://doi.org/10.1038/s41598-018-24483-z"^^<http://www.w3.org/2001/XMLSchema#anyURI>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://purl.org/dc/terms/isReferencedBy> <https://doi.org/10.1038/s41598-018-24483-z>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://purl.org/net/citocitesAsAuthority> <https://doi.org/10.1038/s41598-018-24483-z>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/>.
+<https://ror.org/02jz4aj89#organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization>.
+<https://ror.org/02jz4aj89#organization> <http://www.w3.org/2000/01/rdf-schema#label> "Maastricht University"@en.
+<https://ror.org/02jz4aj89#organization> <http://xmlns.com/foaf/0.1/name> "Maastricht University"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdfs.org/ns/void#Dataset>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/conformsTo> <https://www.w3.org/TR/vocab-dcat-2>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/conformsTo> <https://www.w3.org/TR/void/>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#contactPoint> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-8399-8990#person>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/publisher> "https://ror.org/02jz4aj89#organization"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/2000/01/rdf-schema#label> "S2NANO RDF"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/title> "S2NANO RDF"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/description> "RDF version of the supplementary data from Choi, JS., Ha, M.K., Trinh, T.X. et al. Towards a generalized toxicity prediction model for oxide nanomaterials using integrated data from different sources. Sci Rep 8, 6110 (2018). https://doi.org/10.1038/s41598-018-24483-z"@en.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/issued> "2021"^^<http://www.w3.org/2001/XMLSchema#gYear>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/identifier> "10.5281/zenodo.5743204"^^<http://www.w3.org/2001/XMLSchema#string>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/subject> <https://dbpedia.org/resource/Nanotechnology>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/subject> <https://www.wikidata.org/wiki/Q11468>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#landingPage> <https://nanocommons.github.io/datasets/overview/5743204.html>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://xmlns.com/foaf/0.1/homepage> <https://nanocommons.github.io/datasets/overview/5743204.html>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#accessURL> <http://81.169.200.64:8879/sparql>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://rdfs.org/ns/void#sparqlEndpoint> <http://81.169.200.64:8879/sparql>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#accessService> <https://zenodo.org/record/5743204>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#downloadURL> <https://zenodo.org/record/5743204/files/10.1038--s41598-018-24483-z.nq?download=1>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://rdfs.org/ns/void#dataDump> <https://zenodo.org/record/5743204/files/10.1038--s41598-018-24483-z.nq?download=1>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#byteSize> "3854684"^^<http://www.w3.org/2001/XMLSchema#decimal>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#mediaType> <https://www.iana.org/assignments/media-types/application/n-quads>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://rdfs.org/ns/void#feature> <http://www.w3.org/ns/formats/N-Quads>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://purl.org/dc/terms/source> <https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f>.
+<https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_90b3a95c18c91ff8762ffe1519d4ab15> <http://www.w3.org/ns/dcat#distribution> <https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_97864cb98c8c6a2d01882f261736851f>.
+<https://www.w3.org/TR/vocab-dcat-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Standard>.
+<https://www.w3.org/TR/void/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/Standard>.
+<https://www.w3.org/TR/void/> <http://www.w3.org/2000/01/rdf-schema#label> "DCAT v3"@en.
