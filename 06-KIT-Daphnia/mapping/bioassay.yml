@@ -1,0 +1,959 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dct: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  dcat: "http://www.w3.org/ns/dcat#"
+  prov: "http://www.w3.org/ns/prov#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  pav: "http://purl.org/pav/"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
+  cito: "http://purl.org/net/cito"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  pato: "http://purl.org/obo/owl/PATO#"
+  bfo: "http://www.ifomis.org/bfo/1.1/snap#"
+  NCBITAXON: "http://purl.bioontology.org/ontology/NCBITAXON/"
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['/data/data.csv~csv']
+  
+external:
+  # https://ui.staging.kit.cloud.douglasconnect.com/dataexplorer?dataset=ab2bc1ee-99dc-4ddf-b1f9-9fdeb8a0f48c%3A1&q=%7B%7D
+  datasetName: KIT Daphnia data on nano particles
+  chemicalSubstanceSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:chemicalSubstance_
+  assaySubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_
+  assayFormatSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:assay_format_
+  cellLineSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:cell_line_
+  organismSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:organism_
+  bioSystemSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:biological_system_
+  protocolSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:protocol_
+  measureGroupSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:measureGroup_
+  endpointSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:endpoint_
+
+mappings:
+
+  assayDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)diameter_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial diameter", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)diameter_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupDiameter:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)diameter_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) diameter", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)diameter_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+  assayLength:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)length_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial length", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)length_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupLength:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)length_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) length", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)length_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]         
+  assayMolecularWeight:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)molecular_weight_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial molecular weight", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)molecular_weight_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupMolecularWeight:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)molecular_weight_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) molecular weight", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)molecular_weight_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]    
+  assayDensity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)density_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial density", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)density_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupDensity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)density_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) density", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)density_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]      
+  assayDispersity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)dispersity_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial dispersity", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)dispersity_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupDispersity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)density_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) dispersity", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)dispersity_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]                    
+  assayHydroSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)hydrodynamic_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)`]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial hydrodynamic size", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)hydrodynamic_size_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupHydroSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)hydrodynamic_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) hydrodynamic size", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)hydrodynamic_size_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]   
+  assaySurfaceArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)surface_area_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial surface area", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)surface_area_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupSurfaceArea:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)surface_area_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) surface area", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)surface_area_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+  assayAggregateSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)aggregate_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial aggregate size", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)aggregate_size_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupAggregateSize:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)aggregate_size_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) aggregate size", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)aggregate_size_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]    
+  assayZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)zeta_potential_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial zeta potential", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)zeta_potential_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupZetaPotential:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)zeta_potential_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) zeta potential", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)zeta_potential_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]     
+  assayShape:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)shape_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial shape", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)shape_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupShape:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)shape_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) shape", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)shape_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+  assayPurity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)purity_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for nanomaterial purity", en~lang]
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)purity_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupPurity:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)purity_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) purity", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)purity_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]   
+  assayEc50:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)ec50_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for EC50 of nanomaterials in Daphnia", en~lang]
+      - predicate: bao:BAO_0000214 #has specification
+        inversepredicate: bao:BAO_0000594 # is specification of
+        object: bao:BAO_0000410~iri #endpoint assay
+      - predicate: bao:BAO_0000205 # has assay format
+        inversepredicate: bao:BAO_0000555 # is assay format of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_assayFormatSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(reference)] 
+      - predicate: bao:BAO_0002846 # has assay protocol
+        inversepredicate: bao:BAO_0002847 # is assay protocol of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(reference)] 
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)ec50_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupEc50:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)ec50_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) LC50", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)ec50_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]   
+  assayLc50:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assaySubjectUrl)lc50_]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000015~iri] # bioassay
+      - [rdfs:label, "bioassay for LC50 of nanomaterials in Daphnia", en~lang]
+      - predicate: bao:BAO_0000214 #has specification
+        inversepredicate: bao:BAO_0000594 # is specification of
+        object: bao:BAO_0000410~iri #endpoint assay
+      - predicate: bao:BAO_0000205 # has assay format
+        inversepredicate: bao:BAO_0000555 # is assay format of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_assayFormatSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(reference)] 
+      - predicate: bao:BAO_0002846 # has assay protocol
+        inversepredicate: bao:BAO_0002847 # is assay protocol of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_protocolSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(reference)] 
+      - predicate: bao:BAO_0000209 # has measure group
+        inversepredicate: bao:BAO_0000426 # is measure group of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_measureGroupSubjectUrl)lc50_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)] 
+      - predicate: bao:BAO_0000185 # has perturbagen
+        inversepredicate: bao:BAO_0000361 # is perturbagen of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]          
+  measureGroupLc50:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_measureGroupSubjectUrl)lc50_]
+          - [grel:valueParameter2, $(_datasetName)_$(sample)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000040~iri] # measure group
+      - [rdfs:label, "measure group for $(np_type) LC50", en~lang]
+      - predicate: bao:BAO_0000208 # has endpoint
+        inversepredicate: bao:BAO_0000559 # is endpoint of
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_endpointSubjectUrl)lc50_]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]
+      - predicate: bao:BAO_0090012 # has participant
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_chemicalSubstanceSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)_$(sample)]                 
+  assayFormatOrganismBased:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_assayFormatSubjectUrl)]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000218~iri] # organism-based assay format
+      - [rdfs:label, "assay format with organism: daphnia", en~lang]
+      - predicate: bao:BAO_0002921 # has organism
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_organismSubjectUrl)]
+              - parameter: grel:valueParameter2
+                value:
+                  function: grel:mapToIri(grel:valueParameter = species, grel:valueParameter2 = daphnia)          
+  organism:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_organismSubjectUrl)]
+          - parameter: grel:valueParameter2
+            value:
+              function: grel:mapToIri(grel:valueParameter = species, grel:valueParameter2 = daphnia)
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000551~iri] # BAO organism
+      - [rdfs:label, "Daphnia", en~lang]
+      - predicate: rdf:type
+        object:
+          - function: grel:mapToIri
+            type: iri
+            parameters:
+              - [grel:valueParameter, species]
+              - [grel:valueParameter2, daphnia]           
+  protocol:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_protocolSubjectUrl)]
+          - [grel:valueParameter2, $(_datasetName)_$(reference)]
+    predicateobjects:
+      - [rdf:type, bao:BAO_0000523~iri] # assay protocol
+      - [rdfs:label, "assay protocol", en~lang]
+      - [cito:citesAsAuthority, https://doi.org/10.1039/C7EN01127J~iri]

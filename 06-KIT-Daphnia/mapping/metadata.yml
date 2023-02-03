@@ -1,0 +1,181 @@
+prefixes:
+  rr: "http://www.w3.org/ns/r2rml#"
+  dc: "http://purl.org/dc/elements/1.1/"
+  dct: "http://purl.org/dc/terms/"
+  void: "http://rdfs.org/ns/void#"
+  dcat: "http://www.w3.org/ns/dcat#"
+  prov: "http://www.w3.org/ns/prov#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  pav: "http://purl.org/pav/"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
+  cito: "http://purl.org/net/cito"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  rml: "http://semweb.mmlab.be/ns/rml#"
+  ql: "http://semweb.mmlab.be/ns/ql#"
+  d2rq: "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"
+  idlab-fn: "http://example.com/idlab/function/"
+  fnml:   "http://semweb.mmlab.be/ns/fnml#"
+  fno: 	"http://w3id.org/function/ontology#"
+  grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+  nsvoc: "https://ammar257ammar.github.com/RDFied-datasets/nanosafery_vocabulary:"
+  ns: "https://ammar257ammar.github.com/RDFied-datasets/ns:"
+  obo: "http://purl.obolibrary.org/obo/"
+  npo: "http://purl.bioontology.org/ontology/npo#"
+  enm: "http://purl.enanomapper.org/onto/"
+  amb:   "http://purl.enanomapper.net/"
+  sio: "http://semanticscience.org/resource/"
+  cheminf: "http://semanticscience.org/resource/"
+  bao: "http://www.bioassayontology.org/bao#"
+  efo: "http://www.ebi.ac.uk/efo/"
+  NCBITAXON: http://purl.bioontology.org/ontology/NCBITAXON/
+  
+base: https://ammar257ammar.github.com/RDFied-datasets/ns:
+
+authors:
+  - name: Ammar Ammar
+    website: http://orcid.org/0000-0002-8399-8990
+ 
+sources:
+  data-source: ['/data/data.csv~csv']
+  
+external:
+  licenseUrl: https://creativecommons.org/licenses/by/4.0/
+  standardUrlDcat: https://www.w3.org/TR/vocab-dcat-2
+  standardUrlVoid: https://www.w3.org/TR/void/
+  orcidUrl: https://orcid.org/0000-0002-8399-8990
+  orcid: 0000-0002-8399-8990
+  publisherUrl: https://ror.org/02jz4aj89
+  publisherName: Maastricht University
+  creatorName: Ammar Ammar
+  creatorFname: Ammar
+  creatorLname: Ammar
+  datasetName: KIT Daphnia data on nano particles
+  datasetDescription: Supplementary data from Shin, Hyun Kil and Seo et al. Meta-analysis of Daphnia magna nanotoxicity experiments in accordance with test guidelines. Environ. Sci.: Nano (2018). http://dx.doi.org/10.1039/C7EN01127J
+  datasetSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_
+  rdfDatasetName: KIT Daphnia data on nano particles
+  rdfDatasetDescription: RDF version of the supplementary data from Shin, Hyun Kil and Seo et al. Meta-analysis of Daphnia magna nanotoxicity experiments in accordance with test guidelines. Environ. Sci.: Nano (2018). http://dx.doi.org/10.1039/C7EN01127J
+  rdfDatasetSubjectUrl: https://ammar257ammar.github.com/RDFied-datasets/ns:dataset_rdf_
+
+mappings:
+
+  standardDcat:
+    sources:
+      - data-source
+    subjects: $(_standardUrlDcat)
+    predicateobjects:
+      - [rdf:type, dct:Standard~iri]
+      - [rdfs:label, DCAT v3, en~lang]
+  standardVoid:
+    sources:
+      - data-source
+    subjects: $(_standardUrlVoid)
+    predicateobjects:
+      - [rdf:type, dct:Standard~iri]
+      - [rdfs:label, VoID, en~lang]
+  creatorProfile: #foaf:Person --subclass-> foaf:Agent
+    sources:
+      - data-source
+    subjects: $(_orcidUrl)#account #https://www.w3.org/2015/03/orcid-semantics
+    predicateobjects:
+      - [rdf:type, foaf:PersonalProfileDocument~iri]
+      - [rdf:type, foaf:OnlineAccount~iri]
+      - [rdfs:label, $(_orcid), xsd:string]
+      - [foaf:accountName, $(_orcidUrl), xsd:string]
+      - [foaf:accountServiceHomepage, http://orcid.org~iri]
+      - [pav:createdWith, http://orcid.org~iri]
+      - [pav:createdBy, $(_orcidUrl)#person~iri]
+      - [foaf:maker, $(_orcidUrl)#person~iri]
+      - [prov:wasAttributedTo, $(_orcidUrl)#person~iri]
+  creator:
+    sources:
+      - data-source
+    subjects: $(_orcidUrl)#person
+    predicateobjects:
+      - [rdf:type, foaf:Person~iri]
+      - [rdf:type, prov:Person~iri]
+      - [rdf:type, vcard:Individual~iri]
+      - [rdfs:label, $(_creatorName), en~lang]
+      - [foaf:name, $(_creatorName), en~lang]
+      - [vcard:fn, $(_creatorName), en~lang]
+      - [foaf:givenName, $(_creatorFname), en~lang]
+      - [foaf:familyName, $(_creatorLname), en~lang]
+      - [foaf:account, $(_orcidUrl)#account~iri]
+      - [foaf:publications, $(_orcidUrl)#pubList~iri]
+  publisher:
+    sources:
+      - data-source
+    subjects: $(_publisherUrl)#organization
+    predicateobjects:
+      - [rdf:type, foaf:Organization~iri]
+      - [rdfs:label, $(_publisherName), en~lang]
+      - [foaf:name, $(_publisherName), en~lang]
+  dataset:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_datasetSubjectUrl)]
+          - [grel:valueParameter2, $(_datasetName)]
+    predicateobjects:
+      - [rdf:type, dcat:Dataset~iri]
+      - [dct:title, $(_datasetName), en~lang]
+      - [dct:description, $(_datasetDescription), en~lang]
+      - [dct:issued, 2018, xsd:gYear]
+      - [dct:identifier, https://doi.org/10.1038/s41598-018-24483-z, xsd:anyURI]
+      - [dct:isReferencedBy, https://doi.org/10.1038/s41598-018-24483-z~iri] 
+      - [cito:citesAsAuthority, https://doi.org/10.1038/s41598-018-24483-z~iri]
+      - [dct:license, $(_licenseUrl)~iri]
+  rdfDataset:
+    sources:
+      - data-source
+    subjects:
+      - function: grel:hashAndJoin
+        type: iri
+        parameters:
+          - [grel:valueParameter, $(_rdfDatasetSubjectUrl)]
+          - [grel:valueParameter2, $(_rdfDatasetName)]
+    predicateobjects:
+      - [rdf:type, dcat:Distribution~iri]
+      - [rdf:type, void:Dataset~iri]
+      - [dct:conformsTo, $(_standardUrlDcat)~iri]
+      - [dct:conformsTo, $(_standardUrlVoid)~iri]
+      - [dcat:contactPoint, $(_orcidUrl)#person~iri]
+      - [dct:creator, $(_orcidUrl)#person~iri]      
+      - [dct:publisher, $(_publisherUrl)#organization , en~lang]
+      - [rdfs:label, $(_rdfDatasetName), en~lang]
+      - [dct:title, $(_rdfDatasetName), en~lang]
+      - [dct:description, $(_rdfDatasetDescription), en~lang]
+      - [dct:issued, 2021, xsd:gYear]
+      - [dct:identifier, 10.5281/zenodo.5743204, xsd:string]
+      - [dct:subject, https://dbpedia.org/resource/Nanotechnology~iri]
+      - [dct:subject, https://www.wikidata.org/wiki/Q11468~iri]
+      - [dcat:landingPage, https://nanocommons.github.io/datasets/overview/5743204.html~iri] #dcat
+      - [foaf:homepage, https://nanocommons.github.io/datasets/overview/5743204.html~iri] #https://www.w3.org/TR/void/
+      - [dct:license, $(_licenseUrl)~iri]
+      - [dcat:accessURL, http://81.169.200.64:8879/sparql~iri] #dcat
+      - [void:sparqlEndpoint, http://81.169.200.64:8879/sparql~iri] #void 
+      - [dcat:accessService, https://zenodo.org/record/5743204~iri] #dcat
+      - [dcat:downloadURL, https://zenodo.org/record/5743204/files/10.1038--s41598-018-24483-z.nq?download=1~iri] #dcat
+      - [void:dataDump, https://zenodo.org/record/5743204/files/10.1038--s41598-018-24483-z.nq?download=1~iri] #void
+      - [dcat:byteSize, 3854684 , xsd:decimal]
+      - [dcat:mediaType, https://www.iana.org/assignments/media-types/application/n-quads~iri] #https://www.iana.org/assignments/media-types/media-types.xhtml (dcat)
+      - [void:feature, http://www.w3.org/ns/formats/N-Quads~iri] #https://www.w3.org/ns/formats/ (void)
+      - predicate: dct:source #void
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_datasetSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)]
+      - predicate: dcat:distribution #dcat
+        object:
+          - function: grel:hashAndJoin
+            type: iri
+            parameters:
+              - [grel:valueParameter, $(_datasetSubjectUrl)]
+              - [grel:valueParameter2, $(_datasetName)]
